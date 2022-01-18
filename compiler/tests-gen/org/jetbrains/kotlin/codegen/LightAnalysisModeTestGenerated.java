@@ -20505,6 +20505,11 @@ public class LightAnalysisModeTestGenerated extends AbstractLightAnalysisModeTes
                 runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractMethod.kt");
             }
 
+            @TestMetadata("abstractMethodDefault.kt")
+            public void ignoreAbstractMethodDefault() throws Exception {
+                runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractMethodDefault.kt");
+            }
+
             @TestMetadata("abstractMethodNoOverrideDeepNonInline.kt")
             public void ignoreAbstractMethodNoOverrideDeepNonInline() throws Exception {
                 runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractMethodNoOverrideDeepNonInline.kt");
@@ -20525,9 +20530,9 @@ public class LightAnalysisModeTestGenerated extends AbstractLightAnalysisModeTes
                 runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractMethodNoOverrideDeepNonInline4.kt");
             }
 
-            @TestMetadata("abstractMethodNoOverrideInNonInline.kt")
-            public void ignoreAbstractMethodNoOverrideInNonInline() throws Exception {
-                runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractMethodNoOverrideInNonInline.kt");
+            @TestMetadata("abstractMethodParam.kt")
+            public void ignoreAbstractMethodParam() throws Exception {
+                runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractMethodParam.kt");
             }
 
             @TestMetadata("abstractVal.kt")
@@ -20553,11 +20558,6 @@ public class LightAnalysisModeTestGenerated extends AbstractLightAnalysisModeTes
             @TestMetadata("abstractValNoOverrideDeepNonInline4.kt")
             public void ignoreAbstractValNoOverrideDeepNonInline4() throws Exception {
                 runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractValNoOverrideDeepNonInline4.kt");
-            }
-
-            @TestMetadata("abstractValNoOverrideInNonInline.kt")
-            public void ignoreAbstractValNoOverrideInNonInline() throws Exception {
-                runTest("compiler/testData/codegen/box/inlineClasses/sealed/abstractValNoOverrideInNonInline.kt");
             }
 
             @TestMetadata("equals.kt")
