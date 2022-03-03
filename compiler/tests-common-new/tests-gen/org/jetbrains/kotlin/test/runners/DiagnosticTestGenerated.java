@@ -33221,6 +33221,12 @@ public class DiagnosticTestGenerated extends AbstractDiagnosticTest {
             }
 
             @Test
+            @TestMetadata("sealedValueClass.kt")
+            public void testSealedValueClass() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/valueClasses/sealedValueClass.kt");
+            }
+
+            @Test
             @TestMetadata("unsignedLiteralsWithoutArtifactOnClasspath.kt")
             public void testUnsignedLiteralsWithoutArtifactOnClasspath() throws Exception {
                 runTest("compiler/testData/diagnostics/tests/valueClasses/unsignedLiteralsWithoutArtifactOnClasspath.kt");
