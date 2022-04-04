@@ -7,6 +7,8 @@ package org.jetbrains.kotlin.gradle.plugin.mpp.pm20
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.component.BuildIdentifier
+import org.gradle.api.artifacts.result.ResolvedComponentResult
+import org.gradle.api.artifacts.result.ResolvedDependencyResult
 import org.gradle.api.internal.project.ProjectInternal
 import org.gradle.internal.build.BuildState
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -29,3 +31,11 @@ fun KotlinModule.representsProject(project: Project): Boolean =
 // FIXME internal API?
 fun Project.currentBuildId(): BuildIdentifier =
     (project as ProjectInternal).services.get(BuildState::class.java).buildIdentifier
+
+val ResolvedDependencyResult.resolvedDependencies: Iterable<ResolvedDependencyResult>
+    get() = selected.getDependenciesForVariant(this.resolvedVariant).filterIsInstance<ResolvedDependencyResult>()
+
+// TODO NOW: Sergey told that no usages of ResolvedComponentResult should be left. There's only one usage, in DependencyGraphResolver,
+// for graphRoot. Is it OK? Can we construct a counter-example?
+val ResolvedComponentResult.resolvedDependencies: Iterable<ResolvedDependencyResult>
+    get() = dependencies.filterIsInstance<ResolvedDependencyResult>()
