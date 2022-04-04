@@ -21,7 +21,10 @@ abstract class KotlinNativeVariantInternal(
     val konanTarget: KonanTarget
 ) : KotlinNativeVariant,
     KotlinGradleVariantInternal(containingModule, fragmentName),
-    SingleMavenPublishedModuleHolder by DefaultSingleMavenPublishedModuleHolder(containingModule, fragmentName) {
+    SingleMavenPublishedModuleHolder by DefaultSingleMavenPublishedModuleHolder(
+        containingModule,
+        { defaultModuleSuffix(containingModule, fragmentName) }
+    ) {
 
     final override val hostSpecificMetadataElementsConfigurationName: String?
         get() = disambiguateName("hostSpecificMetadataElements").takeIf { includesHostSpecificMetadata }
