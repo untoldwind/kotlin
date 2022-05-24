@@ -540,7 +540,7 @@ allprojects {
 
             val moduleName = this@allprojects.path
             if (useJvmFir && moduleName !in projectsWithDisabledFirBootstrap) {
-                freeCompilerArgs += "-Xuse-fir"
+                freeCompilerArgs += "-Xuse-k2"
                 freeCompilerArgs += "-Xabi-stability=stable"
                 if (useFirLT) {
                     freeCompilerArgs += "-Xuse-fir-lt"
