@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package org.jetbrains.kotlin.kpm.idea.proto;
+option java_multiple_files = true;
+
+message ProtoIdeaKpmModuleCoordinates {
+  string build_id = 1;
+  string project_path = 2;
+  string project_name = 3;
+  string module_name = 4;
+  optional string module_classifier = 5;
+}
+
+message ProtoIdeaKpmLanguageSettings {
+  optional string language_version = 1;
+  optional string api_version = 2;
+  bool is_progressive_mode = 3;
+  repeated string enabled_language_features = 4;
+  repeated string opt_in_annotations_in_use = 5;
+  repeated string compiler_plugin_arguments = 6;
+  repeated string compiler_plugin_classpath = 7;
+  repeated string free_compiler_args = 8;
+}
+
+message ProtoIdeaKpmSourceDirectory {
+  string absolutePath = 1;
+}
+
+message ProtoIdeaKpmBinaryCoordinates {
+  string group = 1;
+  string module = 2;
+  string version = 3;
+  optional string kotlin_module_name = 4;
+  optional string kotlin_fragment_name = 5;
+}

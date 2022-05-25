@@ -1,0 +1,40 @@
+/*
+ * Copyright 2010-2022 JetBrains s.r.o. and Kotlin Programming Language contributors.
+ * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
+ */
+
+@file:OptIn(InternalKotlinGradlePluginApi::class)
+
+package org.jetbrains.kotlin.kpm.idea.proto
+
+import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinates
+import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinatesImpl
+import org.jetbrains.kotlin.gradle.kpm.idea.InternalKotlinGradlePluginApi
+
+fun ProtoIdeaKpmBinaryCoordinates(coordinates: IdeaKpmBinaryCoordinates): ProtoIdeaKpmBinaryCoordinates {
+    return protoIdeaKpmBinaryCoordinates {
+        group = coordinates.group
+        module = coordinates.module
+        version = coordinates.version
+        coordinates.kotlinModuleName?.let { kotlinModuleName = it }
+        coordinates.kotlinFragmentName?.let { kotlinFragmentName = it }
+    }
+}
+
+fun IdeaKpmBinaryCoordinates(proto: ProtoIdeaKpmBinaryCoordinates): IdeaKpmBinaryCoordinates {
+    return IdeaKpmBinaryCoordinatesImpl(
+        group = proto.group,
+        module = proto.module,
+        version = proto.version,
+        kotlinModuleName = if (proto.hasKotlinModuleName()) proto.kotlinModuleName else null,
+        kotlinFragmentName = if (proto.hasKotlinFragmentName()) proto.kotlinFragmentName else null
+    )
+}
+
+fun IdeaKpmBinaryCoordinates(data: ByteArray): IdeaKpmBinaryCoordinates {
+    return IdeaKpmBinaryCoordinates(ProtoIdeaKpmBinaryCoordinates.parseFrom(data))
+}
+
+fun IdeaKpmBinaryCoordinates.toByteArray(): ByteArray {
+    return ProtoIdeaKpmBinaryCoordinates(this).toByteArray()
+}
