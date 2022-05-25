@@ -88,11 +88,11 @@ abstract class KotlinIrLinker(
                 moduleWithUnboundSymbolsDeserializer ?: notFound()
             }
 
-        return actualModuleDeserializer.deserializeIrSymbol(idSignature, symbolKind)
+        return actualModuleDeserializer.tryDeserializeIrSymbol(idSignature, symbolKind)
             ?: run {
                 // It might happen that the top-level symbol still exists in KLIB, but nested symbol has been removed.
                 // Need to handle such case as well.
-                moduleWithUnboundSymbolsDeserializer?.deserializeIrSymbol(idSignature, symbolKind) ?: notFound()
+                moduleWithUnboundSymbolsDeserializer?.tryDeserializeIrSymbol(idSignature, symbolKind) ?: notFound()
             }
     }
 
@@ -363,7 +363,7 @@ abstract class KotlinIrLinker(
                 ?: error("No module for name '$moduleName' found")
         assert(signature == signature.topLevelSignature()) { "Signature '$signature' has to be top level" }
         if (signature !in moduleDeserializer) error("No signature $signature in module $moduleName")
-        return moduleDeserializer.deserializeIrSymbol(signature, topLevelKindToSymbolKind(kind)).also {
+        return moduleDeserializer.deserializeIrSymbolOrFail(signature, topLevelKindToSymbolKind(kind)).also {
             deserializeAllReachableTopLevels()
         }
     }
