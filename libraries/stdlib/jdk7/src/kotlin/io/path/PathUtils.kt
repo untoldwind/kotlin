@@ -996,3 +996,36 @@ public inline fun Path(base: String, vararg subpaths: String): Path =
 @kotlin.internal.InlineOnly
 public inline fun URI.toPath(): Path =
     Paths.get(this)
+
+
+/**
+ * Returns a sequence for visiting this directory and all its content.
+ *
+ * By default, only files are visited, in depth-first order, and symbolic links are not followed.
+ * The combination of [options] overrides the default behavior. See [PathWalkOption].
+ *
+ * The order in which sibling files are visited is unspecified.
+ *
+ * If after calling this function new files get added or deleted from the file tree rooted at this directory,
+ * the changes may or may not appear in the returned sequence.
+ *
+ * If the file located by this path does not exist, an empty sequence is returned.
+ * if the file located by this path is not a directory, a sequence containing only this path is returned.
+ */
+public fun Path.walk(vararg options: PathWalkOption): Sequence<Path> = PathTreeWalk(this, options)
+
+/**
+ * Visits this directory and all its content with the specified [visitor].
+ *
+ * The traversal is in depth-first order and starts at this directory. The specified [visitor] is invoked on each file encountered.
+ *
+ * @param visitor the [FileVisitor] that receives callbacks.
+ * @param maxDepth the maximum depth to traverse. By default, there is no limit.
+ * @param followLinks specifies whether to follow symbolic links, `false` by default.
+ *
+ * @see [Files.walkFileTree]
+ */
+public fun Path.visitFileTree(visitor: FileVisitor<Path>, maxDepth: Int = Int.MAX_VALUE, followLinks: Boolean = false): Unit {
+    val options = if (followLinks) setOf(FileVisitOption.FOLLOW_LINKS) else setOf()
+    Files.walkFileTree(this, options, maxDepth, visitor)
+}
