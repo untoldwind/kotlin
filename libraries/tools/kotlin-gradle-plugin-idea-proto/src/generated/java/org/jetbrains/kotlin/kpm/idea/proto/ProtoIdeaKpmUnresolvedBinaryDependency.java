@@ -4,26 +4,26 @@
 package org.jetbrains.kotlin.kpm.idea.proto;
 
 /**
- * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency}
+ * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency}
  */
-public final class ProtoIdeaKpmFragmentDependency extends
+public final class ProtoIdeaKpmUnresolvedBinaryDependency extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency)
-    ProtoIdeaKpmFragmentDependencyOrBuilder {
+    // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency)
+    ProtoIdeaKpmUnresolvedBinaryDependencyOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ProtoIdeaKpmFragmentDependency.newBuilder() to construct.
-  private ProtoIdeaKpmFragmentDependency(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ProtoIdeaKpmUnresolvedBinaryDependency.newBuilder() to construct.
+  private ProtoIdeaKpmUnresolvedBinaryDependency(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ProtoIdeaKpmFragmentDependency() {
-    type_ = 0;
+  private ProtoIdeaKpmUnresolvedBinaryDependency() {
+    cause_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ProtoIdeaKpmFragmentDependency();
+    return new ProtoIdeaKpmUnresolvedBinaryDependency();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProtoIdeaKpmFragmentDependency(
+  private ProtoIdeaKpmUnresolvedBinaryDependency(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -39,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -62,23 +63,23 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 26: {
-            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder subBuilder = null;
-            if (coordinates_ != null) {
+          case 18: {
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000001) != 0)) {
               subBuilder = coordinates_.toBuilder();
             }
-            coordinates_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.parser(), extensionRegistry);
+            coordinates_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(coordinates_);
               coordinates_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000001;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+            bitField0_ |= 0x00000002;
+            cause_ = s;
             break;
           }
           default: {
@@ -102,134 +103,18 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor;
+    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable
+    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Builder.class);
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.Builder.class);
   }
 
-  /**
-   * Protobuf enum {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type}
-   */
-  public enum Type
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>REGULAR = 0;</code>
-     */
-    REGULAR(0),
-    /**
-     * <code>FRIEND = 1;</code>
-     */
-    FRIEND(1),
-    /**
-     * <code>REFINES = 2;</code>
-     */
-    REFINES(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>REGULAR = 0;</code>
-     */
-    public static final int REGULAR_VALUE = 0;
-    /**
-     * <code>FRIEND = 1;</code>
-     */
-    public static final int FRIEND_VALUE = 1;
-    /**
-     * <code>REFINES = 2;</code>
-     */
-    public static final int REFINES_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Type valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static Type forNumber(int value) {
-      switch (value) {
-        case 0: return REGULAR;
-        case 1: return FRIEND;
-        case 2: return REFINES;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Type>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Type> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-            public Type findValueByNumber(int number) {
-              return Type.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final Type[] VALUES = values();
-
-    public static Type valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Type(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type)
-  }
-
+  private int bitField0_;
   public static final int EXTRAS_FIELD_NUMBER = 1;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
   /**
@@ -256,49 +141,76 @@ private static final long serialVersionUID = 0L;
     return getExtras();
   }
 
-  public static final int TYPE_FIELD_NUMBER = 2;
-  private int type_;
+  public static final int COORDINATES_FIELD_NUMBER = 2;
+  private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-   * @return The enum numeric value on the wire for type.
-   */
-  @java.lang.Override public int getTypeValue() {
-    return type_;
-  }
-  /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-   * @return The type.
-   */
-  @java.lang.Override public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type getType() {
-    @SuppressWarnings("deprecation")
-    org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type result = org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.valueOf(type_);
-    return result == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.UNRECOGNIZED : result;
-  }
-
-  public static final int COORDINATES_FIELD_NUMBER = 3;
-  private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates_;
-  /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
    * @return Whether the coordinates field is set.
    */
   @java.lang.Override
   public boolean hasCoordinates() {
-    return coordinates_ != null;
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
    * @return The coordinates.
    */
   @java.lang.Override
-  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates getCoordinates() {
-    return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.getDefaultInstance() : coordinates_;
+  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates getCoordinates() {
+    return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance() : coordinates_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
    */
   @java.lang.Override
-  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder getCoordinatesOrBuilder() {
-    return getCoordinates();
+  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinatesOrBuilder getCoordinatesOrBuilder() {
+    return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance() : coordinates_;
+  }
+
+  public static final int CAUSE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object cause_;
+  /**
+   * <code>optional string cause = 3;</code>
+   * @return Whether the cause field is set.
+   */
+  @java.lang.Override
+  public boolean hasCause() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string cause = 3;</code>
+   * @return The cause.
+   */
+  @java.lang.Override
+  public java.lang.String getCause() {
+    java.lang.Object ref = cause_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      cause_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string cause = 3;</code>
+   * @return The bytes for cause.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCauseBytes() {
+    java.lang.Object ref = cause_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      cause_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -318,11 +230,11 @@ private static final long serialVersionUID = 0L;
     if (extras_ != null) {
       output.writeMessage(1, getExtras());
     }
-    if (type_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.REGULAR.getNumber()) {
-      output.writeEnum(2, type_);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(2, getCoordinates());
     }
-    if (coordinates_ != null) {
-      output.writeMessage(3, getCoordinates());
+    if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, cause_);
     }
     unknownFields.writeTo(output);
   }
@@ -337,13 +249,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (type_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.REGULAR.getNumber()) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, type_);
+        .computeMessageSize(2, getCoordinates());
     }
-    if (coordinates_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getCoordinates());
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, cause_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -355,21 +266,25 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency)) {
+    if (!(obj instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency)) {
       return super.equals(obj);
     }
-    org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency other = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency) obj;
+    org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency other = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency) obj;
 
     if (hasExtras() != other.hasExtras()) return false;
     if (hasExtras()) {
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (type_ != other.type_) return false;
     if (hasCoordinates() != other.hasCoordinates()) return false;
     if (hasCoordinates()) {
       if (!getCoordinates()
           .equals(other.getCoordinates())) return false;
+    }
+    if (hasCause() != other.hasCause()) return false;
+    if (hasCause()) {
+      if (!getCause()
+          .equals(other.getCause())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -386,80 +301,82 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + type_;
     if (hasCoordinates()) {
       hash = (37 * hash) + COORDINATES_FIELD_NUMBER;
       hash = (53 * hash) + getCoordinates().hashCode();
+    }
+    if (hasCause()) {
+      hash = (37 * hash) + CAUSE_FIELD_NUMBER;
+      hash = (53 * hash) + getCause().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(byte[] data)
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(java.io.InputStream input)
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseDelimitedFrom(java.io.InputStream input)
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseDelimitedFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -472,7 +389,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency prototype) {
+  public static Builder newBuilder(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -488,26 +405,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency}
+   * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency)
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependencyOrBuilder {
+      // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency)
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependencyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor;
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Builder.class);
+              org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.Builder.class);
     }
 
-    // Construct using org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.newBuilder()
+    // Construct using org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -520,6 +437,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getCoordinatesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -531,31 +449,31 @@ private static final long serialVersionUID = 0L;
         extras_ = null;
         extrasBuilder_ = null;
       }
-      type_ = 0;
-
       if (coordinatesBuilder_ == null) {
         coordinates_ = null;
       } else {
-        coordinates_ = null;
-        coordinatesBuilder_ = null;
+        coordinatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
+      cause_ = "";
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor;
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor;
     }
 
     @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency getDefaultInstanceForType() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.getDefaultInstance();
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency getDefaultInstanceForType() {
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency build() {
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency result = buildPartial();
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency build() {
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -563,19 +481,28 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency buildPartial() {
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency(this);
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency buildPartial() {
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (extrasBuilder_ == null) {
         result.extras_ = extras_;
       } else {
         result.extras_ = extrasBuilder_.build();
       }
-      result.type_ = type_;
-      if (coordinatesBuilder_ == null) {
-        result.coordinates_ = coordinates_;
-      } else {
-        result.coordinates_ = coordinatesBuilder_.build();
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        if (coordinatesBuilder_ == null) {
+          result.coordinates_ = coordinates_;
+        } else {
+          result.coordinates_ = coordinatesBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000001;
       }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
+      }
+      result.cause_ = cause_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -614,24 +541,26 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency) {
-        return mergeFrom((org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency)other);
+      if (other instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency) {
+        return mergeFrom((org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency other) {
-      if (other == org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency other) {
+      if (other == org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency.getDefaultInstance()) return this;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (other.type_ != 0) {
-        setTypeValue(other.getTypeValue());
-      }
       if (other.hasCoordinates()) {
         mergeCoordinates(other.getCoordinates());
+      }
+      if (other.hasCause()) {
+        bitField0_ |= 0x00000002;
+        cause_ = other.cause_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -648,11 +577,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency parsedMessage = null;
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency) e.getUnfinishedMessage();
+        parsedMessage = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -661,6 +590,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -781,85 +711,31 @@ private static final long serialVersionUID = 0L;
       return extrasBuilder_;
     }
 
-    private int type_ = 0;
-    /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    @java.lang.Override public int getTypeValue() {
-      return type_;
-    }
-    /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-     * @param value The enum numeric value on the wire for type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTypeValue(int value) {
-      
-      type_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-     * @return The type.
-     */
-    @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type getType() {
-      @SuppressWarnings("deprecation")
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type result = org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.valueOf(type_);
-      return result == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-     * @param value The type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setType(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      type_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearType() {
-      
-      type_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates_;
+    private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder> coordinatesBuilder_;
+        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinatesOrBuilder> coordinatesBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      * @return Whether the coordinates field is set.
      */
     public boolean hasCoordinates() {
-      return coordinatesBuilder_ != null || coordinates_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      * @return The coordinates.
      */
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates getCoordinates() {
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates getCoordinates() {
       if (coordinatesBuilder_ == null) {
-        return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.getDefaultInstance() : coordinates_;
+        return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance() : coordinates_;
       } else {
         return coordinatesBuilder_.getMessage();
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
-    public Builder setCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates value) {
+    public Builder setCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates value) {
       if (coordinatesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -869,31 +745,33 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
     public Builder setCoordinates(
-        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder builderForValue) {
+        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder builderForValue) {
       if (coordinatesBuilder_ == null) {
         coordinates_ = builderForValue.build();
         onChanged();
       } else {
         coordinatesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
-    public Builder mergeCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates value) {
+    public Builder mergeCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates value) {
       if (coordinatesBuilder_ == null) {
-        if (coordinates_ != null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+            coordinates_ != null &&
+            coordinates_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance()) {
           coordinates_ =
-            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.newBuilder(coordinates_).mergeFrom(value).buildPartial();
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.newBuilder(coordinates_).mergeFrom(value).buildPartial();
         } else {
           coordinates_ = value;
         }
@@ -901,57 +779,139 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
     public Builder clearCoordinates() {
       if (coordinatesBuilder_ == null) {
         coordinates_ = null;
         onChanged();
       } else {
-        coordinates_ = null;
-        coordinatesBuilder_ = null;
+        coordinatesBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder getCoordinatesBuilder() {
-      
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder getCoordinatesBuilder() {
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCoordinatesFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder getCoordinatesOrBuilder() {
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinatesOrBuilder getCoordinatesOrBuilder() {
       if (coordinatesBuilder_ != null) {
         return coordinatesBuilder_.getMessageOrBuilder();
       } else {
         return coordinates_ == null ?
-            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.getDefaultInstance() : coordinates_;
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance() : coordinates_;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder> 
+        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinatesOrBuilder> 
         getCoordinatesFieldBuilder() {
       if (coordinatesBuilder_ == null) {
         coordinatesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder>(
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinatesOrBuilder>(
                 getCoordinates(),
                 getParentForChildren(),
                 isClean());
         coordinates_ = null;
       }
       return coordinatesBuilder_;
+    }
+
+    private java.lang.Object cause_ = "";
+    /**
+     * <code>optional string cause = 3;</code>
+     * @return Whether the cause field is set.
+     */
+    public boolean hasCause() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string cause = 3;</code>
+     * @return The cause.
+     */
+    public java.lang.String getCause() {
+      java.lang.Object ref = cause_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cause_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string cause = 3;</code>
+     * @return The bytes for cause.
+     */
+    public com.google.protobuf.ByteString
+        getCauseBytes() {
+      java.lang.Object ref = cause_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cause_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string cause = 3;</code>
+     * @param value The cause to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCause(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+      cause_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string cause = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCause() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cause_ = getDefaultInstance().getCause();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string cause = 3;</code>
+     * @param value The bytes for cause to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCauseBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      bitField0_ |= 0x00000002;
+      cause_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -966,41 +926,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency)
+    // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency)
   }
 
-  // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency)
-  private static final org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency)
+  private static final org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency();
+    DEFAULT_INSTANCE = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency();
   }
 
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency getDefaultInstance() {
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ProtoIdeaKpmFragmentDependency>
-      PARSER = new com.google.protobuf.AbstractParser<ProtoIdeaKpmFragmentDependency>() {
+  private static final com.google.protobuf.Parser<ProtoIdeaKpmUnresolvedBinaryDependency>
+      PARSER = new com.google.protobuf.AbstractParser<ProtoIdeaKpmUnresolvedBinaryDependency>() {
     @java.lang.Override
-    public ProtoIdeaKpmFragmentDependency parsePartialFrom(
+    public ProtoIdeaKpmUnresolvedBinaryDependency parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProtoIdeaKpmFragmentDependency(input, extensionRegistry);
+      return new ProtoIdeaKpmUnresolvedBinaryDependency(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ProtoIdeaKpmFragmentDependency> parser() {
+  public static com.google.protobuf.Parser<ProtoIdeaKpmUnresolvedBinaryDependency> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ProtoIdeaKpmFragmentDependency> getParserForType() {
+  public com.google.protobuf.Parser<ProtoIdeaKpmUnresolvedBinaryDependency> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency getDefaultInstanceForType() {
+  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

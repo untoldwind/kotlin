@@ -47,7 +47,13 @@ message ProtoIdeaKpmFragmentDependency {
     REFINES = 2;
   }
 
-  Type type = 1;
-  ProtoIdeaKpmFragmentCoordinates coordinates = 2;
-  ProtoIdeaKpmExtras extras = 3;
+  ProtoIdeaKpmExtras extras = 1;
+  Type type = 2;
+  ProtoIdeaKpmFragmentCoordinates coordinates = 3;
+}
+
+message ProtoIdeaKpmUnresolvedBinaryDependency {
+  ProtoIdeaKpmExtras extras = 1;
+  optional ProtoIdeaKpmBinaryCoordinates coordinates = 2;
+  optional string cause = 3;
 }
