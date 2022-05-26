@@ -38,3 +38,14 @@ message ProtoIdeaKpmFragmentCoordinates {
   ProtoIdeaKpmModuleCoordinates module = 1;
   string fragment_name = 2;
 }
+
+message ProtoIdeaKpmFragmentDependency {
+  enum Type {
+    REGULAR = 0;
+    FRIEND = 1;
+    REFINES = 2;
+  }
+
+  Type type = 1;
+  ProtoIdeaKpmFragmentCoordinates coordinates = 2;
+}
