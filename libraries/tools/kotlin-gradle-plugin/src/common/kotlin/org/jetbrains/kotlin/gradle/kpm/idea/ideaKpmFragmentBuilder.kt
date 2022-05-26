@@ -19,8 +19,9 @@ private fun IdeaKpmProjectModelBuildingContext.buildIdeaKpmFragment(fragment: Gr
         platforms = fragment.containingVariants.map { variant -> IdeaKpmPlatform(variant) }.toSet(),
         languageSettings = IdeaKpmLanguageSettings(fragment.languageSettings),
         dependencies = dependencyResolver.resolve(fragment).toList(),
-        sourceDirectories = fragment.kotlinSourceRoots.sourceDirectories.files.toList().map { file -> IdeaKpmSourceDirectoryImpl(file) },
-        resourceDirectories = emptyList(), // TODO
+        sourceDirectories = fragment.kotlinSourceRoots.sourceDirectories.files.map { file ->
+            IdeaKpmSourceDirectoryImpl(file, type = IdeaKpmSourceDirectory.SOURCE_TYPE)
+        },
         extras = emptyExtras() // TODO: Requires more sophisticated serialization
     )
 }

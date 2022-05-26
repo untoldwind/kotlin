@@ -80,6 +80,39 @@ message ProtoIdeaKpmFragmentDependency {
   ProtoIdeaKpmFragmentCoordinates coordinates = 3;
 }
 
+message ProtoIdeaKpmPlatform {
+  oneof platform {
+    ProtoIdeaKpmJvmPlatform jvm = 1;
+    ProtoIdeaKpmNativePlatform native = 2;
+    ProtoIdeaKpmJsPlatform js = 3;
+    ProtoIdeaKpmWasmPlatform wasm = 4;
+    ProtoIdeaKpmUnknownPlatform unknown = 5;
+  }
+}
+
+message ProtoIdeaKpmJvmPlatform {
+  optional ProtoIdeaKpmExtras extras = 1;
+  string jvm_target = 2;
+}
+
+message ProtoIdeaKpmNativePlatform {
+  optional ProtoIdeaKpmExtras extras = 1;
+  string konan_target = 2;
+}
+
+message ProtoIdeaKpmJsPlatform {
+  optional ProtoIdeaKpmExtras extras = 1;
+  bool isIr = 2 ;
+}
+
+message ProtoIdeaKpmWasmPlatform {
+  optional ProtoIdeaKpmExtras extras = 1;
+}
+
+message ProtoIdeaKpmUnknownPlatform {
+  optional ProtoIdeaKpmExtras extras = 1;
+}
+
 message ProtoIdeaKpmFragment {
   ProtoIdeaKpmExtras extras = 1;
   ProtoIdeaKpmLanguageSettings language_settings = 2;

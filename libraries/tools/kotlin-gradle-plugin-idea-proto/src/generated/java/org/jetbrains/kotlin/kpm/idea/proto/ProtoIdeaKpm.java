@@ -65,6 +65,36 @@ public final class ProtoIdeaKpm {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnknownPlatform_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnknownPlatform_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -139,16 +169,43 @@ public final class ProtoIdeaKpm {
       "nates\030\003 \001(\0132D.org.jetbrains.kotlin.kpm.i" +
       "dea.proto.ProtoIdeaKpmFragmentCoordinate" +
       "s\",\n\004Type\022\013\n\007REGULAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007RE" +
-      "FINES\020\002\"\356\002\n\024ProtoIdeaKpmFragment\022G\n\006extr" +
-      "as\030\001 \001(\01327.org.jetbrains.kotlin.kpm.idea" +
-      ".proto.ProtoIdeaKpmExtras\022\\\n\021language_se" +
-      "ttings\030\002 \001(\0132A.org.jetbrains.kotlin.kpm." +
-      "idea.proto.ProtoIdeaKpmLanguageSettings\022" +
-      "Q\n\014dependencies\030\003 \003(\0132;.org.jetbrains.ko" +
-      "tlin.kpm.idea.proto.ProtoIdeaKpmDependen" +
-      "cy\022\\\n\022source_directories\030\004 \003(\0132@.org.jet" +
-      "brains.kotlin.kpm.idea.proto.ProtoIdeaKp" +
-      "mSourceDirectoryB\002P\001b\006proto3"
+      "FINES\020\002\"\261\003\n\024ProtoIdeaKpmPlatform\022K\n\003jvm\030" +
+      "\001 \001(\0132<.org.jetbrains.kotlin.kpm.idea.pr" +
+      "oto.ProtoIdeaKpmJvmPlatformH\000\022Q\n\006native\030" +
+      "\002 \001(\0132?.org.jetbrains.kotlin.kpm.idea.pr" +
+      "oto.ProtoIdeaKpmNativePlatformH\000\022I\n\002js\030\003" +
+      " \001(\0132;.org.jetbrains.kotlin.kpm.idea.pro" +
+      "to.ProtoIdeaKpmJsPlatformH\000\022M\n\004wasm\030\004 \001(" +
+      "\0132=.org.jetbrains.kotlin.kpm.idea.proto." +
+      "ProtoIdeaKpmWasmPlatformH\000\022S\n\007unknown\030\005 " +
+      "\001(\0132@.org.jetbrains.kotlin.kpm.idea.prot" +
+      "o.ProtoIdeaKpmUnknownPlatformH\000B\n\n\010platf" +
+      "orm\"\206\001\n\027ProtoIdeaKpmJvmPlatform\022L\n\006extra" +
+      "s\030\001 \001(\01327.org.jetbrains.kotlin.kpm.idea." +
+      "proto.ProtoIdeaKpmExtrasH\000\210\001\001\022\022\n\njvm_tar" +
+      "get\030\002 \001(\tB\t\n\007_extras\"\213\001\n\032ProtoIdeaKpmNat" +
+      "ivePlatform\022L\n\006extras\030\001 \001(\01327.org.jetbra" +
+      "ins.kotlin.kpm.idea.proto.ProtoIdeaKpmEx" +
+      "trasH\000\210\001\001\022\024\n\014konan_target\030\002 \001(\tB\t\n\007_extr" +
+      "as\"\177\n\026ProtoIdeaKpmJsPlatform\022L\n\006extras\030\001" +
+      " \001(\01327.org.jetbrains.kotlin.kpm.idea.pro" +
+      "to.ProtoIdeaKpmExtrasH\000\210\001\001\022\014\n\004isIr\030\002 \001(\010" +
+      "B\t\n\007_extras\"s\n\030ProtoIdeaKpmWasmPlatform\022" +
+      "L\n\006extras\030\001 \001(\01327.org.jetbrains.kotlin.k" +
+      "pm.idea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n" +
+      "\007_extras\"v\n\033ProtoIdeaKpmUnknownPlatform\022" +
+      "L\n\006extras\030\001 \001(\01327.org.jetbrains.kotlin.k" +
+      "pm.idea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n" +
+      "\007_extras\"\356\002\n\024ProtoIdeaKpmFragment\022G\n\006ext" +
+      "ras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.ide" +
+      "a.proto.ProtoIdeaKpmExtras\022\\\n\021language_s" +
+      "ettings\030\002 \001(\0132A.org.jetbrains.kotlin.kpm" +
+      ".idea.proto.ProtoIdeaKpmLanguageSettings" +
+      "\022Q\n\014dependencies\030\003 \003(\0132;.org.jetbrains.k" +
+      "otlin.kpm.idea.proto.ProtoIdeaKpmDepende" +
+      "ncy\022\\\n\022source_directories\030\004 \003(\0132@.org.je" +
+      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
+      "pmSourceDirectoryB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -215,8 +272,44 @@ public final class ProtoIdeaKpm {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor,
         new java.lang.String[] { "Extras", "Type", "Coordinates", });
-    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor =
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_descriptor,
+        new java.lang.String[] { "Jvm", "Native", "Js", "Wasm", "Unknown", "Platform", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_descriptor,
+        new java.lang.String[] { "Extras", "JvmTarget", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_descriptor,
+        new java.lang.String[] { "Extras", "KonanTarget", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_descriptor,
+        new java.lang.String[] { "Extras", "IsIr", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_descriptor,
+        new java.lang.String[] { "Extras", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnknownPlatform_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnknownPlatform_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnknownPlatform_descriptor,
+        new java.lang.String[] { "Extras", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor =
+      getDescriptor().getMessageTypes().get(16);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor,
