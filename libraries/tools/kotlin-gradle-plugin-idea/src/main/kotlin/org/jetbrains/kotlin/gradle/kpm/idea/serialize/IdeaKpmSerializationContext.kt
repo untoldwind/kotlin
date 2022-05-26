@@ -5,13 +5,13 @@
 
 package org.jetbrains.kotlin.gradle.kpm.idea.serialize
 
-import org.jetbrains.kotlin.tooling.core.ReifiedTypeSignature
+import org.jetbrains.kotlin.tooling.core.Type
 
 interface IdeaKpmSerializationContext {
-    fun <T : Any> serializer(type: ReifiedTypeSignature<T>): IdeaKpmSerializer<T>?
+    fun <T : Any> serializer(type: Type<T>): IdeaKpmSerializer<T>?
     fun <T : Any> onDeserializationFailure(failure: IdeaKpmSerializer.Deserialized.Failure<T>): T?
 }
 
 inline fun <reified T : Any> IdeaKpmSerializationContext.serializer(): IdeaKpmSerializer<T>? {
-    return serializer(ReifiedTypeSignature())
+    return serializer(Type())
 }

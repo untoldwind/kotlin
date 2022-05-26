@@ -24,21 +24,21 @@ class ReifiedTypeSignatureTest {
     @Test
     fun `test - sample 0`() {
         assertEquals(
-            "kotlin.collections.List<kotlin.Int>", ReifiedTypeSignature<List<Int>>().signature
+            "kotlin.collections.List<kotlin.Int>", Type<List<Int>>().signature
         )
     }
 
     @Test
     fun `test - sample 1`() {
         assertEquals(
-            "kotlin.collections.List<*>", ReifiedTypeSignature<List<*>>().signature
+            "kotlin.collections.List<*>", Type<List<*>>().signature
         )
     }
 
     @Test
     fun `test - sample 2`() {
         assertEquals(
-            "kotlin.String", ReifiedTypeSignature<String>().signature
+            "kotlin.String", Type<String>().signature
         )
     }
 
@@ -46,7 +46,7 @@ class ReifiedTypeSignatureTest {
     fun `test - sample 3`() {
         assertEquals(
             "kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.Pair<kotlin.Int, kotlin.String>>>",
-            ReifiedTypeSignature<Map<String, List<Pair<Int, String>>>>().signature
+            Type<Map<String, List<Pair<Int, String>>>>().signature
         )
     }
 
@@ -55,7 +55,7 @@ class ReifiedTypeSignatureTest {
     fun `test - sample 5 - inner class`() {
         assertEquals(
             "org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest.Outer.Inner",
-            ReifiedTypeSignature<Outer.Inner>().signature
+            Type<Outer.Inner>().signature
         )
     }
 
@@ -63,43 +63,43 @@ class ReifiedTypeSignatureTest {
     fun `test - sample 6 - recursive types`() {
         assertEquals(
             "org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest.Recursive<*>",
-            ReifiedTypeSignature<Recursive<*>>().signature
+            Type<Recursive<*>>().signature
         )
 
         assertEquals(
             "org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest.AnyRecursive",
-            ReifiedTypeSignature<AnyRecursive>().signature
+            Type<AnyRecursive>().signature
         )
 
         assertEquals(
             "org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest" +
                     ".Recursive<org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest.AnyRecursive>",
-            ReifiedTypeSignature<Recursive<AnyRecursive>>().signature
+            Type<Recursive<AnyRecursive>>().signature
         )
     }
 
     @Test
     fun `test sample 7 - nullable`() {
-        assertEquals("kotlin.collections.List<*>?", ReifiedTypeSignature<List<*>?>().signature)
-        assertEquals("kotlin.collections.List<kotlin.Int?>", ReifiedTypeSignature<List<Int?>>().signature)
+        assertEquals("kotlin.collections.List<*>?", Type<List<*>?>().signature)
+        assertEquals("kotlin.collections.List<kotlin.Int?>", Type<List<Int?>>().signature)
     }
 
     @Test
     fun `test sample 8 - variance`() {
         assertEquals(
             "org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest.Box<out kotlin.Int>",
-            ReifiedTypeSignature<Box<out Int>>().signature
+            Type<Box<out Int>>().signature
         )
         assertEquals(
             "org.jetbrains.kotlin.tooling.core.ReifiedTypeSignatureTest.Box<in kotlin.Int>",
-            ReifiedTypeSignature<Box<in Int>>().signature
+            Type<Box<in Int>>().signature
         )
     }
 
     @Suppress("RemoveExplicitTypeArguments", "TYPE_INFERENCE_ONLY_INPUT_TYPES_WARNING")
     @Test
     fun `test - equals`() {
-        assertEquals(ReifiedTypeSignature<List<Int>>(), ReifiedTypeSignature<List<Int>>())
-        assertNotEquals(ReifiedTypeSignature<List<Int?>>(), ReifiedTypeSignature<List<Int>>())
+        assertEquals(Type<List<Int>>(), Type<List<Int>>())
+        assertNotEquals(Type<List<Int?>>(), Type<List<Int>>())
     }
 }

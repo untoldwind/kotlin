@@ -20,9 +20,9 @@ class ExtrasTest {
     @Test
     fun `serialize - deserialize - sample 0`() {
         val context = object : IdeaKpmSerializationContext {
-            override fun <T : Any> serializer(type: ReifiedTypeSignature<T>): IdeaKpmSerializer<T>? = when (type) {
-                ReifiedTypeSignature<String>() -> StringSerializer as IdeaKpmSerializer<T>
-                ReifiedTypeSignature<Int>() -> IntSerializer as IdeaKpmSerializer<T>
+            override fun <T : Any> serializer(type: Type<T>): IdeaKpmSerializer<T>? = when (type) {
+                Type<String>() -> StringSerializer as IdeaKpmSerializer<T>
+                Type<Int>() -> IntSerializer as IdeaKpmSerializer<T>
                 else -> null
             }
 
