@@ -91,3 +91,7 @@ tasks.register("endorsedLibsSources") {
         dependsOn("${library.taskName}NativeSources")
     }
 }
+
+tasks.register<Delete>("clean") {
+    delete = setOf(project.buildDir)
+}
