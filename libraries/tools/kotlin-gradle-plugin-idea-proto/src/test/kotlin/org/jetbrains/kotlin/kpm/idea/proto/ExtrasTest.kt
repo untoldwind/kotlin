@@ -6,28 +6,20 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializer
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializer.Deserialized.Failure
-import org.jetbrains.kotlin.tooling.core.*
-import org.junit.Test
+import org.jetbrains.kotlin.tooling.core.extrasKeyOf
+import org.jetbrains.kotlin.tooling.core.mutableExtrasOf
+import org.jetbrains.kotlin.tooling.core.toExtras
+import org.jetbrains.kotlin.tooling.core.withValue
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ExtrasTest {
+class ExtrasTest : IdeaKpmSerializationContext by TestSerializationContext {
 
     class Ignored
 
     @Suppress("unchecked_cast")
     @Test
     fun `serialize - deserialize - sample 0`() {
-        val context = object : IdeaKpmSerializationContext {
-            override fun <T : Any> serializer(type: Type<T>): IdeaKpmSerializer<T>? = when (type) {
-                Type<String>() -> StringSerializer as IdeaKpmSerializer<T>
-                Type<Int>() -> IntSerializer as IdeaKpmSerializer<T>
-                else -> null
-            }
-
-            override fun <T : Any> onDeserializationFailure(failure: Failure<T>): T? = null
-        }
 
         val extras = mutableExtrasOf(
             extrasKeyOf<String>() withValue "myValue",
@@ -36,8 +28,8 @@ class ExtrasTest {
             extrasKeyOf<Ignored>() withValue Ignored()
         )
 
-        val data = context.ProtoIdeaKpmExtras(extras).toByteArray()
-        val deserialized = context.Extras(ProtoIdeaKpmExtras.parseFrom(data))
+        val data = ProtoIdeaKpmExtras(extras).toByteArray()
+        val deserialized = Extras(ProtoIdeaKpmExtras.parseFrom(data))
 
         assertEquals(
             extras.filter { (_, value) -> value !is Ignored }.toExtras(), deserialized

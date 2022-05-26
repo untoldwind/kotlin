@@ -32,4 +32,19 @@ public interface ProtoIdeaKpmFragmentDependencyOrBuilder extends
    * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder getCoordinatesOrBuilder();
+
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+   * @return Whether the extras field is set.
+   */
+  boolean hasExtras();
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+   * @return The extras.
+   */
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras getExtras();
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+   */
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 }

@@ -68,6 +68,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 26: {
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder subBuilder = null;
+            if (extras_ != null) {
+              subBuilder = extras_.toBuilder();
+            }
+            extras_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(extras_);
+              extras_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -262,6 +275,32 @@ private static final long serialVersionUID = 0L;
     return getCoordinates();
   }
 
+  public static final int EXTRAS_FIELD_NUMBER = 3;
+  private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+   * @return Whether the extras field is set.
+   */
+  @java.lang.Override
+  public boolean hasExtras() {
+    return extras_ != null;
+  }
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+   * @return The extras.
+   */
+  @java.lang.Override
+  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras getExtras() {
+    return extras_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
+  }
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+   */
+  @java.lang.Override
+  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder() {
+    return getExtras();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -282,6 +321,9 @@ private static final long serialVersionUID = 0L;
     if (coordinates_ != null) {
       output.writeMessage(2, getCoordinates());
     }
+    if (extras_ != null) {
+      output.writeMessage(3, getExtras());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -298,6 +340,10 @@ private static final long serialVersionUID = 0L;
     if (coordinates_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCoordinates());
+    }
+    if (extras_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getExtras());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -320,6 +366,11 @@ private static final long serialVersionUID = 0L;
       if (!getCoordinates()
           .equals(other.getCoordinates())) return false;
     }
+    if (hasExtras() != other.hasExtras()) return false;
+    if (hasExtras()) {
+      if (!getExtras()
+          .equals(other.getExtras())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -336,6 +387,10 @@ private static final long serialVersionUID = 0L;
     if (hasCoordinates()) {
       hash = (37 * hash) + COORDINATES_FIELD_NUMBER;
       hash = (53 * hash) + getCoordinates().hashCode();
+    }
+    if (hasExtras()) {
+      hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
+      hash = (53 * hash) + getExtras().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -478,6 +533,12 @@ private static final long serialVersionUID = 0L;
         coordinates_ = null;
         coordinatesBuilder_ = null;
       }
+      if (extrasBuilder_ == null) {
+        extras_ = null;
+      } else {
+        extras_ = null;
+        extrasBuilder_ = null;
+      }
       return this;
     }
 
@@ -509,6 +570,11 @@ private static final long serialVersionUID = 0L;
         result.coordinates_ = coordinates_;
       } else {
         result.coordinates_ = coordinatesBuilder_.build();
+      }
+      if (extrasBuilder_ == null) {
+        result.extras_ = extras_;
+      } else {
+        result.extras_ = extrasBuilder_.build();
       }
       onBuilt();
       return result;
@@ -563,6 +629,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCoordinates()) {
         mergeCoordinates(other.getCoordinates());
+      }
+      if (other.hasExtras()) {
+        mergeExtras(other.getExtras());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -764,6 +833,125 @@ private static final long serialVersionUID = 0L;
         coordinates_ = null;
       }
       return coordinatesBuilder_;
+    }
+
+    private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder> extrasBuilder_;
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     * @return Whether the extras field is set.
+     */
+    public boolean hasExtras() {
+      return extrasBuilder_ != null || extras_ != null;
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     * @return The extras.
+     */
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras getExtras() {
+      if (extrasBuilder_ == null) {
+        return extras_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
+      } else {
+        return extrasBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    public Builder setExtras(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras value) {
+      if (extrasBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        extras_ = value;
+        onChanged();
+      } else {
+        extrasBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    public Builder setExtras(
+        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder builderForValue) {
+      if (extrasBuilder_ == null) {
+        extras_ = builderForValue.build();
+        onChanged();
+      } else {
+        extrasBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    public Builder mergeExtras(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras value) {
+      if (extrasBuilder_ == null) {
+        if (extras_ != null) {
+          extras_ =
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.newBuilder(extras_).mergeFrom(value).buildPartial();
+        } else {
+          extras_ = value;
+        }
+        onChanged();
+      } else {
+        extrasBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    public Builder clearExtras() {
+      if (extrasBuilder_ == null) {
+        extras_ = null;
+        onChanged();
+      } else {
+        extras_ = null;
+        extrasBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder getExtrasBuilder() {
+      
+      onChanged();
+      return getExtrasFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder() {
+      if (extrasBuilder_ != null) {
+        return extrasBuilder_.getMessageOrBuilder();
+      } else {
+        return extras_ == null ?
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
+      }
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder> 
+        getExtrasFieldBuilder() {
+      if (extrasBuilder_ == null) {
+        extrasBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder>(
+                getExtras(),
+                getParentForChildren(),
+                isClean());
+        extras_ = null;
+      }
+      return extrasBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

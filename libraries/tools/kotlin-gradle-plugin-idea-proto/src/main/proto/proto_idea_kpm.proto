@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package org.jetbrains.kotlin.kpm.idea.proto;
+import "proto_idea_kpm_extras.proto";
 option java_multiple_files = true;
 
 message ProtoIdeaKpmModuleCoordinates {
@@ -48,4 +49,5 @@ message ProtoIdeaKpmFragmentDependency {
 
   Type type = 1;
   ProtoIdeaKpmFragmentCoordinates coordinates = 2;
+  ProtoIdeaKpmExtras extras = 3;
 }

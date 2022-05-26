@@ -54,40 +54,44 @@ public final class ProtoIdeaKpm {
   static {
     java.lang.String[] descriptorData = {
       "\n\024proto_idea_kpm.proto\022#org.jetbrains.ko" +
-      "tlin.kpm.idea.proto\"\250\001\n\035ProtoIdeaKpmModu" +
-      "leCoordinates\022\020\n\010build_id\030\001 \001(\t\022\024\n\014proje" +
-      "ct_path\030\002 \001(\t\022\024\n\014project_name\030\003 \001(\t\022\023\n\013m" +
-      "odule_name\030\004 \001(\t\022\036\n\021module_classifier\030\005 " +
-      "\001(\tH\000\210\001\001B\024\n\022_module_classifier\"\301\002\n\034Proto" +
-      "IdeaKpmLanguageSettings\022\035\n\020language_vers" +
-      "ion\030\001 \001(\tH\000\210\001\001\022\030\n\013api_version\030\002 \001(\tH\001\210\001\001" +
-      "\022\033\n\023is_progressive_mode\030\003 \001(\010\022!\n\031enabled" +
-      "_language_features\030\004 \003(\t\022!\n\031opt_in_annot" +
-      "ations_in_use\030\005 \003(\t\022!\n\031compiler_plugin_a" +
-      "rguments\030\006 \003(\t\022!\n\031compiler_plugin_classp" +
-      "ath\030\007 \003(\t\022\032\n\022free_compiler_args\030\010 \003(\tB\023\n" +
-      "\021_language_versionB\016\n\014_api_version\"3\n\033Pr" +
-      "otoIdeaKpmSourceDirectory\022\024\n\014absolutePat" +
-      "h\030\001 \001(\t\"\303\001\n\035ProtoIdeaKpmBinaryCoordinate" +
-      "s\022\r\n\005group\030\001 \001(\t\022\016\n\006module\030\002 \001(\t\022\017\n\007vers" +
-      "ion\030\003 \001(\t\022\037\n\022kotlin_module_name\030\004 \001(\tH\000\210" +
-      "\001\001\022!\n\024kotlin_fragment_name\030\005 \001(\tH\001\210\001\001B\025\n" +
-      "\023_kotlin_module_nameB\027\n\025_kotlin_fragment" +
-      "_name\"\214\001\n\037ProtoIdeaKpmFragmentCoordinate" +
-      "s\022R\n\006module\030\001 \001(\0132B.org.jetbrains.kotlin" +
-      ".kpm.idea.proto.ProtoIdeaKpmModuleCoordi" +
-      "nates\022\025\n\rfragment_name\030\002 \001(\t\"\201\002\n\036ProtoId" +
-      "eaKpmFragmentDependency\022V\n\004type\030\001 \001(\0162H." +
-      "org.jetbrains.kotlin.kpm.idea.proto.Prot" +
-      "oIdeaKpmFragmentDependency.Type\022Y\n\013coord" +
-      "inates\030\002 \001(\0132D.org.jetbrains.kotlin.kpm." +
-      "idea.proto.ProtoIdeaKpmFragmentCoordinat" +
-      "es\",\n\004Type\022\013\n\007REGULAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007R" +
-      "EFINES\020\002B\002P\001b\006proto3"
+      "tlin.kpm.idea.proto\032\033proto_idea_kpm_extr" +
+      "as.proto\"\250\001\n\035ProtoIdeaKpmModuleCoordinat" +
+      "es\022\020\n\010build_id\030\001 \001(\t\022\024\n\014project_path\030\002 \001" +
+      "(\t\022\024\n\014project_name\030\003 \001(\t\022\023\n\013module_name\030" +
+      "\004 \001(\t\022\036\n\021module_classifier\030\005 \001(\tH\000\210\001\001B\024\n" +
+      "\022_module_classifier\"\301\002\n\034ProtoIdeaKpmLang" +
+      "uageSettings\022\035\n\020language_version\030\001 \001(\tH\000" +
+      "\210\001\001\022\030\n\013api_version\030\002 \001(\tH\001\210\001\001\022\033\n\023is_prog" +
+      "ressive_mode\030\003 \001(\010\022!\n\031enabled_language_f" +
+      "eatures\030\004 \003(\t\022!\n\031opt_in_annotations_in_u" +
+      "se\030\005 \003(\t\022!\n\031compiler_plugin_arguments\030\006 " +
+      "\003(\t\022!\n\031compiler_plugin_classpath\030\007 \003(\t\022\032" +
+      "\n\022free_compiler_args\030\010 \003(\tB\023\n\021_language_" +
+      "versionB\016\n\014_api_version\"3\n\033ProtoIdeaKpmS" +
+      "ourceDirectory\022\024\n\014absolutePath\030\001 \001(\t\"\303\001\n" +
+      "\035ProtoIdeaKpmBinaryCoordinates\022\r\n\005group\030" +
+      "\001 \001(\t\022\016\n\006module\030\002 \001(\t\022\017\n\007version\030\003 \001(\t\022\037" +
+      "\n\022kotlin_module_name\030\004 \001(\tH\000\210\001\001\022!\n\024kotli" +
+      "n_fragment_name\030\005 \001(\tH\001\210\001\001B\025\n\023_kotlin_mo" +
+      "dule_nameB\027\n\025_kotlin_fragment_name\"\214\001\n\037P" +
+      "rotoIdeaKpmFragmentCoordinates\022R\n\006module" +
+      "\030\001 \001(\0132B.org.jetbrains.kotlin.kpm.idea.p" +
+      "roto.ProtoIdeaKpmModuleCoordinates\022\025\n\rfr" +
+      "agment_name\030\002 \001(\t\"\312\002\n\036ProtoIdeaKpmFragme" +
+      "ntDependency\022V\n\004type\030\001 \001(\0162H.org.jetbrai" +
+      "ns.kotlin.kpm.idea.proto.ProtoIdeaKpmFra" +
+      "gmentDependency.Type\022Y\n\013coordinates\030\002 \001(" +
+      "\0132D.org.jetbrains.kotlin.kpm.idea.proto." +
+      "ProtoIdeaKpmFragmentCoordinates\022G\n\006extra" +
+      "s\030\003 \001(\01327.org.jetbrains.kotlin.kpm.idea." +
+      "proto.ProtoIdeaKpmExtras\",\n\004Type\022\013\n\007REGU" +
+      "LAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007REFINES\020\002B\002P\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOuterClass.getDescriptor(),
         });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmModuleCoordinates_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -124,7 +128,8 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor,
-        new java.lang.String[] { "Type", "Coordinates", });
+        new java.lang.String[] { "Type", "Coordinates", "Extras", });
+    org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

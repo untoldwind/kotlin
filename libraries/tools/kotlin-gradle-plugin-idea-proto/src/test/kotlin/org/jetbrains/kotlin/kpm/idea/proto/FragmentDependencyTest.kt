@@ -9,10 +9,14 @@ import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinatesImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentDependency
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentDependencyImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmModuleCoordinatesImpl
-import org.junit.Test
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
+import org.jetbrains.kotlin.tooling.core.extrasKeyOf
+import org.jetbrains.kotlin.tooling.core.extrasOf
+import org.jetbrains.kotlin.tooling.core.withValue
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class FragmentDependencyTest {
+class FragmentDependencyTest : IdeaKpmSerializationContext by TestSerializationContext {
 
     private val coordinates = IdeaKpmFragmentCoordinatesImpl(
         module = IdeaKpmModuleCoordinatesImpl(
@@ -50,7 +54,16 @@ class FragmentDependencyTest {
         )
     )
 
+    @Test
+    fun `serialize - deserialize - sample 3`() = testDeserializedEquals(
+        IdeaKpmFragmentDependencyImpl(
+            type = IdeaKpmFragmentDependency.Type.Regular,
+            coordinates,
+            extras = extrasOf(extrasKeyOf<String>() withValue "myStringExtras")
+        )
+    )
+
     private fun testDeserializedEquals(value: IdeaKpmFragmentDependencyImpl) {
-        assertEquals(value, IdeaKpmFragmentDependency(value.toByteArray()))
+        assertEquals(value, IdeaKpmFragmentDependency(value.toByteArray(this)))
     }
 }

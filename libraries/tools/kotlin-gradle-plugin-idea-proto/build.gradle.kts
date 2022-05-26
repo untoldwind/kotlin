@@ -22,6 +22,7 @@ sourceSets.main.configure {
     java.srcDir("src/generated/kotlin")
 }
 
+
 tasks.register<Exec>("protoc") {
     val protoSources = file("src/main/proto")
     val javaOutput = file("src/generated/java/")

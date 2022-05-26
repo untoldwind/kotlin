@@ -62,6 +62,30 @@ internal object ProtoIdeaKpmFragmentDependencyKt {
     internal fun hasCoordinates(): kotlin.Boolean {
       return _builder.hasCoordinates()
     }
+
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    internal var extras: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras
+      @JvmName("getExtras")
+      get() = _builder.getExtras()
+      @JvmName("setExtras")
+      set(value) {
+        _builder.setExtras(value)
+      }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     */
+    internal fun clearExtras() {
+      _builder.clearExtras()
+    }
+    /**
+     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 3;</code>
+     * @return Whether the extras field is set.
+     */
+    internal fun hasExtras(): kotlin.Boolean {
+      return _builder.hasExtras()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic
