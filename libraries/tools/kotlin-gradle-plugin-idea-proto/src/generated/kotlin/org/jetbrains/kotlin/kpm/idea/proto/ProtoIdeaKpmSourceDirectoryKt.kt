@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmSourceDirectoryKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory = _builder.build()
 
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      */
     internal var absolutePath: kotlin.String
       @JvmName("getAbsolutePath")
@@ -33,7 +33,7 @@ internal object ProtoIdeaKpmSourceDirectoryKt {
         _builder.setAbsolutePath(value)
       }
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      */
     internal fun clearAbsolutePath() {
       _builder.clearAbsolutePath()

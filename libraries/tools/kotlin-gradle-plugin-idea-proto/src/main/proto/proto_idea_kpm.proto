@@ -24,7 +24,7 @@ message ProtoIdeaKpmLanguageSettings {
 }
 
 message ProtoIdeaKpmSourceDirectory {
-  string absolutePath = 1;
+  string absolute_path = 1;
 }
 
 message ProtoIdeaKpmBinaryCoordinates {
@@ -56,4 +56,11 @@ message ProtoIdeaKpmUnresolvedBinaryDependency {
   ProtoIdeaKpmExtras extras = 1;
   optional ProtoIdeaKpmBinaryCoordinates coordinates = 2;
   optional string cause = 3;
+}
+
+message ProtoIdeaKpmResolvedBinaryDependency {
+  ProtoIdeaKpmExtras extras = 1;
+  ProtoIdeaKpmBinaryCoordinates coordinates = 2;
+  string binary_type = 3;
+  string binary_file_absolute_path = 4;
 }

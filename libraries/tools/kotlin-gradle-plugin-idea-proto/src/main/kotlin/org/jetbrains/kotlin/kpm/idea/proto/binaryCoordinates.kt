@@ -3,13 +3,11 @@
  * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
  */
 
-@file:OptIn(InternalKotlinGradlePluginApi::class)
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinatesImpl
-import org.jetbrains.kotlin.gradle.kpm.idea.InternalKotlinGradlePluginApi
 
 fun ProtoIdeaKpmBinaryCoordinates(coordinates: IdeaKpmBinaryCoordinates): ProtoIdeaKpmBinaryCoordinates {
     return protoIdeaKpmBinaryCoordinates {

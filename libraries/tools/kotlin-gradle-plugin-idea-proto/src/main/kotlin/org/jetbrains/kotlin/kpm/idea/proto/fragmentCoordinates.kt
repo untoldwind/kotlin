@@ -5,7 +5,6 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
-import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragment
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinatesImpl
 

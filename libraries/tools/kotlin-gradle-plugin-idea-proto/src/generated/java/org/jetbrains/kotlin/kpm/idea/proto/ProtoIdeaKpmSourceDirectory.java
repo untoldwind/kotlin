@@ -87,10 +87,10 @@ private static final long serialVersionUID = 0L;
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.Builder.class);
   }
 
-  public static final int ABSOLUTEPATH_FIELD_NUMBER = 1;
+  public static final int ABSOLUTE_PATH_FIELD_NUMBER = 1;
   private volatile java.lang.Object absolutePath_;
   /**
-   * <code>string absolutePath = 1;</code>
+   * <code>string absolute_path = 1;</code>
    * @return The absolutePath.
    */
   @java.lang.Override
@@ -107,7 +107,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string absolutePath = 1;</code>
+   * <code>string absolute_path = 1;</code>
    * @return The bytes for absolutePath.
    */
   @java.lang.Override
@@ -182,7 +182,7 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ABSOLUTEPATH_FIELD_NUMBER;
+    hash = (37 * hash) + ABSOLUTE_PATH_FIELD_NUMBER;
     hash = (53 * hash) + getAbsolutePath().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -429,7 +429,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object absolutePath_ = "";
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      * @return The absolutePath.
      */
     public java.lang.String getAbsolutePath() {
@@ -445,7 +445,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      * @return The bytes for absolutePath.
      */
     public com.google.protobuf.ByteString
@@ -462,7 +462,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      * @param value The absolutePath to set.
      * @return This builder for chaining.
      */
@@ -477,7 +477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearAbsolutePath() {
@@ -487,7 +487,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string absolutePath = 1;</code>
+     * <code>string absolute_path = 1;</code>
      * @param value The bytes for absolutePath to set.
      * @return This builder for chaining.
      */

@@ -8,12 +8,12 @@ public interface ProtoIdeaKpmSourceDirectoryOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string absolutePath = 1;</code>
+   * <code>string absolute_path = 1;</code>
    * @return The absolutePath.
    */
   java.lang.String getAbsolutePath();
   /**
-   * <code>string absolutePath = 1;</code>
+   * <code>string absolute_path = 1;</code>
    * @return The bytes for absolutePath.
    */
   com.google.protobuf.ByteString
