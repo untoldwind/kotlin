@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package org.jetbrains.kotlin.kpm.idea.proto;
+option java_multiple_files = true;
+
+message ProtoIdeaKpmExtras {
+  map<string, bytes> values = 1;
+}

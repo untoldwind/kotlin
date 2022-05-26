@@ -13,14 +13,13 @@ import kotlin.reflect.KType
 import kotlin.reflect.KVariance
 import kotlin.reflect.typeOf
 
-@PublishedApi
-internal inline fun <reified T> ReifiedTypeSignature(): ReifiedTypeSignature<T> {
+
+inline fun <reified T> ReifiedTypeSignature(): ReifiedTypeSignature<T> {
     @OptIn(UnsafeApi::class, ExperimentalStdlibApi::class)
     return ReifiedTypeSignature(renderReifiedTypeSignatureString(typeOf<T>()))
 }
 
-@PublishedApi
-internal class ReifiedTypeSignature<T>
+class ReifiedTypeSignature<T>
 @UnsafeApi("Use 'reifiedTypeSignatureOf' instead")
 @PublishedApi internal constructor(val signature: String) : Serializable {
 

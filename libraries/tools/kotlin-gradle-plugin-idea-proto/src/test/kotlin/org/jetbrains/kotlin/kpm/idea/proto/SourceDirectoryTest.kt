@@ -5,7 +5,6 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
-import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinatesImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmSourceDirectoryImpl
 import org.junit.Test
 import java.io.File

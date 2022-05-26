@@ -65,7 +65,7 @@ import java.io.Serializable
 interface Extras : Collection<Entry<out Any>> {
     /* Not implemented as data class to ensure more controllable binary compatibility */
     class Key<T : Any> @PublishedApi internal constructor(
-        internal val type: ReifiedTypeSignature<T>,
+        val type: ReifiedTypeSignature<T>,
         val name: String? = null,
     ) : Serializable {
 

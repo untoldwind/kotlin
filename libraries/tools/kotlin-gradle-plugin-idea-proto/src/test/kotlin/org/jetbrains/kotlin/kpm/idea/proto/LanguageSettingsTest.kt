@@ -6,9 +6,6 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmLanguageSettingsImpl
-import org.jetbrains.kotlin.kpm.idea.proto.IdeaKpmLanguageSettings
-import org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings
-import org.jetbrains.kotlin.kpm.idea.proto.toByteArray
 import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
