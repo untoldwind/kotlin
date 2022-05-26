@@ -33,3 +33,8 @@ message ProtoIdeaKpmBinaryCoordinates {
   optional string kotlin_module_name = 4;
   optional string kotlin_fragment_name = 5;
 }
+
+message ProtoIdeaKpmFragmentCoordinates {
+  ProtoIdeaKpmModuleCoordinates module = 1;
+  string fragment_name = 2;
+}

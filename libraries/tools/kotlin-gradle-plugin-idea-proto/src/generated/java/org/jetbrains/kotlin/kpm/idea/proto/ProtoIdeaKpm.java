@@ -34,6 +34,11 @@ public final class ProtoIdeaKpm {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -63,7 +68,10 @@ public final class ProtoIdeaKpm {
       "ion\030\003 \001(\t\022\037\n\022kotlin_module_name\030\004 \001(\tH\000\210" +
       "\001\001\022!\n\024kotlin_fragment_name\030\005 \001(\tH\001\210\001\001B\025\n" +
       "\023_kotlin_module_nameB\027\n\025_kotlin_fragment" +
-      "_nameB\002P\001b\006proto3"
+      "_name\"\214\001\n\037ProtoIdeaKpmFragmentCoordinate" +
+      "s\022R\n\006module\030\001 \001(\0132B.org.jetbrains.kotlin" +
+      ".kpm.idea.proto.ProtoIdeaKpmModuleCoordi" +
+      "nates\022\025\n\rfragment_name\030\002 \001(\tB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -93,6 +101,12 @@ public final class ProtoIdeaKpm {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor,
         new java.lang.String[] { "Group", "Module", "Version", "KotlinModuleName", "KotlinFragmentName", "KotlinModuleName", "KotlinFragmentName", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor,
+        new java.lang.String[] { "Module", "FragmentName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
