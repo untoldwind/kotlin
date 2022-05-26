@@ -3,8 +3,8 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto;
 
-public interface ProtoIdeaKpmSourceDirectoryOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)
+public interface ProtoIdeaKpmResourceDirectoryOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -33,16 +33,4 @@ public interface ProtoIdeaKpmSourceDirectoryOrBuilder extends
    */
   com.google.protobuf.ByteString
       getAbsolutePathBytes();
-
-  /**
-   * <code>string type = 3;</code>
-   * @return The type.
-   */
-  java.lang.String getType();
-  /**
-   * <code>string type = 3;</code>
-   * @return The bytes for type.
-   */
-  com.google.protobuf.ByteString
-      getTypeBytes();
 }

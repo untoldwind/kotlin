@@ -30,6 +30,11 @@ public final class ProtoIdeaKpm {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -40,10 +45,10 @@ public final class ProtoIdeaKpm {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor;
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable;
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor;
   static final 
@@ -54,6 +59,16 @@ public final class ProtoIdeaKpm {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -77,38 +92,63 @@ public final class ProtoIdeaKpm {
       "se\030\005 \003(\t\022!\n\031compiler_plugin_arguments\030\006 " +
       "\003(\t\022!\n\031compiler_plugin_classpath\030\007 \003(\t\022\032" +
       "\n\022free_compiler_args\030\010 \003(\tB\023\n\021_language_" +
-      "versionB\016\n\014_api_version\"4\n\033ProtoIdeaKpmS" +
-      "ourceDirectory\022\025\n\rabsolute_path\030\001 \001(\t\"\303\001" +
-      "\n\035ProtoIdeaKpmBinaryCoordinates\022\r\n\005group" +
-      "\030\001 \001(\t\022\016\n\006module\030\002 \001(\t\022\017\n\007version\030\003 \001(\t\022" +
-      "\037\n\022kotlin_module_name\030\004 \001(\tH\000\210\001\001\022!\n\024kotl" +
-      "in_fragment_name\030\005 \001(\tH\001\210\001\001B\025\n\023_kotlin_m" +
-      "odule_nameB\027\n\025_kotlin_fragment_name\"\214\001\n\037" +
-      "ProtoIdeaKpmFragmentCoordinates\022R\n\006modul" +
-      "e\030\001 \001(\0132B.org.jetbrains.kotlin.kpm.idea." +
-      "proto.ProtoIdeaKpmModuleCoordinates\022\025\n\rf" +
-      "ragment_name\030\002 \001(\t\"\312\002\n\036ProtoIdeaKpmFragm" +
-      "entDependency\022G\n\006extras\030\001 \001(\01327.org.jetb" +
-      "rains.kotlin.kpm.idea.proto.ProtoIdeaKpm" +
-      "Extras\022V\n\004type\030\002 \001(\0162H.org.jetbrains.kot" +
-      "lin.kpm.idea.proto.ProtoIdeaKpmFragmentD" +
-      "ependency.Type\022Y\n\013coordinates\030\003 \001(\0132D.or" +
-      "g.jetbrains.kotlin.kpm.idea.proto.ProtoI" +
-      "deaKpmFragmentCoordinates\",\n\004Type\022\013\n\007REG" +
-      "ULAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007REFINES\020\002\"\375\001\n&Prot" +
-      "oIdeaKpmUnresolvedBinaryDependency\022G\n\006ex" +
-      "tras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.id" +
-      "ea.proto.ProtoIdeaKpmExtras\022\\\n\013coordinat" +
-      "es\030\002 \001(\0132B.org.jetbrains.kotlin.kpm.idea" +
-      ".proto.ProtoIdeaKpmBinaryCoordinatesH\000\210\001" +
-      "\001\022\022\n\005cause\030\003 \001(\tH\001\210\001\001B\016\n\014_coordinatesB\010\n" +
-      "\006_cause\"\200\002\n$ProtoIdeaKpmResolvedBinaryDe" +
-      "pendency\022G\n\006extras\030\001 \001(\01327.org.jetbrains" +
-      ".kotlin.kpm.idea.proto.ProtoIdeaKpmExtra" +
-      "s\022W\n\013coordinates\030\002 \001(\0132B.org.jetbrains.k" +
-      "otlin.kpm.idea.proto.ProtoIdeaKpmBinaryC" +
-      "oordinates\022\023\n\013binary_type\030\003 \001(\t\022!\n\031binar" +
-      "y_file_absolute_path\030\004 \001(\tB\002P\001b\006proto3"
+      "versionB\016\n\014_api_version\"\233\001\n\033ProtoIdeaKpm" +
+      "SourceDirectory\022L\n\006extras\030\001 \001(\01327.org.je" +
+      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
+      "pmExtrasH\000\210\001\001\022\025\n\rabsolute_path\030\002 \001(\t\022\014\n\004" +
+      "type\030\003 \001(\tB\t\n\007_extras\"\217\001\n\035ProtoIdeaKpmRe" +
+      "sourceDirectory\022L\n\006extras\030\001 \001(\01327.org.je" +
+      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
+      "pmExtrasH\000\210\001\001\022\025\n\rabsolute_path\030\002 \001(\tB\t\n\007" +
+      "_extras\"\303\001\n\035ProtoIdeaKpmBinaryCoordinate" +
+      "s\022\r\n\005group\030\001 \001(\t\022\016\n\006module\030\002 \001(\t\022\017\n\007vers" +
+      "ion\030\003 \001(\t\022\037\n\022kotlin_module_name\030\004 \001(\tH\000\210" +
+      "\001\001\022!\n\024kotlin_fragment_name\030\005 \001(\tH\001\210\001\001B\025\n" +
+      "\023_kotlin_module_nameB\027\n\025_kotlin_fragment" +
+      "_name\"\214\001\n\037ProtoIdeaKpmFragmentCoordinate" +
+      "s\022R\n\006module\030\001 \001(\0132B.org.jetbrains.kotlin" +
+      ".kpm.idea.proto.ProtoIdeaKpmModuleCoordi" +
+      "nates\022\025\n\rfragment_name\030\002 \001(\t\"\360\002\n\026ProtoId" +
+      "eaKpmDependency\022s\n\034unresolved_binary_dep" +
+      "endency\030\001 \001(\0132K.org.jetbrains.kotlin.kpm" +
+      ".idea.proto.ProtoIdeaKpmUnresolvedBinary" +
+      "DependencyH\000\022o\n\032resolved_binary_dependen" +
+      "cy\030\002 \001(\0132I.org.jetbrains.kotlin.kpm.idea" +
+      ".proto.ProtoIdeaKpmResolvedBinaryDepende" +
+      "ncyH\000\022b\n\023fragment_dependency\030\003 \001(\0132C.org" +
+      ".jetbrains.kotlin.kpm.idea.proto.ProtoId" +
+      "eaKpmFragmentDependencyH\000B\014\n\ndependency\"" +
+      "\375\001\n&ProtoIdeaKpmUnresolvedBinaryDependen" +
+      "cy\022G\n\006extras\030\001 \001(\01327.org.jetbrains.kotli" +
+      "n.kpm.idea.proto.ProtoIdeaKpmExtras\022\\\n\013c" +
+      "oordinates\030\002 \001(\0132B.org.jetbrains.kotlin." +
+      "kpm.idea.proto.ProtoIdeaKpmBinaryCoordin" +
+      "atesH\000\210\001\001\022\022\n\005cause\030\003 \001(\tH\001\210\001\001B\016\n\014_coordi" +
+      "natesB\010\n\006_cause\"\200\002\n$ProtoIdeaKpmResolved" +
+      "BinaryDependency\022G\n\006extras\030\001 \001(\01327.org.j" +
+      "etbrains.kotlin.kpm.idea.proto.ProtoIdea" +
+      "KpmExtras\022W\n\013coordinates\030\002 \001(\0132B.org.jet" +
+      "brains.kotlin.kpm.idea.proto.ProtoIdeaKp" +
+      "mBinaryCoordinates\022\023\n\013binary_type\030\003 \001(\t\022" +
+      "!\n\031binary_file_absolute_path\030\004 \001(\t\"\312\002\n\036P" +
+      "rotoIdeaKpmFragmentDependency\022G\n\006extras\030" +
+      "\001 \001(\01327.org.jetbrains.kotlin.kpm.idea.pr" +
+      "oto.ProtoIdeaKpmExtras\022V\n\004type\030\002 \001(\0162H.o" +
+      "rg.jetbrains.kotlin.kpm.idea.proto.Proto" +
+      "IdeaKpmFragmentDependency.Type\022Y\n\013coordi" +
+      "nates\030\003 \001(\0132D.org.jetbrains.kotlin.kpm.i" +
+      "dea.proto.ProtoIdeaKpmFragmentCoordinate" +
+      "s\",\n\004Type\022\013\n\007REGULAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007RE" +
+      "FINES\020\002\"\356\002\n\024ProtoIdeaKpmFragment\022G\n\006extr" +
+      "as\030\001 \001(\01327.org.jetbrains.kotlin.kpm.idea" +
+      ".proto.ProtoIdeaKpmExtras\022\\\n\021language_se" +
+      "ttings\030\002 \001(\0132A.org.jetbrains.kotlin.kpm." +
+      "idea.proto.ProtoIdeaKpmLanguageSettings\022" +
+      "Q\n\014dependencies\030\003 \003(\0132;.org.jetbrains.ko" +
+      "tlin.kpm.idea.proto.ProtoIdeaKpmDependen" +
+      "cy\022\\\n\022source_directories\030\004 \003(\0132@.org.jet" +
+      "brains.kotlin.kpm.idea.proto.ProtoIdeaKp" +
+      "mSourceDirectoryB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -132,37 +172,55 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_descriptor,
-        new java.lang.String[] { "AbsolutePath", });
-    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor =
+        new java.lang.String[] { "Extras", "AbsolutePath", "Type", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor,
+        new java.lang.String[] { "Extras", "AbsolutePath", "Extras", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor,
         new java.lang.String[] { "Group", "Module", "Version", "KotlinModuleName", "KotlinFragmentName", "KotlinModuleName", "KotlinFragmentName", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor,
         new java.lang.String[] { "Module", "FragmentName", });
-    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor,
-        new java.lang.String[] { "Extras", "Type", "Coordinates", });
-    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor =
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_descriptor,
+        new java.lang.String[] { "UnresolvedBinaryDependency", "ResolvedBinaryDependency", "FragmentDependency", "Dependency", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor,
         new java.lang.String[] { "Extras", "Coordinates", "Cause", "Coordinates", "Cause", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_descriptor,
         new java.lang.String[] { "Extras", "Coordinates", "BinaryType", "BinaryFileAbsolutePath", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor,
+        new java.lang.String[] { "Extras", "Type", "Coordinates", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor,
+        new java.lang.String[] { "Extras", "LanguageSettings", "Dependencies", "SourceDirectories", });
     org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOuterClass.getDescriptor();
   }
 

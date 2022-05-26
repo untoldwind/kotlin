@@ -4,27 +4,26 @@
 package org.jetbrains.kotlin.kpm.idea.proto;
 
 /**
- * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory}
+ * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory}
  */
-public final class ProtoIdeaKpmSourceDirectory extends
+public final class ProtoIdeaKpmResourceDirectory extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)
-    ProtoIdeaKpmSourceDirectoryOrBuilder {
+    // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)
+    ProtoIdeaKpmResourceDirectoryOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ProtoIdeaKpmSourceDirectory.newBuilder() to construct.
-  private ProtoIdeaKpmSourceDirectory(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ProtoIdeaKpmResourceDirectory.newBuilder() to construct.
+  private ProtoIdeaKpmResourceDirectory(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ProtoIdeaKpmSourceDirectory() {
+  private ProtoIdeaKpmResourceDirectory() {
     absolutePath_ = "";
-    type_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ProtoIdeaKpmSourceDirectory();
+    return new ProtoIdeaKpmResourceDirectory();
   }
 
   @java.lang.Override
@@ -32,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProtoIdeaKpmSourceDirectory(
+  private ProtoIdeaKpmResourceDirectory(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -70,12 +69,6 @@ private static final long serialVersionUID = 0L;
             absolutePath_ = s;
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -97,15 +90,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_descriptor;
+    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_fieldAccessorTable
+    return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.Builder.class);
+            org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.Builder.class);
   }
 
   private int bitField0_;
@@ -173,44 +166,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object type_;
-  /**
-   * <code>string type = 3;</code>
-   * @return The type.
-   */
-  @java.lang.Override
-  public java.lang.String getType() {
-    java.lang.Object ref = type_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      type_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string type = 3;</code>
-   * @return The bytes for type.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTypeBytes() {
-    java.lang.Object ref = type_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      type_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -231,9 +186,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(absolutePath_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, absolutePath_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -250,9 +202,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(absolutePath_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, absolutePath_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -263,10 +212,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)) {
+    if (!(obj instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)) {
       return super.equals(obj);
     }
-    org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory other = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory) obj;
+    org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory other = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory) obj;
 
     if (hasExtras() != other.hasExtras()) return false;
     if (hasExtras()) {
@@ -275,8 +224,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAbsolutePath()
         .equals(other.getAbsolutePath())) return false;
-    if (!getType()
-        .equals(other.getType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -294,76 +241,74 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ABSOLUTE_PATH_FIELD_NUMBER;
     hash = (53 * hash) + getAbsolutePath().hashCode();
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(byte[] data)
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(java.io.InputStream input)
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseDelimitedFrom(java.io.InputStream input)
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseDelimitedFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parseFrom(
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -376,7 +321,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory prototype) {
+  public static Builder newBuilder(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -392,26 +337,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory}
+   * Protobuf type {@code org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryOrBuilder {
+      // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectoryOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_descriptor;
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_fieldAccessorTable
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.Builder.class);
+              org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.Builder.class);
     }
 
-    // Construct using org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.newBuilder()
+    // Construct using org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -438,25 +383,23 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       absolutePath_ = "";
 
-      type_ = "";
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_descriptor;
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpm.internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor;
     }
 
     @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory getDefaultInstanceForType() {
-      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.getDefaultInstance();
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory getDefaultInstanceForType() {
+      return org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory build() {
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory result = buildPartial();
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory build() {
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -464,8 +407,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory buildPartial() {
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory(this);
+    public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory buildPartial() {
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -477,7 +420,6 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.absolutePath_ = absolutePath_;
-      result.type_ = type_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -517,25 +459,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory) {
-        return mergeFrom((org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)other);
+      if (other instanceof org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory) {
+        return mergeFrom((org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory other) {
-      if (other == org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory other) {
+      if (other == org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.getDefaultInstance()) return this;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
       if (!other.getAbsolutePath().isEmpty()) {
         absolutePath_ = other.absolutePath_;
-        onChanged();
-      }
-      if (!other.getType().isEmpty()) {
-        type_ = other.type_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -553,11 +491,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory parsedMessage = null;
+      org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory) e.getUnfinishedMessage();
+        parsedMessage = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -763,82 +701,6 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-
-    private java.lang.Object type_ = "";
-    /**
-     * <code>string type = 3;</code>
-     * @return The type.
-     */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string type = 3;</code>
-     * @return The bytes for type.
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string type = 3;</code>
-     * @param value The type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      type_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string type = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearType() {
-      
-      type_ = getDefaultInstance().getType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string type = 3;</code>
-     * @param value The bytes for type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      type_ = value;
-      onChanged();
-      return this;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -852,41 +714,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)
+    // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)
   }
 
-  // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory)
-  private static final org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory)
+  private static final org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory();
+    DEFAULT_INSTANCE = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory();
   }
 
-  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory getDefaultInstance() {
+  public static org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ProtoIdeaKpmSourceDirectory>
-      PARSER = new com.google.protobuf.AbstractParser<ProtoIdeaKpmSourceDirectory>() {
+  private static final com.google.protobuf.Parser<ProtoIdeaKpmResourceDirectory>
+      PARSER = new com.google.protobuf.AbstractParser<ProtoIdeaKpmResourceDirectory>() {
     @java.lang.Override
-    public ProtoIdeaKpmSourceDirectory parsePartialFrom(
+    public ProtoIdeaKpmResourceDirectory parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProtoIdeaKpmSourceDirectory(input, extensionRegistry);
+      return new ProtoIdeaKpmResourceDirectory(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ProtoIdeaKpmSourceDirectory> parser() {
+  public static com.google.protobuf.Parser<ProtoIdeaKpmResourceDirectory> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ProtoIdeaKpmSourceDirectory> getParserForType() {
+  public com.google.protobuf.Parser<ProtoIdeaKpmResourceDirectory> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory getDefaultInstanceForType() {
+  public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

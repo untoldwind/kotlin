@@ -24,7 +24,14 @@ message ProtoIdeaKpmLanguageSettings {
 }
 
 message ProtoIdeaKpmSourceDirectory {
-  string absolute_path = 1;
+  optional ProtoIdeaKpmExtras extras = 1;
+  string absolute_path = 2;
+  string type = 3;
+}
+
+message ProtoIdeaKpmResourceDirectory {
+  optional ProtoIdeaKpmExtras extras = 1;
+  string absolute_path = 2;
 }
 
 message ProtoIdeaKpmBinaryCoordinates {
@@ -40,16 +47,12 @@ message ProtoIdeaKpmFragmentCoordinates {
   string fragment_name = 2;
 }
 
-message ProtoIdeaKpmFragmentDependency {
-  enum Type {
-    REGULAR = 0;
-    FRIEND = 1;
-    REFINES = 2;
+message ProtoIdeaKpmDependency {
+  oneof dependency {
+    ProtoIdeaKpmUnresolvedBinaryDependency unresolved_binary_dependency = 1;
+    ProtoIdeaKpmResolvedBinaryDependency resolved_binary_dependency = 2;
+    ProtoIdeaKpmFragmentDependency fragment_dependency = 3;
   }
-
-  ProtoIdeaKpmExtras extras = 1;
-  Type type = 2;
-  ProtoIdeaKpmFragmentCoordinates coordinates = 3;
 }
 
 message ProtoIdeaKpmUnresolvedBinaryDependency {
@@ -63,4 +66,23 @@ message ProtoIdeaKpmResolvedBinaryDependency {
   ProtoIdeaKpmBinaryCoordinates coordinates = 2;
   string binary_type = 3;
   string binary_file_absolute_path = 4;
+}
+
+message ProtoIdeaKpmFragmentDependency {
+  enum Type {
+    REGULAR = 0;
+    FRIEND = 1;
+    REFINES = 2;
+  }
+
+  ProtoIdeaKpmExtras extras = 1;
+  Type type = 2;
+  ProtoIdeaKpmFragmentCoordinates coordinates = 3;
+}
+
+message ProtoIdeaKpmFragment {
+  ProtoIdeaKpmExtras extras = 1;
+  ProtoIdeaKpmLanguageSettings language_settings = 2;
+  repeated ProtoIdeaKpmDependency dependencies = 3;
+  repeated ProtoIdeaKpmSourceDirectory source_directories = 4;
 }

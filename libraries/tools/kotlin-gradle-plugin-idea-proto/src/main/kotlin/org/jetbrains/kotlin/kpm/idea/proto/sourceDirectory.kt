@@ -7,6 +7,7 @@ package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmSourceDirectory
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmSourceDirectoryImpl
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import java.io.File
 
 /*
@@ -15,22 +16,26 @@ import java.io.File
  */
 
 
-fun ProtoIdeaKpmSourceDirectory(sourceDirectory: IdeaKpmSourceDirectory): ProtoIdeaKpmSourceDirectory {
+fun IdeaKpmSerializationContext.ProtoIdeaKpmSourceDirectory(sourceDirectory: IdeaKpmSourceDirectory): ProtoIdeaKpmSourceDirectory {
     return protoIdeaKpmSourceDirectory {
         absolutePath = sourceDirectory.file.absolutePath
+        type = sourceDirectory.type
+        extras = ProtoIdeaKpmExtras(sourceDirectory.extras)
     }
 }
 
-fun IdeaKpmSourceDirectory(proto: ProtoIdeaKpmSourceDirectory): IdeaKpmSourceDirectory {
+fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(proto: ProtoIdeaKpmSourceDirectory): IdeaKpmSourceDirectory {
     return IdeaKpmSourceDirectoryImpl(
-        file = File(proto.absolutePath)
+        file = File(proto.absolutePath),
+        type = proto.type,
+        extras = Extras(proto.extras)
     )
 }
 
-fun IdeaKpmSourceDirectory(data: ByteArray): IdeaKpmSourceDirectory {
+fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(data: ByteArray): IdeaKpmSourceDirectory {
     return IdeaKpmSourceDirectory(ProtoIdeaKpmSourceDirectory.parseFrom(data))
 }
 
-fun IdeaKpmSourceDirectory.toByteArray(): ByteArray {
-    return ProtoIdeaKpmSourceDirectory(this).toByteArray()
+fun IdeaKpmSourceDirectory.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
+    return context.ProtoIdeaKpmSourceDirectory(this).toByteArray()
 }

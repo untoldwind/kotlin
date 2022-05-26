@@ -4,23 +4,23 @@
 package org.jetbrains.kotlin.kpm.idea.proto;
 
 @kotlin.jvm.JvmSynthetic
-internal inline fun protoIdeaKpmSourceDirectory(block: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryKt.Dsl.() -> kotlin.Unit): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory =
-  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryKt.Dsl._create(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.newBuilder()).apply { block() }._build()
-internal object ProtoIdeaKpmSourceDirectoryKt {
+internal inline fun protoIdeaKpmResourceDirectory(block: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectoryKt.Dsl.() -> kotlin.Unit): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory =
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectoryKt.Dsl._create(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.newBuilder()).apply { block() }._build()
+internal object ProtoIdeaKpmResourceDirectoryKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
   internal class Dsl private constructor(
-    private val _builder: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.Builder
+    private val _builder: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.Builder
   ) {
     internal companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
-      internal fun _create(builder: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.Builder): Dsl = Dsl(builder)
+      internal fun _create(builder: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
     @kotlin.PublishedApi
-    internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory = _builder.build()
+    internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory = _builder.build()
 
     /**
      * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
@@ -62,25 +62,8 @@ internal object ProtoIdeaKpmSourceDirectoryKt {
     internal fun clearAbsolutePath() {
       _builder.clearAbsolutePath()
     }
-
-    /**
-     * <code>string type = 3;</code>
-     */
-    internal var type: kotlin.String
-      @JvmName("getType")
-      get() = _builder.getType()
-      @JvmName("setType")
-      set(value) {
-        _builder.setType(value)
-      }
-    /**
-     * <code>string type = 3;</code>
-     */
-    internal fun clearType() {
-      _builder.clearType()
-    }
   }
 }
 @kotlin.jvm.JvmSynthetic
-internal inline fun org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory.copy(block: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryKt.Dsl.() -> kotlin.Unit): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory =
-  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryKt.Dsl._create(this.toBuilder()).apply { block() }._build()
+internal inline fun org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory.copy(block: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectoryKt.Dsl.() -> kotlin.Unit): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectory =
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResourceDirectoryKt.Dsl._create(this.toBuilder()).apply { block() }._build()
