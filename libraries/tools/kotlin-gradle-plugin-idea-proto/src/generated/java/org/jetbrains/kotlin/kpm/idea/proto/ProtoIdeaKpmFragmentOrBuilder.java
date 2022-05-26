@@ -23,64 +23,103 @@ public interface ProtoIdeaKpmFragmentOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 2;</code>
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
+   * @return Whether the coordinates field is set.
+   */
+  boolean hasCoordinates();
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
+   * @return The coordinates.
+   */
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates getCoordinates();
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
+   */
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder getCoordinatesOrBuilder();
+
+  /**
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platforms = 3;</code>
+   */
+  java.util.List<org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform> 
+      getPlatformsList();
+  /**
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platforms = 3;</code>
+   */
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform getPlatforms(int index);
+  /**
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platforms = 3;</code>
+   */
+  int getPlatformsCount();
+  /**
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platforms = 3;</code>
+   */
+  java.util.List<? extends org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder> 
+      getPlatformsOrBuilderList();
+  /**
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platforms = 3;</code>
+   */
+  org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder getPlatformsOrBuilder(
+      int index);
+
+  /**
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
    * @return Whether the languageSettings field is set.
    */
   boolean hasLanguageSettings();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 2;</code>
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
    * @return The languageSettings.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings getLanguageSettings();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 2;</code>
+   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettingsOrBuilder getLanguageSettingsOrBuilder();
 
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 3;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 5;</code>
    */
   java.util.List<org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency> 
       getDependenciesList();
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 3;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 5;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency getDependencies(int index);
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 3;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 5;</code>
    */
   int getDependenciesCount();
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 3;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 5;</code>
    */
   java.util.List<? extends org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependencyOrBuilder> 
       getDependenciesOrBuilderList();
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 3;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency dependencies = 5;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependencyOrBuilder getDependenciesOrBuilder(
       int index);
 
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 4;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 6;</code>
    */
   java.util.List<org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory> 
       getSourceDirectoriesList();
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 4;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 6;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory getSourceDirectories(int index);
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 4;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 6;</code>
    */
   int getSourceDirectoriesCount();
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 4;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 6;</code>
    */
   java.util.List<? extends org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryOrBuilder> 
       getSourceDirectoriesOrBuilderList();
   /**
-   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 4;</code>
+   * <code>repeated .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectory source_directories = 6;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmSourceDirectoryOrBuilder getSourceDirectoriesOrBuilder(
       int index);

@@ -196,16 +196,20 @@ public final class ProtoIdeaKpm {
       "\007_extras\"v\n\033ProtoIdeaKpmUnknownPlatform\022" +
       "L\n\006extras\030\001 \001(\01327.org.jetbrains.kotlin.k" +
       "pm.idea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n" +
-      "\007_extras\"\356\002\n\024ProtoIdeaKpmFragment\022G\n\006ext" +
+      "\007_extras\"\227\004\n\024ProtoIdeaKpmFragment\022G\n\006ext" +
       "ras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.ide" +
-      "a.proto.ProtoIdeaKpmExtras\022\\\n\021language_s" +
-      "ettings\030\002 \001(\0132A.org.jetbrains.kotlin.kpm" +
-      ".idea.proto.ProtoIdeaKpmLanguageSettings" +
-      "\022Q\n\014dependencies\030\003 \003(\0132;.org.jetbrains.k" +
-      "otlin.kpm.idea.proto.ProtoIdeaKpmDepende" +
-      "ncy\022\\\n\022source_directories\030\004 \003(\0132@.org.je" +
+      "a.proto.ProtoIdeaKpmExtras\022Y\n\013coordinate" +
+      "s\030\002 \001(\0132D.org.jetbrains.kotlin.kpm.idea." +
+      "proto.ProtoIdeaKpmFragmentCoordinates\022L\n" +
+      "\tplatforms\030\003 \003(\01329.org.jetbrains.kotlin." +
+      "kpm.idea.proto.ProtoIdeaKpmPlatform\022\\\n\021l" +
+      "anguage_settings\030\004 \001(\0132A.org.jetbrains.k" +
+      "otlin.kpm.idea.proto.ProtoIdeaKpmLanguag" +
+      "eSettings\022Q\n\014dependencies\030\005 \003(\0132;.org.je" +
       "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
-      "pmSourceDirectoryB\002P\001b\006proto3"
+      "pmDependency\022\\\n\022source_directories\030\006 \003(\013" +
+      "2@.org.jetbrains.kotlin.kpm.idea.proto.P" +
+      "rotoIdeaKpmSourceDirectoryB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -313,7 +317,7 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor,
-        new java.lang.String[] { "Extras", "LanguageSettings", "Dependencies", "SourceDirectories", });
+        new java.lang.String[] { "Extras", "Coordinates", "Platforms", "LanguageSettings", "Dependencies", "SourceDirectories", });
     org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOuterClass.getDescriptor();
   }
 

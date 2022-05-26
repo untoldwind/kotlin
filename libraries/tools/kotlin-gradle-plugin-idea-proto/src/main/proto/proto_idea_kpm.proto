@@ -115,7 +115,9 @@ message ProtoIdeaKpmUnknownPlatform {
 
 message ProtoIdeaKpmFragment {
   ProtoIdeaKpmExtras extras = 1;
-  ProtoIdeaKpmLanguageSettings language_settings = 2;
-  repeated ProtoIdeaKpmDependency dependencies = 3;
-  repeated ProtoIdeaKpmSourceDirectory source_directories = 4;
+  ProtoIdeaKpmFragmentCoordinates coordinates = 2;
+  repeated ProtoIdeaKpmPlatform platforms = 3;
+  ProtoIdeaKpmLanguageSettings language_settings = 4;
+  repeated ProtoIdeaKpmDependency dependencies = 5;
+  repeated ProtoIdeaKpmSourceDirectory source_directories = 6;
 }

@@ -11,7 +11,7 @@ import java.io.Serializable
 sealed interface IdeaKpmFragment : Serializable {
     val coordinates: IdeaKpmFragmentCoordinates
     val platforms: Set<IdeaKpmPlatform>
-    val languageSettings: IdeaKpmLanguageSettings?
+    val languageSettings: IdeaKpmLanguageSettings
     val dependencies: List<IdeaKpmDependency>
     val sourceDirectories: List<IdeaKpmSourceDirectory>
     val extras: Extras
@@ -23,7 +23,7 @@ val IdeaKpmFragment.name get() = coordinates.fragmentName
 data class IdeaKpmFragmentImpl(
     override val coordinates: IdeaKpmFragmentCoordinates,
     override val platforms: Set<IdeaKpmPlatform>,
-    override val languageSettings: IdeaKpmLanguageSettings?,
+    override val languageSettings: IdeaKpmLanguageSettings,
     override val dependencies: List<IdeaKpmDependency>,
     override val sourceDirectories: List<IdeaKpmSourceDirectory>,
     override val extras: Extras
