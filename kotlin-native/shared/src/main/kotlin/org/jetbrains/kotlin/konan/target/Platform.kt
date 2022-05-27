@@ -40,8 +40,7 @@ class PlatformManager private constructor(private val serialized: Serialized) :
     constructor(konanHome: String, experimental: Boolean = false) : this(Distribution(konanHome), experimental)
     constructor(distribution: Distribution, experimental: Boolean = false) : this(Serialized(distribution, experimental))
 
-    private val distribution
-        get() = serialized.distribution
+    private val distribution by serialized::distribution
 
     private val loaders = enabled.map {
         it to loadConfigurables(it, distribution.properties, DependencyProcessor.defaultDependenciesRoot.absolutePath)

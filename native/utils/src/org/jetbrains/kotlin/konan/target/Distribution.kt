@@ -19,17 +19,10 @@ class Distribution private constructor(private val serialized: Serialized) : jav
         propertyOverrides: Map<String, String>? = null
     ) : this(Serialized(konanHome, onlyDefaultProfiles, runtimeFileOverride, propertyOverrides))
 
-    val konanHome
-        get() = serialized.konanHome
-
-    private val onlyDefaultProfiles
-        get() = serialized.onlyDefaultProfiles
-
-    private val runtimeFileOverride
-        get() = serialized.runtimeFileOverride
-
-    private val propertyOverrides
-        get() = serialized.propertyOverrides
+    val konanHome by serialized::konanHome
+    private val onlyDefaultProfiles by serialized::onlyDefaultProfiles
+    private val runtimeFileOverride by serialized::runtimeFileOverride
+    private val propertyOverrides by serialized::propertyOverrides
 
     val localKonanDir = DependencyDirectories.localKonanDir
 
