@@ -29,6 +29,16 @@ import org.jetbrains.kotlin.utils.asMaybe
 import java.io.File
 import javax.inject.Inject
 
+private val DEFAULT_CPP_FLAGS = listOf(
+        "-std=c++17",
+        "-Werror",
+        "-O2",
+        "-fno-aligned-allocation", // TODO: Remove when all targets support aligned allocation in C++ runtime.
+        "-Wall",
+        "-Wextra",
+        "-Wno-unused-parameter",  // False positives with polymorphic functions.
+)
+
 private abstract class RunGTestSemaphore : BuildService<BuildServiceParameters.None>
 
 /**
@@ -93,11 +103,11 @@ open class CompileToBitcodeExtension @Inject constructor(val project: Project) {
         }
         compilationDatabase.target(konanTarget) {
             entry {
-                val args = listOf(execClang.resolveExecutable(compileTask.executable)) + compileTask.compilerFlags + execClang.clangArgsForCppRuntime(konanTarget.name)
-                directory.set(compileTask.objDir)
+                val args = listOf(execClang.resolveExecutable(compileTask.compiler.get())) + compileTask.compilerFlags.get() + execClang.clangArgsForCppRuntime(konanTarget.name)
+                directory.set(compileTask.outputDirectory)
                 files.setFrom(compileTask.inputFiles)
                 arguments.set(args)
-                output.set(compileTask.outFile.absolutePath)
+                output.set(compileTask.outputFile.asFile.map { it.absolutePath })
             }
         }
     }
@@ -109,11 +119,22 @@ open class CompileToBitcodeExtension @Inject constructor(val project: Project) {
             val allMainModulesTask = allMainModulesTasks[targetName]!!
             sanitizers.forEach { sanitizer ->
                 val taskName = fullTaskName(name, targetName, sanitizer)
-                val task = project.tasks.create(taskName, CompileToBitcode::class.java, name, targetName, outputGroup).apply {
-                    srcDirs = project.files(srcRoot.resolve("cpp"))
-                    headersDirs = srcDirs + project.files(srcRoot.resolve("headers"))
+                val task = project.tasks.create(taskName, CompileToBitcode::class.java, target, sanitizer.asMaybe).apply {
+                    moduleName.set(name)
+                    val sanitizerSuffix = when (sanitizer) {
+                        null -> ""
+                        SanitizerKind.ADDRESS -> "-asan"
+                        SanitizerKind.THREAD -> "-tsan"
+                    }
+                    this.outputFile.convention(moduleName.flatMap { project.layout.buildDirectory.file("bitcode/$outputGroup/$target$sanitizerSuffix/$it.bc") })
+                    this.outputDirectory.convention(moduleName.flatMap { project.layout.buildDirectory.dir("bitcode/$outputGroup/$target$sanitizerSuffix/$it") })
+                    this.compiler.convention("clang++")
+                    this.compilerArgs.set(DEFAULT_CPP_FLAGS)
+                    this.inputFiles.from(srcRoot.resolve("cpp"))
+                    this.inputFiles.include("**/*.cpp", "**/*.mm")
+                    this.inputFiles.exclude("**/*Test.cpp", "**/*TestSupport.cpp", "**/*Test.mm", "**/*TestSupport.mm")
+                    headersDirs.from(this.inputFiles.dir)
 
-                    this.sanitizer = sanitizer
                     group = BasePlugin.BUILD_GROUP
                     description = "Compiles '$name' to bitcode for $targetName${sanitizer.description}"
                     dependsOn(":kotlin-native:dependencies:update")
@@ -154,16 +175,24 @@ open class CompileToBitcodeExtension @Inject constructor(val project: Project) {
         val compileToBitcodeTasks = testedTasks.mapNotNull {
             val name = "${it.name}TestBitcode"
             val task = project.tasks.findByName(name) as? CompileToBitcode
-                    ?: project.tasks.create(name, CompileToBitcode::class.java, "${it.folderName}Tests", target.name, "test").apply {
-                        srcDirs = it.srcDirs
-                        headersDirs = it.headersDirs + googleTestExtension.headersDirs
+                    ?: project.tasks.create(name, CompileToBitcode::class.java, it.target, it.sanitizer.asMaybe).apply {
+                        moduleName.set(it.moduleName)
+                        val sanitizerSuffix = when (sanitizer) {
+                            null -> ""
+                            SanitizerKind.ADDRESS -> "-asan"
+                            SanitizerKind.THREAD -> "-tsan"
+                        }
+                        this.outputFile.convention(moduleName.flatMap { project.layout.buildDirectory.file("bitcode/test/$target$sanitizerSuffix/${it}Tests.bc") })
+                        this.outputDirectory.convention(moduleName.flatMap { project.layout.buildDirectory.dir("bitcode/test/$target$sanitizerSuffix/${it}Tests") })
+                        this.compiler.convention("clang++")
+                        this.compilerArgs.set(it.compilerArgs)
+                        this.inputFiles.from(it.inputFiles.dir)
+                        this.inputFiles.include("**/*Test.cpp", "**/*TestSupport.cpp", "**/*Test.mm", "**/*TestSupport.mm")
+                        headersDirs.setFrom(it.headersDirs)
+                        headersDirs.from(googleTestExtension.headersDirs)
 
-                        this.sanitizer = sanitizer
-                        excludeFiles = emptyList()
-                        includeFiles = listOf("**/*Test.cpp", "**/*TestSupport.cpp", "**/*Test.mm", "**/*TestSupport.mm")
                         dependsOn(":kotlin-native:dependencies:update")
                         dependsOn("downloadGoogleTest")
-                        compilerArgs.addAll(it.compilerArgs)
 
                         addToCompdb(this, target)
                     }
@@ -190,11 +219,9 @@ open class CompileToBitcodeExtension @Inject constructor(val project: Project) {
             this.llvmLinkOutputFile.set(project.layout.buildDirectory.file("bitcode/test/$target/$testName.bc"))
             this.compilerOutputFile.set(project.layout.buildDirectory.file("obj/$target/$testName.o"))
             this.mimallocEnabled.set(testsGroup.testedModules.get().any { it.contains("mimalloc") })
-            this.mainFile.set(testSupportTask.outFile)
-            dependsOn(testSupportTask)
+            this.mainFile.set(testSupportTask.outputFile)
             val tasksToLink = (compileToBitcodeTasks + testedTasks + testFrameworkTasks)
-            this.inputFiles.setFrom(tasksToLink.map { it.outFile })
-            dependsOn(tasksToLink)
+            this.inputFiles.setFrom(tasksToLink.map { it.outputFile })
         }
 
         val runTask = project.tasks.register<RunGTest>(testName) {
