@@ -40,7 +40,7 @@ bitcode {
     module("main") {
         // TODO: Split out out `base` module and merge it together with `main` into `runtime.bc`
         if (sanitizer == null) {
-            outputFile.set(project.layout.buildDirectory.file("bitcode/main/$target/runtime.bc"))
+            outputFile.set(layout.buildDirectory.file("bitcode/main/$target/runtime.bc"))
         }
     }
 
