@@ -299,7 +299,7 @@ internal fun AbstractSerialGenerator.stackValueSerializerInstance(expressionCode
     iv?.apply {
         val serializerType = classCodegen.typeMapper.mapClass(serializer)
         val classDescriptor = kType.toClassDescriptor!!
-        if (serializer.classId == enumSerializerId && classDescriptor.hasEnumSerializerFactories()) {
+        if (serializer.classId == enumSerializerId && !classDescriptor.useGeneratedEnumSerializer()) {
             // runtime contains enum serializer factory functions
             val javaEnumArray = Type.getType("[Ljava/lang/Enum;")
             val enumJavaType = classCodegen.typeMapper.mapType(kType, null, TypeMappingMode.GENERIC_ARGUMENT)

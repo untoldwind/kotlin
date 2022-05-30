@@ -35,6 +35,10 @@ object SerializationPluginErrorsRendering : DefaultErrorMessages.Extension {
             "Inner (with reference to outer this) serializable classes are not supported. Remove @Serializable annotation or 'inner' keyword."
         )
         MAP.put(
+            SerializationErrors.EXPLICIT_SERIALIZABLE_IS_REQUIRED,
+            "Explicit @Serializable annotation on enum class is required when @SerialName or @SerialInfo annotations are used on its members."
+        )
+        MAP.put(
             SerializationErrors.SERIALIZABLE_ANNOTATION_IGNORED,
             "@Serializable annotation without arguments can be used only on sealed interfaces." +
                     "Non-sealed interfaces are polymorphically serializable by default."

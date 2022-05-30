@@ -36,6 +36,8 @@ import org.jetbrains.kotlinx.serialization.compiler.resolve.*
 internal val SERIALIZABLE_PROPERTIES: WritableSlice<ClassDescriptor, SerializableProperties> = Slices.createSimpleSlice()
 
 open class SerializationPluginDeclarationChecker : DeclarationChecker {
+    private var useLegacyEnumSerializerCached: Boolean? = null
+
     final override fun check(declaration: KtDeclaration, descriptor: DeclarationDescriptor, context: DeclarationCheckerContext) {
         if (descriptor !is ClassDescriptor) return
 
@@ -139,7 +141,18 @@ open class SerializationPluginDeclarationChecker : DeclarationChecker {
         }
     }
 
+    private fun ClassDescriptor.useLegacyEnumSerializer(): Boolean {
+        return useLegacyEnumSerializerCached ?: useGeneratedEnumSerializer().also { useLegacyEnumSerializerCached = it }
+    }
+
     private fun canBeSerializedInternally(descriptor: ClassDescriptor, declaration: KtDeclaration, trace: BindingTrace): Boolean {
+        // if enum has meta or SerialInfo annotation on a class or entries and used plugin-generated serializer
+        if (descriptor.isSerializableEnumWithMissingSerializer() && descriptor.useLegacyEnumSerializer()) {
+            val declarationToReport = declaration.modifierList ?: declaration
+            trace.report(SerializationErrors.EXPLICIT_SERIALIZABLE_IS_REQUIRED.on(declarationToReport))
+            return false
+        }
+
         if (!descriptor.hasSerializableOrMetaAnnotation) return false
 
         if (!serializationPluginEnabledOn(descriptor)) {

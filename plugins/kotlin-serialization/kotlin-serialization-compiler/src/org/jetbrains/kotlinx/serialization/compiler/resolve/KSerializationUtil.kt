@@ -126,7 +126,7 @@ internal val ClassDescriptor.isInternalSerializable: Boolean //todo normal check
 
 internal fun ClassDescriptor.isSerializableEnum(): Boolean = kind == ClassKind.ENUM_CLASS && hasSerializableOrMetaAnnotation
 
-internal fun ClassDescriptor.isEnumWithLegacyGeneratedSerializer(): Boolean = isInternallySerializableEnum() && !hasEnumSerializerFactories()
+internal fun ClassDescriptor.isEnumWithLegacyGeneratedSerializer(): Boolean = isInternallySerializableEnum() && useGeneratedEnumSerializer()
 
 internal fun ClassDescriptor.isInternallySerializableEnum(): Boolean =
     kind == ClassKind.ENUM_CLASS && hasSerializableOrMetaAnnotationWithoutArgs
@@ -135,9 +135,9 @@ internal val ClassDescriptor.shouldHaveGeneratedSerializer: Boolean
     get() = (isInternalSerializable && (modality == Modality.FINAL || modality == Modality.OPEN))
             || isEnumWithLegacyGeneratedSerializer()
 
-internal fun ClassDescriptor.hasEnumSerializerFactories(): Boolean {
+internal fun ClassDescriptor.useGeneratedEnumSerializer(): Boolean {
     val functions = module.getPackage(SerializationPackages.internalPackageFqName).memberScope.getFunctionNames()
-    return functions.contains(ENUM_SERIALIZER_FACTORY_FUNC_NAME) && functions.contains(MARKED_ENUM_SERIALIZER_FACTORY_FUNC_NAME)
+    return !functions.contains(ENUM_SERIALIZER_FACTORY_FUNC_NAME) || !functions.contains(MARKED_ENUM_SERIALIZER_FACTORY_FUNC_NAME)
 }
 
 internal fun ClassDescriptor.enumEntries(): List<ClassDescriptor> {
