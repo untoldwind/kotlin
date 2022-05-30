@@ -20,7 +20,7 @@ inline fun <reified T> Type(): Type<T> {
 
 class Type<T>
 @UnsafeApi("Use 'reifiedTypeSignatureOf' instead")
-@PublishedApi internal constructor(val signature: String) : Serializable {
+@PublishedApi internal constructor(internal val signature: String) : Serializable {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
