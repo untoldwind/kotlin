@@ -5,15 +5,30 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
+import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmLanguageSettings
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmLanguageSettingsImpl
 import java.io.File
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
-class LanguageSettingsTest {
+class LanguageSettingsTest : AbstractSerializationTest<IdeaKpmLanguageSettings>() {
+
+    override fun serialize(value: IdeaKpmLanguageSettings): ByteArray {
+        return value.toByteArray()
+    }
+
+    override fun deserialize(data: ByteArray): IdeaKpmLanguageSettings {
+        return IdeaKpmLanguageSettings(data)
+    }
+
+    override fun normalize(value: IdeaKpmLanguageSettings): IdeaKpmLanguageSettings {
+        value as IdeaKpmLanguageSettingsImpl
+        return value.copy(
+            compilerPluginClasspath = value.compilerPluginClasspath.map { it.absoluteFile }
+        )
+    }
 
     @Test
-    fun `serialize - deserialize - sample 0`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 0`() = testSerialization(
         IdeaKpmLanguageSettingsImpl(
             languageVersion = "1.3",
             apiVersion = "1.4",
@@ -27,7 +42,7 @@ class LanguageSettingsTest {
     )
 
     @Test
-    fun `serialize - deserialize - sample 1`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 1`() = testSerialization(
         IdeaKpmLanguageSettingsImpl(
             languageVersion = null,
             apiVersion = "1.7",
@@ -39,16 +54,4 @@ class LanguageSettingsTest {
             freeCompilerArgs = emptyList()
         )
     )
-
-    private fun testDeserializedEquals(settings: IdeaKpmLanguageSettingsImpl) {
-        assertEquals(
-            settings.normalized(), IdeaKpmLanguageSettings(settings.toByteArray())
-        )
-    }
-
-    private fun IdeaKpmLanguageSettingsImpl.normalized(): IdeaKpmLanguageSettingsImpl {
-        return copy(
-            compilerPluginClasspath = compilerPluginClasspath.map { it.absoluteFile }
-        )
-    }
 }

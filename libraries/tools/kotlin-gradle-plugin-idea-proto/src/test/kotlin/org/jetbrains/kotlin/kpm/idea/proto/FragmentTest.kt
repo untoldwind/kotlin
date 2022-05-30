@@ -6,12 +6,14 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.*
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class FragmentTest : IdeaKpmSerializationContext by TestSerializationContext {
+class FragmentTest : AbstractSerializationTest<IdeaKpmFragment>() {
+    override fun serialize(value: IdeaKpmFragment) = value.toByteArray(this)
+    override fun deserialize(data: ByteArray) = IdeaKpmFragment(data)
+
     @Test
     fun `serialize - deserialize - sample 0`() {
         testDeserializedEquals(TestInstances.simpleFragment)

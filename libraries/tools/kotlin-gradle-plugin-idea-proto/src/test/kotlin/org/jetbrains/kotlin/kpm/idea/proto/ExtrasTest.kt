@@ -5,19 +5,17 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
-import org.jetbrains.kotlin.tooling.core.extrasKeyOf
-import org.jetbrains.kotlin.tooling.core.mutableExtrasOf
-import org.jetbrains.kotlin.tooling.core.toExtras
-import org.jetbrains.kotlin.tooling.core.withValue
+import org.jetbrains.kotlin.tooling.core.*
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
-class ExtrasTest : IdeaKpmSerializationContext by TestSerializationContext {
+class ExtrasTest : AbstractSerializationTest<Extras>() {
+
+    override fun serialize(value: Extras): ByteArray = ProtoIdeaKpmExtras(value).toByteArray()
+    override fun deserialize(data: ByteArray): Extras = Extras(ProtoIdeaKpmExtras.parseFrom(data))
+    override fun normalize(value: Extras): Extras = value.filter { (_, value) -> value !is Ignored }.toExtras()
 
     class Ignored
 
-    @Suppress("unchecked_cast")
     @Test
     fun `serialize - deserialize - sample 0`() {
 
@@ -28,11 +26,6 @@ class ExtrasTest : IdeaKpmSerializationContext by TestSerializationContext {
             extrasKeyOf<Ignored>() withValue Ignored()
         )
 
-        val data = ProtoIdeaKpmExtras(extras).toByteArray()
-        val deserialized = Extras(ProtoIdeaKpmExtras.parseFrom(data))
-
-        assertEquals(
-            extras.filter { (_, value) -> value !is Ignored }.toExtras(), deserialized
-        )
+        testSerialization(extras)
     }
 }

@@ -85,7 +85,9 @@ object TestInstances {
         extras = emptyExtras()
     )
 
-    val fragmentWithExtras = simpleFragment.copy(extras = extrasWithIntAndStrings)
+    val fragmentWithExtras = simpleFragment.copy(
+        extras = extrasWithIntAndStrings
+    )
 
     val simpleCompilationOutput = IdeaKpmCompilationOutputImpl(
         classesDirs = setOf(File("myClassesDir").absoluteFile),
@@ -99,5 +101,20 @@ object TestInstances {
         compilationOutputs = simpleCompilationOutput
     )
 
-    val variantWithExtras = simpleVariant.copy(fragment = fragmentWithExtras)
+    val variantWithExtras = simpleVariant.copy(
+        fragment = fragmentWithExtras
+    )
+
+    val simpleModule = IdeaKpmModuleImpl(
+        coordinates = simpleModuleCoordinates,
+        fragments = listOf(simpleFragment, simpleVariant)
+    )
+
+    val simpleProject = IdeaKpmProjectImpl(
+        gradlePluginVersion = "1.7.20",
+        coreLibrariesVersion = "1.6.20",
+        explicitApiModeCliOption = null,
+        kotlinNativeHome = File("myKotlinNativeHome").absoluteFile,
+        modules = listOf(simpleModule)
+    )
 }

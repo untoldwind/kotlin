@@ -5,29 +5,26 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
+import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmCompilationOutput
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmCompilationOutputImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
-class CompilationOutputTest {
+class CompilationOutputTest : AbstractSerializationTest<IdeaKpmCompilationOutput>() {
+
+    override fun serialize(value: IdeaKpmCompilationOutput): ByteArray = value.toByteArray()
+    override fun deserialize(data: ByteArray): IdeaKpmCompilationOutput = IdeaKpmCompilationOutput(data)
 
     @Test
     fun `serialize - deserialize - sample 0`() {
-        assertDeserializedEquals(TestInstances.simpleCompilationOutput)
+        testSerialization(TestInstances.simpleCompilationOutput)
     }
 
     @Test
-    fun `serialize - deserialize - sample 1`() {
-        assertDeserializedEquals(
-            IdeaKpmCompilationOutputImpl(
-                classesDirs = emptySet(),
-                resourcesDir = null
-            )
+    fun `serialize - deserialize - sample 1`() = testSerialization(
+        IdeaKpmCompilationOutputImpl(
+            classesDirs = emptySet(),
+            resourcesDir = null
         )
-    }
-
-    private fun assertDeserializedEquals(value: IdeaKpmCompilationOutputImpl) {
-        assertEquals(value, IdeaKpmCompilationOutput(value.toByteArray()))
-    }
+    )
 }

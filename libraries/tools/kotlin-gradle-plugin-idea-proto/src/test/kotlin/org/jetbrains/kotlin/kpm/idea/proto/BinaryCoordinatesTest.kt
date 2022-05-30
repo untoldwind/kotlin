@@ -7,15 +7,15 @@ package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinatesImpl
-import org.jetbrains.kotlin.kpm.idea.proto.IdeaKpmBinaryCoordinates
-import org.jetbrains.kotlin.kpm.idea.proto.toByteArray
 import org.junit.Test
-import kotlin.test.assertEquals
 
-class BinaryCoordinatesTest {
+class BinaryCoordinatesTest : AbstractSerializationTest<IdeaKpmBinaryCoordinates>() {
+
+    override fun serialize(value: IdeaKpmBinaryCoordinates): ByteArray = value.toByteArray()
+    override fun deserialize(data: ByteArray): IdeaKpmBinaryCoordinates = IdeaKpmBinaryCoordinates(data)
 
     @Test
-    fun `serialize - deserialize - sample 0`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 0`() = testSerialization(
         IdeaKpmBinaryCoordinatesImpl(
             group = "myGroup",
             module = "myModule",
@@ -26,7 +26,7 @@ class BinaryCoordinatesTest {
     )
 
     @Test
-    fun `serialize - deserialize - sample 1`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 1`() = testSerialization(
         IdeaKpmBinaryCoordinatesImpl(
             group = "myGroup",
             module = "myModule",
@@ -37,7 +37,7 @@ class BinaryCoordinatesTest {
     )
 
     @Test
-    fun `serialize - deserialize - sample 2`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 2`() = testSerialization(
         IdeaKpmBinaryCoordinatesImpl(
             group = "myGroup",
             module = "myModule",
@@ -46,10 +46,4 @@ class BinaryCoordinatesTest {
             kotlinFragmentName = "myFragmentName"
         )
     )
-
-    private fun testDeserializedEquals(settings: IdeaKpmBinaryCoordinates) {
-        assertEquals(
-            settings, IdeaKpmBinaryCoordinates(settings.toByteArray())
-        )
-    }
 }

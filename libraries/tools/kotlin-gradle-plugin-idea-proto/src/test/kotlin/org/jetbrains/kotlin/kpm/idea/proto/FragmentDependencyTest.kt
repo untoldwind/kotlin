@@ -16,7 +16,11 @@ import org.jetbrains.kotlin.tooling.core.withValue
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class FragmentDependencyTest : IdeaKpmSerializationContext by TestSerializationContext {
+class FragmentDependencyTest : AbstractSerializationTest<IdeaKpmFragmentDependency>() {
+
+    override fun serialize(value: IdeaKpmFragmentDependency) = value.toByteArray(this)
+
+    override fun deserialize(data: ByteArray) = IdeaKpmFragmentDependency(data)
 
     private val coordinates = IdeaKpmFragmentCoordinatesImpl(
         module = IdeaKpmModuleCoordinatesImpl(
@@ -30,40 +34,36 @@ class FragmentDependencyTest : IdeaKpmSerializationContext by TestSerializationC
     )
 
     @Test
-    fun `serialize - deserialize - sample 0`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 0`() = testSerialization(
         IdeaKpmFragmentDependencyImpl(
             type = IdeaKpmFragmentDependency.Type.Regular,
-            coordinates
+            coordinates = coordinates
         )
     )
 
     @Test
-    fun `serialize - deserialize - sample 1`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 1`() = testSerialization(
         IdeaKpmFragmentDependencyImpl(
             type = IdeaKpmFragmentDependency.Type.Refines,
-            coordinates
+            coordinates = coordinates
         )
     )
 
 
     @Test
-    fun `serialize - deserialize - sample 2`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 2`() = testSerialization(
         IdeaKpmFragmentDependencyImpl(
             type = IdeaKpmFragmentDependency.Type.Friend,
-            coordinates
+            coordinates = coordinates
         )
     )
 
     @Test
-    fun `serialize - deserialize - sample 3`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 3`() = testSerialization(
         IdeaKpmFragmentDependencyImpl(
             type = IdeaKpmFragmentDependency.Type.Regular,
-            coordinates,
+            coordinates = coordinates,
             extras = extrasOf(extrasKeyOf<String>() withValue "myStringExtras")
         )
     )
-
-    private fun testDeserializedEquals(value: IdeaKpmFragmentDependencyImpl) {
-        assertEquals(value, IdeaKpmFragmentDependency(value.toByteArray(this)))
-    }
 }

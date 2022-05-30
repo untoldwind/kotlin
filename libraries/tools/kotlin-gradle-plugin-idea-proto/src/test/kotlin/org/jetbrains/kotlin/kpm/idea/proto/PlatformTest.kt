@@ -6,17 +6,25 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.*
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class PlatformTest : IdeaKpmSerializationContext by TestSerializationContext {
+class PlatformTest : AbstractSerializationTest<IdeaKpmPlatform>() {
+
+    override fun serialize(value: IdeaKpmPlatform): ByteArray {
+        return ProtoIdeaKpmPlatform(value).toByteArray()
+    }
+
+    override fun deserialize(data: ByteArray): IdeaKpmPlatform {
+        return IdeaKpmPlatform(ProtoIdeaKpmPlatform.parseFrom(data))
+    }
 
     @Test
     fun `serialize - deserialize - jvm`() {
         val value = IdeaKpmJvmPlatformImpl("jvmTarget")
         assertEquals(value, IdeaKpmJvmPlatform(value.toByteArray(this)))
         assertEquals(value, IdeaKpmPlatform(ProtoIdeaKpmPlatform(value)))
+        testSerialization(value)
     }
 
     @Test
@@ -24,6 +32,7 @@ class PlatformTest : IdeaKpmSerializationContext by TestSerializationContext {
         val value = IdeaKpmNativePlatformImpl("konanTarget")
         assertEquals(value, IdeaKpmNativePlatform(value.toByteArray(this)))
         assertEquals(value, IdeaKpmPlatform(ProtoIdeaKpmPlatform(value)))
+        testSerialization(value)
     }
 
     @Test
@@ -31,6 +40,7 @@ class PlatformTest : IdeaKpmSerializationContext by TestSerializationContext {
         val value = IdeaKpmJsPlatformImpl(true)
         assertEquals(value, IdeaKpmJsPlatform(value.toByteArray(this)))
         assertEquals(value, IdeaKpmPlatform(ProtoIdeaKpmPlatform(value)))
+        testSerialization(value)
     }
 
     @Test
@@ -38,6 +48,7 @@ class PlatformTest : IdeaKpmSerializationContext by TestSerializationContext {
         val value = IdeaKpmWasmPlatformImpl()
         assertEquals(value, IdeaKpmWasmPlatform(value.toByteArray(this)))
         assertEquals(value, IdeaKpmPlatform(ProtoIdeaKpmPlatform(value)))
+        testSerialization(value)
     }
 
     @Test
@@ -45,5 +56,6 @@ class PlatformTest : IdeaKpmSerializationContext by TestSerializationContext {
         val value = IdeaKpmUnknownPlatformImpl()
         assertEquals(value, IdeaKpmUnknownPlatform(value.toByteArray(this)))
         assertEquals(value, IdeaKpmPlatform(ProtoIdeaKpmPlatform(value)))
+        testSerialization(value)
     }
 }

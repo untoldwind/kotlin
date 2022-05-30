@@ -5,15 +5,19 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
+import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinatesImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmModuleCoordinatesImpl
 import org.junit.Test
-import kotlin.test.assertEquals
 
-class FragmentCoordinatesTest {
+class FragmentCoordinatesTest : AbstractSerializationTest<IdeaKpmFragmentCoordinates>() {
+
+    override fun serialize(value: IdeaKpmFragmentCoordinates) = value.toByteArray()
+
+    override fun deserialize(data: ByteArray) = IdeaKpmFragmentCoordinates(data)
 
     @Test
-    fun `serialize - deserialize - sample 0`() = testDeserializedEquals(
+    fun `serialize - deserialize - sample 0`() = testSerialization(
         IdeaKpmFragmentCoordinatesImpl(
             module = IdeaKpmModuleCoordinatesImpl(
                 buildId = "buildId",
@@ -25,10 +29,4 @@ class FragmentCoordinatesTest {
             fragmentName = "myFragmentName"
         )
     )
-
-    private fun testDeserializedEquals(coordinates: IdeaKpmFragmentCoordinatesImpl) {
-        assertEquals(
-            coordinates, IdeaKpmFragmentCoordinates(coordinates.toByteArray())
-        )
-    }
 }

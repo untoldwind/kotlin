@@ -5,25 +5,22 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
-import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmVariantImpl
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
+import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmVariant
 import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
-class VariantTest : IdeaKpmSerializationContext by TestSerializationContext {
+class VariantTest : AbstractSerializationTest<IdeaKpmVariant>() {
+
+    override fun serialize(value: IdeaKpmVariant) = value.toByteArray(this)
+    override fun deserialize(data: ByteArray) = IdeaKpmVariant(data)
 
     @Test
     fun `serialize - deserialize - sample 0`() {
-        assertDeserializedEquals(TestInstances.simpleVariant)
+        testSerialization(TestInstances.simpleVariant)
     }
 
     @Test
     fun `serialize - deserialize - sample 1`() {
-        assertDeserializedEquals(TestInstances.variantWithExtras)
-    }
-
-    private fun assertDeserializedEquals(value: IdeaKpmVariantImpl) {
-        assertEquals(value, IdeaKpmVariant(value.toByteArray(this)))
+        testSerialization(TestInstances.variantWithExtras)
     }
 }
