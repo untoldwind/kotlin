@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmUnresolvedBinaryDependency
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmUnresolvedBinaryDependencyImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 
-fun IdeaKpmSerializationContext.ProtoIdeaKpmUnresolvedBinaryDependency(
+internal fun IdeaKpmSerializationContext.ProtoIdeaKpmUnresolvedBinaryDependency(
     dependency: IdeaKpmUnresolvedBinaryDependency
 ): ProtoIdeaKpmUnresolvedBinaryDependency {
     return protoIdeaKpmUnresolvedBinaryDependency {
@@ -19,7 +19,7 @@ fun IdeaKpmSerializationContext.ProtoIdeaKpmUnresolvedBinaryDependency(
     }
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmUnresolvedBinaryDependency(proto: ProtoIdeaKpmUnresolvedBinaryDependency): IdeaKpmUnresolvedBinaryDependency {
+internal fun IdeaKpmSerializationContext.IdeaKpmUnresolvedBinaryDependency(proto: ProtoIdeaKpmUnresolvedBinaryDependency): IdeaKpmUnresolvedBinaryDependency {
     return IdeaKpmUnresolvedBinaryDependencyImpl(
         cause = if (proto.hasCause()) proto.cause else null,
         coordinates = if (proto.hasCoordinates()) IdeaKpmBinaryCoordinates(proto.coordinates) else null,
@@ -27,10 +27,10 @@ fun IdeaKpmSerializationContext.IdeaKpmUnresolvedBinaryDependency(proto: ProtoId
     )
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmUnresolvedBinaryDependency(data: ByteArray): IdeaKpmUnresolvedBinaryDependency {
+internal fun IdeaKpmSerializationContext.IdeaKpmUnresolvedBinaryDependency(data: ByteArray): IdeaKpmUnresolvedBinaryDependency {
     return IdeaKpmUnresolvedBinaryDependency(ProtoIdeaKpmUnresolvedBinaryDependency.parseFrom(data))
 }
 
-fun IdeaKpmUnresolvedBinaryDependency.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
+internal fun IdeaKpmUnresolvedBinaryDependency.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
     return context.ProtoIdeaKpmUnresolvedBinaryDependency(this).toByteArray()
 }

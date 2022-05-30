@@ -57,6 +57,7 @@ dependencies {
     commonCompileOnly("com.gradle:gradle-enterprise-gradle-plugin:3.9")
 
     commonImplementation(project(":kotlin-gradle-plugin-idea"))
+    commonImplementation(project(":kotlin-gradle-plugin-idea-proto"))
     commonImplementation(project(":kotlin-util-klib"))
     commonImplementation(project(":native:kotlin-klib-commonizer-api"))
     commonImplementation(project(":kotlin-tooling-metadata"))

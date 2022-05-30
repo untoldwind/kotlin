@@ -9,7 +9,7 @@ package org.jetbrains.kotlin.kpm.idea.proto
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmBinaryCoordinatesImpl
 
-fun ProtoIdeaKpmBinaryCoordinates(coordinates: IdeaKpmBinaryCoordinates): ProtoIdeaKpmBinaryCoordinates {
+internal fun ProtoIdeaKpmBinaryCoordinates(coordinates: IdeaKpmBinaryCoordinates): ProtoIdeaKpmBinaryCoordinates {
     return protoIdeaKpmBinaryCoordinates {
         group = coordinates.group
         module = coordinates.module
@@ -19,7 +19,7 @@ fun ProtoIdeaKpmBinaryCoordinates(coordinates: IdeaKpmBinaryCoordinates): ProtoI
     }
 }
 
-fun IdeaKpmBinaryCoordinates(proto: ProtoIdeaKpmBinaryCoordinates): IdeaKpmBinaryCoordinates {
+internal fun IdeaKpmBinaryCoordinates(proto: ProtoIdeaKpmBinaryCoordinates): IdeaKpmBinaryCoordinates {
     return IdeaKpmBinaryCoordinatesImpl(
         group = proto.group,
         module = proto.module,
@@ -29,10 +29,10 @@ fun IdeaKpmBinaryCoordinates(proto: ProtoIdeaKpmBinaryCoordinates): IdeaKpmBinar
     )
 }
 
-fun IdeaKpmBinaryCoordinates(data: ByteArray): IdeaKpmBinaryCoordinates {
+internal fun IdeaKpmBinaryCoordinates(data: ByteArray): IdeaKpmBinaryCoordinates {
     return IdeaKpmBinaryCoordinates(ProtoIdeaKpmBinaryCoordinates.parseFrom(data))
 }
 
-fun IdeaKpmBinaryCoordinates.toByteArray(): ByteArray {
+internal fun IdeaKpmBinaryCoordinates.toByteArray(): ByteArray {
     return ProtoIdeaKpmBinaryCoordinates(this).toByteArray()
 }

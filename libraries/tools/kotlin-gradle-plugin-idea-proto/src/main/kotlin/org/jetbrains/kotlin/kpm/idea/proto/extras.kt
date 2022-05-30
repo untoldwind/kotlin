@@ -13,7 +13,7 @@ import org.jetbrains.kotlin.tooling.core.toExtras
 import org.jetbrains.kotlin.tooling.core.withValue
 
 @Suppress("unchecked_cast")
-fun IdeaKpmSerializationContext.ProtoIdeaKpmExtras(extras: Extras): ProtoIdeaKpmExtras {
+internal fun IdeaKpmSerializationContext.ProtoIdeaKpmExtras(extras: Extras): ProtoIdeaKpmExtras {
     val context = this
     return protoIdeaKpmExtras {
         extras.entries.forEach { (key, value) ->
@@ -30,7 +30,7 @@ fun IdeaKpmSerializationContext.ProtoIdeaKpmExtras(extras: Extras): ProtoIdeaKpm
 }
 
 @Suppress("unchecked_cast")
-fun IdeaKpmSerializationContext.Extras(proto: ProtoIdeaKpmExtras): Extras {
+internal fun IdeaKpmSerializationContext.Extras(proto: ProtoIdeaKpmExtras): Extras {
     return proto.valuesMap.entries.mapNotNull { (keyString, value) ->
         val key = Extras.Key.fromString(keyString) as Extras.Key<Any>
         val serializer = extras.serializer(key) ?: return@mapNotNull null

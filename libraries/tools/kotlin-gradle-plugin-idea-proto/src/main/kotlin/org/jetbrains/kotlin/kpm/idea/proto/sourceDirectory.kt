@@ -16,7 +16,7 @@ import java.io.File
  */
 
 
-fun IdeaKpmSerializationContext.ProtoIdeaKpmSourceDirectory(sourceDirectory: IdeaKpmSourceDirectory): ProtoIdeaKpmSourceDirectory {
+internal fun IdeaKpmSerializationContext.ProtoIdeaKpmSourceDirectory(sourceDirectory: IdeaKpmSourceDirectory): ProtoIdeaKpmSourceDirectory {
     return protoIdeaKpmSourceDirectory {
         absolutePath = sourceDirectory.file.absolutePath
         type = sourceDirectory.type
@@ -24,7 +24,7 @@ fun IdeaKpmSerializationContext.ProtoIdeaKpmSourceDirectory(sourceDirectory: Ide
     }
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(proto: ProtoIdeaKpmSourceDirectory): IdeaKpmSourceDirectory {
+internal fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(proto: ProtoIdeaKpmSourceDirectory): IdeaKpmSourceDirectory {
     return IdeaKpmSourceDirectoryImpl(
         file = File(proto.absolutePath),
         type = proto.type,
@@ -32,10 +32,10 @@ fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(proto: ProtoIdeaKpmSource
     )
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(data: ByteArray): IdeaKpmSourceDirectory {
+internal fun IdeaKpmSerializationContext.IdeaKpmSourceDirectory(data: ByteArray): IdeaKpmSourceDirectory {
     return IdeaKpmSourceDirectory(ProtoIdeaKpmSourceDirectory.parseFrom(data))
 }
 
-fun IdeaKpmSourceDirectory.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
+internal fun IdeaKpmSourceDirectory.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
     return context.ProtoIdeaKpmSourceDirectory(this).toByteArray()
 }

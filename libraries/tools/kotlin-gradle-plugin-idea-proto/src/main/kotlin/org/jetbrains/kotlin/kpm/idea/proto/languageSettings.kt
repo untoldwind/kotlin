@@ -12,7 +12,7 @@ import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmLanguageSettingsImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.InternalKotlinGradlePluginApi
 import java.io.File
 
-fun ProtoIdeaKpmLanguageSettings(languageSettings: IdeaKpmLanguageSettings): ProtoIdeaKpmLanguageSettings {
+internal fun ProtoIdeaKpmLanguageSettings(languageSettings: IdeaKpmLanguageSettings): ProtoIdeaKpmLanguageSettings {
     return protoIdeaKpmLanguageSettings {
         languageSettings.languageVersion?.let { languageVersion = it }
         languageSettings.apiVersion?.let { apiVersion = it }
@@ -25,7 +25,7 @@ fun ProtoIdeaKpmLanguageSettings(languageSettings: IdeaKpmLanguageSettings): Pro
     }
 }
 
-fun IdeaKpmLanguageSettings(proto: ProtoIdeaKpmLanguageSettings): IdeaKpmLanguageSettings {
+internal fun IdeaKpmLanguageSettings(proto: ProtoIdeaKpmLanguageSettings): IdeaKpmLanguageSettings {
     return IdeaKpmLanguageSettingsImpl(
         languageVersion = if (proto.hasLanguageVersion()) proto.languageVersion else null,
         apiVersion = if (proto.hasApiVersion()) proto.apiVersion else null,
@@ -38,11 +38,11 @@ fun IdeaKpmLanguageSettings(proto: ProtoIdeaKpmLanguageSettings): IdeaKpmLanguag
     )
 }
 
-fun IdeaKpmLanguageSettings(data: ByteArray): IdeaKpmLanguageSettings {
+internal fun IdeaKpmLanguageSettings(data: ByteArray): IdeaKpmLanguageSettings {
     return IdeaKpmLanguageSettings(ProtoIdeaKpmLanguageSettings.parseFrom(data))
 }
 
-fun IdeaKpmLanguageSettings.toByteArray(): ByteArray {
+internal fun IdeaKpmLanguageSettings.toByteArray(): ByteArray {
     return ProtoIdeaKpmLanguageSettings(this).toByteArray()
 }
 

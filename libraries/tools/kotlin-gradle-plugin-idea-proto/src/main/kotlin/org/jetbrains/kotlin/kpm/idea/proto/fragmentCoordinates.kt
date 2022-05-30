@@ -8,24 +8,24 @@ package org.jetbrains.kotlin.kpm.idea.proto
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentCoordinatesImpl
 
-fun ProtoIdeaKpmFragmentCoordinates(coordinates: IdeaKpmFragmentCoordinates): ProtoIdeaKpmFragmentCoordinates {
+internal fun ProtoIdeaKpmFragmentCoordinates(coordinates: IdeaKpmFragmentCoordinates): ProtoIdeaKpmFragmentCoordinates {
     return protoIdeaKpmFragmentCoordinates {
         module = ProtoIdeaKpmModuleCoordinates(coordinates.module)
         fragmentName = coordinates.fragmentName
     }
 }
 
-fun IdeaKpmFragmentCoordinates(proto: ProtoIdeaKpmFragmentCoordinates): IdeaKpmFragmentCoordinates {
+internal fun IdeaKpmFragmentCoordinates(proto: ProtoIdeaKpmFragmentCoordinates): IdeaKpmFragmentCoordinates {
     return IdeaKpmFragmentCoordinatesImpl(
         module = IdeaKpmModuleCoordinates(proto.module),
         fragmentName = proto.fragmentName
     )
 }
 
-fun IdeaKpmFragmentCoordinates(data: ByteArray): IdeaKpmFragmentCoordinates {
+internal fun IdeaKpmFragmentCoordinates(data: ByteArray): IdeaKpmFragmentCoordinates {
     return IdeaKpmFragmentCoordinates(ProtoIdeaKpmFragmentCoordinates.parseFrom(data))
 }
 
-fun IdeaKpmFragmentCoordinates.toByteArray(): ByteArray {
+internal fun IdeaKpmFragmentCoordinates.toByteArray(): ByteArray {
     return ProtoIdeaKpmFragmentCoordinates(this).toByteArray()
 }

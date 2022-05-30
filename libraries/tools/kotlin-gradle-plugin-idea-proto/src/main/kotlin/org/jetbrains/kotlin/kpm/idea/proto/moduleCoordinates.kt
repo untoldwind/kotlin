@@ -8,7 +8,7 @@ package org.jetbrains.kotlin.kpm.idea.proto
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmModuleCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmModuleCoordinatesImpl
 
-fun ProtoIdeaKpmModuleCoordinates(coordinates: IdeaKpmModuleCoordinates): ProtoIdeaKpmModuleCoordinates {
+internal fun ProtoIdeaKpmModuleCoordinates(coordinates: IdeaKpmModuleCoordinates): ProtoIdeaKpmModuleCoordinates {
     return protoIdeaKpmModuleCoordinates {
         buildId = coordinates.buildId
         projectPath = coordinates.projectPath
@@ -18,7 +18,7 @@ fun ProtoIdeaKpmModuleCoordinates(coordinates: IdeaKpmModuleCoordinates): ProtoI
     }
 }
 
-fun IdeaKpmModuleCoordinates(proto: ProtoIdeaKpmModuleCoordinates): IdeaKpmModuleCoordinates {
+internal fun IdeaKpmModuleCoordinates(proto: ProtoIdeaKpmModuleCoordinates): IdeaKpmModuleCoordinates {
     return IdeaKpmModuleCoordinatesImpl(
         buildId = proto.buildId,
         projectPath = proto.projectPath,
@@ -28,10 +28,10 @@ fun IdeaKpmModuleCoordinates(proto: ProtoIdeaKpmModuleCoordinates): IdeaKpmModul
     )
 }
 
-fun IdeaKpmModuleCoordinates(data: ByteArray): IdeaKpmModuleCoordinates {
+internal fun IdeaKpmModuleCoordinates(data: ByteArray): IdeaKpmModuleCoordinates {
     return IdeaKpmModuleCoordinates(ProtoIdeaKpmModuleCoordinates.parseFrom(data))
 }
 
-fun IdeaKpmModuleCoordinates.toByteArray(): ByteArray {
+internal fun IdeaKpmModuleCoordinates.toByteArray(): ByteArray {
     return ProtoIdeaKpmModuleCoordinates(this).toByteArray()
 }

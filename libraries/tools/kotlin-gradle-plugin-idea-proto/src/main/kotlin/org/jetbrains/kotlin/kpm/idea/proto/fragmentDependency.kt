@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentDependency
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentDependencyImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 
-fun IdeaKpmSerializationContext.ProtoIdeaKpmFragmentDependency(dependency: IdeaKpmFragmentDependency): ProtoIdeaKpmFragmentDependency {
+internal fun IdeaKpmSerializationContext.ProtoIdeaKpmFragmentDependency(dependency: IdeaKpmFragmentDependency): ProtoIdeaKpmFragmentDependency {
     return protoIdeaKpmFragmentDependency {
         type = when (dependency.type) {
             IdeaKpmFragmentDependency.Type.Regular -> ProtoIdeaKpmFragmentDependency.Type.REGULAR
@@ -22,7 +22,7 @@ fun IdeaKpmSerializationContext.ProtoIdeaKpmFragmentDependency(dependency: IdeaK
     }
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmFragmentDependency(proto: ProtoIdeaKpmFragmentDependency): IdeaKpmFragmentDependency {
+internal fun IdeaKpmSerializationContext.IdeaKpmFragmentDependency(proto: ProtoIdeaKpmFragmentDependency): IdeaKpmFragmentDependency {
     return IdeaKpmFragmentDependencyImpl(
         type = when (proto.type) {
             ProtoIdeaKpmFragmentDependency.Type.REGULAR -> IdeaKpmFragmentDependency.Type.Regular
@@ -35,10 +35,10 @@ fun IdeaKpmSerializationContext.IdeaKpmFragmentDependency(proto: ProtoIdeaKpmFra
     )
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmFragmentDependency(data: ByteArray): IdeaKpmFragmentDependency {
+internal fun IdeaKpmSerializationContext.IdeaKpmFragmentDependency(data: ByteArray): IdeaKpmFragmentDependency {
     return IdeaKpmFragmentDependency(ProtoIdeaKpmFragmentDependency.parseFrom(data))
 }
 
-fun IdeaKpmFragmentDependency.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
+internal fun IdeaKpmFragmentDependency.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
     return context.ProtoIdeaKpmFragmentDependency(this).toByteArray()
 }

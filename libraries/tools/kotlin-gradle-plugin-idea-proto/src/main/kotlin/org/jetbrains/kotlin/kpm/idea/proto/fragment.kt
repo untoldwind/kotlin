@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragment
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmFragmentImpl
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 
-fun IdeaKpmSerializationContext.ProtoIdeaKpmFragment(fragment: IdeaKpmFragment): ProtoIdeaKpmFragment {
+internal fun IdeaKpmSerializationContext.ProtoIdeaKpmFragment(fragment: IdeaKpmFragment): ProtoIdeaKpmFragment {
     return protoIdeaKpmFragment {
         coordinates = ProtoIdeaKpmFragmentCoordinates(fragment.coordinates)
         platforms.addAll(fragment.platforms.map { ProtoIdeaKpmPlatform(it) })
@@ -20,7 +20,7 @@ fun IdeaKpmSerializationContext.ProtoIdeaKpmFragment(fragment: IdeaKpmFragment):
     }
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmFragment(proto: ProtoIdeaKpmFragment): IdeaKpmFragment {
+internal fun IdeaKpmSerializationContext.IdeaKpmFragment(proto: ProtoIdeaKpmFragment): IdeaKpmFragment {
     return IdeaKpmFragmentImpl(
         coordinates = IdeaKpmFragmentCoordinates(proto.coordinates),
         platforms = proto.platformsList.map { IdeaKpmPlatform(it) }.toSet(),
@@ -31,10 +31,10 @@ fun IdeaKpmSerializationContext.IdeaKpmFragment(proto: ProtoIdeaKpmFragment): Id
     )
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmFragment(data: ByteArray): IdeaKpmFragment {
+internal fun IdeaKpmSerializationContext.IdeaKpmFragment(data: ByteArray): IdeaKpmFragment {
     return IdeaKpmFragment(ProtoIdeaKpmFragment.parseFrom(data))
 }
 
-fun IdeaKpmFragment.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
+internal fun IdeaKpmFragment.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
     return context.ProtoIdeaKpmFragment(this).toByteArray()
 }

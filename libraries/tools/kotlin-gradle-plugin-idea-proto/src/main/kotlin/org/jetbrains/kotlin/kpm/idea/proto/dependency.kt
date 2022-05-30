@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.gradle.kpm.idea.*
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmDependency.DependencyCase
 
-fun IdeaKpmSerializationContext.ProtoIdeaKpmDependency(dependency: IdeaKpmDependency): ProtoIdeaKpmDependency {
+internal fun IdeaKpmSerializationContext.ProtoIdeaKpmDependency(dependency: IdeaKpmDependency): ProtoIdeaKpmDependency {
     return protoIdeaKpmDependency {
         when (dependency) {
             is IdeaKpmResolvedBinaryDependency -> resolvedBinaryDependency = ProtoIdeaKpmResolvedBinaryDependency(dependency)
@@ -21,7 +21,7 @@ fun IdeaKpmSerializationContext.ProtoIdeaKpmDependency(dependency: IdeaKpmDepend
     }
 }
 
-fun IdeaKpmSerializationContext.IdeaKpmDependency(proto: ProtoIdeaKpmDependency): IdeaKpmDependency? {
+internal fun IdeaKpmSerializationContext.IdeaKpmDependency(proto: ProtoIdeaKpmDependency): IdeaKpmDependency? {
     return when (proto.dependencyCase) {
         DependencyCase.UNRESOLVED_BINARY_DEPENDENCY -> IdeaKpmUnresolvedBinaryDependency(proto.unresolvedBinaryDependency)
         DependencyCase.RESOLVED_BINARY_DEPENDENCY -> IdeaKpmResolvedBinaryDependency(proto.resolvedBinaryDependency)

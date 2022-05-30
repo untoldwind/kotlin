@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmCompilationOutput
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmCompilationOutputImpl
 import java.io.File
 
-fun ProtoIdeaKpmCompilationOutput(output: IdeaKpmCompilationOutput): ProtoIdeaKpmCompilationOutput {
+internal fun ProtoIdeaKpmCompilationOutput(output: IdeaKpmCompilationOutput): ProtoIdeaKpmCompilationOutput {
     return protoIdeaKpmCompilationOutput {
         classesDirs.addAll(output.classesDirs.map { it.absolutePath })
         output.resourcesDir?.absolutePath?.let { this.resourcesDir = it }
@@ -17,17 +17,17 @@ fun ProtoIdeaKpmCompilationOutput(output: IdeaKpmCompilationOutput): ProtoIdeaKp
 }
 
 
-fun IdeaKpmCompilationOutput(proto: ProtoIdeaKpmCompilationOutput): IdeaKpmCompilationOutput {
+internal fun IdeaKpmCompilationOutput(proto: ProtoIdeaKpmCompilationOutput): IdeaKpmCompilationOutput {
     return IdeaKpmCompilationOutputImpl(
         classesDirs = proto.classesDirsList.map { File(it) }.toSet(),
         resourcesDir = if (proto.hasResourcesDir()) File(proto.resourcesDir) else null
     )
 }
 
-fun IdeaKpmCompilationOutput(data: ByteArray): IdeaKpmCompilationOutput {
+internal fun IdeaKpmCompilationOutput(data: ByteArray): IdeaKpmCompilationOutput {
     return IdeaKpmCompilationOutput(ProtoIdeaKpmCompilationOutput.parseFrom(data))
 }
 
-fun IdeaKpmCompilationOutput.toByteArray(): ByteArray {
+internal fun IdeaKpmCompilationOutput.toByteArray(): ByteArray {
     return ProtoIdeaKpmCompilationOutput(this).toByteArray()
 }
