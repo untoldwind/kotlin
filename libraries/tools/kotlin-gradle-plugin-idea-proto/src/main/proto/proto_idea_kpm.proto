@@ -133,3 +133,19 @@ message ProtoIdeaKpmVariant {
   map<string, string> variant_attributes = 3;
   ProtoIdeaKpmCompilationOutput compilation_output = 4;
 }
+
+message ProtoIdeaKpmModule {
+  optional ProtoIdeaKpmExtras extras = 1;
+  ProtoIdeaKpmModuleCoordinates coordinates = 2;
+  repeated ProtoIdeaKpmFragment fragments = 3;
+  repeated ProtoIdeaKpmVariant variants = 4;
+}
+
+message ProtoIdeaKpmProject {
+  optional ProtoIdeaKpmExtras extras = 1;
+  string gradle_plugin_version = 2;
+  string core_libraries_version = 3;
+  optional string explicit_api_mode_cli_option = 4;
+  string kotlin_native_home = 5;
+  repeated ProtoIdeaKpmModule modules = 6;
+}
