@@ -16,7 +16,7 @@ class ProjectTest : AbstractSerializationTest<IdeaKpmProject>() {
     }
 
     override fun deserialize(data: ByteArray): IdeaKpmProject {
-        return IdeaKpmProject(data)
+        return IdeaKpmProject(data) ?: error("Failed to deserialize kpm project: ${logger.reports}")
     }
 
     @Test

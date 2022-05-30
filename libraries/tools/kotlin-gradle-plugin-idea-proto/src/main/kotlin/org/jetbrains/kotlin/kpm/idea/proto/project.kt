@@ -29,11 +29,3 @@ fun IdeaKpmSerializationContext.IdeaKpmProject(proto: ProtoIdeaKpmProject): Idea
         modules = proto.modulesList.map { IdeaKpmModule(it) }
     )
 }
-
-fun IdeaKpmSerializationContext.IdeaKpmProject(data: ByteArray): IdeaKpmProject {
-    return IdeaKpmProject(ProtoIdeaKpmProject.parseFrom(data))
-}
-
-fun IdeaKpmProject.toByteArray(context: IdeaKpmSerializationContext): ByteArray {
-    return context.ProtoIdeaKpmProject(this).toByteArray()
-}

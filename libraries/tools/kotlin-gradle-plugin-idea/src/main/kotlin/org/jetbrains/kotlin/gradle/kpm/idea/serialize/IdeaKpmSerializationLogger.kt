@@ -18,6 +18,7 @@ interface IdeaKpmSerializationLogger {
         override fun report(message: String?, cause: Throwable?) {
             if (message == null && cause == null) return
             out.println("[KPM][Serialization]: $message")
+            cause?.message?.let { println(it) }
             cause?.printStackTrace(out)
         }
     }

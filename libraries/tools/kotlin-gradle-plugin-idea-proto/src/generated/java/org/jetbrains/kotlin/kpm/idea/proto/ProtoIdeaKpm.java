@@ -124,6 +124,16 @@ public final class ProtoIdeaKpm {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmProject_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSchemaInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSchemaInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmContainer_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmContainer_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -283,8 +293,24 @@ public final class ProtoIdeaKpm {
       "kpm.idea.proto.ProtoIdeaKpmModuleB\t\n\007_ex" +
       "trasB\030\n\026_gradle_plugin_versionB\031\n\027_core_" +
       "libraries_versionB\037\n\035_explicit_api_mode_" +
-      "cli_optionB\025\n\023_kotlin_native_homeB\002P\001b\006p" +
-      "roto3"
+      "cli_optionB\025\n\023_kotlin_native_home\"\222\002\n\026Pr" +
+      "otoIdeaKpmSchemaInfo\022\'\n\032since_schema_ver" +
+      "sion_major\030\001 \001(\rH\000\210\001\001\022\'\n\032since_schema_ve" +
+      "rsion_minor\030\002 \001(\rH\001\210\001\001\022\'\n\032since_schema_v" +
+      "ersion_patch\030\003 \001(\rH\002\210\001\001\022\024\n\007message\030\004 \001(\t" +
+      "H\003\210\001\001B\035\n\033_since_schema_version_majorB\035\n\033" +
+      "_since_schema_version_minorB\035\n\033_since_sc" +
+      "hema_version_patchB\n\n\010_message\"\372\002\n\025Proto" +
+      "IdeaKpmContainer\022!\n\024schema_version_major" +
+      "\030\001 \001(\rH\000\210\001\001\022!\n\024schema_version_minor\030\002 \001(" +
+      "\rH\001\210\001\001\022!\n\024schema_version_patch\030\003 \001(\rH\002\210\001" +
+      "\001\022Q\n\014schema_infos\030\004 \003(\0132;.org.jetbrains." +
+      "kotlin.kpm.idea.proto.ProtoIdeaKpmSchema" +
+      "Info\022N\n\007project\030\030 \001(\01328.org.jetbrains.ko" +
+      "tlin.kpm.idea.proto.ProtoIdeaKpmProjectH" +
+      "\003\210\001\001B\027\n\025_schema_version_majorB\027\n\025_schema" +
+      "_version_minorB\027\n\025_schema_version_patchB" +
+      "\n\n\010_projectB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -423,6 +449,18 @@ public final class ProtoIdeaKpm {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmProject_descriptor,
         new java.lang.String[] { "Extras", "GradlePluginVersion", "CoreLibrariesVersion", "ExplicitApiModeCliOption", "KotlinNativeHome", "Modules", "Extras", "GradlePluginVersion", "CoreLibrariesVersion", "ExplicitApiModeCliOption", "KotlinNativeHome", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSchemaInfo_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSchemaInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSchemaInfo_descriptor,
+        new java.lang.String[] { "SinceSchemaVersionMajor", "SinceSchemaVersionMinor", "SinceSchemaVersionPatch", "Message", "SinceSchemaVersionMajor", "SinceSchemaVersionMinor", "SinceSchemaVersionPatch", "Message", });
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmContainer_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmContainer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmContainer_descriptor,
+        new java.lang.String[] { "SchemaVersionMajor", "SchemaVersionMinor", "SchemaVersionPatch", "SchemaInfos", "Project", "SchemaVersionMajor", "SchemaVersionMinor", "SchemaVersionPatch", "Project", });
     org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOuterClass.getDescriptor();
   }
 

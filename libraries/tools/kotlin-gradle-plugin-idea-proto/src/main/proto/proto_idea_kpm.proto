@@ -150,3 +150,18 @@ message ProtoIdeaKpmProject {
   repeated ProtoIdeaKpmModule modules = 6;
 }
 
+message ProtoIdeaKpmSchemaInfo {
+  optional uint32 since_schema_version_major = 1;
+  optional uint32 since_schema_version_minor = 2;
+  optional uint32 since_schema_version_patch = 3;
+  optional string message = 4;
+}
+
+message ProtoIdeaKpmContainer {
+  optional uint32 schema_version_major = 1;
+  optional uint32 schema_version_minor = 2;
+  optional uint32 schema_version_patch = 3;
+  repeated ProtoIdeaKpmSchemaInfo schema_infos = 4;
+
+  optional ProtoIdeaKpmProject project = 24;
+}

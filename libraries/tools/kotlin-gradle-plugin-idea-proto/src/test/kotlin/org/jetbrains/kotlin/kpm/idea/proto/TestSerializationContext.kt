@@ -18,7 +18,7 @@ class TestLogger : IdeaKpmSerializationLogger {
 
     private val _reports = mutableListOf<Report>()
 
-    val reports = _reports.toList()
+    val reports get() = _reports.toList()
 
     override fun report(message: String?, cause: Throwable?) {
         _reports.add(Report(message, cause))
