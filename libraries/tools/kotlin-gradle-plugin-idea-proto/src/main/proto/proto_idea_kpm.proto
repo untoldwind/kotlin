@@ -121,3 +121,15 @@ message ProtoIdeaKpmFragment {
   repeated ProtoIdeaKpmDependency dependencies = 5;
   repeated ProtoIdeaKpmSourceDirectory source_directories = 6;
 }
+
+message ProtoIdeaKpmCompilationOutput {
+  repeated string classes_dirs = 1;
+  optional string resources_dir = 2;
+}
+
+message ProtoIdeaKpmVariant {
+  ProtoIdeaKpmFragment fragment = 1;
+  ProtoIdeaKpmPlatform platform = 2;
+  map<string, string> variant_attributes = 3;
+  ProtoIdeaKpmCompilationOutput compilation_output = 4;
+}

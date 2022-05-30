@@ -43,7 +43,7 @@ object TestInstances {
         enabledLanguageFeatures = setOf("myFeature1", "myFeature2"),
         optInAnnotationsInUse = setOf("myOptIn1", "myOptIn2"),
         compilerPluginArguments = listOf("myCompilerPluginArgument1", "myCompilerPluginArgument2"),
-        compilerPluginClasspath = listOf(File("myCompilerPluginClasspath.jar")),
+        compilerPluginClasspath = listOf(File("myCompilerPluginClasspath.jar").absoluteFile),
         freeCompilerArgs = listOf("myFreeCompilerArguments")
     )
 
@@ -63,7 +63,7 @@ object TestInstances {
     val simpleResolvedBinaryDependency = IdeaKpmResolvedBinaryDependencyImpl(
         coordinates = simpleBinaryCoordinates,
         binaryType = "myBinaryType",
-        binaryFile = File("myBinaryFile.jar")
+        binaryFile = File("myBinaryFile.jar").absoluteFile
     )
 
     val simpleFragmentDependency = IdeaKpmFragmentDependencyImpl(
@@ -72,7 +72,7 @@ object TestInstances {
     )
 
     val simpleSourceDirectory = IdeaKpmSourceDirectoryImpl(
-        file = File("myFile"),
+        file = File("myFile").absoluteFile,
         type = "myType"
     )
 
@@ -86,4 +86,18 @@ object TestInstances {
     )
 
     val fragmentWithExtras = simpleFragment.copy(extras = extrasWithIntAndStrings)
+
+    val simpleCompilationOutput = IdeaKpmCompilationOutputImpl(
+        classesDirs = setOf(File("myClassesDir").absoluteFile),
+        resourcesDir = File("myResourcesDir").absoluteFile
+    )
+
+    val simpleVariant = IdeaKpmVariantImpl(
+        fragment = simpleFragment,
+        platform = simpleJvmPlatform,
+        variantAttributes = mapOf("key1" to "attribute1", "key2" to "attribute2"),
+        compilationOutputs = simpleCompilationOutput
+    )
+
+    val variantWithExtras = simpleVariant.copy(fragment = fragmentWithExtras)
 }
