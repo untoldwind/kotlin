@@ -39,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -51,7 +52,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder subBuilder = null;
-            if (extras_ != null) {
+            if (((bitField0_ & 0x00000001) != 0)) {
               subBuilder = extras_.toBuilder();
             }
             extras_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.parser(), extensionRegistry);
@@ -59,18 +60,18 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(extras_);
               extras_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000001;
             break;
           }
           case 16: {
             int rawValue = input.readEnum();
-
+            bitField0_ |= 0x00000002;
             type_ = rawValue;
             break;
           }
           case 26: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder subBuilder = null;
-            if (coordinates_ != null) {
+            if (((bitField0_ & 0x00000004) != 0)) {
               subBuilder = coordinates_.toBuilder();
             }
             coordinates_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.parser(), extensionRegistry);
@@ -78,7 +79,7 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(coordinates_);
               coordinates_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000004;
             break;
           }
           default: {
@@ -230,18 +231,19 @@ private static final long serialVersionUID = 0L;
     // @@protoc_insertion_point(enum_scope:org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type)
   }
 
+  private int bitField0_;
   public static final int EXTRAS_FIELD_NUMBER = 1;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    * @return Whether the extras field is set.
    */
   @java.lang.Override
   public boolean hasExtras() {
-    return extras_ != null;
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    * @return The extras.
    */
   @java.lang.Override
@@ -249,24 +251,31 @@ private static final long serialVersionUID = 0L;
     return extras_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder() {
-    return getExtras();
+    return extras_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
   private int type_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+   * @return Whether the type field is set.
+   */
+  @java.lang.Override public boolean hasType() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
    * @return The enum numeric value on the wire for type.
    */
   @java.lang.Override public int getTypeValue() {
     return type_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
    * @return The type.
    */
   @java.lang.Override public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type getType() {
@@ -278,15 +287,15 @@ private static final long serialVersionUID = 0L;
   public static final int COORDINATES_FIELD_NUMBER = 3;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
    * @return Whether the coordinates field is set.
    */
   @java.lang.Override
   public boolean hasCoordinates() {
-    return coordinates_ != null;
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
    * @return The coordinates.
    */
   @java.lang.Override
@@ -294,11 +303,11 @@ private static final long serialVersionUID = 0L;
     return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.getDefaultInstance() : coordinates_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder getCoordinatesOrBuilder() {
-    return getCoordinates();
+    return coordinates_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.getDefaultInstance() : coordinates_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -315,13 +324,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (extras_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (type_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.REGULAR.getNumber()) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeEnum(2, type_);
     }
-    if (coordinates_ != null) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(3, getCoordinates());
     }
     unknownFields.writeTo(output);
@@ -333,15 +342,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (extras_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (type_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.REGULAR.getNumber()) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, type_);
     }
-    if (coordinates_ != null) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCoordinates());
     }
@@ -365,7 +374,10 @@ private static final long serialVersionUID = 0L;
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (type_ != other.type_) return false;
+    if (hasType() != other.hasType()) return false;
+    if (hasType()) {
+      if (type_ != other.type_) return false;
+    }
     if (hasCoordinates() != other.hasCoordinates()) return false;
     if (hasCoordinates()) {
       if (!getCoordinates()
@@ -386,8 +398,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + type_;
+    if (hasType()) {
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+    }
     if (hasCoordinates()) {
       hash = (37 * hash) + COORDINATES_FIELD_NUMBER;
       hash = (53 * hash) + getCoordinates().hashCode();
@@ -520,6 +534,8 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getExtrasFieldBuilder();
+        getCoordinatesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -528,17 +544,17 @@ private static final long serialVersionUID = 0L;
       if (extrasBuilder_ == null) {
         extras_ = null;
       } else {
-        extras_ = null;
-        extrasBuilder_ = null;
+        extrasBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (coordinatesBuilder_ == null) {
         coordinates_ = null;
       } else {
-        coordinates_ = null;
-        coordinatesBuilder_ = null;
+        coordinatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -565,17 +581,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency buildPartial() {
       org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency(this);
-      if (extrasBuilder_ == null) {
-        result.extras_ = extras_;
-      } else {
-        result.extras_ = extrasBuilder_.build();
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        if (extrasBuilder_ == null) {
+          result.extras_ = extras_;
+        } else {
+          result.extras_ = extrasBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
       }
       result.type_ = type_;
-      if (coordinatesBuilder_ == null) {
-        result.coordinates_ = coordinates_;
-      } else {
-        result.coordinates_ = coordinatesBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        if (coordinatesBuilder_ == null) {
+          result.coordinates_ = coordinates_;
+        } else {
+          result.coordinates_ = coordinatesBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000004;
       }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -627,8 +655,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (other.type_ != 0) {
-        setTypeValue(other.getTypeValue());
+      if (other.hasType()) {
+        setType(other.getType());
       }
       if (other.hasCoordinates()) {
         mergeCoordinates(other.getCoordinates());
@@ -661,19 +689,20 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder> extrasBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return Whether the extras field is set.
      */
     public boolean hasExtras() {
-      return extrasBuilder_ != null || extras_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return The extras.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras getExtras() {
@@ -684,7 +713,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder setExtras(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras value) {
       if (extrasBuilder_ == null) {
@@ -696,11 +725,11 @@ private static final long serialVersionUID = 0L;
       } else {
         extrasBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder setExtras(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder builderForValue) {
@@ -710,15 +739,17 @@ private static final long serialVersionUID = 0L;
       } else {
         extrasBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder mergeExtras(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras value) {
       if (extrasBuilder_ == null) {
-        if (extras_ != null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+            extras_ != null &&
+            extras_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance()) {
           extras_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.newBuilder(extras_).mergeFrom(value).buildPartial();
         } else {
@@ -728,33 +759,32 @@ private static final long serialVersionUID = 0L;
       } else {
         extrasBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder clearExtras() {
       if (extrasBuilder_ == null) {
         extras_ = null;
         onChanged();
       } else {
-        extras_ = null;
-        extrasBuilder_ = null;
+        extrasBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder getExtrasBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getExtrasFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder() {
       if (extrasBuilder_ != null) {
@@ -765,7 +795,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder> 
@@ -783,25 +813,32 @@ private static final long serialVersionUID = 0L;
 
     private int type_ = 0;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * @return Whether the type field is set.
+     */
+    @java.lang.Override public boolean hasType() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      * @param value The enum numeric value on the wire for type to set.
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
+      bitField0_ |= 0x00000002;
       type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      * @return The type.
      */
     @java.lang.Override
@@ -811,7 +848,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type.UNRECOGNIZED : result;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      * @param value The type to set.
      * @return This builder for chaining.
      */
@@ -819,17 +856,17 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       type_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
       onChanged();
       return this;
@@ -839,14 +876,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder> coordinatesBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      * @return Whether the coordinates field is set.
      */
     public boolean hasCoordinates() {
-      return coordinatesBuilder_ != null || coordinates_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      * @return The coordinates.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates getCoordinates() {
@@ -857,7 +894,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     public Builder setCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates value) {
       if (coordinatesBuilder_ == null) {
@@ -869,11 +906,11 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     public Builder setCoordinates(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder builderForValue) {
@@ -883,15 +920,17 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     public Builder mergeCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates value) {
       if (coordinatesBuilder_ == null) {
-        if (coordinates_ != null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+            coordinates_ != null &&
+            coordinates_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.getDefaultInstance()) {
           coordinates_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.newBuilder(coordinates_).mergeFrom(value).buildPartial();
         } else {
@@ -901,33 +940,32 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     public Builder clearCoordinates() {
       if (coordinatesBuilder_ == null) {
         coordinates_ = null;
         onChanged();
       } else {
-        coordinates_ = null;
-        coordinatesBuilder_ = null;
+        coordinatesBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder getCoordinatesBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCoordinatesFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder getCoordinatesOrBuilder() {
       if (coordinatesBuilder_ != null) {
@@ -938,7 +976,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinatesOrBuilder> 

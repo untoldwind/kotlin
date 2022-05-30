@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             konanTarget_ = s;
             break;
           }
@@ -131,7 +131,15 @@ private static final long serialVersionUID = 0L;
   public static final int KONAN_TARGET_FIELD_NUMBER = 2;
   private volatile java.lang.Object konanTarget_;
   /**
-   * <code>string konan_target = 2;</code>
+   * <code>optional string konan_target = 2;</code>
+   * @return Whether the konanTarget field is set.
+   */
+  @java.lang.Override
+  public boolean hasKonanTarget() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string konan_target = 2;</code>
    * @return The konanTarget.
    */
   @java.lang.Override
@@ -148,7 +156,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string konan_target = 2;</code>
+   * <code>optional string konan_target = 2;</code>
    * @return The bytes for konanTarget.
    */
   @java.lang.Override
@@ -183,7 +191,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(konanTarget_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, konanTarget_);
     }
     unknownFields.writeTo(output);
@@ -199,7 +207,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(konanTarget_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, konanTarget_);
     }
     size += unknownFields.getSerializedSize();
@@ -222,8 +230,11 @@ private static final long serialVersionUID = 0L;
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (!getKonanTarget()
-        .equals(other.getKonanTarget())) return false;
+    if (hasKonanTarget() != other.hasKonanTarget()) return false;
+    if (hasKonanTarget()) {
+      if (!getKonanTarget()
+          .equals(other.getKonanTarget())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -239,8 +250,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + KONAN_TARGET_FIELD_NUMBER;
-    hash = (53 * hash) + getKonanTarget().hashCode();
+    if (hasKonanTarget()) {
+      hash = (37 * hash) + KONAN_TARGET_FIELD_NUMBER;
+      hash = (53 * hash) + getKonanTarget().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -382,7 +395,7 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       konanTarget_ = "";
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -418,6 +431,9 @@ private static final long serialVersionUID = 0L;
           result.extras_ = extrasBuilder_.build();
         }
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
       }
       result.konanTarget_ = konanTarget_;
       result.bitField0_ = to_bitField0_;
@@ -472,7 +488,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (!other.getKonanTarget().isEmpty()) {
+      if (other.hasKonanTarget()) {
+        bitField0_ |= 0x00000002;
         konanTarget_ = other.konanTarget_;
         onChanged();
       }
@@ -628,7 +645,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object konanTarget_ = "";
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
+     * @return Whether the konanTarget field is set.
+     */
+    public boolean hasKonanTarget() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string konan_target = 2;</code>
      * @return The konanTarget.
      */
     public java.lang.String getKonanTarget() {
@@ -644,7 +668,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
      * @return The bytes for konanTarget.
      */
     public com.google.protobuf.ByteString
@@ -661,7 +685,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
      * @param value The konanTarget to set.
      * @return This builder for chaining.
      */
@@ -670,23 +694,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       konanTarget_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearKonanTarget() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       konanTarget_ = getDefaultInstance().getKonanTarget();
       onChanged();
       return this;
     }
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
      * @param value The bytes for konanTarget to set.
      * @return This builder for chaining.
      */
@@ -696,7 +720,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       konanTarget_ = value;
       onChanged();
       return this;

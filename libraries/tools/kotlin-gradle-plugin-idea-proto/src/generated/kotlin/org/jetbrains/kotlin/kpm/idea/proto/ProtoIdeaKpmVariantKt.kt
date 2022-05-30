@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmVariantKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmVariant = _builder.build()
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     internal var fragment: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment
       @JvmName("getFragment")
@@ -33,13 +33,13 @@ internal object ProtoIdeaKpmVariantKt {
         _builder.setFragment(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     internal fun clearFragment() {
       _builder.clearFragment()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      * @return Whether the fragment field is set.
      */
     internal fun hasFragment(): kotlin.Boolean {
@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmVariantKt {
     }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     internal var platform: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform
       @JvmName("getPlatform")
@@ -57,13 +57,13 @@ internal object ProtoIdeaKpmVariantKt {
         _builder.setPlatform(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     internal fun clearPlatform() {
       _builder.clearPlatform()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      * @return Whether the platform field is set.
      */
     internal fun hasPlatform(): kotlin.Boolean {
@@ -132,7 +132,7 @@ internal object ProtoIdeaKpmVariantKt {
        }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     internal var compilationOutput: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput
       @JvmName("getCompilationOutput")
@@ -142,13 +142,13 @@ internal object ProtoIdeaKpmVariantKt {
         _builder.setCompilationOutput(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     internal fun clearCompilationOutput() {
       _builder.clearCompilationOutput()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      * @return Whether the compilationOutput field is set.
      */
     internal fun hasCompilationOutput(): kotlin.Boolean {

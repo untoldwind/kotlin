@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder subBuilder = null;
-            if (extras_ != null) {
+            if (((bitField0_ & 0x00000001) != 0)) {
               subBuilder = extras_.toBuilder();
             }
             extras_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.parser(), extensionRegistry);
@@ -60,12 +60,12 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(extras_);
               extras_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000001;
             break;
           }
           case 18: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
+            if (((bitField0_ & 0x00000002) != 0)) {
               subBuilder = coordinates_.toBuilder();
             }
             coordinates_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.parser(), extensionRegistry);
@@ -73,12 +73,12 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(coordinates_);
               coordinates_ = subBuilder.buildPartial();
             }
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
             cause_ = s;
             break;
           }
@@ -118,15 +118,15 @@ private static final long serialVersionUID = 0L;
   public static final int EXTRAS_FIELD_NUMBER = 1;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    * @return Whether the extras field is set.
    */
   @java.lang.Override
   public boolean hasExtras() {
-    return extras_ != null;
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    * @return The extras.
    */
   @java.lang.Override
@@ -134,11 +134,11 @@ private static final long serialVersionUID = 0L;
     return extras_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder() {
-    return getExtras();
+    return extras_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance() : extras_;
   }
 
   public static final int COORDINATES_FIELD_NUMBER = 2;
@@ -149,7 +149,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasCoordinates() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
    * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasCause() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
    * <code>optional string cause = 3;</code>
@@ -227,13 +227,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (extras_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(2, getCoordinates());
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, cause_);
     }
     unknownFields.writeTo(output);
@@ -245,15 +245,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (extras_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCoordinates());
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, cause_);
     }
     size += unknownFields.getSerializedSize();
@@ -437,6 +437,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getExtrasFieldBuilder();
         getCoordinatesFieldBuilder();
       }
     }
@@ -446,17 +447,17 @@ private static final long serialVersionUID = 0L;
       if (extrasBuilder_ == null) {
         extras_ = null;
       } else {
-        extras_ = null;
-        extrasBuilder_ = null;
+        extrasBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (coordinatesBuilder_ == null) {
         coordinates_ = null;
       } else {
         coordinatesBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      cause_ = "";
       bitField0_ = (bitField0_ & ~0x00000002);
+      cause_ = "";
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -485,21 +486,24 @@ private static final long serialVersionUID = 0L;
       org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      if (extrasBuilder_ == null) {
-        result.extras_ = extras_;
-      } else {
-        result.extras_ = extrasBuilder_.build();
-      }
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        if (extrasBuilder_ == null) {
+          result.extras_ = extras_;
+        } else {
+          result.extras_ = extrasBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         if (coordinatesBuilder_ == null) {
           result.coordinates_ = coordinates_;
         } else {
           result.coordinates_ = coordinatesBuilder_.build();
         }
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        to_bitField0_ |= 0x00000004;
       }
       result.cause_ = cause_;
       result.bitField0_ = to_bitField0_;
@@ -558,7 +562,7 @@ private static final long serialVersionUID = 0L;
         mergeCoordinates(other.getCoordinates());
       }
       if (other.hasCause()) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         cause_ = other.cause_;
         onChanged();
       }
@@ -596,14 +600,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder> extrasBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return Whether the extras field is set.
      */
     public boolean hasExtras() {
-      return extrasBuilder_ != null || extras_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return The extras.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras getExtras() {
@@ -614,7 +618,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder setExtras(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras value) {
       if (extrasBuilder_ == null) {
@@ -626,11 +630,11 @@ private static final long serialVersionUID = 0L;
       } else {
         extrasBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder setExtras(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder builderForValue) {
@@ -640,15 +644,17 @@ private static final long serialVersionUID = 0L;
       } else {
         extrasBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder mergeExtras(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras value) {
       if (extrasBuilder_ == null) {
-        if (extras_ != null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+            extras_ != null &&
+            extras_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.getDefaultInstance()) {
           extras_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.newBuilder(extras_).mergeFrom(value).buildPartial();
         } else {
@@ -658,33 +664,32 @@ private static final long serialVersionUID = 0L;
       } else {
         extrasBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public Builder clearExtras() {
       if (extrasBuilder_ == null) {
         extras_ = null;
         onChanged();
       } else {
-        extras_ = null;
-        extrasBuilder_ = null;
+        extrasBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder getExtrasBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getExtrasFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder() {
       if (extrasBuilder_ != null) {
@@ -695,7 +700,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder> 
@@ -719,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the coordinates field is set.
      */
     public boolean hasCoordinates() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
@@ -745,7 +750,7 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -759,7 +764,7 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -767,7 +772,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCoordinates(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates value) {
       if (coordinatesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
+        if (((bitField0_ & 0x00000002) != 0) &&
             coordinates_ != null &&
             coordinates_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance()) {
           coordinates_ =
@@ -779,7 +784,7 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -792,14 +797,14 @@ private static final long serialVersionUID = 0L;
       } else {
         coordinatesBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
     /**
      * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.Builder getCoordinatesBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCoordinatesFieldBuilder().getBuilder();
     }
@@ -837,7 +842,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cause field is set.
      */
     public boolean hasCause() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional string cause = 3;</code>
@@ -882,7 +887,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
       cause_ = value;
       onChanged();
       return this;
@@ -892,7 +897,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCause() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       cause_ = getDefaultInstance().getCause();
       onChanged();
       return this;
@@ -908,7 +913,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       cause_ = value;
       onChanged();
       return this;

@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmFragmentKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment = _builder.build()
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal var extras: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras
       @JvmName("getExtras")
@@ -33,13 +33,13 @@ internal object ProtoIdeaKpmFragmentKt {
         _builder.setExtras(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal fun clearExtras() {
       _builder.clearExtras()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return Whether the extras field is set.
      */
     internal fun hasExtras(): kotlin.Boolean {
@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmFragmentKt {
     }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
      */
     internal var coordinates: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates
       @JvmName("getCoordinates")
@@ -57,13 +57,13 @@ internal object ProtoIdeaKpmFragmentKt {
         _builder.setCoordinates(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
      */
     internal fun clearCoordinates() {
       _builder.clearCoordinates()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 2;</code>
      * @return Whether the coordinates field is set.
      */
     internal fun hasCoordinates(): kotlin.Boolean {
@@ -136,7 +136,7 @@ internal object ProtoIdeaKpmFragmentKt {
       _builder.clearPlatforms()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
      */
     internal var languageSettings: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings
       @JvmName("getLanguageSettings")
@@ -146,13 +146,13 @@ internal object ProtoIdeaKpmFragmentKt {
         _builder.setLanguageSettings(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
      */
     internal fun clearLanguageSettings() {
       _builder.clearLanguageSettings()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmLanguageSettings language_settings = 4;</code>
      * @return Whether the languageSettings field is set.
      */
     internal fun hasLanguageSettings(): kotlin.Boolean {

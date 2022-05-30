@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmJvmPlatformKt {
     }
 
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
      */
     internal var jvmTarget: kotlin.String
       @JvmName("getJvmTarget")
@@ -57,10 +57,17 @@ internal object ProtoIdeaKpmJvmPlatformKt {
         _builder.setJvmTarget(value)
       }
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
      */
     internal fun clearJvmTarget() {
       _builder.clearJvmTarget()
+    }
+    /**
+     * <code>optional string jvm_target = 2;</code>
+     * @return Whether the jvmTarget field is set.
+     */
+    internal fun hasJvmTarget(): kotlin.Boolean {
+      return _builder.hasJvmTarget()
     }
   }
 }

@@ -23,12 +23,17 @@ public interface ProtoIdeaKpmNativePlatformOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>string konan_target = 2;</code>
+   * <code>optional string konan_target = 2;</code>
+   * @return Whether the konanTarget field is set.
+   */
+  boolean hasKonanTarget();
+  /**
+   * <code>optional string konan_target = 2;</code>
    * @return The konanTarget.
    */
   java.lang.String getKonanTarget();
   /**
-   * <code>string konan_target = 2;</code>
+   * <code>optional string konan_target = 2;</code>
    * @return The bytes for konanTarget.
    */
   com.google.protobuf.ByteString

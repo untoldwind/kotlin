@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmResourceDirectoryKt {
     }
 
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      */
     internal var absolutePath: kotlin.String
       @JvmName("getAbsolutePath")
@@ -57,10 +57,17 @@ internal object ProtoIdeaKpmResourceDirectoryKt {
         _builder.setAbsolutePath(value)
       }
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      */
     internal fun clearAbsolutePath() {
       _builder.clearAbsolutePath()
+    }
+    /**
+     * <code>optional string absolute_path = 2;</code>
+     * @return Whether the absolutePath field is set.
+     */
+    internal fun hasAbsolutePath(): kotlin.Boolean {
+      return _builder.hasAbsolutePath()
     }
   }
 }

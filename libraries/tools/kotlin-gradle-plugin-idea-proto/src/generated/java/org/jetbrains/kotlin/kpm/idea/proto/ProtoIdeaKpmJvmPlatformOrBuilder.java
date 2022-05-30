@@ -23,12 +23,17 @@ public interface ProtoIdeaKpmJvmPlatformOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>string jvm_target = 2;</code>
+   * <code>optional string jvm_target = 2;</code>
+   * @return Whether the jvmTarget field is set.
+   */
+  boolean hasJvmTarget();
+  /**
+   * <code>optional string jvm_target = 2;</code>
    * @return The jvmTarget.
    */
   java.lang.String getJvmTarget();
   /**
-   * <code>string jvm_target = 2;</code>
+   * <code>optional string jvm_target = 2;</code>
    * @return The bytes for jvmTarget.
    */
   com.google.protobuf.ByteString

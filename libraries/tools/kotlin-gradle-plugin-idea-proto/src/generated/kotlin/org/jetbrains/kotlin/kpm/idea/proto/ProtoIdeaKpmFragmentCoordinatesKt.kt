@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmFragmentCoordinatesKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates = _builder.build()
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     internal var module: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates
       @JvmName("getModule")
@@ -33,13 +33,13 @@ internal object ProtoIdeaKpmFragmentCoordinatesKt {
         _builder.setModule(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     internal fun clearModule() {
       _builder.clearModule()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      * @return Whether the module field is set.
      */
     internal fun hasModule(): kotlin.Boolean {
@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmFragmentCoordinatesKt {
     }
 
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
      */
     internal var fragmentName: kotlin.String
       @JvmName("getFragmentName")
@@ -57,10 +57,17 @@ internal object ProtoIdeaKpmFragmentCoordinatesKt {
         _builder.setFragmentName(value)
       }
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
      */
     internal fun clearFragmentName() {
       _builder.clearFragmentName()
+    }
+    /**
+     * <code>optional string fragment_name = 2;</code>
+     * @return Whether the fragmentName field is set.
+     */
+    internal fun hasFragmentName(): kotlin.Boolean {
+      return _builder.hasFragmentName()
     }
   }
 }

@@ -42,7 +42,12 @@ public interface ProtoIdeaKpmLanguageSettingsOrBuilder extends
       getApiVersionBytes();
 
   /**
-   * <code>bool is_progressive_mode = 3;</code>
+   * <code>optional bool is_progressive_mode = 3;</code>
+   * @return Whether the isProgressiveMode field is set.
+   */
+  boolean hasIsProgressiveMode();
+  /**
+   * <code>optional bool is_progressive_mode = 3;</code>
    * @return The isProgressiveMode.
    */
   boolean getIsProgressiveMode();

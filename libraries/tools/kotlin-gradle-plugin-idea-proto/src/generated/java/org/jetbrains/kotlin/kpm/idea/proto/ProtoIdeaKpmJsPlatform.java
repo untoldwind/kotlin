@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 16: {
-
+            bitField0_ |= 0x00000002;
             isIr_ = input.readBool();
             break;
           }
@@ -129,7 +129,15 @@ private static final long serialVersionUID = 0L;
   public static final int ISIR_FIELD_NUMBER = 2;
   private boolean isIr_;
   /**
-   * <code>bool isIr = 2;</code>
+   * <code>optional bool isIr = 2;</code>
+   * @return Whether the isIr field is set.
+   */
+  @java.lang.Override
+  public boolean hasIsIr() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional bool isIr = 2;</code>
    * @return The isIr.
    */
   @java.lang.Override
@@ -154,7 +162,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (isIr_ != false) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeBool(2, isIr_);
     }
     unknownFields.writeTo(output);
@@ -170,7 +178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (isIr_ != false) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, isIr_);
     }
@@ -194,8 +202,11 @@ private static final long serialVersionUID = 0L;
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (getIsIr()
-        != other.getIsIr()) return false;
+    if (hasIsIr() != other.hasIsIr()) return false;
+    if (hasIsIr()) {
+      if (getIsIr()
+          != other.getIsIr()) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -211,9 +222,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + ISIR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsIr());
+    if (hasIsIr()) {
+      hash = (37 * hash) + ISIR_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsIr());
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -355,7 +368,7 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       isIr_ = false;
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -392,7 +405,10 @@ private static final long serialVersionUID = 0L;
         }
         to_bitField0_ |= 0x00000001;
       }
-      result.isIr_ = isIr_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.isIr_ = isIr_;
+        to_bitField0_ |= 0x00000002;
+      }
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -445,7 +461,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (other.getIsIr() != false) {
+      if (other.hasIsIr()) {
         setIsIr(other.getIsIr());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -600,7 +616,15 @@ private static final long serialVersionUID = 0L;
 
     private boolean isIr_ ;
     /**
-     * <code>bool isIr = 2;</code>
+     * <code>optional bool isIr = 2;</code>
+     * @return Whether the isIr field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsIr() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional bool isIr = 2;</code>
      * @return The isIr.
      */
     @java.lang.Override
@@ -608,22 +632,22 @@ private static final long serialVersionUID = 0L;
       return isIr_;
     }
     /**
-     * <code>bool isIr = 2;</code>
+     * <code>optional bool isIr = 2;</code>
      * @param value The isIr to set.
      * @return This builder for chaining.
      */
     public Builder setIsIr(boolean value) {
-      
+      bitField0_ |= 0x00000002;
       isIr_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool isIr = 2;</code>
+     * <code>optional bool isIr = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearIsIr() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       isIr_ = false;
       onChanged();
       return this;

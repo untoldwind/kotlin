@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmModuleCoordinatesKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates = _builder.build()
 
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
      */
     internal var buildId: kotlin.String
       @JvmName("getBuildId")
@@ -33,14 +33,21 @@ internal object ProtoIdeaKpmModuleCoordinatesKt {
         _builder.setBuildId(value)
       }
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
      */
     internal fun clearBuildId() {
       _builder.clearBuildId()
     }
+    /**
+     * <code>optional string build_id = 1;</code>
+     * @return Whether the buildId field is set.
+     */
+    internal fun hasBuildId(): kotlin.Boolean {
+      return _builder.hasBuildId()
+    }
 
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
      */
     internal var projectPath: kotlin.String
       @JvmName("getProjectPath")
@@ -50,14 +57,21 @@ internal object ProtoIdeaKpmModuleCoordinatesKt {
         _builder.setProjectPath(value)
       }
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
      */
     internal fun clearProjectPath() {
       _builder.clearProjectPath()
     }
+    /**
+     * <code>optional string project_path = 2;</code>
+     * @return Whether the projectPath field is set.
+     */
+    internal fun hasProjectPath(): kotlin.Boolean {
+      return _builder.hasProjectPath()
+    }
 
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
      */
     internal var projectName: kotlin.String
       @JvmName("getProjectName")
@@ -67,14 +81,21 @@ internal object ProtoIdeaKpmModuleCoordinatesKt {
         _builder.setProjectName(value)
       }
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
      */
     internal fun clearProjectName() {
       _builder.clearProjectName()
     }
+    /**
+     * <code>optional string project_name = 3;</code>
+     * @return Whether the projectName field is set.
+     */
+    internal fun hasProjectName(): kotlin.Boolean {
+      return _builder.hasProjectName()
+    }
 
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
      */
     internal var moduleName: kotlin.String
       @JvmName("getModuleName")
@@ -84,10 +105,17 @@ internal object ProtoIdeaKpmModuleCoordinatesKt {
         _builder.setModuleName(value)
       }
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
      */
     internal fun clearModuleName() {
       _builder.clearModuleName()
+    }
+    /**
+     * <code>optional string module_name = 4;</code>
+     * @return Whether the moduleName field is set.
+     */
+    internal fun hasModuleName(): kotlin.Boolean {
+      return _builder.hasModuleName()
     }
 
     /**

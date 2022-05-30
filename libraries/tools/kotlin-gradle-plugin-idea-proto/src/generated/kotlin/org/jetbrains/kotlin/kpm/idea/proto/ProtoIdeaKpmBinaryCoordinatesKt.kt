@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmBinaryCoordinatesKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates = _builder.build()
 
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
      */
     internal var group: kotlin.String
       @JvmName("getGroup")
@@ -33,14 +33,21 @@ internal object ProtoIdeaKpmBinaryCoordinatesKt {
         _builder.setGroup(value)
       }
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
      */
     internal fun clearGroup() {
       _builder.clearGroup()
     }
+    /**
+     * <code>optional string group = 1;</code>
+     * @return Whether the group field is set.
+     */
+    internal fun hasGroup(): kotlin.Boolean {
+      return _builder.hasGroup()
+    }
 
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
      */
     internal var module: kotlin.String
       @JvmName("getModule")
@@ -50,14 +57,21 @@ internal object ProtoIdeaKpmBinaryCoordinatesKt {
         _builder.setModule(value)
       }
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
      */
     internal fun clearModule() {
       _builder.clearModule()
     }
+    /**
+     * <code>optional string module = 2;</code>
+     * @return Whether the module field is set.
+     */
+    internal fun hasModule(): kotlin.Boolean {
+      return _builder.hasModule()
+    }
 
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
      */
     internal var version: kotlin.String
       @JvmName("getVersion")
@@ -67,10 +81,17 @@ internal object ProtoIdeaKpmBinaryCoordinatesKt {
         _builder.setVersion(value)
       }
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
      */
     internal fun clearVersion() {
       _builder.clearVersion()
+    }
+    /**
+     * <code>optional string version = 3;</code>
+     * @return Whether the version field is set.
+     */
+    internal fun hasVersion(): kotlin.Boolean {
+      return _builder.hasVersion()
     }
 
     /**

@@ -8,48 +8,68 @@ public interface ProtoIdeaKpmModuleCoordinatesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string build_id = 1;</code>
+   * <code>optional string build_id = 1;</code>
+   * @return Whether the buildId field is set.
+   */
+  boolean hasBuildId();
+  /**
+   * <code>optional string build_id = 1;</code>
    * @return The buildId.
    */
   java.lang.String getBuildId();
   /**
-   * <code>string build_id = 1;</code>
+   * <code>optional string build_id = 1;</code>
    * @return The bytes for buildId.
    */
   com.google.protobuf.ByteString
       getBuildIdBytes();
 
   /**
-   * <code>string project_path = 2;</code>
+   * <code>optional string project_path = 2;</code>
+   * @return Whether the projectPath field is set.
+   */
+  boolean hasProjectPath();
+  /**
+   * <code>optional string project_path = 2;</code>
    * @return The projectPath.
    */
   java.lang.String getProjectPath();
   /**
-   * <code>string project_path = 2;</code>
+   * <code>optional string project_path = 2;</code>
    * @return The bytes for projectPath.
    */
   com.google.protobuf.ByteString
       getProjectPathBytes();
 
   /**
-   * <code>string project_name = 3;</code>
+   * <code>optional string project_name = 3;</code>
+   * @return Whether the projectName field is set.
+   */
+  boolean hasProjectName();
+  /**
+   * <code>optional string project_name = 3;</code>
    * @return The projectName.
    */
   java.lang.String getProjectName();
   /**
-   * <code>string project_name = 3;</code>
+   * <code>optional string project_name = 3;</code>
    * @return The bytes for projectName.
    */
   com.google.protobuf.ByteString
       getProjectNameBytes();
 
   /**
-   * <code>string module_name = 4;</code>
+   * <code>optional string module_name = 4;</code>
+   * @return Whether the moduleName field is set.
+   */
+  boolean hasModuleName();
+  /**
+   * <code>optional string module_name = 4;</code>
    * @return The moduleName.
    */
   java.lang.String getModuleName();
   /**
-   * <code>string module_name = 4;</code>
+   * <code>optional string module_name = 4;</code>
    * @return The bytes for moduleName.
    */
   com.google.protobuf.ByteString

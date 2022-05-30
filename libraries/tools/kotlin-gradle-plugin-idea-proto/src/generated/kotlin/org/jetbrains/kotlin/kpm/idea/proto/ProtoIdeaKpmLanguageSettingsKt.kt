@@ -71,7 +71,7 @@ internal object ProtoIdeaKpmLanguageSettingsKt {
     }
 
     /**
-     * <code>bool is_progressive_mode = 3;</code>
+     * <code>optional bool is_progressive_mode = 3;</code>
      */
     internal var isProgressiveMode: kotlin.Boolean
       @JvmName("getIsProgressiveMode")
@@ -81,10 +81,17 @@ internal object ProtoIdeaKpmLanguageSettingsKt {
         _builder.setIsProgressiveMode(value)
       }
     /**
-     * <code>bool is_progressive_mode = 3;</code>
+     * <code>optional bool is_progressive_mode = 3;</code>
      */
     internal fun clearIsProgressiveMode() {
       _builder.clearIsProgressiveMode()
+    }
+    /**
+     * <code>optional bool is_progressive_mode = 3;</code>
+     * @return Whether the isProgressiveMode field is set.
+     */
+    internal fun hasIsProgressiveMode(): kotlin.Boolean {
+      return _builder.hasIsProgressiveMode()
     }
 
     /**

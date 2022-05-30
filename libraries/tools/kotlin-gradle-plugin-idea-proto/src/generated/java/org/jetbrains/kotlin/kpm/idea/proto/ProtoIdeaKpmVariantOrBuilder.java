@@ -8,32 +8,32 @@ public interface ProtoIdeaKpmVariantOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
    * @return Whether the fragment field is set.
    */
   boolean hasFragment();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
    * @return The fragment.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment getFragment();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentOrBuilder getFragmentOrBuilder();
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
    * @return Whether the platform field is set.
    */
   boolean hasPlatform();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
    * @return The platform.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform getPlatform();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder getPlatformOrBuilder();
 
@@ -72,17 +72,17 @@ public interface ProtoIdeaKpmVariantOrBuilder extends
       java.lang.String key);
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
    * @return Whether the compilationOutput field is set.
    */
   boolean hasCompilationOutput();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
    * @return The compilationOutput.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput getCompilationOutput();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutputOrBuilder getCompilationOutputOrBuilder();
 }

@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmProjectKt {
     }
 
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
      */
     internal var gradlePluginVersion: kotlin.String
       @JvmName("getGradlePluginVersion")
@@ -57,14 +57,21 @@ internal object ProtoIdeaKpmProjectKt {
         _builder.setGradlePluginVersion(value)
       }
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
      */
     internal fun clearGradlePluginVersion() {
       _builder.clearGradlePluginVersion()
     }
+    /**
+     * <code>optional string gradle_plugin_version = 2;</code>
+     * @return Whether the gradlePluginVersion field is set.
+     */
+    internal fun hasGradlePluginVersion(): kotlin.Boolean {
+      return _builder.hasGradlePluginVersion()
+    }
 
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
      */
     internal var coreLibrariesVersion: kotlin.String
       @JvmName("getCoreLibrariesVersion")
@@ -74,10 +81,17 @@ internal object ProtoIdeaKpmProjectKt {
         _builder.setCoreLibrariesVersion(value)
       }
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
      */
     internal fun clearCoreLibrariesVersion() {
       _builder.clearCoreLibrariesVersion()
+    }
+    /**
+     * <code>optional string core_libraries_version = 3;</code>
+     * @return Whether the coreLibrariesVersion field is set.
+     */
+    internal fun hasCoreLibrariesVersion(): kotlin.Boolean {
+      return _builder.hasCoreLibrariesVersion()
     }
 
     /**
@@ -105,7 +119,7 @@ internal object ProtoIdeaKpmProjectKt {
     }
 
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
      */
     internal var kotlinNativeHome: kotlin.String
       @JvmName("getKotlinNativeHome")
@@ -115,10 +129,17 @@ internal object ProtoIdeaKpmProjectKt {
         _builder.setKotlinNativeHome(value)
       }
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
      */
     internal fun clearKotlinNativeHome() {
       _builder.clearKotlinNativeHome()
+    }
+    /**
+     * <code>optional string kotlin_native_home = 5;</code>
+     * @return Whether the kotlinNativeHome field is set.
+     */
+    internal fun hasKotlinNativeHome(): kotlin.Boolean {
+      return _builder.hasKotlinNativeHome()
     }
 
     /**

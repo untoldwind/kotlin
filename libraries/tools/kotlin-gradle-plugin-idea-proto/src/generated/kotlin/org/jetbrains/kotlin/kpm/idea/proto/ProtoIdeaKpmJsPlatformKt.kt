@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmJsPlatformKt {
     }
 
     /**
-     * <code>bool isIr = 2;</code>
+     * <code>optional bool isIr = 2;</code>
      */
     internal var isIr: kotlin.Boolean
       @JvmName("getIsIr")
@@ -57,10 +57,17 @@ internal object ProtoIdeaKpmJsPlatformKt {
         _builder.setIsIr(value)
       }
     /**
-     * <code>bool isIr = 2;</code>
+     * <code>optional bool isIr = 2;</code>
      */
     internal fun clearIsIr() {
       _builder.clearIsIr()
+    }
+    /**
+     * <code>optional bool isIr = 2;</code>
+     * @return Whether the isIr field is set.
+     */
+    internal fun hasIsIr(): kotlin.Boolean {
+      return _builder.hasIsIr()
     }
   }
 }

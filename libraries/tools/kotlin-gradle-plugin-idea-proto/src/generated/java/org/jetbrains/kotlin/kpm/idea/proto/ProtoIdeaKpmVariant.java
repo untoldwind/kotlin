@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.Builder subBuilder = null;
-            if (fragment_ != null) {
+            if (((bitField0_ & 0x00000001) != 0)) {
               subBuilder = fragment_.toBuilder();
             }
             fragment_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.parser(), extensionRegistry);
@@ -59,12 +59,12 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(fragment_);
               fragment_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000001;
             break;
           }
           case 18: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.Builder subBuilder = null;
-            if (platform_ != null) {
+            if (((bitField0_ & 0x00000002) != 0)) {
               subBuilder = platform_.toBuilder();
             }
             platform_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.parser(), extensionRegistry);
@@ -72,14 +72,14 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(platform_);
               platform_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000002;
             break;
           }
           case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               variantAttributes_ = com.google.protobuf.MapField.newMapField(
                   VariantAttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
+              mutable_bitField0_ |= 0x00000004;
             }
             com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
             variantAttributes__ = input.readMessage(
@@ -90,7 +90,7 @@ private static final long serialVersionUID = 0L;
           }
           case 34: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.Builder subBuilder = null;
-            if (compilationOutput_ != null) {
+            if (((bitField0_ & 0x00000004) != 0)) {
               subBuilder = compilationOutput_.toBuilder();
             }
             compilationOutput_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.parser(), extensionRegistry);
@@ -98,7 +98,7 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(compilationOutput_);
               compilationOutput_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000004;
             break;
           }
           default: {
@@ -145,18 +145,19 @@ private static final long serialVersionUID = 0L;
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmVariant.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmVariant.Builder.class);
   }
 
+  private int bitField0_;
   public static final int FRAGMENT_FIELD_NUMBER = 1;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
    * @return Whether the fragment field is set.
    */
   @java.lang.Override
   public boolean hasFragment() {
-    return fragment_ != null;
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
    * @return The fragment.
    */
   @java.lang.Override
@@ -164,25 +165,25 @@ private static final long serialVersionUID = 0L;
     return fragment_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.getDefaultInstance() : fragment_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentOrBuilder getFragmentOrBuilder() {
-    return getFragment();
+    return fragment_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.getDefaultInstance() : fragment_;
   }
 
   public static final int PLATFORM_FIELD_NUMBER = 2;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
    * @return Whether the platform field is set.
    */
   @java.lang.Override
   public boolean hasPlatform() {
-    return platform_ != null;
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
    * @return The platform.
    */
   @java.lang.Override
@@ -190,11 +191,11 @@ private static final long serialVersionUID = 0L;
     return platform_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.getDefaultInstance() : platform_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder getPlatformOrBuilder() {
-    return getPlatform();
+    return platform_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.getDefaultInstance() : platform_;
   }
 
   public static final int VARIANT_ATTRIBUTES_FIELD_NUMBER = 3;
@@ -281,15 +282,15 @@ private static final long serialVersionUID = 0L;
   public static final int COMPILATION_OUTPUT_FIELD_NUMBER = 4;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilationOutput_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
    * @return Whether the compilationOutput field is set.
    */
   @java.lang.Override
   public boolean hasCompilationOutput() {
-    return compilationOutput_ != null;
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
    * @return The compilationOutput.
    */
   @java.lang.Override
@@ -297,11 +298,11 @@ private static final long serialVersionUID = 0L;
     return compilationOutput_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.getDefaultInstance() : compilationOutput_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutputOrBuilder getCompilationOutputOrBuilder() {
-    return getCompilationOutput();
+    return compilationOutput_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.getDefaultInstance() : compilationOutput_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -318,10 +319,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (fragment_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getFragment());
     }
-    if (platform_ != null) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(2, getPlatform());
     }
     com.google.protobuf.GeneratedMessageV3
@@ -330,7 +331,7 @@ private static final long serialVersionUID = 0L;
         internalGetVariantAttributes(),
         VariantAttributesDefaultEntryHolder.defaultEntry,
         3);
-    if (compilationOutput_ != null) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(4, getCompilationOutput());
     }
     unknownFields.writeTo(output);
@@ -342,11 +343,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (fragment_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getFragment());
     }
-    if (platform_ != null) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPlatform());
     }
@@ -360,7 +361,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, variantAttributes__);
     }
-    if (compilationOutput_ != null) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getCompilationOutput());
     }
@@ -573,6 +574,9 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getFragmentFieldBuilder();
+        getPlatformFieldBuilder();
+        getCompilationOutputFieldBuilder();
       }
     }
     @java.lang.Override
@@ -581,22 +585,22 @@ private static final long serialVersionUID = 0L;
       if (fragmentBuilder_ == null) {
         fragment_ = null;
       } else {
-        fragment_ = null;
-        fragmentBuilder_ = null;
+        fragmentBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (platformBuilder_ == null) {
         platform_ = null;
       } else {
-        platform_ = null;
-        platformBuilder_ = null;
+        platformBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableVariantAttributes().clear();
       if (compilationOutputBuilder_ == null) {
         compilationOutput_ = null;
       } else {
-        compilationOutput_ = null;
-        compilationOutputBuilder_ = null;
+        compilationOutputBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -624,23 +628,34 @@ private static final long serialVersionUID = 0L;
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmVariant buildPartial() {
       org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmVariant result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmVariant(this);
       int from_bitField0_ = bitField0_;
-      if (fragmentBuilder_ == null) {
-        result.fragment_ = fragment_;
-      } else {
-        result.fragment_ = fragmentBuilder_.build();
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        if (fragmentBuilder_ == null) {
+          result.fragment_ = fragment_;
+        } else {
+          result.fragment_ = fragmentBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000001;
       }
-      if (platformBuilder_ == null) {
-        result.platform_ = platform_;
-      } else {
-        result.platform_ = platformBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        if (platformBuilder_ == null) {
+          result.platform_ = platform_;
+        } else {
+          result.platform_ = platformBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000002;
       }
       result.variantAttributes_ = internalGetVariantAttributes();
       result.variantAttributes_.makeImmutable();
-      if (compilationOutputBuilder_ == null) {
-        result.compilationOutput_ = compilationOutput_;
-      } else {
-        result.compilationOutput_ = compilationOutputBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        if (compilationOutputBuilder_ == null) {
+          result.compilationOutput_ = compilationOutput_;
+        } else {
+          result.compilationOutput_ = compilationOutputBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000004;
       }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -734,14 +749,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentOrBuilder> fragmentBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      * @return Whether the fragment field is set.
      */
     public boolean hasFragment() {
-      return fragmentBuilder_ != null || fragment_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      * @return The fragment.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment getFragment() {
@@ -752,7 +767,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     public Builder setFragment(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment value) {
       if (fragmentBuilder_ == null) {
@@ -764,11 +779,11 @@ private static final long serialVersionUID = 0L;
       } else {
         fragmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     public Builder setFragment(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.Builder builderForValue) {
@@ -778,15 +793,17 @@ private static final long serialVersionUID = 0L;
       } else {
         fragmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     public Builder mergeFragment(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment value) {
       if (fragmentBuilder_ == null) {
-        if (fragment_ != null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+            fragment_ != null &&
+            fragment_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.getDefaultInstance()) {
           fragment_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.newBuilder(fragment_).mergeFrom(value).buildPartial();
         } else {
@@ -796,33 +813,32 @@ private static final long serialVersionUID = 0L;
       } else {
         fragmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     public Builder clearFragment() {
       if (fragmentBuilder_ == null) {
         fragment_ = null;
         onChanged();
       } else {
-        fragment_ = null;
-        fragmentBuilder_ = null;
+        fragmentBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.Builder getFragmentBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getFragmentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentOrBuilder getFragmentOrBuilder() {
       if (fragmentBuilder_ != null) {
@@ -833,7 +849,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment fragment = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragment.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentOrBuilder> 
@@ -853,14 +869,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder> platformBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      * @return Whether the platform field is set.
      */
     public boolean hasPlatform() {
-      return platformBuilder_ != null || platform_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      * @return The platform.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform getPlatform() {
@@ -871,7 +887,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     public Builder setPlatform(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform value) {
       if (platformBuilder_ == null) {
@@ -883,11 +899,11 @@ private static final long serialVersionUID = 0L;
       } else {
         platformBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     public Builder setPlatform(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.Builder builderForValue) {
@@ -897,15 +913,17 @@ private static final long serialVersionUID = 0L;
       } else {
         platformBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     public Builder mergePlatform(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform value) {
       if (platformBuilder_ == null) {
-        if (platform_ != null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+            platform_ != null &&
+            platform_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.getDefaultInstance()) {
           platform_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.newBuilder(platform_).mergeFrom(value).buildPartial();
         } else {
@@ -915,33 +933,32 @@ private static final long serialVersionUID = 0L;
       } else {
         platformBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     public Builder clearPlatform() {
       if (platformBuilder_ == null) {
         platform_ = null;
         onChanged();
       } else {
-        platform_ = null;
-        platformBuilder_ = null;
+        platformBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.Builder getPlatformBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPlatformFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder getPlatformOrBuilder() {
       if (platformBuilder_ != null) {
@@ -952,7 +969,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform platform = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatform.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmPlatformOrBuilder> 
@@ -1103,14 +1120,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutputOrBuilder> compilationOutputBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      * @return Whether the compilationOutput field is set.
      */
     public boolean hasCompilationOutput() {
-      return compilationOutputBuilder_ != null || compilationOutput_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      * @return The compilationOutput.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput getCompilationOutput() {
@@ -1121,7 +1138,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     public Builder setCompilationOutput(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput value) {
       if (compilationOutputBuilder_ == null) {
@@ -1133,11 +1150,11 @@ private static final long serialVersionUID = 0L;
       } else {
         compilationOutputBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     public Builder setCompilationOutput(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.Builder builderForValue) {
@@ -1147,15 +1164,17 @@ private static final long serialVersionUID = 0L;
       } else {
         compilationOutputBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     public Builder mergeCompilationOutput(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput value) {
       if (compilationOutputBuilder_ == null) {
-        if (compilationOutput_ != null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+            compilationOutput_ != null &&
+            compilationOutput_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.getDefaultInstance()) {
           compilationOutput_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.newBuilder(compilationOutput_).mergeFrom(value).buildPartial();
         } else {
@@ -1165,33 +1184,32 @@ private static final long serialVersionUID = 0L;
       } else {
         compilationOutputBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     public Builder clearCompilationOutput() {
       if (compilationOutputBuilder_ == null) {
         compilationOutput_ = null;
         onChanged();
       } else {
-        compilationOutput_ = null;
-        compilationOutputBuilder_ = null;
+        compilationOutputBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.Builder getCompilationOutputBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCompilationOutputFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutputOrBuilder getCompilationOutputOrBuilder() {
       if (compilationOutputBuilder_ != null) {
@@ -1202,7 +1220,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput compilation_output = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutput.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmCompilationOutputOrBuilder> 

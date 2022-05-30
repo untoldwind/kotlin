@@ -8,54 +8,64 @@ public interface ProtoIdeaKpmResolvedBinaryDependencyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    * @return Whether the extras field is set.
    */
   boolean hasExtras();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    * @return The extras.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras getExtras();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
    * @return Whether the coordinates field is set.
    */
   boolean hasCoordinates();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
    * @return The coordinates.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates getCoordinates();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinatesOrBuilder getCoordinatesOrBuilder();
 
   /**
-   * <code>string binary_type = 3;</code>
+   * <code>optional string binary_type = 3;</code>
+   * @return Whether the binaryType field is set.
+   */
+  boolean hasBinaryType();
+  /**
+   * <code>optional string binary_type = 3;</code>
    * @return The binaryType.
    */
   java.lang.String getBinaryType();
   /**
-   * <code>string binary_type = 3;</code>
+   * <code>optional string binary_type = 3;</code>
    * @return The bytes for binaryType.
    */
   com.google.protobuf.ByteString
       getBinaryTypeBytes();
 
   /**
-   * <code>string binary_file_absolute_path = 4;</code>
+   * <code>optional string binary_file_absolute_path = 4;</code>
+   * @return Whether the binaryFileAbsolutePath field is set.
+   */
+  boolean hasBinaryFileAbsolutePath();
+  /**
+   * <code>optional string binary_file_absolute_path = 4;</code>
    * @return The binaryFileAbsolutePath.
    */
   java.lang.String getBinaryFileAbsolutePath();
   /**
-   * <code>string binary_file_absolute_path = 4;</code>
+   * <code>optional string binary_file_absolute_path = 4;</code>
    * @return The bytes for binaryFileAbsolutePath.
    */
   com.google.protobuf.ByteString

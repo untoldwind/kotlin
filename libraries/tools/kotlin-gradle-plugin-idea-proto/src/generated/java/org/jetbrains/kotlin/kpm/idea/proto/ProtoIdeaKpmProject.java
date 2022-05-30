@@ -69,32 +69,32 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             gradlePluginVersion_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000004;
             coreLibrariesVersion_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000008;
             explicitApiModeCliOption_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000010;
             kotlinNativeHome_ = s;
             break;
           }
           case 50: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               modules_ = new java.util.ArrayList<org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModule>();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000020;
             }
             modules_.add(
                 input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModule.parser(), extensionRegistry));
@@ -115,7 +115,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
         modules_ = java.util.Collections.unmodifiableList(modules_);
       }
       this.unknownFields = unknownFields.build();
@@ -165,7 +165,15 @@ private static final long serialVersionUID = 0L;
   public static final int GRADLE_PLUGIN_VERSION_FIELD_NUMBER = 2;
   private volatile java.lang.Object gradlePluginVersion_;
   /**
-   * <code>string gradle_plugin_version = 2;</code>
+   * <code>optional string gradle_plugin_version = 2;</code>
+   * @return Whether the gradlePluginVersion field is set.
+   */
+  @java.lang.Override
+  public boolean hasGradlePluginVersion() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string gradle_plugin_version = 2;</code>
    * @return The gradlePluginVersion.
    */
   @java.lang.Override
@@ -182,7 +190,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string gradle_plugin_version = 2;</code>
+   * <code>optional string gradle_plugin_version = 2;</code>
    * @return The bytes for gradlePluginVersion.
    */
   @java.lang.Override
@@ -203,7 +211,15 @@ private static final long serialVersionUID = 0L;
   public static final int CORE_LIBRARIES_VERSION_FIELD_NUMBER = 3;
   private volatile java.lang.Object coreLibrariesVersion_;
   /**
-   * <code>string core_libraries_version = 3;</code>
+   * <code>optional string core_libraries_version = 3;</code>
+   * @return Whether the coreLibrariesVersion field is set.
+   */
+  @java.lang.Override
+  public boolean hasCoreLibrariesVersion() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional string core_libraries_version = 3;</code>
    * @return The coreLibrariesVersion.
    */
   @java.lang.Override
@@ -220,7 +236,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string core_libraries_version = 3;</code>
+   * <code>optional string core_libraries_version = 3;</code>
    * @return The bytes for coreLibrariesVersion.
    */
   @java.lang.Override
@@ -246,7 +262,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasExplicitApiModeCliOption() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000008) != 0);
   }
   /**
    * <code>optional string explicit_api_mode_cli_option = 4;</code>
@@ -287,7 +303,15 @@ private static final long serialVersionUID = 0L;
   public static final int KOTLIN_NATIVE_HOME_FIELD_NUMBER = 5;
   private volatile java.lang.Object kotlinNativeHome_;
   /**
-   * <code>string kotlin_native_home = 5;</code>
+   * <code>optional string kotlin_native_home = 5;</code>
+   * @return Whether the kotlinNativeHome field is set.
+   */
+  @java.lang.Override
+  public boolean hasKotlinNativeHome() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <code>optional string kotlin_native_home = 5;</code>
    * @return The kotlinNativeHome.
    */
   @java.lang.Override
@@ -304,7 +328,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string kotlin_native_home = 5;</code>
+   * <code>optional string kotlin_native_home = 5;</code>
    * @return The bytes for kotlinNativeHome.
    */
   @java.lang.Override
@@ -379,16 +403,16 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gradlePluginVersion_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, gradlePluginVersion_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coreLibrariesVersion_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, coreLibrariesVersion_);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, explicitApiModeCliOption_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kotlinNativeHome_)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, kotlinNativeHome_);
     }
     for (int i = 0; i < modules_.size(); i++) {
@@ -407,16 +431,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gradlePluginVersion_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, gradlePluginVersion_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coreLibrariesVersion_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, coreLibrariesVersion_);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, explicitApiModeCliOption_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kotlinNativeHome_)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, kotlinNativeHome_);
     }
     for (int i = 0; i < modules_.size(); i++) {
@@ -443,17 +467,26 @@ private static final long serialVersionUID = 0L;
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (!getGradlePluginVersion()
-        .equals(other.getGradlePluginVersion())) return false;
-    if (!getCoreLibrariesVersion()
-        .equals(other.getCoreLibrariesVersion())) return false;
+    if (hasGradlePluginVersion() != other.hasGradlePluginVersion()) return false;
+    if (hasGradlePluginVersion()) {
+      if (!getGradlePluginVersion()
+          .equals(other.getGradlePluginVersion())) return false;
+    }
+    if (hasCoreLibrariesVersion() != other.hasCoreLibrariesVersion()) return false;
+    if (hasCoreLibrariesVersion()) {
+      if (!getCoreLibrariesVersion()
+          .equals(other.getCoreLibrariesVersion())) return false;
+    }
     if (hasExplicitApiModeCliOption() != other.hasExplicitApiModeCliOption()) return false;
     if (hasExplicitApiModeCliOption()) {
       if (!getExplicitApiModeCliOption()
           .equals(other.getExplicitApiModeCliOption())) return false;
     }
-    if (!getKotlinNativeHome()
-        .equals(other.getKotlinNativeHome())) return false;
+    if (hasKotlinNativeHome() != other.hasKotlinNativeHome()) return false;
+    if (hasKotlinNativeHome()) {
+      if (!getKotlinNativeHome()
+          .equals(other.getKotlinNativeHome())) return false;
+    }
     if (!getModulesList()
         .equals(other.getModulesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -471,16 +504,22 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + GRADLE_PLUGIN_VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getGradlePluginVersion().hashCode();
-    hash = (37 * hash) + CORE_LIBRARIES_VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getCoreLibrariesVersion().hashCode();
+    if (hasGradlePluginVersion()) {
+      hash = (37 * hash) + GRADLE_PLUGIN_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getGradlePluginVersion().hashCode();
+    }
+    if (hasCoreLibrariesVersion()) {
+      hash = (37 * hash) + CORE_LIBRARIES_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getCoreLibrariesVersion().hashCode();
+    }
     if (hasExplicitApiModeCliOption()) {
       hash = (37 * hash) + EXPLICIT_API_MODE_CLI_OPTION_FIELD_NUMBER;
       hash = (53 * hash) + getExplicitApiModeCliOption().hashCode();
     }
-    hash = (37 * hash) + KOTLIN_NATIVE_HOME_FIELD_NUMBER;
-    hash = (53 * hash) + getKotlinNativeHome().hashCode();
+    if (hasKotlinNativeHome()) {
+      hash = (37 * hash) + KOTLIN_NATIVE_HOME_FIELD_NUMBER;
+      hash = (53 * hash) + getKotlinNativeHome().hashCode();
+    }
     if (getModulesCount() > 0) {
       hash = (37 * hash) + MODULES_FIELD_NUMBER;
       hash = (53 * hash) + getModulesList().hashCode();
@@ -627,16 +666,16 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       gradlePluginVersion_ = "";
-
-      coreLibrariesVersion_ = "";
-
-      explicitApiModeCliOption_ = "";
       bitField0_ = (bitField0_ & ~0x00000002);
+      coreLibrariesVersion_ = "";
+      bitField0_ = (bitField0_ & ~0x00000004);
+      explicitApiModeCliOption_ = "";
+      bitField0_ = (bitField0_ & ~0x00000008);
       kotlinNativeHome_ = "";
-
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (modulesBuilder_ == null) {
         modules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
         modulesBuilder_.clear();
       }
@@ -676,17 +715,26 @@ private static final long serialVersionUID = 0L;
         }
         to_bitField0_ |= 0x00000001;
       }
-      result.gradlePluginVersion_ = gradlePluginVersion_;
-      result.coreLibrariesVersion_ = coreLibrariesVersion_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         to_bitField0_ |= 0x00000002;
       }
+      result.gradlePluginVersion_ = gradlePluginVersion_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        to_bitField0_ |= 0x00000004;
+      }
+      result.coreLibrariesVersion_ = coreLibrariesVersion_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        to_bitField0_ |= 0x00000008;
+      }
       result.explicitApiModeCliOption_ = explicitApiModeCliOption_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        to_bitField0_ |= 0x00000010;
+      }
       result.kotlinNativeHome_ = kotlinNativeHome_;
       if (modulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           modules_ = java.util.Collections.unmodifiableList(modules_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.modules_ = modules_;
       } else {
@@ -744,20 +792,23 @@ private static final long serialVersionUID = 0L;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (!other.getGradlePluginVersion().isEmpty()) {
+      if (other.hasGradlePluginVersion()) {
+        bitField0_ |= 0x00000002;
         gradlePluginVersion_ = other.gradlePluginVersion_;
         onChanged();
       }
-      if (!other.getCoreLibrariesVersion().isEmpty()) {
+      if (other.hasCoreLibrariesVersion()) {
+        bitField0_ |= 0x00000004;
         coreLibrariesVersion_ = other.coreLibrariesVersion_;
         onChanged();
       }
       if (other.hasExplicitApiModeCliOption()) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
         explicitApiModeCliOption_ = other.explicitApiModeCliOption_;
         onChanged();
       }
-      if (!other.getKotlinNativeHome().isEmpty()) {
+      if (other.hasKotlinNativeHome()) {
+        bitField0_ |= 0x00000010;
         kotlinNativeHome_ = other.kotlinNativeHome_;
         onChanged();
       }
@@ -765,7 +816,7 @@ private static final long serialVersionUID = 0L;
         if (!other.modules_.isEmpty()) {
           if (modules_.isEmpty()) {
             modules_ = other.modules_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureModulesIsMutable();
             modules_.addAll(other.modules_);
@@ -778,7 +829,7 @@ private static final long serialVersionUID = 0L;
             modulesBuilder_.dispose();
             modulesBuilder_ = null;
             modules_ = other.modules_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000020);
             modulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getModulesFieldBuilder() : null;
@@ -939,7 +990,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object gradlePluginVersion_ = "";
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
+     * @return Whether the gradlePluginVersion field is set.
+     */
+    public boolean hasGradlePluginVersion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string gradle_plugin_version = 2;</code>
      * @return The gradlePluginVersion.
      */
     public java.lang.String getGradlePluginVersion() {
@@ -955,7 +1013,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
      * @return The bytes for gradlePluginVersion.
      */
     public com.google.protobuf.ByteString
@@ -972,7 +1030,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
      * @param value The gradlePluginVersion to set.
      * @return This builder for chaining.
      */
@@ -981,23 +1039,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       gradlePluginVersion_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearGradlePluginVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       gradlePluginVersion_ = getDefaultInstance().getGradlePluginVersion();
       onChanged();
       return this;
     }
     /**
-     * <code>string gradle_plugin_version = 2;</code>
+     * <code>optional string gradle_plugin_version = 2;</code>
      * @param value The bytes for gradlePluginVersion to set.
      * @return This builder for chaining.
      */
@@ -1007,7 +1065,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       gradlePluginVersion_ = value;
       onChanged();
       return this;
@@ -1015,7 +1073,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object coreLibrariesVersion_ = "";
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
+     * @return Whether the coreLibrariesVersion field is set.
+     */
+    public boolean hasCoreLibrariesVersion() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string core_libraries_version = 3;</code>
      * @return The coreLibrariesVersion.
      */
     public java.lang.String getCoreLibrariesVersion() {
@@ -1031,7 +1096,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
      * @return The bytes for coreLibrariesVersion.
      */
     public com.google.protobuf.ByteString
@@ -1048,7 +1113,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
      * @param value The coreLibrariesVersion to set.
      * @return This builder for chaining.
      */
@@ -1057,23 +1122,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
       coreLibrariesVersion_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearCoreLibrariesVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       coreLibrariesVersion_ = getDefaultInstance().getCoreLibrariesVersion();
       onChanged();
       return this;
     }
     /**
-     * <code>string core_libraries_version = 3;</code>
+     * <code>optional string core_libraries_version = 3;</code>
      * @param value The bytes for coreLibrariesVersion to set.
      * @return This builder for chaining.
      */
@@ -1083,7 +1148,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000004;
       coreLibrariesVersion_ = value;
       onChanged();
       return this;
@@ -1095,7 +1160,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the explicitApiModeCliOption field is set.
      */
     public boolean hasExplicitApiModeCliOption() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional string explicit_api_mode_cli_option = 4;</code>
@@ -1140,7 +1205,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000008;
       explicitApiModeCliOption_ = value;
       onChanged();
       return this;
@@ -1150,7 +1215,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExplicitApiModeCliOption() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       explicitApiModeCliOption_ = getDefaultInstance().getExplicitApiModeCliOption();
       onChanged();
       return this;
@@ -1166,7 +1231,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000008;
       explicitApiModeCliOption_ = value;
       onChanged();
       return this;
@@ -1174,7 +1239,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object kotlinNativeHome_ = "";
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
+     * @return Whether the kotlinNativeHome field is set.
+     */
+    public boolean hasKotlinNativeHome() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional string kotlin_native_home = 5;</code>
      * @return The kotlinNativeHome.
      */
     public java.lang.String getKotlinNativeHome() {
@@ -1190,7 +1262,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
      * @return The bytes for kotlinNativeHome.
      */
     public com.google.protobuf.ByteString
@@ -1207,7 +1279,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
      * @param value The kotlinNativeHome to set.
      * @return This builder for chaining.
      */
@@ -1216,23 +1288,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000010;
       kotlinNativeHome_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearKotlinNativeHome() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       kotlinNativeHome_ = getDefaultInstance().getKotlinNativeHome();
       onChanged();
       return this;
     }
     /**
-     * <code>string kotlin_native_home = 5;</code>
+     * <code>optional string kotlin_native_home = 5;</code>
      * @param value The bytes for kotlinNativeHome to set.
      * @return This builder for chaining.
      */
@@ -1242,7 +1314,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000010;
       kotlinNativeHome_ = value;
       onChanged();
       return this;
@@ -1251,9 +1323,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModule> modules_ =
       java.util.Collections.emptyList();
     private void ensureModulesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         modules_ = new java.util.ArrayList<org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModule>(modules_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1403,7 +1475,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearModules() {
       if (modulesBuilder_ == null) {
         modules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         modulesBuilder_.clear();
@@ -1480,7 +1552,7 @@ private static final long serialVersionUID = 0L;
         modulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModule, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModule.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleOrBuilder>(
                 modules_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         modules_ = null;

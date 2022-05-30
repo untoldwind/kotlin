@@ -56,31 +56,31 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000001;
             group_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             module_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000004;
             version_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000008;
             kotlinModuleName_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000010;
             kotlinFragmentName_ = s;
             break;
           }
@@ -120,7 +120,15 @@ private static final long serialVersionUID = 0L;
   public static final int GROUP_FIELD_NUMBER = 1;
   private volatile java.lang.Object group_;
   /**
-   * <code>string group = 1;</code>
+   * <code>optional string group = 1;</code>
+   * @return Whether the group field is set.
+   */
+  @java.lang.Override
+  public boolean hasGroup() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string group = 1;</code>
    * @return The group.
    */
   @java.lang.Override
@@ -137,7 +145,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string group = 1;</code>
+   * <code>optional string group = 1;</code>
    * @return The bytes for group.
    */
   @java.lang.Override
@@ -158,7 +166,15 @@ private static final long serialVersionUID = 0L;
   public static final int MODULE_FIELD_NUMBER = 2;
   private volatile java.lang.Object module_;
   /**
-   * <code>string module = 2;</code>
+   * <code>optional string module = 2;</code>
+   * @return Whether the module field is set.
+   */
+  @java.lang.Override
+  public boolean hasModule() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string module = 2;</code>
    * @return The module.
    */
   @java.lang.Override
@@ -175,7 +191,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string module = 2;</code>
+   * <code>optional string module = 2;</code>
    * @return The bytes for module.
    */
   @java.lang.Override
@@ -196,7 +212,15 @@ private static final long serialVersionUID = 0L;
   public static final int VERSION_FIELD_NUMBER = 3;
   private volatile java.lang.Object version_;
   /**
-   * <code>string version = 3;</code>
+   * <code>optional string version = 3;</code>
+   * @return Whether the version field is set.
+   */
+  @java.lang.Override
+  public boolean hasVersion() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional string version = 3;</code>
    * @return The version.
    */
   @java.lang.Override
@@ -213,7 +237,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string version = 3;</code>
+   * <code>optional string version = 3;</code>
    * @return The bytes for version.
    */
   @java.lang.Override
@@ -239,7 +263,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasKotlinModuleName() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000008) != 0);
   }
   /**
    * <code>optional string kotlin_module_name = 4;</code>
@@ -285,7 +309,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasKotlinFragmentName() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <code>optional string kotlin_fragment_name = 5;</code>
@@ -337,19 +361,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(group_)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, group_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(module_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, module_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, version_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, kotlinModuleName_);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, kotlinFragmentName_);
     }
     unknownFields.writeTo(output);
@@ -361,19 +385,19 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(group_)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, group_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(module_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, module_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, version_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, kotlinModuleName_);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, kotlinFragmentName_);
     }
     size += unknownFields.getSerializedSize();
@@ -391,12 +415,21 @@ private static final long serialVersionUID = 0L;
     }
     org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates other = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates) obj;
 
-    if (!getGroup()
-        .equals(other.getGroup())) return false;
-    if (!getModule()
-        .equals(other.getModule())) return false;
-    if (!getVersion()
-        .equals(other.getVersion())) return false;
+    if (hasGroup() != other.hasGroup()) return false;
+    if (hasGroup()) {
+      if (!getGroup()
+          .equals(other.getGroup())) return false;
+    }
+    if (hasModule() != other.hasModule()) return false;
+    if (hasModule()) {
+      if (!getModule()
+          .equals(other.getModule())) return false;
+    }
+    if (hasVersion() != other.hasVersion()) return false;
+    if (hasVersion()) {
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+    }
     if (hasKotlinModuleName() != other.hasKotlinModuleName()) return false;
     if (hasKotlinModuleName()) {
       if (!getKotlinModuleName()
@@ -418,12 +451,18 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + GROUP_FIELD_NUMBER;
-    hash = (53 * hash) + getGroup().hashCode();
-    hash = (37 * hash) + MODULE_FIELD_NUMBER;
-    hash = (53 * hash) + getModule().hashCode();
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getVersion().hashCode();
+    if (hasGroup()) {
+      hash = (37 * hash) + GROUP_FIELD_NUMBER;
+      hash = (53 * hash) + getGroup().hashCode();
+    }
+    if (hasModule()) {
+      hash = (37 * hash) + MODULE_FIELD_NUMBER;
+      hash = (53 * hash) + getModule().hashCode();
+    }
+    if (hasVersion()) {
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
+    }
     if (hasKotlinModuleName()) {
       hash = (37 * hash) + KOTLIN_MODULE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getKotlinModuleName().hashCode();
@@ -566,15 +605,15 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       group_ = "";
-
-      module_ = "";
-
-      version_ = "";
-
-      kotlinModuleName_ = "";
       bitField0_ = (bitField0_ & ~0x00000001);
-      kotlinFragmentName_ = "";
+      module_ = "";
       bitField0_ = (bitField0_ & ~0x00000002);
+      version_ = "";
+      bitField0_ = (bitField0_ & ~0x00000004);
+      kotlinModuleName_ = "";
+      bitField0_ = (bitField0_ & ~0x00000008);
+      kotlinFragmentName_ = "";
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -603,15 +642,24 @@ private static final long serialVersionUID = 0L;
       org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      result.group_ = group_;
-      result.module_ = module_;
-      result.version_ = version_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         to_bitField0_ |= 0x00000001;
       }
-      result.kotlinModuleName_ = kotlinModuleName_;
+      result.group_ = group_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         to_bitField0_ |= 0x00000002;
+      }
+      result.module_ = module_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        to_bitField0_ |= 0x00000004;
+      }
+      result.version_ = version_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        to_bitField0_ |= 0x00000008;
+      }
+      result.kotlinModuleName_ = kotlinModuleName_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        to_bitField0_ |= 0x00000010;
       }
       result.kotlinFragmentName_ = kotlinFragmentName_;
       result.bitField0_ = to_bitField0_;
@@ -663,25 +711,28 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates other) {
       if (other == org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates.getDefaultInstance()) return this;
-      if (!other.getGroup().isEmpty()) {
+      if (other.hasGroup()) {
+        bitField0_ |= 0x00000001;
         group_ = other.group_;
         onChanged();
       }
-      if (!other.getModule().isEmpty()) {
+      if (other.hasModule()) {
+        bitField0_ |= 0x00000002;
         module_ = other.module_;
         onChanged();
       }
-      if (!other.getVersion().isEmpty()) {
+      if (other.hasVersion()) {
+        bitField0_ |= 0x00000004;
         version_ = other.version_;
         onChanged();
       }
       if (other.hasKotlinModuleName()) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
         kotlinModuleName_ = other.kotlinModuleName_;
         onChanged();
       }
       if (other.hasKotlinFragmentName()) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
         kotlinFragmentName_ = other.kotlinFragmentName_;
         onChanged();
       }
@@ -717,7 +768,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object group_ = "";
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
+     * @return Whether the group field is set.
+     */
+    public boolean hasGroup() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string group = 1;</code>
      * @return The group.
      */
     public java.lang.String getGroup() {
@@ -733,7 +791,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
      * @return The bytes for group.
      */
     public com.google.protobuf.ByteString
@@ -750,7 +808,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
      * @param value The group to set.
      * @return This builder for chaining.
      */
@@ -759,23 +817,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
       group_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearGroup() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       group_ = getDefaultInstance().getGroup();
       onChanged();
       return this;
     }
     /**
-     * <code>string group = 1;</code>
+     * <code>optional string group = 1;</code>
      * @param value The bytes for group to set.
      * @return This builder for chaining.
      */
@@ -785,7 +843,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000001;
       group_ = value;
       onChanged();
       return this;
@@ -793,7 +851,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object module_ = "";
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
+     * @return Whether the module field is set.
+     */
+    public boolean hasModule() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string module = 2;</code>
      * @return The module.
      */
     public java.lang.String getModule() {
@@ -809,7 +874,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
      * @return The bytes for module.
      */
     public com.google.protobuf.ByteString
@@ -826,7 +891,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
      * @param value The module to set.
      * @return This builder for chaining.
      */
@@ -835,23 +900,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       module_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearModule() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       module_ = getDefaultInstance().getModule();
       onChanged();
       return this;
     }
     /**
-     * <code>string module = 2;</code>
+     * <code>optional string module = 2;</code>
      * @param value The bytes for module to set.
      * @return This builder for chaining.
      */
@@ -861,7 +926,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       module_ = value;
       onChanged();
       return this;
@@ -869,7 +934,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object version_ = "";
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
+     * @return Whether the version field is set.
+     */
+    public boolean hasVersion() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string version = 3;</code>
      * @return The version.
      */
     public java.lang.String getVersion() {
@@ -885,7 +957,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
      * @return The bytes for version.
      */
     public com.google.protobuf.ByteString
@@ -902,7 +974,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
      * @param value The version to set.
      * @return This builder for chaining.
      */
@@ -911,23 +983,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
       version_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       version_ = getDefaultInstance().getVersion();
       onChanged();
       return this;
     }
     /**
-     * <code>string version = 3;</code>
+     * <code>optional string version = 3;</code>
      * @param value The bytes for version to set.
      * @return This builder for chaining.
      */
@@ -937,7 +1009,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000004;
       version_ = value;
       onChanged();
       return this;
@@ -949,7 +1021,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kotlinModuleName field is set.
      */
     public boolean hasKotlinModuleName() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional string kotlin_module_name = 4;</code>
@@ -994,7 +1066,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000008;
       kotlinModuleName_ = value;
       onChanged();
       return this;
@@ -1004,7 +1076,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKotlinModuleName() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       kotlinModuleName_ = getDefaultInstance().getKotlinModuleName();
       onChanged();
       return this;
@@ -1020,7 +1092,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000008;
       kotlinModuleName_ = value;
       onChanged();
       return this;
@@ -1032,7 +1104,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kotlinFragmentName field is set.
      */
     public boolean hasKotlinFragmentName() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional string kotlin_fragment_name = 5;</code>
@@ -1077,7 +1149,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000010;
       kotlinFragmentName_ = value;
       onChanged();
       return this;
@@ -1087,7 +1159,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKotlinFragmentName() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       kotlinFragmentName_ = getDefaultInstance().getKotlinFragmentName();
       onChanged();
       return this;
@@ -1103,7 +1175,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000010;
       kotlinFragmentName_ = value;
       onChanged();
       return this;

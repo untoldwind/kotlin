@@ -23,12 +23,17 @@ public interface ProtoIdeaKpmResourceDirectoryOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>string absolute_path = 2;</code>
+   * <code>optional string absolute_path = 2;</code>
+   * @return Whether the absolutePath field is set.
+   */
+  boolean hasAbsolutePath();
+  /**
+   * <code>optional string absolute_path = 2;</code>
    * @return The absolutePath.
    */
   java.lang.String getAbsolutePath();
   /**
-   * <code>string absolute_path = 2;</code>
+   * <code>optional string absolute_path = 2;</code>
    * @return The bytes for absolutePath.
    */
   com.google.protobuf.ByteString

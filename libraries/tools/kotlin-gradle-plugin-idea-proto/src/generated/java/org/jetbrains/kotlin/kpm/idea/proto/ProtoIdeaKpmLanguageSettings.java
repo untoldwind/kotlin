@@ -69,51 +69,51 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 24: {
-
+            bitField0_ |= 0x00000004;
             isProgressiveMode_ = input.readBool();
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
               enabledLanguageFeatures_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000008;
             }
             enabledLanguageFeatures_.add(s);
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
               optInAnnotationsInUse_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000010;
             }
             optInAnnotationsInUse_.add(s);
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               compilerPluginArguments_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000020;
             }
             compilerPluginArguments_.add(s);
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
               compilerPluginClasspath_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
+              mutable_bitField0_ |= 0x00000040;
             }
             compilerPluginClasspath_.add(s);
             break;
           }
           case 66: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
               freeCompilerArgs_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000040;
+              mutable_bitField0_ |= 0x00000080;
             }
             freeCompilerArgs_.add(s);
             break;
@@ -133,19 +133,19 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+      if (((mutable_bitField0_ & 0x00000008) != 0)) {
         enabledLanguageFeatures_ = enabledLanguageFeatures_.getUnmodifiableView();
       }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
+      if (((mutable_bitField0_ & 0x00000010) != 0)) {
         optInAnnotationsInUse_ = optInAnnotationsInUse_.getUnmodifiableView();
       }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
         compilerPluginArguments_ = compilerPluginArguments_.getUnmodifiableView();
       }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
+      if (((mutable_bitField0_ & 0x00000040) != 0)) {
         compilerPluginClasspath_ = compilerPluginClasspath_.getUnmodifiableView();
       }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
+      if (((mutable_bitField0_ & 0x00000080) != 0)) {
         freeCompilerArgs_ = freeCompilerArgs_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -261,7 +261,15 @@ private static final long serialVersionUID = 0L;
   public static final int IS_PROGRESSIVE_MODE_FIELD_NUMBER = 3;
   private boolean isProgressiveMode_;
   /**
-   * <code>bool is_progressive_mode = 3;</code>
+   * <code>optional bool is_progressive_mode = 3;</code>
+   * @return Whether the isProgressiveMode field is set.
+   */
+  @java.lang.Override
+  public boolean hasIsProgressiveMode() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional bool is_progressive_mode = 3;</code>
    * @return The isProgressiveMode.
    */
   @java.lang.Override
@@ -464,7 +472,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, apiVersion_);
     }
-    if (isProgressiveMode_ != false) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       output.writeBool(3, isProgressiveMode_);
     }
     for (int i = 0; i < enabledLanguageFeatures_.size(); i++) {
@@ -497,7 +505,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, apiVersion_);
     }
-    if (isProgressiveMode_ != false) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, isProgressiveMode_);
     }
@@ -566,8 +574,11 @@ private static final long serialVersionUID = 0L;
       if (!getApiVersion()
           .equals(other.getApiVersion())) return false;
     }
-    if (getIsProgressiveMode()
-        != other.getIsProgressiveMode()) return false;
+    if (hasIsProgressiveMode() != other.hasIsProgressiveMode()) return false;
+    if (hasIsProgressiveMode()) {
+      if (getIsProgressiveMode()
+          != other.getIsProgressiveMode()) return false;
+    }
     if (!getEnabledLanguageFeaturesList()
         .equals(other.getEnabledLanguageFeaturesList())) return false;
     if (!getOptInAnnotationsInUseList()
@@ -597,9 +608,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + API_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getApiVersion().hashCode();
     }
-    hash = (37 * hash) + IS_PROGRESSIVE_MODE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsProgressiveMode());
+    if (hasIsProgressiveMode()) {
+      hash = (37 * hash) + IS_PROGRESSIVE_MODE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsProgressiveMode());
+    }
     if (getEnabledLanguageFeaturesCount() > 0) {
       hash = (37 * hash) + ENABLED_LANGUAGE_FEATURES_FIELD_NUMBER;
       hash = (53 * hash) + getEnabledLanguageFeaturesList().hashCode();
@@ -758,17 +771,17 @@ private static final long serialVersionUID = 0L;
       apiVersion_ = "";
       bitField0_ = (bitField0_ & ~0x00000002);
       isProgressiveMode_ = false;
-
-      enabledLanguageFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
-      optInAnnotationsInUse_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      enabledLanguageFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
-      compilerPluginArguments_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      optInAnnotationsInUse_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000010);
-      compilerPluginClasspath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      compilerPluginArguments_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000020);
-      freeCompilerArgs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      compilerPluginClasspath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000040);
+      freeCompilerArgs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -805,30 +818,33 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.apiVersion_ = apiVersion_;
-      result.isProgressiveMode_ = isProgressiveMode_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        enabledLanguageFeatures_ = enabledLanguageFeatures_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.isProgressiveMode_ = isProgressiveMode_;
+        to_bitField0_ |= 0x00000004;
       }
-      result.enabledLanguageFeatures_ = enabledLanguageFeatures_;
       if (((bitField0_ & 0x00000008) != 0)) {
-        optInAnnotationsInUse_ = optInAnnotationsInUse_.getUnmodifiableView();
+        enabledLanguageFeatures_ = enabledLanguageFeatures_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000008);
       }
-      result.optInAnnotationsInUse_ = optInAnnotationsInUse_;
+      result.enabledLanguageFeatures_ = enabledLanguageFeatures_;
       if (((bitField0_ & 0x00000010) != 0)) {
-        compilerPluginArguments_ = compilerPluginArguments_.getUnmodifiableView();
+        optInAnnotationsInUse_ = optInAnnotationsInUse_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000010);
       }
-      result.compilerPluginArguments_ = compilerPluginArguments_;
+      result.optInAnnotationsInUse_ = optInAnnotationsInUse_;
       if (((bitField0_ & 0x00000020) != 0)) {
-        compilerPluginClasspath_ = compilerPluginClasspath_.getUnmodifiableView();
+        compilerPluginArguments_ = compilerPluginArguments_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000020);
       }
-      result.compilerPluginClasspath_ = compilerPluginClasspath_;
+      result.compilerPluginArguments_ = compilerPluginArguments_;
       if (((bitField0_ & 0x00000040) != 0)) {
-        freeCompilerArgs_ = freeCompilerArgs_.getUnmodifiableView();
+        compilerPluginClasspath_ = compilerPluginClasspath_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.compilerPluginClasspath_ = compilerPluginClasspath_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        freeCompilerArgs_ = freeCompilerArgs_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.freeCompilerArgs_ = freeCompilerArgs_;
       result.bitField0_ = to_bitField0_;
@@ -890,13 +906,13 @@ private static final long serialVersionUID = 0L;
         apiVersion_ = other.apiVersion_;
         onChanged();
       }
-      if (other.getIsProgressiveMode() != false) {
+      if (other.hasIsProgressiveMode()) {
         setIsProgressiveMode(other.getIsProgressiveMode());
       }
       if (!other.enabledLanguageFeatures_.isEmpty()) {
         if (enabledLanguageFeatures_.isEmpty()) {
           enabledLanguageFeatures_ = other.enabledLanguageFeatures_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureEnabledLanguageFeaturesIsMutable();
           enabledLanguageFeatures_.addAll(other.enabledLanguageFeatures_);
@@ -906,7 +922,7 @@ private static final long serialVersionUID = 0L;
       if (!other.optInAnnotationsInUse_.isEmpty()) {
         if (optInAnnotationsInUse_.isEmpty()) {
           optInAnnotationsInUse_ = other.optInAnnotationsInUse_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureOptInAnnotationsInUseIsMutable();
           optInAnnotationsInUse_.addAll(other.optInAnnotationsInUse_);
@@ -916,7 +932,7 @@ private static final long serialVersionUID = 0L;
       if (!other.compilerPluginArguments_.isEmpty()) {
         if (compilerPluginArguments_.isEmpty()) {
           compilerPluginArguments_ = other.compilerPluginArguments_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureCompilerPluginArgumentsIsMutable();
           compilerPluginArguments_.addAll(other.compilerPluginArguments_);
@@ -926,7 +942,7 @@ private static final long serialVersionUID = 0L;
       if (!other.compilerPluginClasspath_.isEmpty()) {
         if (compilerPluginClasspath_.isEmpty()) {
           compilerPluginClasspath_ = other.compilerPluginClasspath_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureCompilerPluginClasspathIsMutable();
           compilerPluginClasspath_.addAll(other.compilerPluginClasspath_);
@@ -936,7 +952,7 @@ private static final long serialVersionUID = 0L;
       if (!other.freeCompilerArgs_.isEmpty()) {
         if (freeCompilerArgs_.isEmpty()) {
           freeCompilerArgs_ = other.freeCompilerArgs_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureFreeCompilerArgsIsMutable();
           freeCompilerArgs_.addAll(other.freeCompilerArgs_);
@@ -1141,7 +1157,15 @@ private static final long serialVersionUID = 0L;
 
     private boolean isProgressiveMode_ ;
     /**
-     * <code>bool is_progressive_mode = 3;</code>
+     * <code>optional bool is_progressive_mode = 3;</code>
+     * @return Whether the isProgressiveMode field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsProgressiveMode() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional bool is_progressive_mode = 3;</code>
      * @return The isProgressiveMode.
      */
     @java.lang.Override
@@ -1149,22 +1173,22 @@ private static final long serialVersionUID = 0L;
       return isProgressiveMode_;
     }
     /**
-     * <code>bool is_progressive_mode = 3;</code>
+     * <code>optional bool is_progressive_mode = 3;</code>
      * @param value The isProgressiveMode to set.
      * @return This builder for chaining.
      */
     public Builder setIsProgressiveMode(boolean value) {
-      
+      bitField0_ |= 0x00000004;
       isProgressiveMode_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool is_progressive_mode = 3;</code>
+     * <code>optional bool is_progressive_mode = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearIsProgressiveMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       isProgressiveMode_ = false;
       onChanged();
       return this;
@@ -1172,9 +1196,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList enabledLanguageFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureEnabledLanguageFeaturesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         enabledLanguageFeatures_ = new com.google.protobuf.LazyStringArrayList(enabledLanguageFeatures_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1259,7 +1283,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEnabledLanguageFeatures() {
       enabledLanguageFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1282,9 +1306,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList optInAnnotationsInUse_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureOptInAnnotationsInUseIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         optInAnnotationsInUse_ = new com.google.protobuf.LazyStringArrayList(optInAnnotationsInUse_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1369,7 +1393,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearOptInAnnotationsInUse() {
       optInAnnotationsInUse_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1392,9 +1416,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList compilerPluginArguments_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCompilerPluginArgumentsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         compilerPluginArguments_ = new com.google.protobuf.LazyStringArrayList(compilerPluginArguments_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1479,7 +1503,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCompilerPluginArguments() {
       compilerPluginArguments_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1502,9 +1526,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList compilerPluginClasspath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCompilerPluginClasspathIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         compilerPluginClasspath_ = new com.google.protobuf.LazyStringArrayList(compilerPluginClasspath_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -1589,7 +1613,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCompilerPluginClasspath() {
       compilerPluginClasspath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1612,9 +1636,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList freeCompilerArgs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFreeCompilerArgsIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         freeCompilerArgs_ = new com.google.protobuf.LazyStringArrayList(freeCompilerArgs_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -1699,7 +1723,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFreeCompilerArgs() {
       freeCompilerArgs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }

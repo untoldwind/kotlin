@@ -39,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -51,7 +52,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.Builder subBuilder = null;
-            if (module_ != null) {
+            if (((bitField0_ & 0x00000001) != 0)) {
               subBuilder = module_.toBuilder();
             }
             module_ = input.readMessage(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.parser(), extensionRegistry);
@@ -59,12 +60,12 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom(module_);
               module_ = subBuilder.buildPartial();
             }
-
+            bitField0_ |= 0x00000001;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             fragmentName_ = s;
             break;
           }
@@ -100,18 +101,19 @@ private static final long serialVersionUID = 0L;
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.class, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates.Builder.class);
   }
 
+  private int bitField0_;
   public static final int MODULE_FIELD_NUMBER = 1;
   private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module_;
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
    * @return Whether the module field is set.
    */
   @java.lang.Override
   public boolean hasModule() {
-    return module_ != null;
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
    * @return The module.
    */
   @java.lang.Override
@@ -119,17 +121,25 @@ private static final long serialVersionUID = 0L;
     return module_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.getDefaultInstance() : module_;
   }
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
    */
   @java.lang.Override
   public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinatesOrBuilder getModuleOrBuilder() {
-    return getModule();
+    return module_ == null ? org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.getDefaultInstance() : module_;
   }
 
   public static final int FRAGMENT_NAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object fragmentName_;
   /**
-   * <code>string fragment_name = 2;</code>
+   * <code>optional string fragment_name = 2;</code>
+   * @return Whether the fragmentName field is set.
+   */
+  @java.lang.Override
+  public boolean hasFragmentName() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string fragment_name = 2;</code>
    * @return The fragmentName.
    */
   @java.lang.Override
@@ -146,7 +156,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string fragment_name = 2;</code>
+   * <code>optional string fragment_name = 2;</code>
    * @return The bytes for fragmentName.
    */
   @java.lang.Override
@@ -178,10 +188,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (module_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getModule());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fragmentName_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fragmentName_);
     }
     unknownFields.writeTo(output);
@@ -193,11 +203,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (module_ != null) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getModule());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fragmentName_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fragmentName_);
     }
     size += unknownFields.getSerializedSize();
@@ -220,8 +230,11 @@ private static final long serialVersionUID = 0L;
       if (!getModule()
           .equals(other.getModule())) return false;
     }
-    if (!getFragmentName()
-        .equals(other.getFragmentName())) return false;
+    if (hasFragmentName() != other.hasFragmentName()) return false;
+    if (hasFragmentName()) {
+      if (!getFragmentName()
+          .equals(other.getFragmentName())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -237,8 +250,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MODULE_FIELD_NUMBER;
       hash = (53 * hash) + getModule().hashCode();
     }
-    hash = (37 * hash) + FRAGMENT_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getFragmentName().hashCode();
+    if (hasFragmentName()) {
+      hash = (37 * hash) + FRAGMENT_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFragmentName().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -367,6 +382,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getModuleFieldBuilder();
       }
     }
     @java.lang.Override
@@ -375,11 +391,11 @@ private static final long serialVersionUID = 0L;
       if (moduleBuilder_ == null) {
         module_ = null;
       } else {
-        module_ = null;
-        moduleBuilder_ = null;
+        moduleBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       fragmentName_ = "";
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -406,12 +422,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates buildPartial() {
       org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates(this);
-      if (moduleBuilder_ == null) {
-        result.module_ = module_;
-      } else {
-        result.module_ = moduleBuilder_.build();
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        if (moduleBuilder_ == null) {
+          result.module_ = module_;
+        } else {
+          result.module_ = moduleBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
       }
       result.fragmentName_ = fragmentName_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -463,7 +488,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasModule()) {
         mergeModule(other.getModule());
       }
-      if (!other.getFragmentName().isEmpty()) {
+      if (other.hasFragmentName()) {
+        bitField0_ |= 0x00000002;
         fragmentName_ = other.fragmentName_;
         onChanged();
       }
@@ -495,19 +521,20 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module_;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinatesOrBuilder> moduleBuilder_;
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      * @return Whether the module field is set.
      */
     public boolean hasModule() {
-      return moduleBuilder_ != null || module_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      * @return The module.
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates getModule() {
@@ -518,7 +545,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     public Builder setModule(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates value) {
       if (moduleBuilder_ == null) {
@@ -530,11 +557,11 @@ private static final long serialVersionUID = 0L;
       } else {
         moduleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     public Builder setModule(
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.Builder builderForValue) {
@@ -544,15 +571,17 @@ private static final long serialVersionUID = 0L;
       } else {
         moduleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     public Builder mergeModule(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates value) {
       if (moduleBuilder_ == null) {
-        if (module_ != null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+            module_ != null &&
+            module_ != org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.getDefaultInstance()) {
           module_ =
             org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.newBuilder(module_).mergeFrom(value).buildPartial();
         } else {
@@ -562,33 +591,32 @@ private static final long serialVersionUID = 0L;
       } else {
         moduleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     public Builder clearModule() {
       if (moduleBuilder_ == null) {
         module_ = null;
         onChanged();
       } else {
-        module_ = null;
-        moduleBuilder_ = null;
+        moduleBuilder_.clear();
       }
-
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.Builder getModuleBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getModuleFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     public org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinatesOrBuilder getModuleOrBuilder() {
       if (moduleBuilder_ != null) {
@@ -599,7 +627,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.Builder, org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinatesOrBuilder> 
@@ -617,7 +645,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object fragmentName_ = "";
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
+     * @return Whether the fragmentName field is set.
+     */
+    public boolean hasFragmentName() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string fragment_name = 2;</code>
      * @return The fragmentName.
      */
     public java.lang.String getFragmentName() {
@@ -633,7 +668,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
      * @return The bytes for fragmentName.
      */
     public com.google.protobuf.ByteString
@@ -650,7 +685,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
      * @param value The fragmentName to set.
      * @return This builder for chaining.
      */
@@ -659,23 +694,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       fragmentName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearFragmentName() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       fragmentName_ = getDefaultInstance().getFragmentName();
       onChanged();
       return this;
     }
     /**
-     * <code>string fragment_name = 2;</code>
+     * <code>optional string fragment_name = 2;</code>
      * @param value The bytes for fragmentName to set.
      * @return This builder for chaining.
      */
@@ -685,7 +720,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       fragmentName_ = value;
       onChanged();
       return this;

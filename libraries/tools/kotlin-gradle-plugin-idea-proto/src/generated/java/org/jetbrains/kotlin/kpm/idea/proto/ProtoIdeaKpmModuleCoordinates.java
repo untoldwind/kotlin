@@ -56,31 +56,31 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000001;
             buildId_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             projectPath_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000004;
             projectName_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000008;
             moduleName_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000010;
             moduleClassifier_ = s;
             break;
           }
@@ -120,7 +120,15 @@ private static final long serialVersionUID = 0L;
   public static final int BUILD_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object buildId_;
   /**
-   * <code>string build_id = 1;</code>
+   * <code>optional string build_id = 1;</code>
+   * @return Whether the buildId field is set.
+   */
+  @java.lang.Override
+  public boolean hasBuildId() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string build_id = 1;</code>
    * @return The buildId.
    */
   @java.lang.Override
@@ -137,7 +145,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string build_id = 1;</code>
+   * <code>optional string build_id = 1;</code>
    * @return The bytes for buildId.
    */
   @java.lang.Override
@@ -158,7 +166,15 @@ private static final long serialVersionUID = 0L;
   public static final int PROJECT_PATH_FIELD_NUMBER = 2;
   private volatile java.lang.Object projectPath_;
   /**
-   * <code>string project_path = 2;</code>
+   * <code>optional string project_path = 2;</code>
+   * @return Whether the projectPath field is set.
+   */
+  @java.lang.Override
+  public boolean hasProjectPath() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string project_path = 2;</code>
    * @return The projectPath.
    */
   @java.lang.Override
@@ -175,7 +191,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string project_path = 2;</code>
+   * <code>optional string project_path = 2;</code>
    * @return The bytes for projectPath.
    */
   @java.lang.Override
@@ -196,7 +212,15 @@ private static final long serialVersionUID = 0L;
   public static final int PROJECT_NAME_FIELD_NUMBER = 3;
   private volatile java.lang.Object projectName_;
   /**
-   * <code>string project_name = 3;</code>
+   * <code>optional string project_name = 3;</code>
+   * @return Whether the projectName field is set.
+   */
+  @java.lang.Override
+  public boolean hasProjectName() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional string project_name = 3;</code>
    * @return The projectName.
    */
   @java.lang.Override
@@ -213,7 +237,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string project_name = 3;</code>
+   * <code>optional string project_name = 3;</code>
    * @return The bytes for projectName.
    */
   @java.lang.Override
@@ -234,7 +258,15 @@ private static final long serialVersionUID = 0L;
   public static final int MODULE_NAME_FIELD_NUMBER = 4;
   private volatile java.lang.Object moduleName_;
   /**
-   * <code>string module_name = 4;</code>
+   * <code>optional string module_name = 4;</code>
+   * @return Whether the moduleName field is set.
+   */
+  @java.lang.Override
+  public boolean hasModuleName() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional string module_name = 4;</code>
    * @return The moduleName.
    */
   @java.lang.Override
@@ -251,7 +283,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string module_name = 4;</code>
+   * <code>optional string module_name = 4;</code>
    * @return The bytes for moduleName.
    */
   @java.lang.Override
@@ -277,7 +309,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasModuleClassifier() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <code>optional string module_classifier = 5;</code>
@@ -329,19 +361,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(buildId_)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, buildId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectPath_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, projectPath_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectName_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, projectName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(moduleName_)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, moduleName_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, moduleClassifier_);
     }
     unknownFields.writeTo(output);
@@ -353,19 +385,19 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(buildId_)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, buildId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectPath_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, projectPath_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectName_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, projectName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(moduleName_)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, moduleName_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, moduleClassifier_);
     }
     size += unknownFields.getSerializedSize();
@@ -383,14 +415,26 @@ private static final long serialVersionUID = 0L;
     }
     org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates other = (org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates) obj;
 
-    if (!getBuildId()
-        .equals(other.getBuildId())) return false;
-    if (!getProjectPath()
-        .equals(other.getProjectPath())) return false;
-    if (!getProjectName()
-        .equals(other.getProjectName())) return false;
-    if (!getModuleName()
-        .equals(other.getModuleName())) return false;
+    if (hasBuildId() != other.hasBuildId()) return false;
+    if (hasBuildId()) {
+      if (!getBuildId()
+          .equals(other.getBuildId())) return false;
+    }
+    if (hasProjectPath() != other.hasProjectPath()) return false;
+    if (hasProjectPath()) {
+      if (!getProjectPath()
+          .equals(other.getProjectPath())) return false;
+    }
+    if (hasProjectName() != other.hasProjectName()) return false;
+    if (hasProjectName()) {
+      if (!getProjectName()
+          .equals(other.getProjectName())) return false;
+    }
+    if (hasModuleName() != other.hasModuleName()) return false;
+    if (hasModuleName()) {
+      if (!getModuleName()
+          .equals(other.getModuleName())) return false;
+    }
     if (hasModuleClassifier() != other.hasModuleClassifier()) return false;
     if (hasModuleClassifier()) {
       if (!getModuleClassifier()
@@ -407,14 +451,22 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + BUILD_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getBuildId().hashCode();
-    hash = (37 * hash) + PROJECT_PATH_FIELD_NUMBER;
-    hash = (53 * hash) + getProjectPath().hashCode();
-    hash = (37 * hash) + PROJECT_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getProjectName().hashCode();
-    hash = (37 * hash) + MODULE_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getModuleName().hashCode();
+    if (hasBuildId()) {
+      hash = (37 * hash) + BUILD_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getBuildId().hashCode();
+    }
+    if (hasProjectPath()) {
+      hash = (37 * hash) + PROJECT_PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectPath().hashCode();
+    }
+    if (hasProjectName()) {
+      hash = (37 * hash) + PROJECT_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectName().hashCode();
+    }
+    if (hasModuleName()) {
+      hash = (37 * hash) + MODULE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getModuleName().hashCode();
+    }
     if (hasModuleClassifier()) {
       hash = (37 * hash) + MODULE_CLASSIFIER_FIELD_NUMBER;
       hash = (53 * hash) + getModuleClassifier().hashCode();
@@ -553,15 +605,15 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       buildId_ = "";
-
-      projectPath_ = "";
-
-      projectName_ = "";
-
-      moduleName_ = "";
-
-      moduleClassifier_ = "";
       bitField0_ = (bitField0_ & ~0x00000001);
+      projectPath_ = "";
+      bitField0_ = (bitField0_ & ~0x00000002);
+      projectName_ = "";
+      bitField0_ = (bitField0_ & ~0x00000004);
+      moduleName_ = "";
+      bitField0_ = (bitField0_ & ~0x00000008);
+      moduleClassifier_ = "";
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -590,12 +642,24 @@ private static final long serialVersionUID = 0L;
       org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates result = new org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      result.buildId_ = buildId_;
-      result.projectPath_ = projectPath_;
-      result.projectName_ = projectName_;
-      result.moduleName_ = moduleName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         to_bitField0_ |= 0x00000001;
+      }
+      result.buildId_ = buildId_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
+      }
+      result.projectPath_ = projectPath_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        to_bitField0_ |= 0x00000004;
+      }
+      result.projectName_ = projectName_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        to_bitField0_ |= 0x00000008;
+      }
+      result.moduleName_ = moduleName_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        to_bitField0_ |= 0x00000010;
       }
       result.moduleClassifier_ = moduleClassifier_;
       result.bitField0_ = to_bitField0_;
@@ -647,24 +711,28 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates other) {
       if (other == org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates.getDefaultInstance()) return this;
-      if (!other.getBuildId().isEmpty()) {
+      if (other.hasBuildId()) {
+        bitField0_ |= 0x00000001;
         buildId_ = other.buildId_;
         onChanged();
       }
-      if (!other.getProjectPath().isEmpty()) {
+      if (other.hasProjectPath()) {
+        bitField0_ |= 0x00000002;
         projectPath_ = other.projectPath_;
         onChanged();
       }
-      if (!other.getProjectName().isEmpty()) {
+      if (other.hasProjectName()) {
+        bitField0_ |= 0x00000004;
         projectName_ = other.projectName_;
         onChanged();
       }
-      if (!other.getModuleName().isEmpty()) {
+      if (other.hasModuleName()) {
+        bitField0_ |= 0x00000008;
         moduleName_ = other.moduleName_;
         onChanged();
       }
       if (other.hasModuleClassifier()) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
         moduleClassifier_ = other.moduleClassifier_;
         onChanged();
       }
@@ -700,7 +768,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object buildId_ = "";
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
+     * @return Whether the buildId field is set.
+     */
+    public boolean hasBuildId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string build_id = 1;</code>
      * @return The buildId.
      */
     public java.lang.String getBuildId() {
@@ -716,7 +791,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
      * @return The bytes for buildId.
      */
     public com.google.protobuf.ByteString
@@ -733,7 +808,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
      * @param value The buildId to set.
      * @return This builder for chaining.
      */
@@ -742,23 +817,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
       buildId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearBuildId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       buildId_ = getDefaultInstance().getBuildId();
       onChanged();
       return this;
     }
     /**
-     * <code>string build_id = 1;</code>
+     * <code>optional string build_id = 1;</code>
      * @param value The bytes for buildId to set.
      * @return This builder for chaining.
      */
@@ -768,7 +843,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000001;
       buildId_ = value;
       onChanged();
       return this;
@@ -776,7 +851,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object projectPath_ = "";
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
+     * @return Whether the projectPath field is set.
+     */
+    public boolean hasProjectPath() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string project_path = 2;</code>
      * @return The projectPath.
      */
     public java.lang.String getProjectPath() {
@@ -792,7 +874,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
      * @return The bytes for projectPath.
      */
     public com.google.protobuf.ByteString
@@ -809,7 +891,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
      * @param value The projectPath to set.
      * @return This builder for chaining.
      */
@@ -818,23 +900,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       projectPath_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearProjectPath() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       projectPath_ = getDefaultInstance().getProjectPath();
       onChanged();
       return this;
     }
     /**
-     * <code>string project_path = 2;</code>
+     * <code>optional string project_path = 2;</code>
      * @param value The bytes for projectPath to set.
      * @return This builder for chaining.
      */
@@ -844,7 +926,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       projectPath_ = value;
       onChanged();
       return this;
@@ -852,7 +934,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object projectName_ = "";
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
+     * @return Whether the projectName field is set.
+     */
+    public boolean hasProjectName() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string project_name = 3;</code>
      * @return The projectName.
      */
     public java.lang.String getProjectName() {
@@ -868,7 +957,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
      * @return The bytes for projectName.
      */
     public com.google.protobuf.ByteString
@@ -885,7 +974,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
      * @param value The projectName to set.
      * @return This builder for chaining.
      */
@@ -894,23 +983,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
       projectName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearProjectName() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       projectName_ = getDefaultInstance().getProjectName();
       onChanged();
       return this;
     }
     /**
-     * <code>string project_name = 3;</code>
+     * <code>optional string project_name = 3;</code>
      * @param value The bytes for projectName to set.
      * @return This builder for chaining.
      */
@@ -920,7 +1009,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000004;
       projectName_ = value;
       onChanged();
       return this;
@@ -928,7 +1017,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object moduleName_ = "";
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
+     * @return Whether the moduleName field is set.
+     */
+    public boolean hasModuleName() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional string module_name = 4;</code>
      * @return The moduleName.
      */
     public java.lang.String getModuleName() {
@@ -944,7 +1040,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
      * @return The bytes for moduleName.
      */
     public com.google.protobuf.ByteString
@@ -961,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
      * @param value The moduleName to set.
      * @return This builder for chaining.
      */
@@ -970,23 +1066,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000008;
       moduleName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearModuleName() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       moduleName_ = getDefaultInstance().getModuleName();
       onChanged();
       return this;
     }
     /**
-     * <code>string module_name = 4;</code>
+     * <code>optional string module_name = 4;</code>
      * @param value The bytes for moduleName to set.
      * @return This builder for chaining.
      */
@@ -996,7 +1092,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000008;
       moduleName_ = value;
       onChanged();
       return this;
@@ -1008,7 +1104,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the moduleClassifier field is set.
      */
     public boolean hasModuleClassifier() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional string module_classifier = 5;</code>
@@ -1053,7 +1149,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000010;
       moduleClassifier_ = value;
       onChanged();
       return this;
@@ -1063,7 +1159,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModuleClassifier() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       moduleClassifier_ = getDefaultInstance().getModuleClassifier();
       onChanged();
       return this;
@@ -1079,7 +1175,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
       moduleClassifier_ = value;
       onChanged();
       return this;

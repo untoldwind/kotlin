@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmSourceDirectoryKt {
     }
 
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      */
     internal var absolutePath: kotlin.String
       @JvmName("getAbsolutePath")
@@ -57,14 +57,21 @@ internal object ProtoIdeaKpmSourceDirectoryKt {
         _builder.setAbsolutePath(value)
       }
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      */
     internal fun clearAbsolutePath() {
       _builder.clearAbsolutePath()
     }
+    /**
+     * <code>optional string absolute_path = 2;</code>
+     * @return Whether the absolutePath field is set.
+     */
+    internal fun hasAbsolutePath(): kotlin.Boolean {
+      return _builder.hasAbsolutePath()
+    }
 
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
      */
     internal var type: kotlin.String
       @JvmName("getType")
@@ -74,10 +81,17 @@ internal object ProtoIdeaKpmSourceDirectoryKt {
         _builder.setType(value)
       }
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
      */
     internal fun clearType() {
       _builder.clearType()
+    }
+    /**
+     * <code>optional string type = 3;</code>
+     * @return Whether the type field is set.
+     */
+    internal fun hasType(): kotlin.Boolean {
+      return _builder.hasType()
     }
   }
 }

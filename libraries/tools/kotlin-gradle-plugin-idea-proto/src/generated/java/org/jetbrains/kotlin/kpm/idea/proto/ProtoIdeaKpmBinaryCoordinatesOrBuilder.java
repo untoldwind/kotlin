@@ -8,36 +8,51 @@ public interface ProtoIdeaKpmBinaryCoordinatesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string group = 1;</code>
+   * <code>optional string group = 1;</code>
+   * @return Whether the group field is set.
+   */
+  boolean hasGroup();
+  /**
+   * <code>optional string group = 1;</code>
    * @return The group.
    */
   java.lang.String getGroup();
   /**
-   * <code>string group = 1;</code>
+   * <code>optional string group = 1;</code>
    * @return The bytes for group.
    */
   com.google.protobuf.ByteString
       getGroupBytes();
 
   /**
-   * <code>string module = 2;</code>
+   * <code>optional string module = 2;</code>
+   * @return Whether the module field is set.
+   */
+  boolean hasModule();
+  /**
+   * <code>optional string module = 2;</code>
    * @return The module.
    */
   java.lang.String getModule();
   /**
-   * <code>string module = 2;</code>
+   * <code>optional string module = 2;</code>
    * @return The bytes for module.
    */
   com.google.protobuf.ByteString
       getModuleBytes();
 
   /**
-   * <code>string version = 3;</code>
+   * <code>optional string version = 3;</code>
+   * @return Whether the version field is set.
+   */
+  boolean hasVersion();
+  /**
+   * <code>optional string version = 3;</code>
    * @return The version.
    */
   java.lang.String getVersion();
   /**
-   * <code>string version = 3;</code>
+   * <code>optional string version = 3;</code>
    * @return The bytes for version.
    */
   com.google.protobuf.ByteString

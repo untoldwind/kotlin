@@ -135,138 +135,156 @@ public final class ProtoIdeaKpm {
     java.lang.String[] descriptorData = {
       "\n\024proto_idea_kpm.proto\022#org.jetbrains.ko" +
       "tlin.kpm.idea.proto\032\033proto_idea_kpm_extr" +
-      "as.proto\"\250\001\n\035ProtoIdeaKpmModuleCoordinat" +
-      "es\022\020\n\010build_id\030\001 \001(\t\022\024\n\014project_path\030\002 \001" +
-      "(\t\022\024\n\014project_name\030\003 \001(\t\022\023\n\013module_name\030" +
-      "\004 \001(\t\022\036\n\021module_classifier\030\005 \001(\tH\000\210\001\001B\024\n" +
-      "\022_module_classifier\"\301\002\n\034ProtoIdeaKpmLang" +
-      "uageSettings\022\035\n\020language_version\030\001 \001(\tH\000" +
-      "\210\001\001\022\030\n\013api_version\030\002 \001(\tH\001\210\001\001\022\033\n\023is_prog" +
-      "ressive_mode\030\003 \001(\010\022!\n\031enabled_language_f" +
-      "eatures\030\004 \003(\t\022!\n\031opt_in_annotations_in_u" +
-      "se\030\005 \003(\t\022!\n\031compiler_plugin_arguments\030\006 " +
-      "\003(\t\022!\n\031compiler_plugin_classpath\030\007 \003(\t\022\032" +
-      "\n\022free_compiler_args\030\010 \003(\tB\023\n\021_language_" +
-      "versionB\016\n\014_api_version\"\233\001\n\033ProtoIdeaKpm" +
-      "SourceDirectory\022L\n\006extras\030\001 \001(\01327.org.je" +
-      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
-      "pmExtrasH\000\210\001\001\022\025\n\rabsolute_path\030\002 \001(\t\022\014\n\004" +
-      "type\030\003 \001(\tB\t\n\007_extras\"\217\001\n\035ProtoIdeaKpmRe" +
-      "sourceDirectory\022L\n\006extras\030\001 \001(\01327.org.je" +
-      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
-      "pmExtrasH\000\210\001\001\022\025\n\rabsolute_path\030\002 \001(\tB\t\n\007" +
-      "_extras\"\303\001\n\035ProtoIdeaKpmBinaryCoordinate" +
-      "s\022\r\n\005group\030\001 \001(\t\022\016\n\006module\030\002 \001(\t\022\017\n\007vers" +
-      "ion\030\003 \001(\t\022\037\n\022kotlin_module_name\030\004 \001(\tH\000\210" +
-      "\001\001\022!\n\024kotlin_fragment_name\030\005 \001(\tH\001\210\001\001B\025\n" +
-      "\023_kotlin_module_nameB\027\n\025_kotlin_fragment" +
-      "_name\"\214\001\n\037ProtoIdeaKpmFragmentCoordinate" +
-      "s\022R\n\006module\030\001 \001(\0132B.org.jetbrains.kotlin" +
-      ".kpm.idea.proto.ProtoIdeaKpmModuleCoordi" +
-      "nates\022\025\n\rfragment_name\030\002 \001(\t\"\360\002\n\026ProtoId" +
-      "eaKpmDependency\022s\n\034unresolved_binary_dep" +
-      "endency\030\001 \001(\0132K.org.jetbrains.kotlin.kpm" +
-      ".idea.proto.ProtoIdeaKpmUnresolvedBinary" +
-      "DependencyH\000\022o\n\032resolved_binary_dependen" +
-      "cy\030\002 \001(\0132I.org.jetbrains.kotlin.kpm.idea" +
-      ".proto.ProtoIdeaKpmResolvedBinaryDepende" +
-      "ncyH\000\022b\n\023fragment_dependency\030\003 \001(\0132C.org" +
-      ".jetbrains.kotlin.kpm.idea.proto.ProtoId" +
-      "eaKpmFragmentDependencyH\000B\014\n\ndependency\"" +
-      "\375\001\n&ProtoIdeaKpmUnresolvedBinaryDependen" +
-      "cy\022G\n\006extras\030\001 \001(\01327.org.jetbrains.kotli" +
-      "n.kpm.idea.proto.ProtoIdeaKpmExtras\022\\\n\013c" +
-      "oordinates\030\002 \001(\0132B.org.jetbrains.kotlin." +
-      "kpm.idea.proto.ProtoIdeaKpmBinaryCoordin" +
-      "atesH\000\210\001\001\022\022\n\005cause\030\003 \001(\tH\001\210\001\001B\016\n\014_coordi" +
-      "natesB\010\n\006_cause\"\200\002\n$ProtoIdeaKpmResolved" +
-      "BinaryDependency\022G\n\006extras\030\001 \001(\01327.org.j" +
-      "etbrains.kotlin.kpm.idea.proto.ProtoIdea" +
-      "KpmExtras\022W\n\013coordinates\030\002 \001(\0132B.org.jet" +
-      "brains.kotlin.kpm.idea.proto.ProtoIdeaKp" +
-      "mBinaryCoordinates\022\023\n\013binary_type\030\003 \001(\t\022" +
-      "!\n\031binary_file_absolute_path\030\004 \001(\t\"\312\002\n\036P" +
-      "rotoIdeaKpmFragmentDependency\022G\n\006extras\030" +
-      "\001 \001(\01327.org.jetbrains.kotlin.kpm.idea.pr" +
-      "oto.ProtoIdeaKpmExtras\022V\n\004type\030\002 \001(\0162H.o" +
-      "rg.jetbrains.kotlin.kpm.idea.proto.Proto" +
-      "IdeaKpmFragmentDependency.Type\022Y\n\013coordi" +
-      "nates\030\003 \001(\0132D.org.jetbrains.kotlin.kpm.i" +
-      "dea.proto.ProtoIdeaKpmFragmentCoordinate" +
-      "s\",\n\004Type\022\013\n\007REGULAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007RE" +
-      "FINES\020\002\"\261\003\n\024ProtoIdeaKpmPlatform\022K\n\003jvm\030" +
-      "\001 \001(\0132<.org.jetbrains.kotlin.kpm.idea.pr" +
-      "oto.ProtoIdeaKpmJvmPlatformH\000\022Q\n\006native\030" +
-      "\002 \001(\0132?.org.jetbrains.kotlin.kpm.idea.pr" +
-      "oto.ProtoIdeaKpmNativePlatformH\000\022I\n\002js\030\003" +
-      " \001(\0132;.org.jetbrains.kotlin.kpm.idea.pro" +
-      "to.ProtoIdeaKpmJsPlatformH\000\022M\n\004wasm\030\004 \001(" +
-      "\0132=.org.jetbrains.kotlin.kpm.idea.proto." +
-      "ProtoIdeaKpmWasmPlatformH\000\022S\n\007unknown\030\005 " +
-      "\001(\0132@.org.jetbrains.kotlin.kpm.idea.prot" +
-      "o.ProtoIdeaKpmUnknownPlatformH\000B\n\n\010platf" +
-      "orm\"\206\001\n\027ProtoIdeaKpmJvmPlatform\022L\n\006extra" +
-      "s\030\001 \001(\01327.org.jetbrains.kotlin.kpm.idea." +
-      "proto.ProtoIdeaKpmExtrasH\000\210\001\001\022\022\n\njvm_tar" +
-      "get\030\002 \001(\tB\t\n\007_extras\"\213\001\n\032ProtoIdeaKpmNat" +
-      "ivePlatform\022L\n\006extras\030\001 \001(\01327.org.jetbra" +
-      "ins.kotlin.kpm.idea.proto.ProtoIdeaKpmEx" +
-      "trasH\000\210\001\001\022\024\n\014konan_target\030\002 \001(\tB\t\n\007_extr" +
-      "as\"\177\n\026ProtoIdeaKpmJsPlatform\022L\n\006extras\030\001" +
-      " \001(\01327.org.jetbrains.kotlin.kpm.idea.pro" +
-      "to.ProtoIdeaKpmExtrasH\000\210\001\001\022\014\n\004isIr\030\002 \001(\010" +
-      "B\t\n\007_extras\"s\n\030ProtoIdeaKpmWasmPlatform\022" +
-      "L\n\006extras\030\001 \001(\01327.org.jetbrains.kotlin.k" +
-      "pm.idea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n" +
-      "\007_extras\"v\n\033ProtoIdeaKpmUnknownPlatform\022" +
-      "L\n\006extras\030\001 \001(\01327.org.jetbrains.kotlin.k" +
-      "pm.idea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n" +
-      "\007_extras\"\227\004\n\024ProtoIdeaKpmFragment\022G\n\006ext" +
-      "ras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.ide" +
-      "a.proto.ProtoIdeaKpmExtras\022Y\n\013coordinate" +
-      "s\030\002 \001(\0132D.org.jetbrains.kotlin.kpm.idea." +
-      "proto.ProtoIdeaKpmFragmentCoordinates\022L\n" +
-      "\tplatforms\030\003 \003(\01329.org.jetbrains.kotlin." +
-      "kpm.idea.proto.ProtoIdeaKpmPlatform\022\\\n\021l" +
-      "anguage_settings\030\004 \001(\0132A.org.jetbrains.k" +
-      "otlin.kpm.idea.proto.ProtoIdeaKpmLanguag" +
-      "eSettings\022Q\n\014dependencies\030\005 \003(\0132;.org.je" +
-      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
-      "pmDependency\022\\\n\022source_directories\030\006 \003(\013" +
-      "2@.org.jetbrains.kotlin.kpm.idea.proto.P" +
-      "rotoIdeaKpmSourceDirectory\"c\n\035ProtoIdeaK" +
-      "pmCompilationOutput\022\024\n\014classes_dirs\030\001 \003(" +
-      "\t\022\032\n\rresources_dir\030\002 \001(\tH\000\210\001\001B\020\n\016_resour" +
-      "ces_dir\"\266\003\n\023ProtoIdeaKpmVariant\022K\n\010fragm" +
-      "ent\030\001 \001(\01329.org.jetbrains.kotlin.kpm.ide" +
-      "a.proto.ProtoIdeaKpmFragment\022K\n\010platform" +
-      "\030\002 \001(\01329.org.jetbrains.kotlin.kpm.idea.p" +
-      "roto.ProtoIdeaKpmPlatform\022k\n\022variant_att" +
-      "ributes\030\003 \003(\0132O.org.jetbrains.kotlin.kpm" +
-      ".idea.proto.ProtoIdeaKpmVariant.VariantA" +
-      "ttributesEntry\022^\n\022compilation_output\030\004 \001" +
-      "(\0132B.org.jetbrains.kotlin.kpm.idea.proto" +
-      ".ProtoIdeaKpmCompilationOutput\0328\n\026Varian" +
-      "tAttributesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t:\0028\001\"\365\002\n\022ProtoIdeaKpmModule\022L\n\006extra" +
-      "s\030\001 \001(\01327.org.jetbrains.kotlin.kpm.idea." +
-      "proto.ProtoIdeaKpmExtrasH\000\210\001\001\022\\\n\013coordin" +
-      "ates\030\002 \001(\0132B.org.jetbrains.kotlin.kpm.id" +
-      "ea.proto.ProtoIdeaKpmModuleCoordinatesH\001" +
-      "\210\001\001\022L\n\tfragments\030\003 \003(\01329.org.jetbrains.k" +
-      "otlin.kpm.idea.proto.ProtoIdeaKpmFragmen" +
-      "t\022J\n\010variants\030\004 \003(\01328.org.jetbrains.kotl" +
-      "in.kpm.idea.proto.ProtoIdeaKpmVariantB\t\n" +
-      "\007_extrasB\016\n\014_coordinates\"\337\002\n\023ProtoIdeaKp" +
-      "mProject\022L\n\006extras\030\001 \001(\01327.org.jetbrains" +
-      ".kotlin.kpm.idea.proto.ProtoIdeaKpmExtra" +
-      "sH\000\210\001\001\022\035\n\025gradle_plugin_version\030\002 \001(\t\022\036\n" +
-      "\026core_libraries_version\030\003 \001(\t\022)\n\034explici" +
-      "t_api_mode_cli_option\030\004 \001(\tH\001\210\001\001\022\032\n\022kotl" +
-      "in_native_home\030\005 \001(\t\022H\n\007modules\030\006 \003(\01327." +
+      "as.proto\"\373\001\n\035ProtoIdeaKpmModuleCoordinat" +
+      "es\022\025\n\010build_id\030\001 \001(\tH\000\210\001\001\022\031\n\014project_pat" +
+      "h\030\002 \001(\tH\001\210\001\001\022\031\n\014project_name\030\003 \001(\tH\002\210\001\001\022" +
+      "\030\n\013module_name\030\004 \001(\tH\003\210\001\001\022\036\n\021module_clas" +
+      "sifier\030\005 \001(\tH\004\210\001\001B\013\n\t_build_idB\017\n\r_proje" +
+      "ct_pathB\017\n\r_project_nameB\016\n\014_module_name" +
+      "B\024\n\022_module_classifier\"\336\002\n\034ProtoIdeaKpmL" +
+      "anguageSettings\022\035\n\020language_version\030\001 \001(" +
+      "\tH\000\210\001\001\022\030\n\013api_version\030\002 \001(\tH\001\210\001\001\022 \n\023is_p" +
+      "rogressive_mode\030\003 \001(\010H\002\210\001\001\022!\n\031enabled_la" +
+      "nguage_features\030\004 \003(\t\022!\n\031opt_in_annotati" +
+      "ons_in_use\030\005 \003(\t\022!\n\031compiler_plugin_argu" +
+      "ments\030\006 \003(\t\022!\n\031compiler_plugin_classpath" +
+      "\030\007 \003(\t\022\032\n\022free_compiler_args\030\010 \003(\tB\023\n\021_l" +
+      "anguage_versionB\016\n\014_api_versionB\026\n\024_is_p" +
+      "rogressive_mode\"\300\001\n\033ProtoIdeaKpmSourceDi" +
+      "rectory\022L\n\006extras\030\001 \001(\01327.org.jetbrains." +
+      "kotlin.kpm.idea.proto.ProtoIdeaKpmExtras" +
+      "H\000\210\001\001\022\032\n\rabsolute_path\030\002 \001(\tH\001\210\001\001\022\021\n\004typ" +
+      "e\030\003 \001(\tH\002\210\001\001B\t\n\007_extrasB\020\n\016_absolute_pat" +
+      "hB\007\n\005_type\"\246\001\n\035ProtoIdeaKpmResourceDirec" +
+      "tory\022L\n\006extras\030\001 \001(\01327.org.jetbrains.kot" +
+      "lin.kpm.idea.proto.ProtoIdeaKpmExtrasH\000\210" +
+      "\001\001\022\032\n\rabsolute_path\030\002 \001(\tH\001\210\001\001B\t\n\007_extra" +
+      "sB\020\n\016_absolute_path\"\363\001\n\035ProtoIdeaKpmBina" +
+      "ryCoordinates\022\022\n\005group\030\001 \001(\tH\000\210\001\001\022\023\n\006mod" +
+      "ule\030\002 \001(\tH\001\210\001\001\022\024\n\007version\030\003 \001(\tH\002\210\001\001\022\037\n\022" +
+      "kotlin_module_name\030\004 \001(\tH\003\210\001\001\022!\n\024kotlin_" +
+      "fragment_name\030\005 \001(\tH\004\210\001\001B\010\n\006_groupB\t\n\007_m" +
+      "oduleB\n\n\010_versionB\025\n\023_kotlin_module_name" +
+      "B\027\n\025_kotlin_fragment_name\"\263\001\n\037ProtoIdeaK" +
+      "pmFragmentCoordinates\022W\n\006module\030\001 \001(\0132B." +
       "org.jetbrains.kotlin.kpm.idea.proto.Prot" +
-      "oIdeaKpmModuleB\t\n\007_extrasB\037\n\035_explicit_a" +
-      "pi_mode_cli_optionB\002P\001b\006proto3"
+      "oIdeaKpmModuleCoordinatesH\000\210\001\001\022\032\n\rfragme" +
+      "nt_name\030\002 \001(\tH\001\210\001\001B\t\n\007_moduleB\020\n\016_fragme" +
+      "nt_name\"\360\002\n\026ProtoIdeaKpmDependency\022s\n\034un" +
+      "resolved_binary_dependency\030\001 \001(\0132K.org.j" +
+      "etbrains.kotlin.kpm.idea.proto.ProtoIdea" +
+      "KpmUnresolvedBinaryDependencyH\000\022o\n\032resol" +
+      "ved_binary_dependency\030\002 \001(\0132I.org.jetbra" +
+      "ins.kotlin.kpm.idea.proto.ProtoIdeaKpmRe" +
+      "solvedBinaryDependencyH\000\022b\n\023fragment_dep" +
+      "endency\030\003 \001(\0132C.org.jetbrains.kotlin.kpm" +
+      ".idea.proto.ProtoIdeaKpmFragmentDependen" +
+      "cyH\000B\014\n\ndependency\"\215\002\n&ProtoIdeaKpmUnres" +
+      "olvedBinaryDependency\022L\n\006extras\030\001 \001(\01327." +
+      "org.jetbrains.kotlin.kpm.idea.proto.Prot" +
+      "oIdeaKpmExtrasH\000\210\001\001\022\\\n\013coordinates\030\002 \001(\013" +
+      "2B.org.jetbrains.kotlin.kpm.idea.proto.P" +
+      "rotoIdeaKpmBinaryCoordinatesH\001\210\001\001\022\022\n\005cau" +
+      "se\030\003 \001(\tH\002\210\001\001B\t\n\007_extrasB\016\n\014_coordinates" +
+      "B\010\n\006_cause\"\335\002\n$ProtoIdeaKpmResolvedBinar" +
+      "yDependency\022L\n\006extras\030\001 \001(\01327.org.jetbra" +
+      "ins.kotlin.kpm.idea.proto.ProtoIdeaKpmEx" +
+      "trasH\000\210\001\001\022\\\n\013coordinates\030\002 \001(\0132B.org.jet" +
+      "brains.kotlin.kpm.idea.proto.ProtoIdeaKp" +
+      "mBinaryCoordinatesH\001\210\001\001\022\030\n\013binary_type\030\003" +
+      " \001(\tH\002\210\001\001\022&\n\031binary_file_absolute_path\030\004" +
+      " \001(\tH\003\210\001\001B\t\n\007_extrasB\016\n\014_coordinatesB\016\n\014" +
+      "_binary_typeB\034\n\032_binary_file_absolute_pa" +
+      "th\"\375\002\n\036ProtoIdeaKpmFragmentDependency\022L\n" +
+      "\006extras\030\001 \001(\01327.org.jetbrains.kotlin.kpm" +
+      ".idea.proto.ProtoIdeaKpmExtrasH\000\210\001\001\022[\n\004t" +
+      "ype\030\002 \001(\0162H.org.jetbrains.kotlin.kpm.ide" +
+      "a.proto.ProtoIdeaKpmFragmentDependency.T" +
+      "ypeH\001\210\001\001\022^\n\013coordinates\030\003 \001(\0132D.org.jetb" +
+      "rains.kotlin.kpm.idea.proto.ProtoIdeaKpm" +
+      "FragmentCoordinatesH\002\210\001\001\",\n\004Type\022\013\n\007REGU" +
+      "LAR\020\000\022\n\n\006FRIEND\020\001\022\013\n\007REFINES\020\002B\t\n\007_extra" +
+      "sB\007\n\005_typeB\016\n\014_coordinates\"\261\003\n\024ProtoIdea" +
+      "KpmPlatform\022K\n\003jvm\030\001 \001(\0132<.org.jetbrains" +
+      ".kotlin.kpm.idea.proto.ProtoIdeaKpmJvmPl" +
+      "atformH\000\022Q\n\006native\030\002 \001(\0132?.org.jetbrains" +
+      ".kotlin.kpm.idea.proto.ProtoIdeaKpmNativ" +
+      "ePlatformH\000\022I\n\002js\030\003 \001(\0132;.org.jetbrains." +
+      "kotlin.kpm.idea.proto.ProtoIdeaKpmJsPlat" +
+      "formH\000\022M\n\004wasm\030\004 \001(\0132=.org.jetbrains.kot" +
+      "lin.kpm.idea.proto.ProtoIdeaKpmWasmPlatf" +
+      "ormH\000\022S\n\007unknown\030\005 \001(\0132@.org.jetbrains.k" +
+      "otlin.kpm.idea.proto.ProtoIdeaKpmUnknown" +
+      "PlatformH\000B\n\n\010platform\"\232\001\n\027ProtoIdeaKpmJ" +
+      "vmPlatform\022L\n\006extras\030\001 \001(\01327.org.jetbrai" +
+      "ns.kotlin.kpm.idea.proto.ProtoIdeaKpmExt" +
+      "rasH\000\210\001\001\022\027\n\njvm_target\030\002 \001(\tH\001\210\001\001B\t\n\007_ex" +
+      "trasB\r\n\013_jvm_target\"\241\001\n\032ProtoIdeaKpmNati" +
+      "vePlatform\022L\n\006extras\030\001 \001(\01327.org.jetbrai" +
+      "ns.kotlin.kpm.idea.proto.ProtoIdeaKpmExt" +
+      "rasH\000\210\001\001\022\031\n\014konan_target\030\002 \001(\tH\001\210\001\001B\t\n\007_" +
+      "extrasB\017\n\r_konan_target\"\215\001\n\026ProtoIdeaKpm" +
+      "JsPlatform\022L\n\006extras\030\001 \001(\01327.org.jetbrai" +
+      "ns.kotlin.kpm.idea.proto.ProtoIdeaKpmExt" +
+      "rasH\000\210\001\001\022\021\n\004isIr\030\002 \001(\010H\001\210\001\001B\t\n\007_extrasB\007" +
+      "\n\005_isIr\"s\n\030ProtoIdeaKpmWasmPlatform\022L\n\006e" +
+      "xtras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.i" +
+      "dea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n\007_ex" +
+      "tras\"v\n\033ProtoIdeaKpmUnknownPlatform\022L\n\006e" +
+      "xtras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.i" +
+      "dea.proto.ProtoIdeaKpmExtrasH\000\210\001\001B\t\n\007_ex" +
+      "tras\"\327\004\n\024ProtoIdeaKpmFragment\022L\n\006extras\030" +
+      "\001 \001(\01327.org.jetbrains.kotlin.kpm.idea.pr" +
+      "oto.ProtoIdeaKpmExtrasH\000\210\001\001\022^\n\013coordinat" +
+      "es\030\002 \001(\0132D.org.jetbrains.kotlin.kpm.idea" +
+      ".proto.ProtoIdeaKpmFragmentCoordinatesH\001" +
+      "\210\001\001\022L\n\tplatforms\030\003 \003(\01329.org.jetbrains.k" +
+      "otlin.kpm.idea.proto.ProtoIdeaKpmPlatfor" +
+      "m\022a\n\021language_settings\030\004 \001(\0132A.org.jetbr" +
+      "ains.kotlin.kpm.idea.proto.ProtoIdeaKpmL" +
+      "anguageSettingsH\002\210\001\001\022Q\n\014dependencies\030\005 \003" +
+      "(\0132;.org.jetbrains.kotlin.kpm.idea.proto" +
+      ".ProtoIdeaKpmDependency\022\\\n\022source_direct" +
+      "ories\030\006 \003(\0132@.org.jetbrains.kotlin.kpm.i" +
+      "dea.proto.ProtoIdeaKpmSourceDirectoryB\t\n" +
+      "\007_extrasB\016\n\014_coordinatesB\024\n\022_language_se" +
+      "ttings\"c\n\035ProtoIdeaKpmCompilationOutput\022" +
+      "\024\n\014classes_dirs\030\001 \003(\t\022\032\n\rresources_dir\030\002" +
+      " \001(\tH\000\210\001\001B\020\n\016_resources_dir\"\366\003\n\023ProtoIde" +
+      "aKpmVariant\022P\n\010fragment\030\001 \001(\01329.org.jetb" +
+      "rains.kotlin.kpm.idea.proto.ProtoIdeaKpm" +
+      "FragmentH\000\210\001\001\022P\n\010platform\030\002 \001(\01329.org.je" +
+      "tbrains.kotlin.kpm.idea.proto.ProtoIdeaK" +
+      "pmPlatformH\001\210\001\001\022k\n\022variant_attributes\030\003 " +
+      "\003(\0132O.org.jetbrains.kotlin.kpm.idea.prot" +
+      "o.ProtoIdeaKpmVariant.VariantAttributesE" +
+      "ntry\022c\n\022compilation_output\030\004 \001(\0132B.org.j" +
+      "etbrains.kotlin.kpm.idea.proto.ProtoIdea" +
+      "KpmCompilationOutputH\002\210\001\001\0328\n\026VariantAttr" +
+      "ibutesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001B\013\n\t_fragmentB\013\n\t_platformB\025\n\023_compil" +
+      "ation_output\"\365\002\n\022ProtoIdeaKpmModule\022L\n\006e" +
+      "xtras\030\001 \001(\01327.org.jetbrains.kotlin.kpm.i" +
+      "dea.proto.ProtoIdeaKpmExtrasH\000\210\001\001\022\\\n\013coo" +
+      "rdinates\030\002 \001(\0132B.org.jetbrains.kotlin.kp" +
+      "m.idea.proto.ProtoIdeaKpmModuleCoordinat" +
+      "esH\001\210\001\001\022L\n\tfragments\030\003 \003(\01329.org.jetbrai" +
+      "ns.kotlin.kpm.idea.proto.ProtoIdeaKpmFra" +
+      "gment\022J\n\010variants\030\004 \003(\01328.org.jetbrains." +
+      "kotlin.kpm.idea.proto.ProtoIdeaKpmVarian" +
+      "tB\t\n\007_extrasB\016\n\014_coordinates\"\272\003\n\023ProtoId" +
+      "eaKpmProject\022L\n\006extras\030\001 \001(\01327.org.jetbr" +
+      "ains.kotlin.kpm.idea.proto.ProtoIdeaKpmE" +
+      "xtrasH\000\210\001\001\022\"\n\025gradle_plugin_version\030\002 \001(" +
+      "\tH\001\210\001\001\022#\n\026core_libraries_version\030\003 \001(\tH\002" +
+      "\210\001\001\022)\n\034explicit_api_mode_cli_option\030\004 \001(" +
+      "\tH\003\210\001\001\022\037\n\022kotlin_native_home\030\005 \001(\tH\004\210\001\001\022" +
+      "H\n\007modules\030\006 \003(\01327.org.jetbrains.kotlin." +
+      "kpm.idea.proto.ProtoIdeaKpmModuleB\t\n\007_ex" +
+      "trasB\030\n\026_gradle_plugin_versionB\031\n\027_core_" +
+      "libraries_versionB\037\n\035_explicit_api_mode_" +
+      "cli_optionB\025\n\023_kotlin_native_homeB\002P\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -278,37 +296,37 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmModuleCoordinates_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmModuleCoordinates_descriptor,
-        new java.lang.String[] { "BuildId", "ProjectPath", "ProjectName", "ModuleName", "ModuleClassifier", "ModuleClassifier", });
+        new java.lang.String[] { "BuildId", "ProjectPath", "ProjectName", "ModuleName", "ModuleClassifier", "BuildId", "ProjectPath", "ProjectName", "ModuleName", "ModuleClassifier", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmLanguageSettings_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmLanguageSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmLanguageSettings_descriptor,
-        new java.lang.String[] { "LanguageVersion", "ApiVersion", "IsProgressiveMode", "EnabledLanguageFeatures", "OptInAnnotationsInUse", "CompilerPluginArguments", "CompilerPluginClasspath", "FreeCompilerArgs", "LanguageVersion", "ApiVersion", });
+        new java.lang.String[] { "LanguageVersion", "ApiVersion", "IsProgressiveMode", "EnabledLanguageFeatures", "OptInAnnotationsInUse", "CompilerPluginArguments", "CompilerPluginClasspath", "FreeCompilerArgs", "LanguageVersion", "ApiVersion", "IsProgressiveMode", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmSourceDirectory_descriptor,
-        new java.lang.String[] { "Extras", "AbsolutePath", "Type", "Extras", });
+        new java.lang.String[] { "Extras", "AbsolutePath", "Type", "Extras", "AbsolutePath", "Type", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResourceDirectory_descriptor,
-        new java.lang.String[] { "Extras", "AbsolutePath", "Extras", });
+        new java.lang.String[] { "Extras", "AbsolutePath", "Extras", "AbsolutePath", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmBinaryCoordinates_descriptor,
-        new java.lang.String[] { "Group", "Module", "Version", "KotlinModuleName", "KotlinFragmentName", "KotlinModuleName", "KotlinFragmentName", });
+        new java.lang.String[] { "Group", "Module", "Version", "KotlinModuleName", "KotlinFragmentName", "Group", "Module", "Version", "KotlinModuleName", "KotlinFragmentName", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentCoordinates_descriptor,
-        new java.lang.String[] { "Module", "FragmentName", });
+        new java.lang.String[] { "Module", "FragmentName", "Module", "FragmentName", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmDependency_fieldAccessorTable = new
@@ -320,19 +338,19 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmUnresolvedBinaryDependency_descriptor,
-        new java.lang.String[] { "Extras", "Coordinates", "Cause", "Coordinates", "Cause", });
+        new java.lang.String[] { "Extras", "Coordinates", "Cause", "Extras", "Coordinates", "Cause", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmResolvedBinaryDependency_descriptor,
-        new java.lang.String[] { "Extras", "Coordinates", "BinaryType", "BinaryFileAbsolutePath", });
+        new java.lang.String[] { "Extras", "Coordinates", "BinaryType", "BinaryFileAbsolutePath", "Extras", "Coordinates", "BinaryType", "BinaryFileAbsolutePath", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragmentDependency_descriptor,
-        new java.lang.String[] { "Extras", "Type", "Coordinates", });
+        new java.lang.String[] { "Extras", "Type", "Coordinates", "Extras", "Type", "Coordinates", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmPlatform_fieldAccessorTable = new
@@ -344,19 +362,19 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJvmPlatform_descriptor,
-        new java.lang.String[] { "Extras", "JvmTarget", "Extras", });
+        new java.lang.String[] { "Extras", "JvmTarget", "Extras", "JvmTarget", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmNativePlatform_descriptor,
-        new java.lang.String[] { "Extras", "KonanTarget", "Extras", });
+        new java.lang.String[] { "Extras", "KonanTarget", "Extras", "KonanTarget", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmJsPlatform_descriptor,
-        new java.lang.String[] { "Extras", "IsIr", "Extras", });
+        new java.lang.String[] { "Extras", "IsIr", "Extras", "IsIr", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmWasmPlatform_fieldAccessorTable = new
@@ -374,7 +392,7 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmFragment_descriptor,
-        new java.lang.String[] { "Extras", "Coordinates", "Platforms", "LanguageSettings", "Dependencies", "SourceDirectories", });
+        new java.lang.String[] { "Extras", "Coordinates", "Platforms", "LanguageSettings", "Dependencies", "SourceDirectories", "Extras", "Coordinates", "LanguageSettings", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmCompilationOutput_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmCompilationOutput_fieldAccessorTable = new
@@ -386,7 +404,7 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmVariant_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmVariant_descriptor,
-        new java.lang.String[] { "Fragment", "Platform", "VariantAttributes", "CompilationOutput", });
+        new java.lang.String[] { "Fragment", "Platform", "VariantAttributes", "CompilationOutput", "Fragment", "Platform", "CompilationOutput", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmVariant_VariantAttributesEntry_descriptor =
       internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmVariant_descriptor.getNestedTypes().get(0);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmVariant_VariantAttributesEntry_fieldAccessorTable = new
@@ -404,7 +422,7 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmProject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmProject_descriptor,
-        new java.lang.String[] { "Extras", "GradlePluginVersion", "CoreLibrariesVersion", "ExplicitApiModeCliOption", "KotlinNativeHome", "Modules", "Extras", "ExplicitApiModeCliOption", });
+        new java.lang.String[] { "Extras", "GradlePluginVersion", "CoreLibrariesVersion", "ExplicitApiModeCliOption", "KotlinNativeHome", "Modules", "Extras", "GradlePluginVersion", "CoreLibrariesVersion", "ExplicitApiModeCliOption", "KotlinNativeHome", });
     org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOuterClass.getDescriptor();
   }
 

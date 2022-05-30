@@ -66,13 +66,13 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             absolutePath_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000004;
             type_ = s;
             break;
           }
@@ -138,7 +138,15 @@ private static final long serialVersionUID = 0L;
   public static final int ABSOLUTE_PATH_FIELD_NUMBER = 2;
   private volatile java.lang.Object absolutePath_;
   /**
-   * <code>string absolute_path = 2;</code>
+   * <code>optional string absolute_path = 2;</code>
+   * @return Whether the absolutePath field is set.
+   */
+  @java.lang.Override
+  public boolean hasAbsolutePath() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string absolute_path = 2;</code>
    * @return The absolutePath.
    */
   @java.lang.Override
@@ -155,7 +163,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string absolute_path = 2;</code>
+   * <code>optional string absolute_path = 2;</code>
    * @return The bytes for absolutePath.
    */
   @java.lang.Override
@@ -176,7 +184,15 @@ private static final long serialVersionUID = 0L;
   public static final int TYPE_FIELD_NUMBER = 3;
   private volatile java.lang.Object type_;
   /**
-   * <code>string type = 3;</code>
+   * <code>optional string type = 3;</code>
+   * @return Whether the type field is set.
+   */
+  @java.lang.Override
+  public boolean hasType() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional string type = 3;</code>
    * @return The type.
    */
   @java.lang.Override
@@ -193,7 +209,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string type = 3;</code>
+   * <code>optional string type = 3;</code>
    * @return The bytes for type.
    */
   @java.lang.Override
@@ -228,10 +244,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(absolutePath_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, absolutePath_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
     }
     unknownFields.writeTo(output);
@@ -247,10 +263,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(absolutePath_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, absolutePath_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
     }
     size += unknownFields.getSerializedSize();
@@ -273,10 +289,16 @@ private static final long serialVersionUID = 0L;
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (!getAbsolutePath()
-        .equals(other.getAbsolutePath())) return false;
-    if (!getType()
-        .equals(other.getType())) return false;
+    if (hasAbsolutePath() != other.hasAbsolutePath()) return false;
+    if (hasAbsolutePath()) {
+      if (!getAbsolutePath()
+          .equals(other.getAbsolutePath())) return false;
+    }
+    if (hasType() != other.hasType()) return false;
+    if (hasType()) {
+      if (!getType()
+          .equals(other.getType())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -292,10 +314,14 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + ABSOLUTE_PATH_FIELD_NUMBER;
-    hash = (53 * hash) + getAbsolutePath().hashCode();
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType().hashCode();
+    if (hasAbsolutePath()) {
+      hash = (37 * hash) + ABSOLUTE_PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getAbsolutePath().hashCode();
+    }
+    if (hasType()) {
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getType().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -437,9 +463,9 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       absolutePath_ = "";
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = "";
-
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -476,7 +502,13 @@ private static final long serialVersionUID = 0L;
         }
         to_bitField0_ |= 0x00000001;
       }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
+      }
       result.absolutePath_ = absolutePath_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        to_bitField0_ |= 0x00000004;
+      }
       result.type_ = type_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -530,11 +562,13 @@ private static final long serialVersionUID = 0L;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (!other.getAbsolutePath().isEmpty()) {
+      if (other.hasAbsolutePath()) {
+        bitField0_ |= 0x00000002;
         absolutePath_ = other.absolutePath_;
         onChanged();
       }
-      if (!other.getType().isEmpty()) {
+      if (other.hasType()) {
+        bitField0_ |= 0x00000004;
         type_ = other.type_;
         onChanged();
       }
@@ -690,7 +724,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object absolutePath_ = "";
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
+     * @return Whether the absolutePath field is set.
+     */
+    public boolean hasAbsolutePath() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string absolute_path = 2;</code>
      * @return The absolutePath.
      */
     public java.lang.String getAbsolutePath() {
@@ -706,7 +747,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      * @return The bytes for absolutePath.
      */
     public com.google.protobuf.ByteString
@@ -723,7 +764,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      * @param value The absolutePath to set.
      * @return This builder for chaining.
      */
@@ -732,23 +773,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       absolutePath_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearAbsolutePath() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       absolutePath_ = getDefaultInstance().getAbsolutePath();
       onChanged();
       return this;
     }
     /**
-     * <code>string absolute_path = 2;</code>
+     * <code>optional string absolute_path = 2;</code>
      * @param value The bytes for absolutePath to set.
      * @return This builder for chaining.
      */
@@ -758,7 +799,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       absolutePath_ = value;
       onChanged();
       return this;
@@ -766,7 +807,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object type_ = "";
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
+     * @return Whether the type field is set.
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string type = 3;</code>
      * @return The type.
      */
     public java.lang.String getType() {
@@ -782,7 +830,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
      * @return The bytes for type.
      */
     public com.google.protobuf.ByteString
@@ -799,7 +847,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
      * @param value The type to set.
      * @return This builder for chaining.
      */
@@ -808,23 +856,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
       type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       type_ = getDefaultInstance().getType();
       onChanged();
       return this;
     }
     /**
-     * <code>string type = 3;</code>
+     * <code>optional string type = 3;</code>
      * @param value The bytes for type to set.
      * @return This builder for chaining.
      */
@@ -834,7 +882,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000004;
       type_ = value;
       onChanged();
       return this;

@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
+            bitField0_ |= 0x00000002;
             jvmTarget_ = s;
             break;
           }
@@ -131,7 +131,15 @@ private static final long serialVersionUID = 0L;
   public static final int JVM_TARGET_FIELD_NUMBER = 2;
   private volatile java.lang.Object jvmTarget_;
   /**
-   * <code>string jvm_target = 2;</code>
+   * <code>optional string jvm_target = 2;</code>
+   * @return Whether the jvmTarget field is set.
+   */
+  @java.lang.Override
+  public boolean hasJvmTarget() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string jvm_target = 2;</code>
    * @return The jvmTarget.
    */
   @java.lang.Override
@@ -148,7 +156,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string jvm_target = 2;</code>
+   * <code>optional string jvm_target = 2;</code>
    * @return The bytes for jvmTarget.
    */
   @java.lang.Override
@@ -183,7 +191,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jvmTarget_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, jvmTarget_);
     }
     unknownFields.writeTo(output);
@@ -199,7 +207,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExtras());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jvmTarget_)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, jvmTarget_);
     }
     size += unknownFields.getSerializedSize();
@@ -222,8 +230,11 @@ private static final long serialVersionUID = 0L;
       if (!getExtras()
           .equals(other.getExtras())) return false;
     }
-    if (!getJvmTarget()
-        .equals(other.getJvmTarget())) return false;
+    if (hasJvmTarget() != other.hasJvmTarget()) return false;
+    if (hasJvmTarget()) {
+      if (!getJvmTarget()
+          .equals(other.getJvmTarget())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -239,8 +250,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTRAS_FIELD_NUMBER;
       hash = (53 * hash) + getExtras().hashCode();
     }
-    hash = (37 * hash) + JVM_TARGET_FIELD_NUMBER;
-    hash = (53 * hash) + getJvmTarget().hashCode();
+    if (hasJvmTarget()) {
+      hash = (37 * hash) + JVM_TARGET_FIELD_NUMBER;
+      hash = (53 * hash) + getJvmTarget().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -382,7 +395,7 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       jvmTarget_ = "";
-
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -418,6 +431,9 @@ private static final long serialVersionUID = 0L;
           result.extras_ = extrasBuilder_.build();
         }
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        to_bitField0_ |= 0x00000002;
       }
       result.jvmTarget_ = jvmTarget_;
       result.bitField0_ = to_bitField0_;
@@ -472,7 +488,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasExtras()) {
         mergeExtras(other.getExtras());
       }
-      if (!other.getJvmTarget().isEmpty()) {
+      if (other.hasJvmTarget()) {
+        bitField0_ |= 0x00000002;
         jvmTarget_ = other.jvmTarget_;
         onChanged();
       }
@@ -628,7 +645,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object jvmTarget_ = "";
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
+     * @return Whether the jvmTarget field is set.
+     */
+    public boolean hasJvmTarget() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string jvm_target = 2;</code>
      * @return The jvmTarget.
      */
     public java.lang.String getJvmTarget() {
@@ -644,7 +668,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
      * @return The bytes for jvmTarget.
      */
     public com.google.protobuf.ByteString
@@ -661,7 +685,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
      * @param value The jvmTarget to set.
      * @return This builder for chaining.
      */
@@ -670,23 +694,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
       jvmTarget_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearJvmTarget() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       jvmTarget_ = getDefaultInstance().getJvmTarget();
       onChanged();
       return this;
     }
     /**
-     * <code>string jvm_target = 2;</code>
+     * <code>optional string jvm_target = 2;</code>
      * @param value The bytes for jvmTarget to set.
      * @return This builder for chaining.
      */
@@ -696,7 +720,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+      bitField0_ |= 0x00000002;
       jvmTarget_ = value;
       onChanged();
       return this;

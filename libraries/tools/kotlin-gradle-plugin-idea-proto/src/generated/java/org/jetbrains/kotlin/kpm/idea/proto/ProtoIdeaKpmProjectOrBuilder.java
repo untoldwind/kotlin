@@ -23,24 +23,34 @@ public interface ProtoIdeaKpmProjectOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>string gradle_plugin_version = 2;</code>
+   * <code>optional string gradle_plugin_version = 2;</code>
+   * @return Whether the gradlePluginVersion field is set.
+   */
+  boolean hasGradlePluginVersion();
+  /**
+   * <code>optional string gradle_plugin_version = 2;</code>
    * @return The gradlePluginVersion.
    */
   java.lang.String getGradlePluginVersion();
   /**
-   * <code>string gradle_plugin_version = 2;</code>
+   * <code>optional string gradle_plugin_version = 2;</code>
    * @return The bytes for gradlePluginVersion.
    */
   com.google.protobuf.ByteString
       getGradlePluginVersionBytes();
 
   /**
-   * <code>string core_libraries_version = 3;</code>
+   * <code>optional string core_libraries_version = 3;</code>
+   * @return Whether the coreLibrariesVersion field is set.
+   */
+  boolean hasCoreLibrariesVersion();
+  /**
+   * <code>optional string core_libraries_version = 3;</code>
    * @return The coreLibrariesVersion.
    */
   java.lang.String getCoreLibrariesVersion();
   /**
-   * <code>string core_libraries_version = 3;</code>
+   * <code>optional string core_libraries_version = 3;</code>
    * @return The bytes for coreLibrariesVersion.
    */
   com.google.protobuf.ByteString
@@ -64,12 +74,17 @@ public interface ProtoIdeaKpmProjectOrBuilder extends
       getExplicitApiModeCliOptionBytes();
 
   /**
-   * <code>string kotlin_native_home = 5;</code>
+   * <code>optional string kotlin_native_home = 5;</code>
+   * @return Whether the kotlinNativeHome field is set.
+   */
+  boolean hasKotlinNativeHome();
+  /**
+   * <code>optional string kotlin_native_home = 5;</code>
    * @return The kotlinNativeHome.
    */
   java.lang.String getKotlinNativeHome();
   /**
-   * <code>string kotlin_native_home = 5;</code>
+   * <code>optional string kotlin_native_home = 5;</code>
    * @return The bytes for kotlinNativeHome.
    */
   com.google.protobuf.ByteString

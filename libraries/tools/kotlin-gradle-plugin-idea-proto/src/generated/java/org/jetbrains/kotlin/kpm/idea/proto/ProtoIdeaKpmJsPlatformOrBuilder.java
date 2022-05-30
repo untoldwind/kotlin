@@ -23,7 +23,12 @@ public interface ProtoIdeaKpmJsPlatformOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>bool isIr = 2;</code>
+   * <code>optional bool isIr = 2;</code>
+   * @return Whether the isIr field is set.
+   */
+  boolean hasIsIr();
+  /**
+   * <code>optional bool isIr = 2;</code>
    * @return The isIr.
    */
   boolean getIsIr();

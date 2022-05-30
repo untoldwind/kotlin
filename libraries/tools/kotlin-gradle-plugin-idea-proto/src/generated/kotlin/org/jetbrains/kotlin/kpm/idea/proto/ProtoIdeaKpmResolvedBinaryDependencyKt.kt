@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmResolvedBinaryDependency = _builder.build()
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal var extras: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras
       @JvmName("getExtras")
@@ -33,13 +33,13 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
         _builder.setExtras(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal fun clearExtras() {
       _builder.clearExtras()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return Whether the extras field is set.
      */
     internal fun hasExtras(): kotlin.Boolean {
@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
     }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
     internal var coordinates: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates
       @JvmName("getCoordinates")
@@ -57,13 +57,13 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
         _builder.setCoordinates(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      */
     internal fun clearCoordinates() {
       _builder.clearCoordinates()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmBinaryCoordinates coordinates = 2;</code>
      * @return Whether the coordinates field is set.
      */
     internal fun hasCoordinates(): kotlin.Boolean {
@@ -71,7 +71,7 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
     }
 
     /**
-     * <code>string binary_type = 3;</code>
+     * <code>optional string binary_type = 3;</code>
      */
     internal var binaryType: kotlin.String
       @JvmName("getBinaryType")
@@ -81,14 +81,21 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
         _builder.setBinaryType(value)
       }
     /**
-     * <code>string binary_type = 3;</code>
+     * <code>optional string binary_type = 3;</code>
      */
     internal fun clearBinaryType() {
       _builder.clearBinaryType()
     }
+    /**
+     * <code>optional string binary_type = 3;</code>
+     * @return Whether the binaryType field is set.
+     */
+    internal fun hasBinaryType(): kotlin.Boolean {
+      return _builder.hasBinaryType()
+    }
 
     /**
-     * <code>string binary_file_absolute_path = 4;</code>
+     * <code>optional string binary_file_absolute_path = 4;</code>
      */
     internal var binaryFileAbsolutePath: kotlin.String
       @JvmName("getBinaryFileAbsolutePath")
@@ -98,10 +105,17 @@ internal object ProtoIdeaKpmResolvedBinaryDependencyKt {
         _builder.setBinaryFileAbsolutePath(value)
       }
     /**
-     * <code>string binary_file_absolute_path = 4;</code>
+     * <code>optional string binary_file_absolute_path = 4;</code>
      */
     internal fun clearBinaryFileAbsolutePath() {
       _builder.clearBinaryFileAbsolutePath()
+    }
+    /**
+     * <code>optional string binary_file_absolute_path = 4;</code>
+     * @return Whether the binaryFileAbsolutePath field is set.
+     */
+    internal fun hasBinaryFileAbsolutePath(): kotlin.Boolean {
+      return _builder.hasBinaryFileAbsolutePath()
     }
   }
 }

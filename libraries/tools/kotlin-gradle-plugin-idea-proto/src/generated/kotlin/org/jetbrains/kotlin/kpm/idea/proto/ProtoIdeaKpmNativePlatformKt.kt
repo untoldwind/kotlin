@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmNativePlatformKt {
     }
 
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
      */
     internal var konanTarget: kotlin.String
       @JvmName("getKonanTarget")
@@ -57,10 +57,17 @@ internal object ProtoIdeaKpmNativePlatformKt {
         _builder.setKonanTarget(value)
       }
     /**
-     * <code>string konan_target = 2;</code>
+     * <code>optional string konan_target = 2;</code>
      */
     internal fun clearKonanTarget() {
       _builder.clearKonanTarget()
+    }
+    /**
+     * <code>optional string konan_target = 2;</code>
+     * @return Whether the konanTarget field is set.
+     */
+    internal fun hasKonanTarget(): kotlin.Boolean {
+      return _builder.hasKonanTarget()
     }
   }
 }

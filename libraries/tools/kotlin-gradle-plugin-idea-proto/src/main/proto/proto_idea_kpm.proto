@@ -1,22 +1,21 @@
 syntax = "proto3";
 
-// TODO Mark everything as optional
 package org.jetbrains.kotlin.kpm.idea.proto;
 import "proto_idea_kpm_extras.proto";
 option java_multiple_files = true;
 
 message ProtoIdeaKpmModuleCoordinates {
-  string build_id = 1;
-  string project_path = 2;
-  string project_name = 3;
-  string module_name = 4;
+  optional string build_id = 1;
+  optional string project_path = 2;
+  optional string project_name = 3;
+  optional string module_name = 4;
   optional string module_classifier = 5;
 }
 
 message ProtoIdeaKpmLanguageSettings {
   optional string language_version = 1;
   optional string api_version = 2;
-  bool is_progressive_mode = 3;
+  optional bool is_progressive_mode = 3;
   repeated string enabled_language_features = 4;
   repeated string opt_in_annotations_in_use = 5;
   repeated string compiler_plugin_arguments = 6;
@@ -26,26 +25,26 @@ message ProtoIdeaKpmLanguageSettings {
 
 message ProtoIdeaKpmSourceDirectory {
   optional ProtoIdeaKpmExtras extras = 1;
-  string absolute_path = 2;
-  string type = 3;
+  optional string absolute_path = 2;
+  optional string type = 3;
 }
 
 message ProtoIdeaKpmResourceDirectory {
   optional ProtoIdeaKpmExtras extras = 1;
-  string absolute_path = 2;
+  optional string absolute_path = 2;
 }
 
 message ProtoIdeaKpmBinaryCoordinates {
-  string group = 1;
-  string module = 2;
-  string version = 3;
+  optional string group = 1;
+  optional string module = 2;
+  optional string version = 3;
   optional string kotlin_module_name = 4;
   optional string kotlin_fragment_name = 5;
 }
 
 message ProtoIdeaKpmFragmentCoordinates {
-  ProtoIdeaKpmModuleCoordinates module = 1;
-  string fragment_name = 2;
+  optional ProtoIdeaKpmModuleCoordinates module = 1;
+  optional string fragment_name = 2;
 }
 
 message ProtoIdeaKpmDependency {
@@ -57,16 +56,16 @@ message ProtoIdeaKpmDependency {
 }
 
 message ProtoIdeaKpmUnresolvedBinaryDependency {
-  ProtoIdeaKpmExtras extras = 1;
+  optional ProtoIdeaKpmExtras extras = 1;
   optional ProtoIdeaKpmBinaryCoordinates coordinates = 2;
   optional string cause = 3;
 }
 
 message ProtoIdeaKpmResolvedBinaryDependency {
-  ProtoIdeaKpmExtras extras = 1;
-  ProtoIdeaKpmBinaryCoordinates coordinates = 2;
-  string binary_type = 3;
-  string binary_file_absolute_path = 4;
+  optional ProtoIdeaKpmExtras extras = 1;
+  optional ProtoIdeaKpmBinaryCoordinates coordinates = 2;
+  optional string binary_type = 3;
+  optional string binary_file_absolute_path = 4;
 }
 
 message ProtoIdeaKpmFragmentDependency {
@@ -76,9 +75,9 @@ message ProtoIdeaKpmFragmentDependency {
     REFINES = 2;
   }
 
-  ProtoIdeaKpmExtras extras = 1;
-  Type type = 2;
-  ProtoIdeaKpmFragmentCoordinates coordinates = 3;
+  optional ProtoIdeaKpmExtras extras = 1;
+  optional Type type = 2;
+  optional ProtoIdeaKpmFragmentCoordinates coordinates = 3;
 }
 
 message ProtoIdeaKpmPlatform {
@@ -93,17 +92,17 @@ message ProtoIdeaKpmPlatform {
 
 message ProtoIdeaKpmJvmPlatform {
   optional ProtoIdeaKpmExtras extras = 1;
-  string jvm_target = 2;
+  optional string jvm_target = 2;
 }
 
 message ProtoIdeaKpmNativePlatform {
   optional ProtoIdeaKpmExtras extras = 1;
-  string konan_target = 2;
+  optional string konan_target = 2;
 }
 
 message ProtoIdeaKpmJsPlatform {
   optional ProtoIdeaKpmExtras extras = 1;
-  bool isIr = 2 ;
+  optional bool isIr = 2 ;
 }
 
 message ProtoIdeaKpmWasmPlatform {
@@ -115,10 +114,10 @@ message ProtoIdeaKpmUnknownPlatform {
 }
 
 message ProtoIdeaKpmFragment {
-  ProtoIdeaKpmExtras extras = 1;
-  ProtoIdeaKpmFragmentCoordinates coordinates = 2;
+  optional ProtoIdeaKpmExtras extras = 1;
+  optional ProtoIdeaKpmFragmentCoordinates coordinates = 2;
   repeated ProtoIdeaKpmPlatform platforms = 3;
-  ProtoIdeaKpmLanguageSettings language_settings = 4;
+  optional ProtoIdeaKpmLanguageSettings language_settings = 4;
   repeated ProtoIdeaKpmDependency dependencies = 5;
   repeated ProtoIdeaKpmSourceDirectory source_directories = 6;
 }
@@ -129,10 +128,10 @@ message ProtoIdeaKpmCompilationOutput {
 }
 
 message ProtoIdeaKpmVariant {
-  ProtoIdeaKpmFragment fragment = 1;
-  ProtoIdeaKpmPlatform platform = 2;
+  optional ProtoIdeaKpmFragment fragment = 1;
+  optional ProtoIdeaKpmPlatform platform = 2;
   map<string, string> variant_attributes = 3;
-  ProtoIdeaKpmCompilationOutput compilation_output = 4;
+  optional ProtoIdeaKpmCompilationOutput compilation_output = 4;
 }
 
 message ProtoIdeaKpmModule {
@@ -144,10 +143,10 @@ message ProtoIdeaKpmModule {
 
 message ProtoIdeaKpmProject {
   optional ProtoIdeaKpmExtras extras = 1;
-  string gradle_plugin_version = 2;
-  string core_libraries_version = 3;
+  optional string gradle_plugin_version = 2;
+  optional string core_libraries_version = 3;
   optional string explicit_api_mode_cli_option = 4;
-  string kotlin_native_home = 5;
+  optional string kotlin_native_home = 5;
   repeated ProtoIdeaKpmModule modules = 6;
 }
 

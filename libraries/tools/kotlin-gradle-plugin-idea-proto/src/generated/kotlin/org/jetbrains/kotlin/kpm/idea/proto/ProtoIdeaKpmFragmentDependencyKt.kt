@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmFragmentDependencyKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency = _builder.build()
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal var extras: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras
       @JvmName("getExtras")
@@ -33,13 +33,13 @@ internal object ProtoIdeaKpmFragmentDependencyKt {
         _builder.setExtras(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal fun clearExtras() {
       _builder.clearExtras()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return Whether the extras field is set.
      */
     internal fun hasExtras(): kotlin.Boolean {
@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmFragmentDependencyKt {
     }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      */
     internal var type: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type
       @JvmName("getType")
@@ -57,14 +57,21 @@ internal object ProtoIdeaKpmFragmentDependencyKt {
         _builder.setType(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
      */
     internal fun clearType() {
       _builder.clearType()
     }
+    /**
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentDependency.Type type = 2;</code>
+     * @return Whether the type field is set.
+     */
+    internal fun hasType(): kotlin.Boolean {
+      return _builder.hasType()
+    }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     internal var coordinates: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates
       @JvmName("getCoordinates")
@@ -74,13 +81,13 @@ internal object ProtoIdeaKpmFragmentDependencyKt {
         _builder.setCoordinates(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      */
     internal fun clearCoordinates() {
       _builder.clearCoordinates()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmFragmentCoordinates coordinates = 3;</code>
      * @return Whether the coordinates field is set.
      */
     internal fun hasCoordinates(): kotlin.Boolean {

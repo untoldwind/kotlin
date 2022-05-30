@@ -23,7 +23,7 @@ internal object ProtoIdeaKpmUnresolvedBinaryDependencyKt {
     internal fun _build(): org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmUnresolvedBinaryDependency = _builder.build()
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal var extras: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras
       @JvmName("getExtras")
@@ -33,13 +33,13 @@ internal object ProtoIdeaKpmUnresolvedBinaryDependencyKt {
         _builder.setExtras(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      */
     internal fun clearExtras() {
       _builder.clearExtras()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtras extras = 1;</code>
      * @return Whether the extras field is set.
      */
     internal fun hasExtras(): kotlin.Boolean {

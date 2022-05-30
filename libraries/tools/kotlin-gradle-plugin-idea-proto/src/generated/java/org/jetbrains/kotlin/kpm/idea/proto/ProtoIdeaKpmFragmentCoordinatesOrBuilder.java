@@ -8,27 +8,32 @@ public interface ProtoIdeaKpmFragmentCoordinatesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
    * @return Whether the module field is set.
    */
   boolean hasModule();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
    * @return The module.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates getModule();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates module = 1;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinatesOrBuilder getModuleOrBuilder();
 
   /**
-   * <code>string fragment_name = 2;</code>
+   * <code>optional string fragment_name = 2;</code>
+   * @return Whether the fragmentName field is set.
+   */
+  boolean hasFragmentName();
+  /**
+   * <code>optional string fragment_name = 2;</code>
    * @return The fragmentName.
    */
   java.lang.String getFragmentName();
   /**
-   * <code>string fragment_name = 2;</code>
+   * <code>optional string fragment_name = 2;</code>
    * @return The bytes for fragmentName.
    */
   com.google.protobuf.ByteString
