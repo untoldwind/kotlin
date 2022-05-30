@@ -61,7 +61,11 @@ data class IdeaKpmNativePlatformImpl(
 data class IdeaKpmJsPlatformImpl(
     override val isIr: Boolean,
     override val extras: Extras = emptyExtras()
-) : IdeaKpmJsPlatform
+) : IdeaKpmJsPlatform {
+    internal companion object {
+        const val serialVersionUID = 0L
+    }
+}
 
 @InternalKotlinGradlePluginApi
 data class IdeaKpmWasmPlatformImpl(
