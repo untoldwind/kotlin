@@ -5,21 +5,21 @@
 
 package org.jetbrains.kotlin.kpm.idea.proto
 
-import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializer
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerializer
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import java.nio.ByteBuffer
 
-object StringSerializer : IdeaKpmSerializer<String> {
-    override fun serialize(value: String): ByteArray = value.encodeToByteArray()
-    override fun deserialize(data: ByteArray): IdeaKpmSerializer.Deserialized<String> =
-        IdeaKpmSerializer.Deserialized.Value(data.decodeToString())
+object StringExtrasSerializer : IdeaKpmExtrasSerializer<String> {
+    override fun serialize(context: IdeaKpmSerializationContext, value: String): ByteArray = value.encodeToByteArray()
+    override fun deserialize(context: IdeaKpmSerializationContext, data: ByteArray) = data.decodeToString()
 }
 
-object IntSerializer : IdeaKpmSerializer<Int> {
-    override fun serialize(value: Int): ByteArray {
+object IntExtrasSerializer : IdeaKpmExtrasSerializer<Int> {
+    override fun serialize(context: IdeaKpmSerializationContext, value: Int): ByteArray {
         return ByteBuffer.allocate(Int.SIZE_BYTES).putInt(value).array()
     }
 
-    override fun deserialize(data: ByteArray): IdeaKpmSerializer.Deserialized<Int> {
-        return IdeaKpmSerializer.Deserialized.Value(ByteBuffer.wrap(data).int)
+    override fun deserialize(context: IdeaKpmSerializationContext, data: ByteArray): Int {
+        return ByteBuffer.wrap(data).int
     }
 }

@@ -5,7 +5,8 @@
 
 package org.jetbrains.kotlin.gradle.kpm.idea.serialize
 
-interface IdeaKpmSerializationContext {
-    val extras: IdeaKpmExtrasSerializationExtension
-    val logger: IdeaKpmSerializationLogger
+import org.jetbrains.kotlin.tooling.core.Extras
+
+interface IdeaKpmExtrasSerializationExtension {
+    fun <T : Any> serializer(key: Extras.Key<T>): IdeaKpmExtrasSerializer<T>?
 }

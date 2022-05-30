@@ -8,7 +8,11 @@ package org.jetbrains.kotlin.kpm.idea.proto
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import kotlin.test.assertEquals
 
-abstract class AbstractSerializationTest<T : Any> : IdeaKpmSerializationContext by TestSerializationContext {
+abstract class AbstractSerializationTest<T : Any> : IdeaKpmSerializationContext {
+
+    final override val logger = TestLogger()
+    final override val extras = TestExtrasExtension()
+
     abstract fun serialize(value: T): ByteArray
     abstract fun deserialize(data: ByteArray): T
     open fun normalize(value: T): T = value

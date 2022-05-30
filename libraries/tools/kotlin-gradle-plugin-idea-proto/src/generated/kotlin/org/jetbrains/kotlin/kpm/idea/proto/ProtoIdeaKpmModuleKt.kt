@@ -47,7 +47,7 @@ internal object ProtoIdeaKpmModuleKt {
     }
 
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
      */
     internal var coordinates: org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates
       @JvmName("getCoordinates")
@@ -57,13 +57,13 @@ internal object ProtoIdeaKpmModuleKt {
         _builder.setCoordinates(value)
       }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
      */
     internal fun clearCoordinates() {
       _builder.clearCoordinates()
     }
     /**
-     * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
+     * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
      * @return Whether the coordinates field is set.
      */
     internal fun hasCoordinates(): kotlin.Boolean {

@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+// TODO Mark everything as optional
 package org.jetbrains.kotlin.kpm.idea.proto;
 import "proto_idea_kpm_extras.proto";
 option java_multiple_files = true;
@@ -136,7 +137,7 @@ message ProtoIdeaKpmVariant {
 
 message ProtoIdeaKpmModule {
   optional ProtoIdeaKpmExtras extras = 1;
-  ProtoIdeaKpmModuleCoordinates coordinates = 2;
+  optional ProtoIdeaKpmModuleCoordinates coordinates = 2;
   repeated ProtoIdeaKpmFragment fragments = 3;
   repeated ProtoIdeaKpmVariant variants = 4;
 }
@@ -149,3 +150,4 @@ message ProtoIdeaKpmProject {
   string kotlin_native_home = 5;
   repeated ProtoIdeaKpmModule modules = 6;
 }
+

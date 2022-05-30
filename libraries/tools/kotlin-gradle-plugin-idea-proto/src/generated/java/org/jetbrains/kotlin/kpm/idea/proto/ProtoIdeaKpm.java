@@ -248,25 +248,25 @@ public final class ProtoIdeaKpm {
       "(\0132B.org.jetbrains.kotlin.kpm.idea.proto" +
       ".ProtoIdeaKpmCompilationOutput\0328\n\026Varian" +
       "tAttributesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t:\0028\001\"\340\002\n\022ProtoIdeaKpmModule\022L\n\006extra" +
+      " \001(\t:\0028\001\"\365\002\n\022ProtoIdeaKpmModule\022L\n\006extra" +
       "s\030\001 \001(\01327.org.jetbrains.kotlin.kpm.idea." +
-      "proto.ProtoIdeaKpmExtrasH\000\210\001\001\022W\n\013coordin" +
+      "proto.ProtoIdeaKpmExtrasH\000\210\001\001\022\\\n\013coordin" +
       "ates\030\002 \001(\0132B.org.jetbrains.kotlin.kpm.id" +
-      "ea.proto.ProtoIdeaKpmModuleCoordinates\022L" +
-      "\n\tfragments\030\003 \003(\01329.org.jetbrains.kotlin" +
-      ".kpm.idea.proto.ProtoIdeaKpmFragment\022J\n\010" +
-      "variants\030\004 \003(\01328.org.jetbrains.kotlin.kp" +
-      "m.idea.proto.ProtoIdeaKpmVariantB\t\n\007_ext" +
-      "ras\"\337\002\n\023ProtoIdeaKpmProject\022L\n\006extras\030\001 " +
-      "\001(\01327.org.jetbrains.kotlin.kpm.idea.prot" +
-      "o.ProtoIdeaKpmExtrasH\000\210\001\001\022\035\n\025gradle_plug" +
-      "in_version\030\002 \001(\t\022\036\n\026core_libraries_versi" +
-      "on\030\003 \001(\t\022)\n\034explicit_api_mode_cli_option" +
-      "\030\004 \001(\tH\001\210\001\001\022\032\n\022kotlin_native_home\030\005 \001(\t\022" +
-      "H\n\007modules\030\006 \003(\01327.org.jetbrains.kotlin." +
-      "kpm.idea.proto.ProtoIdeaKpmModuleB\t\n\007_ex" +
-      "trasB\037\n\035_explicit_api_mode_cli_optionB\002P" +
-      "\001b\006proto3"
+      "ea.proto.ProtoIdeaKpmModuleCoordinatesH\001" +
+      "\210\001\001\022L\n\tfragments\030\003 \003(\01329.org.jetbrains.k" +
+      "otlin.kpm.idea.proto.ProtoIdeaKpmFragmen" +
+      "t\022J\n\010variants\030\004 \003(\01328.org.jetbrains.kotl" +
+      "in.kpm.idea.proto.ProtoIdeaKpmVariantB\t\n" +
+      "\007_extrasB\016\n\014_coordinates\"\337\002\n\023ProtoIdeaKp" +
+      "mProject\022L\n\006extras\030\001 \001(\01327.org.jetbrains" +
+      ".kotlin.kpm.idea.proto.ProtoIdeaKpmExtra" +
+      "sH\000\210\001\001\022\035\n\025gradle_plugin_version\030\002 \001(\t\022\036\n" +
+      "\026core_libraries_version\030\003 \001(\t\022)\n\034explici" +
+      "t_api_mode_cli_option\030\004 \001(\tH\001\210\001\001\022\032\n\022kotl" +
+      "in_native_home\030\005 \001(\t\022H\n\007modules\030\006 \003(\01327." +
+      "org.jetbrains.kotlin.kpm.idea.proto.Prot" +
+      "oIdeaKpmModuleB\t\n\007_extrasB\037\n\035_explicit_a" +
+      "pi_mode_cli_optionB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -398,7 +398,7 @@ public final class ProtoIdeaKpm {
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmModule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmModule_descriptor,
-        new java.lang.String[] { "Extras", "Coordinates", "Fragments", "Variants", "Extras", });
+        new java.lang.String[] { "Extras", "Coordinates", "Fragments", "Variants", "Extras", "Coordinates", });
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmProject_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_org_jetbrains_kotlin_kpm_idea_proto_ProtoIdeaKpmProject_fieldAccessorTable = new

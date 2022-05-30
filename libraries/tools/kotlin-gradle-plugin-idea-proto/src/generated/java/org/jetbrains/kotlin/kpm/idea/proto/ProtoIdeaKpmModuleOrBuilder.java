@@ -23,17 +23,17 @@ public interface ProtoIdeaKpmModuleOrBuilder extends
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmExtrasOrBuilder getExtrasOrBuilder();
 
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
    * @return Whether the coordinates field is set.
    */
   boolean hasCoordinates();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
    * @return The coordinates.
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates getCoordinates();
   /**
-   * <code>.org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
+   * <code>optional .org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinates coordinates = 2;</code>
    */
   org.jetbrains.kotlin.kpm.idea.proto.ProtoIdeaKpmModuleCoordinatesOrBuilder getCoordinatesOrBuilder();
 
