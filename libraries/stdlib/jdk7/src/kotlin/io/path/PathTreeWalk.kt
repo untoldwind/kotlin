@@ -19,6 +19,8 @@ import java.nio.file.attribute.BasicFileAttributes
  *
  * Note that this enumeration is not exhaustive and new cases might be added in the future.
  */
+@ExperimentalStdlibApi
+@SinceKotlin("1.7")
 public enum class PathWalkOption {
     /** Visits directories as well. */
     INCLUDE_DIRECTORIES,
@@ -38,6 +40,7 @@ public enum class PathWalkOption {
  * If the file path given is just a file, the walker iterates only it.
  * If the file path given does not exist, the walker iterates nothing, i.e. it's equivalent to an empty sequence.
  */
+@ExperimentalStdlibApi
 internal class PathTreeWalk(
     private val start: Path,
     private val options: Array<out PathWalkOption>
