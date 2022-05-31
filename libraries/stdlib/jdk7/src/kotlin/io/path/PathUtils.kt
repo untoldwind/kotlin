@@ -15,6 +15,8 @@ import java.nio.file.*
 import java.nio.file.FileAlreadyExistsException
 import java.nio.file.NoSuchFileException
 import java.nio.file.attribute.*
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import kotlin.jvm.Throws
 
 /**
@@ -1025,11 +1027,40 @@ public fun Path.walk(vararg options: PathWalkOption): Sequence<Path> = PathTreeW
  * @param maxDepth the maximum depth to traverse. By default, there is no limit.
  * @param followLinks specifies whether to follow symbolic links, `false` by default.
  *
- * @see [Files.walkFileTree]
+ * @see Files.walkFileTree
+ *
+ * @sample samples.io.Path.fileVisitor
  */
 @ExperimentalStdlibApi
 @SinceKotlin("1.7")
 public fun Path.visitFileTree(visitor: FileVisitor<Path>, maxDepth: Int = Int.MAX_VALUE, followLinks: Boolean = false): Unit {
     val options = if (followLinks) setOf(FileVisitOption.FOLLOW_LINKS) else setOf()
     Files.walkFileTree(this, options, maxDepth, visitor)
+}
+
+/**
+ * Builds a [FileVisitor] whose implementation is defined in [builderAction].
+ *
+ * By default, the returned file visitor visits all files and re-throws I/O errors, that is:
+ *   * [FileVisitor.preVisitDirectory] returns [FileVisitResult.CONTINUE].
+ *   * [FileVisitor.visitFile] returns [FileVisitResult.CONTINUE].
+ *   * [FileVisitor.visitFileFailed] re-throws the I/O exception that prevented the file from being visited.
+ *   * [FileVisitor.postVisitDirectory] returns [FileVisitResult.CONTINUE] if the directory iteration completes without an I/O exception;
+ *     otherwise it re-throws the I/O exception that caused the iteration of the directory to terminate prematurely.
+ *
+ * To override a function provide its implementation to the corresponding
+ * function of the [FileVisitorBuilder] that was passed as a receiver to [builderAction].
+ * Note that each function can be overridden only once.
+ * Repeated override of a function throws [IllegalStateException].
+ *
+ * The builder is valid only inside [builderAction] function.
+ * Using it outside the function throws [IllegalStateException].
+ *
+ * @sample samples.io.Path.fileVisitor
+ */
+@ExperimentalStdlibApi
+@SinceKotlin("1.7")
+public fun fileVisitor(builderAction: FileVisitorBuilder.() -> Unit): FileVisitor<Path> {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return FileVisitorBuilderImpl().apply(builderAction).build()
 }
