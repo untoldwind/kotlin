@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.compilerRunner.konanHome
 import org.jetbrains.kotlin.gradle.kpm.external.ExternalVariantApi
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmProjectModelBuilder.FragmentConstraint
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerializationExtension
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerializationExtensionBuilder
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.native
 import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
@@ -162,4 +163,11 @@ infix fun FragmentConstraint.and(
 
 operator fun FragmentConstraint.not() = FragmentConstraint { fragment ->
     this@not(fragment).not()
+}
+
+@ExternalVariantApi
+fun IdeaKpmProjectModelBuilder.registerExtrasSerializationExtension(
+    builder: IdeaKpmExtrasSerializationExtensionBuilder.() -> Unit
+) {
+    registerExtrasSerializationExtension(IdeaKpmExtrasSerializationExtension(builder))
 }
