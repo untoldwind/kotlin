@@ -5,7 +5,24 @@
 
 package org.jetbrains.kotlin.gradle.kpm.idea.serialize
 
+import kotlin.reflect.KClass
+
 interface IdeaKpmExtrasSerializer<T : Any> {
     fun serialize(context: IdeaKpmSerializationContext, value: T): ByteArray?
     fun deserialize(context: IdeaKpmSerializationContext, data: ByteArray): T?
+
+    companion object {
+        /**
+         * Returns a [IdeaKpmExtrasSerializer] based upon [java.io.Serializable]
+         */
+        fun <T : Any> javaIoSerializable(clazz: KClass<T>): IdeaKpmExtrasSerializer<T> {
+            return IdeaKpmJavaIoSerializableExtrasSerializer(clazz)
+        }
+
+        inline fun <reified T : Any> javaIoSerializable(): IdeaKpmExtrasSerializer<T> {
+            return javaIoSerializable(T::class)
+        }
+    }
 }
+
+

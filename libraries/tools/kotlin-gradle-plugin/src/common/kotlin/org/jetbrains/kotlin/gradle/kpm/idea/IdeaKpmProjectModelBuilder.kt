@@ -5,6 +5,8 @@ package org.jetbrains.kotlin.gradle.kpm.idea
 import org.jetbrains.kotlin.compilerRunner.konanHome
 import org.jetbrains.kotlin.gradle.kpm.external.ExternalVariantApi
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmProjectModelBuilder.FragmentConstraint
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerializationExtension
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.native
 import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.GradleKpmFragment
@@ -123,6 +125,13 @@ interface IdeaKpmProjectModelBuilder {
         effect: IdeaKpmDependencyEffect,
         constraint: FragmentConstraint
     )
+
+    @ExternalVariantApi
+    fun registerExtrasSerializationExtension(
+        extension: IdeaKpmExtrasSerializationExtension
+    )
+
+    fun buildIdeaKpmSerializationContext(): IdeaKpmSerializationContext
 
     fun buildIdeaKpmProjectModel(): IdeaKpmProject
 

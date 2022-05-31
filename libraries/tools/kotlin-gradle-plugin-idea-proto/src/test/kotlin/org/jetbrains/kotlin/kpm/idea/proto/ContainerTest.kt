@@ -6,6 +6,8 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmExtrasSerializationExtension
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmSerializationLogger
 import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -13,8 +15,8 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class ContainerTest : IdeaKpmSerializationContext {
-    override val logger = TestLogger()
-    override val extras = TestExtrasExtension()
+    override val logger = TestIdeaKpmSerializationLogger()
+    override val extras = TestIdeaKpmExtrasSerializationExtension()
 
     @Test
     fun `deserialize - with too high major version - returns null`() {

@@ -8,6 +8,10 @@ kotlin {
     }
 }
 
+publish()
+javadocJar()
+sourcesJar()
+
 dependencies {
     api(project(":kotlin-gradle-plugin-idea"))
     implementation("com.google.protobuf:protobuf-java:3.19.4")

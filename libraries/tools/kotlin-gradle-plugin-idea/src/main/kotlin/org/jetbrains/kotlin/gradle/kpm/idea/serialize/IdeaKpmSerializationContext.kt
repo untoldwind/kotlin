@@ -8,4 +8,9 @@ package org.jetbrains.kotlin.gradle.kpm.idea.serialize
 interface IdeaKpmSerializationContext {
     val extras: IdeaKpmExtrasSerializationExtension
     val logger: IdeaKpmSerializationLogger
+
+    object Empty : IdeaKpmSerializationContext {
+        override val extras: IdeaKpmExtrasSerializationExtension = IdeaKpmExtrasSerializationExtension.Empty
+        override val logger: IdeaKpmSerializationLogger = IdeaKpmSerializationLogger.None
+    }
 }

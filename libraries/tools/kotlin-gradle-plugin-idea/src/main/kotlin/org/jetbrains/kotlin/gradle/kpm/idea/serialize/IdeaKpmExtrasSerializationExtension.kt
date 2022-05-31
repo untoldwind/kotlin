@@ -9,4 +9,38 @@ import org.jetbrains.kotlin.tooling.core.Extras
 
 interface IdeaKpmExtrasSerializationExtension {
     fun <T : Any> serializer(key: Extras.Key<T>): IdeaKpmExtrasSerializer<T>?
+
+    object Empty : IdeaKpmExtrasSerializationExtension {
+        override fun <T : Any> serializer(key: Extras.Key<T>): IdeaKpmExtrasSerializer<T>? = null
+    }
+}
+
+interface IdeaKpmExtrasSerializationExtensionBuilder {
+    fun <T : Any> register(key: Extras.Key<T>, serializer: IdeaKpmExtrasSerializer<T>)
+}
+
+fun IdeaKpmExtrasSerializationExtension(
+    builder: IdeaKpmExtrasSerializationExtensionBuilder.() -> Unit
+): IdeaKpmExtrasSerializationExtension {
+    return IdeaKpmExtrasSerializationExtensionImpl(
+        IdeaKpmExtrasSerializationExtensionBuilderImpl().apply(builder).serializers
+    )
+}
+
+private class IdeaKpmExtrasSerializationExtensionBuilderImpl : IdeaKpmExtrasSerializationExtensionBuilder {
+    val serializers = mutableMapOf<Extras.Key<*>, IdeaKpmExtrasSerializer<*>>()
+
+    override fun <T : Any> register(key: Extras.Key<T>, serializer: IdeaKpmExtrasSerializer<T>) {
+        serializers[key] = serializer
+    }
+}
+
+
+private class IdeaKpmExtrasSerializationExtensionImpl(
+    private val map: Map<Extras.Key<*>, IdeaKpmExtrasSerializer<*>>
+) : IdeaKpmExtrasSerializationExtension {
+    override fun <T : Any> serializer(key: Extras.Key<T>): IdeaKpmExtrasSerializer<T>? {
+        @Suppress("unchecked_cast")
+        return map[key] as? IdeaKpmExtrasSerializer<T>
+    }
 }

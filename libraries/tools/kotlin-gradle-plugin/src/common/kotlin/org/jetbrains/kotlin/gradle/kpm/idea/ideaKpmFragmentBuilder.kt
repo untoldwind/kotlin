@@ -22,7 +22,7 @@ private fun IdeaKpmProjectModelBuildingContext.buildIdeaKpmFragment(fragment: Gr
         sourceDirectories = fragment.kotlinSourceRoots.sourceDirectories.files.map { file ->
             IdeaKpmSourceDirectoryImpl(file, type = IdeaKpmSourceDirectory.SOURCE_TYPE)
         },
-        extras = emptyExtras() // TODO: Requires more sophisticated serialization
+        extras = fragment.extras
     )
 }
 
