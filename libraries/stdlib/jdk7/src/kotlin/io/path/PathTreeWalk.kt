@@ -37,8 +37,8 @@ public enum class PathWalkOption {
  * It allows to iterate through all files inside a given directory.
  * The order in which sibling files are visited is unspecified.
  *
- * If the file path given is just a file, the walker iterates only it.
- * If the file path given does not exist, the walker iterates nothing, i.e. it's equivalent to an empty sequence.
+ * If the file located by this path is not a directory, the walker iterates only it.
+ * If the file located by this path does not exist, the walker iterates nothing, i.e. it's equivalent to an empty sequence.
  */
 @ExperimentalStdlibApi
 internal class PathTreeWalk(
