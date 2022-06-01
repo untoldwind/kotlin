@@ -46,7 +46,7 @@ public sealed interface FileVisitorBuilder {
      * Overrides the corresponding function of the built file visitor with the provided [function].
      *
      * By default, if the directory iteration completes without an I/O exception,
-     * [FileVisitor.visitFileFailed] of the built file visitor returns [FileVisitResult.CONTINUE];
+     * [FileVisitor.postVisitDirectory] of the built file visitor returns [FileVisitResult.CONTINUE];
      * otherwise it re-throws the I/O exception that caused the iteration of the directory to terminate prematurely.
      */
     public fun postVisitDirectory(function: (directory: Path, exception: IOException?) -> FileVisitResult): Unit
