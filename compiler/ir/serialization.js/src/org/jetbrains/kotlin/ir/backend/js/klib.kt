@@ -463,6 +463,10 @@ fun getIrModuleInfoForSourceFiles(
         )
 
     val moduleFragment = psi2IrContext.generateModuleFragmentWithPlugins(project, files, irLinker, messageLogger)
+    if (!allowUnboundSymbols) {
+        symbolTable.noUnboundLeft("Unbound symbols left after linker")
+    }
+
     // TODO: not sure whether this check should be enabled by default. Add configuration key for it.
     val mangleChecker = ManglerChecker(JsManglerIr, Ir2DescriptorManglerAdapter(JsManglerDesc))
     if (verifySignatures) {
@@ -530,8 +534,9 @@ fun GeneratorContext.generateModuleFragmentWithPlugins(
     expectDescriptorToSymbol: MutableMap<DeclarationDescriptor, IrSymbol>? = null,
     stubGenerator: DeclarationStubGenerator? = null
 ): IrModuleFragment {
-    val extensions = IrGenerationExtension.getInstances(project)
     val psi2Ir = Psi2IrTranslator(languageVersionSettings, configuration)
+
+    val extensions = IrGenerationExtension.getInstances(project)
 
     if (extensions.isNotEmpty()) {
         // plugin context should be instantiated before postprocessing steps
@@ -563,7 +568,7 @@ fun GeneratorContext.generateModuleFragmentWithPlugins(
     return psi2Ir.generateModuleFragment(
         this,
         files,
-        stubGenerator?.let(::listOf) ?: listOf(irLinker),
+        listOf(stubGenerator ?: irLinker),
         extensions,
         expectDescriptorToSymbol
     )

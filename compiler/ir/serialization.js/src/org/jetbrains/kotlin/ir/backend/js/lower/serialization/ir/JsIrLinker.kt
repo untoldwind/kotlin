@@ -62,75 +62,12 @@ class JsIrLinker(
         val libraryAbiVersion = klib.versions.abiVersion ?: KotlinAbiVersion.CURRENT
         return when (val lazyIrGenerator = stubGenerator) {
             null -> JsModuleDeserializer(moduleDescriptor, klib, strategyResolver, libraryAbiVersion, klib.libContainsErrorCode)
-            else -> JsLazyIrModuleDeserializer(moduleDescriptor, libraryAbiVersion, lazyIrGenerator)
+            else -> JsLazyIrModuleDeserializer(moduleDescriptor, libraryAbiVersion, builtIns, lazyIrGenerator)
         }
     }
 
     private inner class JsModuleDeserializer(moduleDescriptor: ModuleDescriptor, klib: IrLibrary, strategyResolver: (String) -> DeserializationStrategy, libraryAbiVersion: KotlinAbiVersion, allowErrorCode: Boolean) :
         BasicIrModuleDeserializer(this, moduleDescriptor, klib, strategyResolver, libraryAbiVersion, allowErrorCode)
-
-    private inner class JsLazyIrModuleDeserializer(
-        moduleDescriptor: ModuleDescriptor,
-        libraryAbiVersion: KotlinAbiVersion,
-        private val stubGenerator: DeclarationStubGenerator
-    ) : IrModuleDeserializer(moduleDescriptor, libraryAbiVersion) {
-        private val dependencies = emptyList<IrModuleDeserializer>()
-
-        // TODO: implement proper check whether `idSig` belongs to this module
-        override fun contains(idSig: IdSignature): Boolean = true
-
-        private val descriptorFinder = DescriptorByIdSignatureFinderImpl(moduleDescriptor, JsManglerDesc)
-
-        private fun resolveDescriptor(idSig: IdSignature): DeclarationDescriptor {
-            return descriptorFinder.findDescriptorBySignature(idSig) ?: error("No descriptor found for $idSig")
-        }
-
-        override fun deserializeIrSymbol(idSig: IdSignature, symbolKind: BinarySymbolData.SymbolKind): IrSymbol {
-            val descriptor = resolveDescriptor(idSig)
-
-            val declaration = stubGenerator.run {
-                when (symbolKind) {
-                    BinarySymbolData.SymbolKind.CLASS_SYMBOL -> generateClassStub(descriptor as ClassDescriptor)
-                    BinarySymbolData.SymbolKind.PROPERTY_SYMBOL -> generatePropertyStub(descriptor as PropertyDescriptor)
-                    BinarySymbolData.SymbolKind.FUNCTION_SYMBOL -> generateFunctionStub(descriptor as FunctionDescriptor)
-                    BinarySymbolData.SymbolKind.CONSTRUCTOR_SYMBOL -> generateConstructorStub(descriptor as ClassConstructorDescriptor)
-                    BinarySymbolData.SymbolKind.ENUM_ENTRY_SYMBOL -> generateEnumEntryStub(descriptor as ClassDescriptor)
-                    BinarySymbolData.SymbolKind.TYPEALIAS_SYMBOL -> generateTypeAliasStub(descriptor as TypeAliasDescriptor)
-                    else -> error("Unexpected type $symbolKind for sig $idSig")
-                }
-            }
-
-            return declaration.symbol
-        }
-
-        @OptIn(ObsoleteDescriptorBasedAPI::class)
-        override fun declareIrSymbol(symbol: IrSymbol) {
-            if (symbol is IrFieldSymbol) {
-                declareFieldStub(symbol)
-            } else {
-                stubGenerator.generateMemberStub(symbol.descriptor)
-            }
-        }
-
-        @OptIn(ObsoleteDescriptorBasedAPI::class)
-        private fun declareFieldStub(symbol: IrFieldSymbol): IrField {
-            return with(stubGenerator) {
-                val old = stubGenerator.unboundSymbolGeneration
-                try {
-                    stubGenerator.unboundSymbolGeneration = true
-                    generateFieldStub(symbol.descriptor)
-                } finally {
-                    stubGenerator.unboundSymbolGeneration = old
-                }
-            }
-        }
-
-
-        override val moduleFragment: IrModuleFragment = IrModuleFragmentImpl(moduleDescriptor, builtIns, emptyList())
-        override val moduleDependencies: Collection<IrModuleDeserializer> = dependencies
-
-        override val kind get() = IrModuleDeserializerKind.SYNTHETIC
-    }
 
     override fun maybeWrapWithBuiltInAndInit(
         moduleDescriptor: ModuleDescriptor,
