@@ -97,6 +97,7 @@ abstract class AbstractInvalidationTest : KotlinTestWithEnvironment() {
         val copy = environment.configuration.copy()
         copy.put(CommonConfigurationKeys.MODULE_NAME, moduleName)
         copy.put(JSConfigurationKeys.MODULE_KIND, ModuleKind.PLAIN)
+        copy.put(JSConfigurationKeys.PROPERTY_LAZY_INITIALIZATION, true)
         return copy
     }
 

@@ -70,6 +70,11 @@ public class InvalidationTestGenerated extends AbstractInvalidationTest {
         runTest("js/js.translator/testData/incremental/invalidation/crossModuleReferences/");
     }
 
+    @TestMetadata("eagerInitialization")
+    public void testEagerInitialization() throws Exception {
+        runTest("js/js.translator/testData/incremental/invalidation/eagerInitialization/");
+    }
+
     @TestMetadata("exportsThroughInlineFunction")
     public void testExportsThroughInlineFunction() throws Exception {
         runTest("js/js.translator/testData/incremental/invalidation/exportsThroughInlineFunction/");
