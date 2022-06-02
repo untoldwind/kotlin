@@ -9,12 +9,19 @@ import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerialization
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerializer
 import org.jetbrains.kotlin.tooling.core.Extras
 import org.jetbrains.kotlin.tooling.core.Type
+import org.jetbrains.kotlin.tooling.core.extrasKeyOf
 
 @Suppress("UNCHECKED_CAST")
-class TestIdeaKpmExtrasSerializationExtension : IdeaKpmExtrasSerializationExtension {
-    override fun <T : Any> serializer(key: Extras.Key<T>): IdeaKpmExtrasSerializer<T>? = when (key.type) {
-        Type<String>() -> TestIdeaKpmStringExtrasSerializer as IdeaKpmExtrasSerializer<T>
-        Type<Int>() -> TestIdeaKpmIntExtrasSerializer as IdeaKpmExtrasSerializer<T>
+object TestIdeaKpmExtrasSerializationExtension : IdeaKpmExtrasSerializationExtension {
+
+    val ignoredStringKey = extrasKeyOf<String>("ignored")
+    val anySerializableKey = extrasKeyOf<Any>("serializable")
+
+    override fun <T : Any> serializer(key: Extras.Key<T>): IdeaKpmExtrasSerializer<T>? = when {
+        key == ignoredStringKey -> null
+        key == anySerializableKey -> IdeaKpmExtrasSerializer.javaIoSerializable<Any>()
+        key.type == Type<String>() -> TestIdeaKpmStringExtrasSerializer
+        key.type == Type<Int>() -> TestIdeaKpmIntExtrasSerializer
         else -> null
-    }
+    } as? IdeaKpmExtrasSerializer<T>
 }

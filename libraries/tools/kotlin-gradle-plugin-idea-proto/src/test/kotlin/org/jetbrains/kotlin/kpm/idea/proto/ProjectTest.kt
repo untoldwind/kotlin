@@ -6,7 +6,7 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmProject
-import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmInstances
 import kotlin.test.Test
 
 class ProjectTest : AbstractSerializationTest<IdeaKpmProject>() {
@@ -20,5 +20,5 @@ class ProjectTest : AbstractSerializationTest<IdeaKpmProject>() {
     }
 
     @Test
-    fun `serialize - deserialize - sample 0`() = testSerialization(TestInstances.simpleProject)
+    fun `serialize - deserialize - sample 0`() = testSerialization(TestIdeaKpmInstances.simpleProject)
 }

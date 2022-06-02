@@ -13,7 +13,7 @@ import kotlin.test.assertEquals
 abstract class AbstractSerializationTest<T : Any> : IdeaKpmSerializationContext {
 
     final override val logger = TestIdeaKpmSerializationLogger()
-    final override val extras = TestIdeaKpmExtrasSerializationExtension()
+    final override val extras = TestIdeaKpmExtrasSerializationExtension
 
     abstract fun serialize(value: T): ByteArray
     abstract fun deserialize(data: ByteArray): T

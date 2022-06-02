@@ -7,7 +7,7 @@ package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmModuleCoordinates
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmModuleCoordinatesImpl
-import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmInstances
 import kotlin.test.Test
 
 class ModuleCoordinatesTest : AbstractSerializationTest<IdeaKpmModuleCoordinates>() {
@@ -16,7 +16,7 @@ class ModuleCoordinatesTest : AbstractSerializationTest<IdeaKpmModuleCoordinates
     override fun deserialize(data: ByteArray) = IdeaKpmModuleCoordinates(data)
 
     @Test
-    fun `serialize - deserialize - sample 0`() = testSerialization(TestInstances.simpleModuleCoordinates)
+    fun `serialize - deserialize - sample 0`() = testSerialization(TestIdeaKpmInstances.simpleModuleCoordinates)
 
     @Test
     fun `serialize - deserialize - sample 1`() = testSerialization(

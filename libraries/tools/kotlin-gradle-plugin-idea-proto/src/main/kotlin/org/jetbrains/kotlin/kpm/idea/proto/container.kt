@@ -35,7 +35,7 @@ internal fun <T> IdeaKpmSerializationContext.IdeaKpmProject(data: T, proto: (T) 
     val container = try {
         proto(data)
     } catch (e: InvalidProtocolBufferException) {
-        logger.report("Failed to deserialize IdeaKpmProject", e)
+        logger.error("Failed to deserialize IdeaKpmProject", e)
         return null
     }
 
@@ -66,17 +66,17 @@ internal fun IdeaKpmSerializationContext.ProtoIdeaKpmContainer(project: IdeaKpmP
 
 internal fun IdeaKpmSerializationContext.IdeaKpmProject(proto: ProtoIdeaKpmContainer): IdeaKpmProject? {
     if (!proto.hasSchemaVersionMajor()) {
-        logger.report("Missing 'schema_version_major'", Throwable())
+        logger.error("Missing 'schema_version_major'", Throwable())
         return null
     }
 
     if (!proto.hasSchemaVersionMinor()) {
-        logger.report("Missing 'schema_version_minor'", Throwable())
+        logger.error("Missing 'schema_version_minor'", Throwable())
         return null
     }
 
     if (proto.schemaVersionMajor > ProtoIdeaKpmSchema.versionMajor) {
-        logger.report(
+        logger.error(
             "Incompatible IdeaKpmProto* version. Received major version ${proto.schemaVersionMajor}. " +
                     "Supported version ${ProtoIdeaKpmSchema.versionMajor}", Throwable()
         )
@@ -87,7 +87,7 @@ internal fun IdeaKpmSerializationContext.IdeaKpmProject(proto: ProtoIdeaKpmConta
         }
 
         relevantInfos.forEach { info ->
-            logger.report(
+            logger.error(
                 "Since: ${info.sinceSchemaVersionMajor}.${info.sinceSchemaVersionMinor}.${info.sinceSchemaVersionPatch}: ${info.message}"
             )
         }

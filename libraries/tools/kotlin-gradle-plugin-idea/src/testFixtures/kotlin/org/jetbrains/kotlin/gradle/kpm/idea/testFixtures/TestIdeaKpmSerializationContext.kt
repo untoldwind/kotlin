@@ -9,5 +9,5 @@ import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContex
 
 class TestIdeaKpmSerializationContext : IdeaKpmSerializationContext {
     override val logger = TestIdeaKpmSerializationLogger()
-    override val extras = TestIdeaKpmExtrasSerializationExtension()
+    override val extras = TestIdeaKpmExtrasSerializationExtension
 }

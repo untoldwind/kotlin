@@ -7,6 +7,8 @@ package org.jetbrains.kotlin.gradle.kpm.idea.testFixtures
 
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmExtrasSerializer
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationContext
+import kotlin.text.decodeToString
+import kotlin.text.encodeToByteArray
 
 object TestIdeaKpmStringExtrasSerializer : IdeaKpmExtrasSerializer<String> {
     override fun serialize(context: IdeaKpmSerializationContext, value: String): ByteArray = value.encodeToByteArray()

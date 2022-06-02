@@ -6,7 +6,7 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.*
-import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmInstances
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -16,12 +16,12 @@ class FragmentTest : AbstractSerializationTest<IdeaKpmFragment>() {
 
     @Test
     fun `serialize - deserialize - sample 0`() {
-        testDeserializedEquals(TestInstances.simpleFragment)
+        testDeserializedEquals(TestIdeaKpmInstances.simpleFragment)
     }
 
     @Test
     fun `serialize - deserialize - sample 1`() {
-        testDeserializedEquals(TestInstances.fragmentWithExtras)
+        testDeserializedEquals(TestIdeaKpmInstances.fragmentWithExtras)
     }
 
     private fun testDeserializedEquals(value: IdeaKpmFragmentImpl) {

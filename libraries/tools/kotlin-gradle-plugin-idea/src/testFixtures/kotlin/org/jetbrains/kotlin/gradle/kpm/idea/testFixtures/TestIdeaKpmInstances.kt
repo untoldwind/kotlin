@@ -12,7 +12,7 @@ import org.jetbrains.kotlin.tooling.core.extrasOf
 import org.jetbrains.kotlin.tooling.core.withValue
 import java.io.File
 
-object TestInstances {
+object TestIdeaKpmInstances {
 
     val extrasWithIntAndStrings = extrasOf(
         extrasKeyOf<Int>() withValue 1,

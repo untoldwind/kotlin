@@ -8,15 +8,21 @@ package org.jetbrains.kotlin.gradle.kpm.idea.serialize
 import java.io.PrintStream
 
 interface IdeaKpmSerializationLogger {
-    fun report(message: String? = null, cause: Throwable? = null)
+    enum class Severity {
+        WARNING,
+        ERROR,
+    }
+
+    fun report(severity: Severity, message: String, cause: Throwable? = null)
+    fun warn(message: String, cause: Throwable? = null) = report(Severity.WARNING, message, cause)
+    fun error(message: String, cause: Throwable? = null) = report(Severity.ERROR, message, cause)
 
     object None : IdeaKpmSerializationLogger {
-        override fun report(message: String?, cause: Throwable?) = Unit
+        override fun report(severity: Severity, message: String, cause: Throwable?) = Unit
     }
 
     data class Console(val out: PrintStream = System.err) : IdeaKpmSerializationLogger {
-        override fun report(message: String?, cause: Throwable?) {
-            if (message == null && cause == null) return
+        override fun report(severity: Severity, message: String, cause: Throwable?) {
             out.println("[KPM][Serialization]: $message")
             cause?.message?.let { println(it) }
             cause?.printStackTrace(out)

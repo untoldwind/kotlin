@@ -6,16 +6,24 @@
 package org.jetbrains.kotlin.gradle.kpm.idea.testFixtures
 
 import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationLogger
+import org.jetbrains.kotlin.gradle.kpm.idea.serialize.IdeaKpmSerializationLogger.Severity
+import java.io.Serializable
+import kotlin.collections.toList
 
 class TestIdeaKpmSerializationLogger : IdeaKpmSerializationLogger {
-    data class Report(val message: String? = null, val cause: Throwable? = null)
+    data class Report(
+        val severity: Severity,
+        val message: String,
+        val cause: Throwable? = null
+    ) : Serializable {
+        override fun toString(): String = "[${severity.name}]: $message"
+    }
 
     private val _reports = mutableListOf<Report>()
 
     val reports get() = _reports.toList()
 
-    override fun report(message: String?, cause: Throwable?) {
-        _reports.add(Report(message, cause))
+    override fun report(severity: Severity, message: String, cause: Throwable?) {
+        _reports.add(Report(severity, message, cause))
     }
 }
-

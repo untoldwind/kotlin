@@ -5,7 +5,7 @@
 
 package org.jetbrains.kotlin.gradle.kpm.idea
 
-import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmInstances
 import kotlin.test.*
 
 class IdeaKpmProjectContainerTest {
@@ -22,9 +22,9 @@ class IdeaKpmProjectContainerTest {
 
     @Test
     fun `test - instance container - equality`() {
-        val container1 = IdeaKpmProjectContainer(TestInstances.simpleProject)
-        val container2 = IdeaKpmProjectContainer(TestInstances.simpleProject.copy())
-        val container3 = IdeaKpmProjectContainer(TestInstances.simpleProject.copy(gradlePluginVersion = "some.other.version"))
+        val container1 = IdeaKpmProjectContainer(TestIdeaKpmInstances.simpleProject)
+        val container2 = IdeaKpmProjectContainer(TestIdeaKpmInstances.simpleProject.copy())
+        val container3 = IdeaKpmProjectContainer(TestIdeaKpmInstances.simpleProject.copy(gradlePluginVersion = "some.other.version"))
 
         assertEquals(container1, container2)
         assertNotEquals(container2, container3)
@@ -38,7 +38,7 @@ class IdeaKpmProjectContainerTest {
 
     @Test
     fun `test - instance container - instanceOrNull`() {
-        assertSame(TestInstances.simpleProject, IdeaKpmProjectContainer(TestInstances.simpleProject).instanceOrNull)
+        assertSame(TestIdeaKpmInstances.simpleProject, IdeaKpmProjectContainer(TestIdeaKpmInstances.simpleProject).instanceOrNull)
         assertNotNull(IdeaKpmProjectInstanceContainer::class.java.getMethod("getInstanceOrNull"))
     }
 
@@ -51,7 +51,7 @@ class IdeaKpmProjectContainerTest {
 
     @Test
     fun `test - instance container - binaryOrNull`() {
-        assertNull(IdeaKpmProjectContainer(TestInstances.simpleProject).binaryOrNull)
+        assertNull(IdeaKpmProjectContainer(TestIdeaKpmInstances.simpleProject).binaryOrNull)
         assertNotNull(IdeaKpmProjectInstanceContainer::class.java.getMethod("getBinaryOrNull"))
     }
 }

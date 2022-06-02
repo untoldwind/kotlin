@@ -39,7 +39,7 @@ private class IdeaKpmCompositeExtrasSerializationExtension(
         }
 
         if (serializers.size > 1) {
-            logger.warn("Conflicting serializers found for Extras.Key $key: $serializers")
+            logger.error("Conflicting serializers found for Extras.Key $key: $serializers")
             return null
         }
 
@@ -51,9 +51,11 @@ private class IdeaKpmCompositeExtrasSerializationExtension(
 private class IdeaKpmSerializationLoggerImpl(
     private val logger: Logger,
 ) : IdeaKpmSerializationLogger {
-    override fun report(message: String?, cause: Throwable?) {
-        if (message == null && cause == null) return
-        val title = message ?: cause?.message
-        logger.warn("[KPM] Serialization: $title", cause)
+    override fun report(severity: IdeaKpmSerializationLogger.Severity, message: String, cause: Throwable?) {
+        val text = "[KPM] Serialization: $message"
+        when (severity) {
+            IdeaKpmSerializationLogger.Severity.WARNING -> logger.warn(text, cause)
+            IdeaKpmSerializationLogger.Severity.ERROR -> logger.error(text, cause)
+        }
     }
 }

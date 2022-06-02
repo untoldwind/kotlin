@@ -23,16 +23,16 @@ internal class IdeaKpmJavaIoSerializableExtrasSerializer<T : Any>(
                 byteArrayOutputStream.toByteArray()
             }
         } catch (t: Throwable) {
-            context.logger.report("${ErrorMessages.serializationFailure} $value", t)
+            context.logger.error("${ErrorMessages.serializationFailure} $value", t)
             null
         }
     }
 
     override fun deserialize(context: IdeaKpmSerializationContext, data: ByteArray): T? {
         return try {
-            ObjectInputStream(ByteArrayInputStream(data)).use { stream -> clazz.cast(stream.readObject()) }
+            ObjectInputStream(ByteArrayInputStream(data)).use { stream -> clazz.java.cast(stream.readObject()) }
         } catch (t: Throwable) {
-            context.logger.report("${ErrorMessages.deserializationFailure} $clazz", t)
+            context.logger.error("${ErrorMessages.deserializationFailure} ${clazz.java}", t)
             null
         }
     }

@@ -6,7 +6,7 @@
 package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmVariant
-import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmInstances
 import kotlin.test.Test
 
 class VariantTest : AbstractSerializationTest<IdeaKpmVariant>() {
@@ -16,11 +16,11 @@ class VariantTest : AbstractSerializationTest<IdeaKpmVariant>() {
 
     @Test
     fun `serialize - deserialize - sample 0`() {
-        testSerialization(TestInstances.simpleVariant)
+        testSerialization(TestIdeaKpmInstances.simpleVariant)
     }
 
     @Test
     fun `serialize - deserialize - sample 1`() {
-        testSerialization(TestInstances.variantWithExtras)
+        testSerialization(TestIdeaKpmInstances.variantWithExtras)
     }
 }

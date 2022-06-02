@@ -7,7 +7,7 @@ package org.jetbrains.kotlin.kpm.idea.proto
 
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmCompilationOutput
 import org.jetbrains.kotlin.gradle.kpm.idea.IdeaKpmCompilationOutputImpl
-import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestInstances
+import org.jetbrains.kotlin.gradle.kpm.idea.testFixtures.TestIdeaKpmInstances
 import kotlin.test.Test
 
 class CompilationOutputTest : AbstractSerializationTest<IdeaKpmCompilationOutput>() {
@@ -17,7 +17,7 @@ class CompilationOutputTest : AbstractSerializationTest<IdeaKpmCompilationOutput
 
     @Test
     fun `serialize - deserialize - sample 0`() {
-        testSerialization(TestInstances.simpleCompilationOutput)
+        testSerialization(TestIdeaKpmInstances.simpleCompilationOutput)
     }
 
     @Test

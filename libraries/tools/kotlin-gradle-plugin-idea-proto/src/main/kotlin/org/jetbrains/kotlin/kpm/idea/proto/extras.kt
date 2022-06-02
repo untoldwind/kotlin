@@ -20,7 +20,7 @@ internal fun IdeaKpmSerializationContext.ProtoIdeaKpmExtras(extras: Extras): Pro
             val serializer = context.extras.serializer(key) ?: return@forEach
             serializer as IdeaKpmExtrasSerializer<Any>
             val serialized = runCatching { serializer.serialize(context, value) ?: return@forEach }.getOrElse { exception ->
-                logger.report("Failed to serialize $key, using ${serializer.javaClass.simpleName}", exception)
+                logger.error("Failed to serialize $key, using ${serializer.javaClass.simpleName}", exception)
                 return@forEach
             }
 
@@ -38,7 +38,7 @@ internal fun IdeaKpmSerializationContext.Extras(proto: ProtoIdeaKpmExtras): Extr
         val deserialized = runCatching {
             serializer.deserialize(this, value.toByteArray()) ?: return@mapNotNull null
         }.getOrElse { exception ->
-            logger.report("Failed to deserialize $keyString, using ${serializer.javaClass.simpleName}", exception)
+            logger.error("Failed to deserialize $keyString, using ${serializer.javaClass.simpleName}", exception)
             return@mapNotNull null
         }
 
