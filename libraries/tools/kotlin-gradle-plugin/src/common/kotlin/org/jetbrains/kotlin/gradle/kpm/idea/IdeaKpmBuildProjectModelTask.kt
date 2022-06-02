@@ -38,8 +38,8 @@ internal open class IdeaKpmBuildProjectModelTask : DefaultTask() {
     protected fun buildIdeaKpmProjectModel() {
         outputDirectory.mkdirs()
 
-        val model = builder.buildIdeaKpmProjectModel()
-        val serializationContext = builder.buildIdeaKpmSerializationContext()
+        val model = builder.buildIdeaKpmProject()
+        val serializationContext = builder.buildSerializationContext()
         val textFile = outputDirectory.resolve("model.txt")
         textFile.writeText(model.toString())
 

@@ -16,10 +16,10 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.containingVariants
 import org.jetbrains.kotlin.project.model.KpmVariant
 import java.io.File
 
-internal interface IdeaKpmProjectModelBuildingContext {
+internal interface IdeaKpmProjectBuildingContext {
     val dependencyResolver: IdeaKpmDependencyResolver
 
-    companion object Empty : IdeaKpmProjectModelBuildingContext {
+    companion object Empty : IdeaKpmProjectBuildingContext {
         override val dependencyResolver: IdeaKpmDependencyResolver = IdeaKpmDependencyResolver.Empty
     }
 }
@@ -132,14 +132,14 @@ interface IdeaKpmProjectModelBuilder {
         extension: IdeaKpmExtrasSerializationExtension
     )
 
-    fun buildIdeaKpmSerializationContext(): IdeaKpmSerializationContext
+    fun buildSerializationContext(): IdeaKpmSerializationContext
 
-    fun buildIdeaKpmProjectModel(): IdeaKpmProject
+    fun buildIdeaKpmProject(): IdeaKpmProject
 
     companion object
 }
 
-internal fun IdeaKpmProjectModelBuildingContext.IdeaKpmProject(extension: KotlinPm20ProjectExtension): IdeaKpmProject {
+internal fun IdeaKpmProjectBuildingContext.IdeaKpmProject(extension: KotlinPm20ProjectExtension): IdeaKpmProject {
     return IdeaKpmProjectImpl(
         gradlePluginVersion = extension.project.getKotlinPluginVersion(),
         coreLibrariesVersion = extension.coreLibrariesVersion,
