@@ -28,6 +28,7 @@ class FirResolvedTypeRefBuilder : FirAnnotationContainerBuilder {
     override val annotations: MutableList<FirAnnotation> = mutableListOf()
     lateinit var type: ConeKotlinType
     var delegatedTypeRef: FirTypeRef? = null
+    var isFromStubType: Boolean = false
 
     @OptIn(FirImplementationDetail::class)
     override fun build(): FirResolvedTypeRef {
@@ -36,6 +37,7 @@ class FirResolvedTypeRefBuilder : FirAnnotationContainerBuilder {
             annotations,
             type,
             delegatedTypeRef,
+            isFromStubType,
         )
     }
 
@@ -59,5 +61,6 @@ inline fun buildResolvedTypeRefCopy(original: FirResolvedTypeRef, init: FirResol
     copyBuilder.annotations.addAll(original.annotations)
     copyBuilder.type = original.type
     copyBuilder.delegatedTypeRef = original.delegatedTypeRef
+    copyBuilder.isFromStubType = original.isFromStubType
     return copyBuilder.apply(init).build()
 }

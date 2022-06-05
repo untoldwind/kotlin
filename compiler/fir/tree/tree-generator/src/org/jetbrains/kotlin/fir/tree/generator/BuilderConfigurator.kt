@@ -261,6 +261,7 @@ object BuilderConfigurator : AbstractBuilderConfigurator<FirTreeBuilder>(FirTree
 
         builder(resolvedTypeRef) {
             defaultNull("delegatedTypeRef")
+            default("isFromStubType", "false")
             withCopy()
         }
 
