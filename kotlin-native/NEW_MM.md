@@ -99,27 +99,31 @@ Starting with 1.7.20 freezing API is deprecated.
 
 Affected API:
 * [`@SharedImmutable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-shared-immutable/):
-  can be removed.
+  can be removed. Currently, usage causes a diagnostics message - not a warning.
 * [`class FreezableAtomicReference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-freezable-atomic-reference/):
   use [`class AtomicReference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-atomic-reference/) instead.
 * [`class FreezingException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-freezing-exception/):
   can be removed.
 * [`class InvalidMutabilityException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-invalid-mutability-exception/):
   can be removed.
-* [`fun <T> T.freeze`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/freeze.html):
+* [`class IncorrectDereferenceException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-incorrect-dereference-exception/):
+  can be removed.
+* [`fun <T> T.freeze()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/freeze.html):
   can be removed.
 * [`val Any?.isFrozen`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/is-frozen.html):
   can be removed assuming it always returns `false`.
 * [`fun Any.ensureNeverFrozen()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/ensure-never-frozen.html):
   can be removed.
-* [`fun <T> atomicLazy`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/atomic-lazy.html):
-  use [`fun <T> lazy`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) instead.
+* [`fun <T> atomicLazy(…)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/atomic-lazy.html):
+  use [`fun <T> lazy(…)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) instead.
 * [`class MutableData`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-mutable-data/):
-  use [`class ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/) instead.
+  use any regular collection instead.
 * [`class WorkerBoundReference<out T : Any>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-worker-bound-reference/):
   use `T` directly.
+* [`class DetachedObjectGraph<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-detached-object-graph/):
+  use `T` directly.
 
-Additionally, setting `freezing` binary option to anything but `disabled` with the new MM is deprecated. Currently it's just a diagnostics message, not a warning.
+Additionally, setting `freezing` binary option to anything but `disabled` with the new MM is deprecated. Currently, usage causes a diagnostics message - not a warning.
 
 To temporarily support code for both new and legacy MM, ignore deprecation warnings by:
 * either annotating usages of deprecated API with `@OptIn(FreezingIsDeprecated::class)`,
