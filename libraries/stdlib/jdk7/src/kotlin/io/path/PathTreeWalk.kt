@@ -12,26 +12,6 @@ import java.io.IOException
 import java.nio.file.*
 import java.nio.file.attribute.BasicFileAttributes
 
-
-/**
- * An enumeration to provide walk options for [Path.walk] function.
- * The options can be combined to form the walk order and behavior needed.
- *
- * Note that this enumeration is not exhaustive and new cases might be added in the future.
- */
-@ExperimentalStdlibApi
-@SinceKotlin("1.7")
-public enum class PathWalkOption {
-    /** Visits directories as well. */
-    INCLUDE_DIRECTORIES,
-
-    /** Walks in breadth-first order. */
-    BREADTH_FIRST,
-
-    /** Follows symbolic links to the directories they point to. */
-    FOLLOW_LINKS
-}
-
 /**
  * This class is intended to implement different file traversal methods.
  * It allows to iterate through all files inside a given directory.
