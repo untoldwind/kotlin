@@ -30,5 +30,8 @@ object NativeSharedImmutableChecker : DeclarationChecker {
         check(sharedImmutableFqName, declaration, descriptor, context, ErrorsNative.INAPPLICABLE_SHARED_IMMUTABLE_TOP_LEVEL) {
             DescriptorUtils.isTopLevelDeclaration(descriptor)
         }
+        check(sharedImmutableFqName, declaration, descriptor, context, ErrorsNative.SHARED_IMMUTABLE_DEPRECATED) {
+            false
+        }
     }
 }

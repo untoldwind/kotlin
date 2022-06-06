@@ -28,8 +28,7 @@ external public fun deinitRuntimeIfNeeded(): Unit
 /**
  * Exception thrown when top level variable is accessed from incorrect execution context.
  */
-// Not @FreezingIsDeprecated: useless for the new MM, but not directly about freezing.
-// TODO: deprecate with another annotation?
+@FreezingIsDeprecated
 public class IncorrectDereferenceException : RuntimeException {
     constructor() : super()
 

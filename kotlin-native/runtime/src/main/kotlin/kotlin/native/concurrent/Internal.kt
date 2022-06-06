@@ -115,6 +115,7 @@ internal fun ThrowInvalidMutabilityException(where: Any): Nothing {
 }
 
 @ExportForCppRuntime
+@FreezingIsDeprecated
 internal fun ThrowIllegalObjectSharingException(typeInfo: NativePtr, address: NativePtr) {
     val description = DescribeObjectForDebugging(typeInfo, address)
     throw IncorrectDereferenceException("illegal attempt to access non-shared $description from other thread")

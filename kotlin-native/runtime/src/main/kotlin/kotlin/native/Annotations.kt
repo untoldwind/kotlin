@@ -57,7 +57,7 @@ public typealias Throws = kotlin.Throws
 public typealias ThreadLocal = kotlin.native.concurrent.ThreadLocal
 
 /** @suppress */
-@FreezingIsDeprecated
+// Not @FreezingIsDeprecated: Lots of usages. Usages will trigger INFO reports in the frontend.
 public typealias SharedImmutable = kotlin.native.concurrent.SharedImmutable
 
 /**

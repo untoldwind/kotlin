@@ -32,7 +32,7 @@ import kotlin.native.internal.Frozen
  *
  *  @see [kotlin.native.internal.GC.collect].
  */
-// TODO: Consider deprecating just like freezing.
+// Not @FreezingIsDeprecated: every `Worker.execute` uses this.
 public enum class TransferMode(val value: Int) {
     /**
      * Reachibility check is performed.
@@ -50,8 +50,7 @@ public enum class TransferMode(val value: Int) {
  * externally, until it is attached with the [attach] extension function.
  */
 @Frozen
-@OptIn(FreezingIsDeprecated::class)
-// TODO: Consider deprecating just like freezing.
+@FreezingIsDeprecated
 public class DetachedObjectGraph<T> internal constructor(pointer: NativePtr) {
     @PublishedApi
     internal val stable = AtomicNativePtr(pointer)
@@ -81,7 +80,7 @@ public class DetachedObjectGraph<T> internal constructor(pointer: NativePtr) {
  * make sense anymore, and shall be discarded, so attach of one DetachedObjectGraph object can only
  * happen once.
  */
-// TODO: Consider deprecating just like freezing.
+@FreezingIsDeprecated
 public inline fun <reified T> DetachedObjectGraph<T>.attach(): T {
     var rawStable: NativePtr
     do {

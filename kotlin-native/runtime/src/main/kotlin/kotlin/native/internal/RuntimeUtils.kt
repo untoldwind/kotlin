@@ -101,6 +101,7 @@ internal fun ThrowCharacterCodingException(): Nothing {
 }
 
 @ExportForCppRuntime
+@FreezingIsDeprecated
 internal fun ThrowIncorrectDereferenceException() {
     throw IncorrectDereferenceException(
             "Trying to access top level value not marked as @ThreadLocal or @SharedImmutable from non-main thread")
