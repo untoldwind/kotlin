@@ -180,7 +180,7 @@ abstract class BasicWasmBoxTest(
                     println(" ------ $name Test file://$path/test.mjs")
                 }
 
-                writeCompilationResult(res, dir, WasmLoaderKind.UNIVERSAL_MJS)
+                writeCompilationResult(res, dir)
                 File(dir, "test.mjs").writeText(testJs)
                 ExternalTool(System.getProperty("javascript.engine.path.V8"))
                     .run(
@@ -200,7 +200,7 @@ abstract class BasicWasmBoxTest(
             if (debugMode >= DebugMode.SUPER_DEBUG) {
                 fun writeBrowserTest(name: String, res: WasmCompilerResult) {
                     val dir = File(outputDirBase, name)
-                    writeCompilationResult(res, dir, WasmLoaderKind.BROWSER)
+                    writeCompilationResult(res, dir)
                     File(dir, "test.mjs").writeText(testJsVerbose)
                     File(dir, "index.html").writeText(
                         """
