@@ -1,6 +1,6 @@
 package sample.objc
 
-import kotlinx.cinterop.staticCFunction
+import kotlinx.cinterop.*
 import platform.Foundation.NSOperationQueue
 import platform.Foundation.NSThread
 import platform.darwin.dispatch_async_f
@@ -10,11 +10,12 @@ import kotlin.native.concurrent.*
 import kotlin.test.assertNotNull
 
 inline fun <reified T> executeAsync(queue: NSOperationQueue, crossinline producerConsumer: () -> Pair<T, (T) -> Unit>) {
-    dispatch_async_f(queue.underlyingQueue, DetachedObjectGraph {
+    dispatch_async_f(queue.underlyingQueue, StableRef.create(
         producerConsumer()
-    }.asCPointer(), staticCFunction { it ->
-        val result = DetachedObjectGraph<Pair<T, (T) -> Unit>>(it).attach()
-        result.second(result.first)
+    ).asCPointer(), staticCFunction { it ->
+        val result = it!!.asStableRef<Pair<T, (T) -> Unit>>()
+        result.get().second(result.get().first)
+        result.dispose()
     })
 }
 
