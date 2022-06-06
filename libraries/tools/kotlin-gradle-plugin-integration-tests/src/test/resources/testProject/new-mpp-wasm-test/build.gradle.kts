@@ -7,6 +7,23 @@ repositories {
     mavenCentral()
 }
 
+with(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin.apply(rootProject)) {
+    //nightly nodejs that supports wasm M5
+    nodeVersion = "19.0.0-nightly202206017ad5b420ae"
+    nodeDownloadBaseUrl = "https://nodejs.org/download/nightly/"
+}
+
+with(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin.apply(rootProject)) {
+    //A little hacky way to disable yarn for unsupported nightly node version
+    command = "echo"
+    download = false
+}
+
+tasks.named<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockCopyTask>("kotlinStoreYarnLock") {
+    //A little hacky way to make yarn results
+    inputFile.fileValue(projectDir.resolve("yarnLockStub"))
+}
+
 kotlin {
     wasm {
         <JsEngine>()

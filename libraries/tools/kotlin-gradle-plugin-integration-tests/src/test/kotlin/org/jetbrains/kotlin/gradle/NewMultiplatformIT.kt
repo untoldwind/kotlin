@@ -1975,7 +1975,6 @@ class NewMultiplatformIT : BaseGradleIT() {
     }
 
     @Test
-    @Ignore("Should be enabled when nodejs will be bundled with V8 with Wasm M5 supported.")
     fun testWasmNodeTest() = testWasmTest("nodejs", "Node")
 
     @Test
