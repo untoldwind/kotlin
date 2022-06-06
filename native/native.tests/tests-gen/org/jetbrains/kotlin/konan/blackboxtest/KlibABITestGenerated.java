@@ -25,6 +25,12 @@ public class KlibABITestGenerated extends AbstractNativeKlibABITest {
     }
 
     @Test
+    @TestMetadata("removalOfTypeAlias")
+    public void testRemovalOfTypeAlias() throws Exception {
+        runTest("compiler/testData/klibABI/removalOfTypeAlias/");
+    }
+
+    @Test
     @TestMetadata("removeAbstractFunctionFromAbstractClass")
     public void testRemoveAbstractFunctionFromAbstractClass() throws Exception {
         runTest("compiler/testData/klibABI/removeAbstractFunctionFromAbstractClass/");

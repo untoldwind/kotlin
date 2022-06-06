@@ -30,6 +30,11 @@ public class JsKLibABITestCaseGenerated extends AbstractJsKLibABITestCase {
         KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/testData/klibABI"), Pattern.compile("^([^_](.+))$"), null, TargetBackend.JS_IR, false);
     }
 
+    @TestMetadata("removalOfTypeAlias")
+    public void testRemovalOfTypeAlias() throws Exception {
+        runTest("compiler/testData/klibABI/removalOfTypeAlias/");
+    }
+
     @TestMetadata("removeAbstractFunctionFromAbstractClass")
     public void testRemoveAbstractFunctionFromAbstractClass() throws Exception {
         runTest("compiler/testData/klibABI/removeAbstractFunctionFromAbstractClass/");
