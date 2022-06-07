@@ -11,7 +11,6 @@ import org.jetbrains.kotlin.backend.common.serialization.encodings.BinarySymbolD
 import org.jetbrains.kotlin.backend.common.serialization.linkerissues.*
 import org.jetbrains.kotlin.backend.common.serialization.unlinked.UnlinkedDeclarationsProcessor
 import org.jetbrains.kotlin.backend.common.serialization.unlinked.UnlinkedDeclarationsSupport
-import org.jetbrains.kotlin.backend.common.serialization.unlinked.IrModuleWithUnboundSymbolsDeserializer
 import org.jetbrains.kotlin.descriptors.CallableMemberDescriptor
 import org.jetbrains.kotlin.descriptors.DeclarationDescriptor
 import org.jetbrains.kotlin.descriptors.ModuleDescriptor
@@ -62,38 +61,34 @@ abstract class KotlinIrLinker(
     protected open val unlinkedDeclarationsSupport: UnlinkedDeclarationsSupport = UnlinkedDeclarationsSupport.DISABLED
     protected open val userVisibleIrModulesSupport: UserVisibleIrModulesSupport = UserVisibleIrModulesSupport.DEFAULT
 
-    private val moduleWithUnboundSymbolsDeserializer: IrModuleWithUnboundSymbolsDeserializer? by lazy {
-        if (unlinkedDeclarationsSupport.allowUnboundSymbols) IrModuleWithUnboundSymbolsDeserializer(symbolTable) else null
-    }
-
     fun deserializeOrReturnUnboundIrSymbolIfPartialLinkageEnabled(
         idSignature: IdSignature,
         symbolKind: BinarySymbolData.SymbolKind,
         moduleDeserializer: IrModuleDeserializer
     ): IrSymbol {
-        fun notFound(): Nothing = throw SignatureIdNotFoundInModuleWithDependencies(
-            idSignature = idSignature,
-            problemModuleDeserializer = moduleDeserializer,
-            allModuleDeserializers = deserializersForModules.values,
-            userVisibleIrModulesSupport = userVisibleIrModulesSupport
-        ).raiseIssue(messageLogger)
+        val topLevelSignature: IdSignature = idSignature.topLevelSignature()
 
-        val topLevelSignature = idSignature.topLevelSignature()
+        // Note: The top-level symbol might be gone in newer version of dependency KLIB. Then the KLIB that was compiled against
+        // the older version of dependency KLIB will still have a reference to non-existing symbol. And the linker will have to
+        // handle such situation appropriately. See KT-41378.
+        val actualModuleDeserializer: IrModuleDeserializer? = moduleDeserializer.findModuleDeserializerForTopLevelId(topLevelSignature)
 
-        val actualModuleDeserializer: IrModuleDeserializer = moduleDeserializer.findModuleDeserializerForTopLevelId(topLevelSignature)
-            ?: run {
-                // The top-level symbol might be gone in newer version of dependency KLIB. Then the KLIB that was compiled against
-                // the older version of dependency KLIB will still have a reference to non-existing symbol. And the linker will have to
-                // handle such situation appropriately. See KT-41378.
-                moduleWithUnboundSymbolsDeserializer ?: notFound()
-            }
+        // Note: It might happen that the top-level symbol still exists in KLIB, but nested symbol has been removed.
+        // Then the `actualModuleDeserializer` will be non-null, but `actualModuleDeserializer.tryDeserializeIrSymbol()` call
+        // will return null.
+        val symbol: IrSymbol? = actualModuleDeserializer?.tryDeserializeIrSymbol(idSignature, symbolKind)
 
-        return actualModuleDeserializer.tryDeserializeIrSymbol(idSignature, symbolKind)
-            ?: run {
-                // It might happen that the top-level symbol still exists in KLIB, but nested symbol has been removed.
-                // Need to handle such case as well.
-                moduleWithUnboundSymbolsDeserializer?.tryDeserializeIrSymbol(idSignature, symbolKind) ?: notFound()
-            }
+        return symbol ?: run {
+            if (unlinkedDeclarationsSupport.allowUnboundSymbols)
+                referenceDeserializedSymbol(symbolTable, null, symbolKind, idSignature)
+            else
+                throw SignatureIdNotFoundInModuleWithDependencies(
+                    idSignature = idSignature,
+                    problemModuleDeserializer = moduleDeserializer,
+                    allModuleDeserializers = deserializersForModules.values,
+                    userVisibleIrModulesSupport = userVisibleIrModulesSupport
+                ).raiseIssue(messageLogger)
+        }
     }
 
     fun resolveModuleDeserializer(module: ModuleDescriptor, idSignature: IdSignature?): IrModuleDeserializer {
