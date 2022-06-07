@@ -607,6 +607,8 @@ internal class KonanIrLinker(
             return symbolOwner.symbol
         }
 
+        override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing = error("No descriptor found for $idSig")
+
         override val moduleFragment: IrModuleFragment = KonanIrModuleFragmentImpl(moduleDescriptor, builtIns)
         override val moduleDependencies: Collection<IrModuleDeserializer> = listOfNotNull(forwardDeclarationDeserializer)
 
@@ -634,6 +636,8 @@ internal class KonanIrLinker(
             val descriptor = descriptorByIdSignatureFinder.findDescriptorBySignature(idSig) ?: return null
             return (stubGenerator.generateMemberStub(descriptor) as IrSymbolOwner).symbol
         }
+
+        override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing = error("No descriptor found for $idSig")
 
         private val inlineFunctionReferences by lazy {
             cachedLibraries.getLibraryCache(klib)!!.serializedInlineFunctionBodies.associateBy {
@@ -827,6 +831,8 @@ internal class KonanIrLinker(
 
             return declaredDeclaration.getOrPut(idSig) { buildForwardDeclarationStub(descriptor) }.symbol
         }
+
+        override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing = error("No descriptor found for $idSig")
 
         override val moduleFragment: IrModuleFragment = KonanIrModuleFragmentImpl(moduleDescriptor, builtIns)
         override val moduleDependencies: Collection<IrModuleDeserializer> = emptyList()

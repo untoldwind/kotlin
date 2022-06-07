@@ -154,6 +154,8 @@ class JvmIrLinker(
             return declaration.symbol
         }
 
+        override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing = error("No descriptor found for $idSig")
+
         override fun declareIrSymbol(symbol: IrSymbol) {
             if (symbol is IrFieldSymbol) {
                 declareJavaFieldStub(symbol)

@@ -59,6 +59,7 @@ enum class IrModuleDeserializerKind {
 abstract class IrModuleDeserializer(private val _moduleDescriptor: ModuleDescriptor?, val libraryAbiVersion: KotlinAbiVersion) {
     abstract operator fun contains(idSig: IdSignature): Boolean
     abstract fun tryDeserializeIrSymbol(idSig: IdSignature, symbolKind: BinarySymbolData.SymbolKind): IrSymbol?
+    abstract fun deserializedSymbolNotFound(idSig: IdSignature): Nothing
 
     val moduleDescriptor: ModuleDescriptor get() = _moduleDescriptor ?: error("No ModuleDescriptor provided")
 
@@ -105,8 +106,7 @@ abstract class IrModuleDeserializer(private val _moduleDescriptor: ModuleDescrip
 }
 
 fun IrModuleDeserializer.deserializeIrSymbolOrFail(idSig: IdSignature, symbolKind: BinarySymbolData.SymbolKind): IrSymbol =
-    tryDeserializeIrSymbol(idSig, symbolKind) ?: error("No file for ${idSig.topLevelSignature()} (@ $idSig) in module $moduleDescriptor")
-
+    tryDeserializeIrSymbol(idSig, symbolKind) ?: deserializedSymbolNotFound(idSig)
 
 // Used to resolve built in symbols like `kotlin.ir.internal.*` or `kotlin.FunctionN`
 class IrModuleDeserializerWithBuiltIns(
@@ -212,6 +212,8 @@ class IrModuleDeserializerWithBuiltIns(
         return delegate.tryDeserializeIrSymbol(idSig, symbolKind)
     }
 
+    override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing = delegate.deserializedSymbolNotFound(idSig)
+
     override fun declareIrSymbol(symbol: IrSymbol) {
         val signature = symbol.signature
         if (signature != null && checkIsFunctionInterface(signature))
@@ -257,6 +259,9 @@ open class CurrentModuleDeserializer(
     override fun contains(idSig: IdSignature): Boolean = false // TODO:
 
     override fun tryDeserializeIrSymbol(idSig: IdSignature, symbolKind: BinarySymbolData.SymbolKind): Nothing =
+        error("Unreachable execution: there could not be back-links (sig: $idSig)")
+
+    override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing =
         error("Unreachable execution: there could not be back-links (sig: $idSig)")
 
     override fun declareIrSymbol(symbol: IrSymbol) = Unit

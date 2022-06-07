@@ -107,6 +107,10 @@ abstract class BasicIrModuleDeserializer(
         return fileLocalDeserializationState.fileDeserializer.symbolDeserializer.deserializeIrSymbol(idSig, symbolKind)
     }
 
+    override fun deserializedSymbolNotFound(idSig: IdSignature): Nothing {
+        error("No file for ${idSig.topLevelSignature()} (@ $idSig) in module $moduleDescriptor")
+    }
+
     override val moduleFragment: IrModuleFragment = IrModuleFragmentImpl(moduleDescriptor, linker.builtIns, emptyList())
 
     private fun deserializeIrFile(
