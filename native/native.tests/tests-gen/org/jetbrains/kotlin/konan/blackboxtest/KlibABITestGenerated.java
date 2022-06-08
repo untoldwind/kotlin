@@ -25,12 +25,6 @@ public class KlibABITestGenerated extends AbstractNativeKlibABITest {
     }
 
     @Test
-    @TestMetadata("removalOfTypeAlias")
-    public void testRemovalOfTypeAlias() throws Exception {
-        runTest("compiler/testData/klibABI/removalOfTypeAlias/");
-    }
-
-    @Test
     @TestMetadata("removeAbstractFunctionFromAbstractClass")
     public void testRemoveAbstractFunctionFromAbstractClass() throws Exception {
         runTest("compiler/testData/klibABI/removeAbstractFunctionFromAbstractClass/");
@@ -112,5 +106,11 @@ public class KlibABITestGenerated extends AbstractNativeKlibABITest {
     @TestMetadata("removeProperty")
     public void testRemoveProperty() throws Exception {
         runTest("compiler/testData/klibABI/removeProperty/");
+    }
+
+    @Test
+    @TestMetadata("typeAliasRHSTypeChange")
+    public void testTypeAliasRHSTypeChange() throws Exception {
+        runTest("compiler/testData/klibABI/typeAliasRHSTypeChange/");
     }
 }
