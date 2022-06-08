@@ -24,7 +24,7 @@ import org.jetbrains.kotlin.ir.util.*
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformerVoid
 import org.jetbrains.kotlin.name.FqName
 
-internal class UnlinkedDeclarationsProcessor(
+class UnlinkedDeclarationsProcessor(
     private val builtIns: IrBuiltIns,
     private val unlinkedClassifiers: Set<IrClassifierSymbol>,
     private val unlinkedMarkerTypeHandler: UnlinkedMarkerTypeHandler,

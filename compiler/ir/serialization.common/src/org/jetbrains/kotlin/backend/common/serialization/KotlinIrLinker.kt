@@ -58,8 +58,8 @@ abstract class KotlinIrLinker(
 
     private lateinit var linkerExtensions: Collection<IrDeserializer.IrLinkerExtension>
 
-    protected open val unlinkedDeclarationsSupport: UnlinkedDeclarationsSupport = UnlinkedDeclarationsSupport.DISABLED
-    protected open val userVisibleIrModulesSupport: UserVisibleIrModulesSupport = UserVisibleIrModulesSupport.DEFAULT
+    protected open val unlinkedDeclarationsSupport: UnlinkedDeclarationsSupport get() = UnlinkedDeclarationsSupport.DISABLED
+    protected open val userVisibleIrModulesSupport: UserVisibleIrModulesSupport get() = UserVisibleIrModulesSupport.DEFAULT
 
     fun deserializeOrReturnUnboundIrSymbolIfPartialLinkageEnabled(
         idSignature: IdSignature,
@@ -223,7 +223,10 @@ abstract class KotlinIrLinker(
 
     private fun markUnlinkedClassifiers(): Set<IrClassifierSymbol> {
         if (!unlinkedDeclarationsSupport.allowUnboundSymbols) return emptySet()
+
         val entries = fakeOverrideBuilder.fakeOverrideCandidates
+        if (entries.isEmpty()) return emptySet()
+
         val result = mutableSetOf<IrClassifierSymbol>()
 
         fun IrType.isUnlinked(visited: MutableSet<IrClassifierSymbol>): Boolean {

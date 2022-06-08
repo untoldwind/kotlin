@@ -24,6 +24,7 @@ import org.jetbrains.kotlin.backend.common.serialization.encodings.BinaryNameAnd
 import org.jetbrains.kotlin.backend.common.serialization.encodings.BinarySymbolData
 import org.jetbrains.kotlin.backend.common.serialization.encodings.FunctionFlags
 import org.jetbrains.kotlin.backend.common.serialization.linkerissues.UserVisibleIrModulesSupport
+import org.jetbrains.kotlin.backend.common.serialization.unlinked.UnlinkedDeclarationsProcessor
 import org.jetbrains.kotlin.backend.common.serialization.unlinked.UnlinkedDeclarationsSupport
 import org.jetbrains.kotlin.backend.konan.*
 import org.jetbrains.kotlin.backend.konan.descriptors.ClassLayoutBuilder
@@ -48,6 +49,7 @@ import org.jetbrains.kotlin.ir.types.*
 import org.jetbrains.kotlin.ir.util.*
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformer
 import org.jetbrains.kotlin.ir.visitors.IrElementVisitor
+import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
 import org.jetbrains.kotlin.library.KotlinAbiVersion
 import org.jetbrains.kotlin.library.KotlinLibrary
 import org.jetbrains.kotlin.name.ClassId
@@ -712,6 +714,12 @@ internal class KonanIrLinker(
             }
 
             fakeOverrideBuilder.provideFakeOverrides()
+
+            unlinkedDeclarationsSupport.whenUnboundSymbolsAllowed { unlinkedMarkerTypeHandler ->
+                val t = UnlinkedDeclarationsProcessor(builtIns, unlinkedClassifiers = emptySet(), unlinkedMarkerTypeHandler, messageLogger)
+                function.transformChildrenVoid(t.signatureTransformer())
+                function.transformChildrenVoid(t.usageTransformer())
+            }
 
             inlineFunctionFiles[packageFragment]?.let {
                 require(it == fileDeserializationState.file) {
