@@ -38,13 +38,11 @@ fun test() {
     Child.baz()
 }
 
-// 1 GETSTATIC Parent.a : I
 // 1 PUTSTATIC Parent.a : I
 // 1 GETSTATIC Parent.b : I
 // 1 PUTSTATIC Parent.b : I
 // 1 INVOKESTATIC Parent.foo()
 // 1 INVOKESTATIC Parent.baz()
-// 1 GETSTATIC Child.a : I
 // 1 PUTSTATIC Child.a : I
 // 1 GETSTATIC Child.b : I
 // 1 PUTSTATIC Child.b : I
@@ -53,3 +51,11 @@ fun test() {
 // 1 INVOKESTATIC Child.foo()
 // 1 INVOKESTATIC Child.bar()
 // 1 INVOKESTATIC Child.baz()
+
+// JVM_IR_TEMPLATES
+// 2 GETSTATIC Parent.a : I
+// 0 GETSTATIC Child.a : I
+
+// JVM_TEMPLATES
+// 1 GETSTATIC Parent.a : I
+// 1 GETSTATIC Child.a : I
