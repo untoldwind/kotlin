@@ -28,7 +28,7 @@ public expect annotation class CName(val externName: String = "", val shortName:
 @SinceKotlin("1.7")
 @RequiresOptIn(
     message = "Freezing API is deprecated since 1.7.20. See https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#freezing-deprecation for details",
-    level = RequiresOptIn.Level.ERROR,
+    level = RequiresOptIn.Level.WARNING,
 )
 @Target(
     AnnotationTarget.CLASS,
