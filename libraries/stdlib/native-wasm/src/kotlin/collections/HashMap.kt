@@ -6,6 +6,7 @@
 package kotlin.collections
 
 import kotlin.native.concurrent.isFrozen
+import kotlin.native.FreezingIsDeprecated
 
 @OptIn(FreezingIsDeprecated::class)
 actual class HashMap<K, V> private constructor(

@@ -27,6 +27,7 @@ import kotlin.collections.associate
 import kotlin.native.concurrent.AtomicReference
 import kotlin.native.concurrent.freeze
 import kotlin.native.BitSet
+import kotlin.native.FreezingIsDeprecated
 
 /**
  * Unicode category (i.e. Ll, Lu).
