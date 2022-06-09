@@ -3,7 +3,7 @@
  * that can be found in the LICENSE file.
  */
 
-#if !(KONAN_IOS || KONAN_TVOS || KONAN_WATCHOS)
+#if !(KONAN_IOS || KONAN_TVOS)
 
 #include "AppStateTracking.hpp"
 
