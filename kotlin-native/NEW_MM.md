@@ -95,6 +95,13 @@ Known issues:
 
 Starting with 1.7.20 freezing API is deprecated.
 
+To temporarily support code for both new and legacy MM, ignore deprecation warnings by:
+* either annotating usages of deprecated API with `@OptIn(FreezingIsDeprecated::class)`,
+* or applying `languageSettings.optIn("kotlin.native.FreezingIsDeprecated")` to all kotlin source sets in gradle,
+* or passing compiler flag `-opt-in=kotlin.native.FreezingIsDeprecated`.
+
+See [Opt-in requirements](https://kotlinlang.org/docs/opt-in-requirements.html) for more details.
+
 Affected API:
 * [`@SharedImmutable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-shared-immutable/):
   remove usages. Its usage does not trigger any warning.
@@ -122,13 +129,6 @@ Affected API:
   use `T` directly.
 
 Additionally, setting `freezing` binary option to anything but `disabled` with the new MM is deprecated. Currently, usage causes a diagnostics message - not a warning.
-
-To temporarily support code for both new and legacy MM, ignore deprecation warnings by:
-* either annotating usages of deprecated API with `@OptIn(FreezingIsDeprecated::class)`,
-* or applying `languageSettings.optIn("kotlin.native.FreezingIsDeprecated")` to all kotlin source sets in gradle,
-* or passing compiler flag `-opt-in=kotlin.native.FreezingIsDeprecated`.
-
-See [Opt-in requirements](https://kotlinlang.org/docs/opt-in-requirements.html) for more details.
 
 ## Performance issues
 
