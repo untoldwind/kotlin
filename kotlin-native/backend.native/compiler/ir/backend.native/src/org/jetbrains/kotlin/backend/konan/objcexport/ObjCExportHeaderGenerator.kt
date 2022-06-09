@@ -740,15 +740,15 @@ internal class ObjCExportTranslatorImpl(
     }
 
     private fun buildComment(method: FunctionDescriptor, bridge: MethodBridge): ObjCComment? {
-        if (method.isSuspend || bridge.returnsError) {
+        val suspendComments = if (method.isSuspend || bridge.returnsError) {
             val effectiveThrows = getEffectiveThrows(method).toSet()
-            return when {
+            when {
                 effectiveThrows.contains(throwableClassId) -> {
-                    ObjCComment("@note This method converts all Kotlin exceptions to errors.")
+                    listOf("@note This method converts all Kotlin exceptions to errors.")
                 }
 
                 effectiveThrows.isNotEmpty() -> {
-                    ObjCComment(
+                    listOf(
                             buildString {
                                 append("@note This method converts instances of ")
                                 effectiveThrows.joinTo(this) { it.relativeClassName.asString() }
@@ -760,12 +760,24 @@ internal class ObjCExportTranslatorImpl(
 
                 else -> {
                     // Shouldn't happen though.
-                    ObjCComment("@warning All uncaught Kotlin exceptions are fatal.")
+                    listOf("@warning All uncaught Kotlin exceptions are fatal.")
                 }
             }
-        }
+        } else emptyList()
 
-        return null
+        val allComments = suspendComments + mustBeDocumentedAnnotations(method)
+        return if (allComments.isNotEmpty()) ObjCComment(allComments) else null
+    }
+
+    private fun mustBeDocumentedAnnotations(method: FunctionDescriptor): List<String> {
+        val mustBeDocumentedClassName = "kotlin.annotation.MustBeDocumented"
+        return method.annotations.flatMap { it ->
+            listOfNotNull(it.annotationClass).flatMap { annotationClass ->
+                if (annotationClass.annotations.any { annotation -> annotation.fqName?.toString() == mustBeDocumentedClassName })
+                    listOf("@annotation @${annotationClass.fqNameSafe}")
+                else emptyList()
+            }
+        }
     }
 
     private val throwableClassId = ClassId.topLevel(StandardNames.FqNames.throwable)
