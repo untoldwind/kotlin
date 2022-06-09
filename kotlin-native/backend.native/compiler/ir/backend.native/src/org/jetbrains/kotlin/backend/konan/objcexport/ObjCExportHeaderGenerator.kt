@@ -236,7 +236,7 @@ internal class ObjCExportTranslatorImpl(
         val name = translateClassOrInterfaceName(descriptor)
         val members: List<Stub<*>> = buildMembers { translateInterfaceMembers(descriptor) }
         val superProtocols: List<String> = descriptor.superProtocols
-        val comment = objCComment(mustBeDocumentedAnnotations(descriptor.annotations))
+        val comment = nullableObjCComment(mustBeDocumentedAnnotations(descriptor.annotations))
 
         return objCProtocol(name, descriptor, superProtocols, members, comment = comment)
     }
@@ -427,7 +427,7 @@ internal class ObjCExportTranslatorImpl(
                 superProtocols = superProtocols,
                 members = members,
                 attributes = attributes,
-                comment = objCComment(mustBeDocumentedAnnotations(descriptor.annotations))
+                comment = nullableObjCComment(mustBeDocumentedAnnotations(descriptor.annotations))
         )
     }
 
@@ -614,7 +614,7 @@ internal class ObjCExportTranslatorImpl(
         declarationAttributes.addIfNotNull(mapper.getDeprecation(property)?.toDeprecationAttribute())
 
         val commentLines = mustBeDocumentedAnnotations(property.annotations)
-        return ObjCProperty(name, property, type, attributes, setterName, getterName, declarationAttributes, objCComment(commentLines))
+        return ObjCProperty(name, property, type, attributes, setterName, getterName, declarationAttributes, nullableObjCComment(commentLines))
     }
 
     internal fun buildMethod(
@@ -744,7 +744,7 @@ internal class ObjCExportTranslatorImpl(
     }
 
     private fun buildComment(method: FunctionDescriptor, bridge: MethodBridge, parameters: List<ObjCParameter>): ObjCComment? {
-        val suspendCommentLines = if (method.isSuspend || bridge.returnsError) {
+        val throwsCommentLines = if (method.isSuspend || bridge.returnsError) {
             val effectiveThrows = getEffectiveThrows(method).toSet()
             when {
                 effectiveThrows.contains(throwableClassId) -> {
@@ -774,10 +774,10 @@ internal class ObjCExportTranslatorImpl(
                 mustBeDocumentedAnnotations(parameter.descriptor.annotations).map { "@param $it ${parameter.name}" }
             else emptyList()
         }
-        return objCComment(suspendCommentLines + mustBeDocumentedAnnotations(method.annotations) + paramComments)
+        return nullableObjCComment(mustBeDocumentedAnnotations(method.annotations) + paramComments + throwsCommentLines)
     }
 
-    private fun objCComment(commentLines: List<String>): ObjCComment? {
+    private fun nullableObjCComment(commentLines: List<String>): ObjCComment? {
         return if (commentLines.isNotEmpty()) ObjCComment(commentLines) else null
     }
 
@@ -785,8 +785,11 @@ internal class ObjCExportTranslatorImpl(
         val mustBeDocumentedClassName = "kotlin.annotation.MustBeDocumented"
         return annotations.flatMap { it ->
             listOfNotNull(it.annotationClass).flatMap { annotationClass ->
-                if (annotationClass.annotations.any { annotation -> annotation.fqName?.toString() == mustBeDocumentedClassName })
-                    listOf("@${annotationClass.fqNameSafe}")
+                if (annotationClass.annotations.any { metaAnnotation -> metaAnnotation.fqName?.toString() == mustBeDocumentedClassName })
+                    if (it.allValueArguments.isNotEmpty())
+                        listOf("@${annotationClass.fqNameSafe} ${it.allValueArguments}")
+                    else
+                        listOf("@${annotationClass.fqNameSafe}")
                 else emptyList()
             }
         }
