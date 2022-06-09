@@ -37,8 +37,6 @@ Update to Kotlin 1.6.20 or newer.
 
 ### Switch to the new MM
 
-> Starting with 1.7.20, new MM is enabled by default.
-
 Add the compilation flag `-Xbinary=memoryModel=experimental`. In Gradle, you can alternatively do one of the following:
 
 * In `gradle.properties`:
@@ -99,21 +97,21 @@ Starting with 1.7.20 freezing API is deprecated.
 
 Affected API:
 * [`@SharedImmutable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-shared-immutable/):
-  can be removed. Currently, usage causes a diagnostics message - not a warning.
+  remove usages. Its usage does not trigger any warning.
 * [`class FreezableAtomicReference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-freezable-atomic-reference/):
   use [`class AtomicReference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-atomic-reference/) instead.
 * [`class FreezingException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-freezing-exception/):
-  can be removed.
+  remove usages.
 * [`class InvalidMutabilityException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-invalid-mutability-exception/):
-  can be removed.
+  remove usages.
 * [`class IncorrectDereferenceException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-incorrect-dereference-exception/):
-  can be removed.
+  remove usages.
 * [`fun <T> T.freeze()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/freeze.html):
-  can be removed.
+  remove usages.
 * [`val Any?.isFrozen`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/is-frozen.html):
-  can be removed assuming it always returns `false`.
+  remove usages assuming it always returns `false`.
 * [`fun Any.ensureNeverFrozen()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/ensure-never-frozen.html):
-  can be removed.
+  remove usages.
 * [`fun <T> atomicLazy(…)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/atomic-lazy.html):
   use [`fun <T> lazy(…)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) instead.
 * [`class MutableData`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-mutable-data/):
@@ -127,7 +125,10 @@ Additionally, setting `freezing` binary option to anything but `disabled` with t
 
 To temporarily support code for both new and legacy MM, ignore deprecation warnings by:
 * either annotating usages of deprecated API with `@OptIn(FreezingIsDeprecated::class)`,
+* or applying `languageSettings.optIn("kotlin.native.FreezingIsDeprecated")` to all kotlin source sets in gradle,
 * or passing compiler flag `-opt-in=kotlin.native.FreezingIsDeprecated`.
+
+See [Opt-in requirements](https://kotlinlang.org/docs/opt-in-requirements.html) for more details.
 
 ## Performance issues
 
@@ -185,7 +186,9 @@ If you observe regressions more significant than 5x, please report to [this perf
 
 ### Unexpected object freezing
 
-> Since 1.7.20 [freezing is deprecated](#freezing-deprecation).
+> Since 1.7.20 [freezing is deprecated](#freezing-deprecation). Setting `freezing` to anything but `disabled` is deprecated.
+
+> Since 1.6.20 freezing is disabled by default with the new MM.
 
 Some libraries might not be ready for the new MM and freeze-transparency of `kotlinx.coroutines`, so unexpected `InvalidMutabilityException` or `FreezingException` might appear.
 
