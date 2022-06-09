@@ -39,7 +39,6 @@ private val DIAGNOSTIC_FACTORY_TO_RENDERER by lazy {
         )
         put(ErrorsNative.INAPPLICABLE_THREAD_LOCAL_TOP_LEVEL, "@ThreadLocal is applicable only to top level declarations")
         put(ErrorsNative.INVALID_CHARACTERS_NATIVE, "Name {0}", CommonRenderers.STRING);
-        put(ErrorsNative.SHARED_IMMUTABLE_DEPRECATED, "With new Native GC, @SharedImmutable has no effect")
     }
 }
 
