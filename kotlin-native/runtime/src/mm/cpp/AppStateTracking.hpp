@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <atomic>
+
 #include "Utils.hpp"
 #include "std_support/Memory.hpp"
 
@@ -23,6 +25,8 @@ public:
     State state() const noexcept { return state_; }
 
 private:
+    friend class AppStateTrackingTestSupport;
+
     void setState(State state) noexcept { state_ = state; }
 
     class Impl;
